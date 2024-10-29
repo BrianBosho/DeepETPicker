@@ -76,4 +76,5 @@ if __name__ == '__main__':
         print(k, '=', v)
 
     # Training
+    print('Training...')
     train.train_func(args, stdout=None)

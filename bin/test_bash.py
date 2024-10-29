@@ -45,7 +45,7 @@ if __name__ == '__main__':
     args.max_epoch = cfg['max_epochs']
     args.threshold = cfg['seg_thresh']
     args.gpu_id = [int(i) for i in cfg['gpu_ids'].split(',')]
-    args.test_mode = 'test_only'
+    args.test_mode = 'test'
     args.out_name = 'PredictedLabels'
     args.de_duplication = True
     args.de_dup_fmt = 'fmt4'

@@ -15,7 +15,7 @@ import matplotlib.pyplot as plt
 from pytorch_lightning import Trainer
 from options.option import BaseOptions
 from model.model_loader import get_model
-from utils.misc import combine, get_centroids, de_dup, cal_metrics_NMS_OneCls
+from utils.misc import combine, get_centroids, de_dup, cal_metrics_NMS_OneCls, cal_metrics_OneCls
 import json
 from dataset.dataloader_DynamicLoad import Dataset_ClsBased
 
@@ -27,6 +27,7 @@ def test_func(args, stdout=None):
         sys.stdout = stdout
         sys.stderr = stdout
     for test_idx in args.test_idxs:
+        print(f"The test index is {test_idx}")
         model_name = args.checkpoints.split('/')[-4] + '_' + args.checkpoints.split('/')[-1].split('-')[0]
         # load config parameters
         if len(args.configs) > 0:
@@ -36,8 +37,10 @@ def test_func(args, stdout=None):
         start_time = time.time()
         args.data_split[-2] = test_idx
         args.data_split[-1] = test_idx + 1
+        print(f"Testing on {args.data_split[-2]}")
 
         num_name = pd.read_csv(os.path.join(cfg["tomo_path"], 'num_name.csv'), sep='\t', header=None)
+        print(f"num_name: {num_name}")
         dir_list = num_name.iloc[:, 1]
         dir_name = dir_list[args.data_split[-2]]
         print(dir_name)
@@ -57,6 +60,66 @@ def test_func(args, stdout=None):
                         self.model = get_model(args)
                         self.partical_volume = 4 / 3 * np.pi * (cfg["label_diameter"] / 2) ** 3
                         self.num_classes = args.num_classes
+                        # Initialize attributes
+                        self.occupancy_map = None
+                        self.gt_coords = None
+                        self.len_block = None
+                        self.data_shape = None
+                        self.dir_name = None
+                         
+
+                    # def setup(self, stage=None):
+                    #     if stage == 'test' or stage is None:
+                    #         if args.test_mode == 'test':
+                    #             test_dataset = Dataset_ClsBased(
+                    #                 mode='test',
+                    #                 block_size=args.block_size,
+                    #                 num_class=args.num_classes,
+                    #                 random_num=args.random_num,
+                    #                 use_bg=args.use_bg,
+                    #                 data_split=args.data_split,
+                    #                 test_use_pad=args.test_use_pad,
+                    #                 pad_size=pad_size,
+                    #                 cfg=cfg,
+                    #                 args=args
+                    #             )
+                    #             self.occupancy_map = test_dataset.occupancy_map
+                    #             self.gt_coords = test_dataset.gt_coords
+                    #             self.len_block = test_dataset.test_len
+                    #             self.data_shape = test_dataset.data_shape
+                    #             self.dir_name = test_dataset.dir_name
+                    #         elif args.test_mode == 'test_only':
+                    #             test_dataset = Dataset_ClsBased(mode='test_only',
+                    #                                         block_size=args.block_size,
+                    #                                         num_class=args.num_classes,
+                    #                                         random_num=args.random_num,
+                    #                                         use_bg=args.use_bg,
+                    #                                         data_split=args.data_split,
+                    #                                         test_use_pad=args.test_use_pad,
+                    #                                         pad_size=pad_size,
+                    #                                         cfg=cfg,
+                    #                                         args=args)
+                    #             if args.batch_size <= 32:
+                    #                 num_work = 4
+                    #             elif args.batch_size <= 64:
+                    #                 num_work = 8
+                    #             elif args.batch_size <= 128:
+                    #                 num_work = 8
+                    #             else:
+                    #                 num_work = 16
+                    #             test_dataloader = DataLoader(test_dataset,
+                    #                                         shuffle=False,
+                    #                                         batch_size=args.batch_size,
+                    #                                         num_workers=num_work,
+                    #                                         pin_memory=False)
+                    #             # self.len_block = test_dataset.test_len
+                    #             # self.data_shape = test_dataset.data_shape
+                    #             # self.dir_name = test_dataset.dir_name
+                    #             # self.occupancy_map = test_dataset.occupancy_map
+                    #             self.gt_coords = test_dataset.gt_coords
+                    #             # self.len_block = test_dataset.test_len
+                    #             # self.data_shape = test_dataset.data_shape
+                    #             # self.dir_name = test_dataset.dir_name
 
                     def forward(self, x):
                         return self.model(x)
@@ -72,23 +135,34 @@ def test_func(args, stdout=None):
 
                             if args.test_use_pad:
                                 mp_num = int(sorted([int(i) for i in cfg["ocp_diameter"].split(',')])[-1] / (args.meanPool_kernel - 1) + 1)
-                                if args.num_classes > 1:
-                                    return self._nms_v2(seg_output[:, 1:], kernel=args.meanPool_kernel,
-                                                        mp_num=mp_num, positions=index)
+                                if args.num_classes > 1:                                    
+
+                                    pred_final = self._nms_v2(seg_output[:, 1:], kernel=args.meanPool_kernel,
+                                                        mp_num=mp_num, positions=index)                                    
+                                    
+                                    return pred_final                              
+                                    
+
                                 else:
-                                    return self._nms_v2(seg_output[:, :], kernel=args.meanPool_kernel,
+
+                                    
+                                    pred_final = self._nms_v2(seg_output[:, :], kernel=args.meanPool_kernel,
                                                         mp_num=mp_num, positions=index)
+                                    
+                                    return pred_final
 
                     def test_step_end(self, outputs):
                         return outputs
 
                     def test_epoch_end(self, epoch_output):
+                        # self.setup()
                         with torch.no_grad():
                             if args.meanPool_NMS:
                                 coords_out = torch.cat(epoch_output, dim=0).detach().cpu().numpy()
                                 print('coords_out:', coords_out.shape)
                                 if args.de_duplication:
                                     centroids = de_dup(coords_out, args)
+                                print('centroids', centroids.shape)
                                 out_dir = '/'.join(args.checkpoints.split('/')[:-2]) + f'/{args.out_name}'
                                 os.makedirs(os.path.join(out_dir, 'Coords_withArea'), exist_ok=True)
                                 np.savetxt(os.path.join(out_dir, 'Coords_withArea', dir_name + '.coords'),
@@ -97,11 +171,22 @@ def test_func(args, stdout=None):
                                            delimiter='\t')
 
                                 coords = centroids[:, 0:4]
+                                print()
                                 os.makedirs(os.path.join(out_dir, 'Coords_All'), exist_ok=True)
                                 np.savetxt(os.path.join(out_dir, 'Coords_All', dir_name + '.coords'),
                                            coords.astype(int),
                                            fmt='%s',
                                            delimiter='\t')
+                                pred_coords=coords[:, 0:5]
+                                print(f'pred_coords shape:, {pred_coords.shape}')
+                                precision, recall, f1, avg_dist = cal_metrics_NMS_OneCls(coords_out,
+                                                       self.gt_coords,
+                                                       self.occupancy_map,
+                                                       cfg,
+                                                       )
+                                print(f' Precision: {precision}, Recall: {recall}, F1-score: {f1}, Avg Distance: {avg_dist}')
+
+                               
 
 
                     def test_dataloader(self):
@@ -186,6 +271,7 @@ def test_func(args, stdout=None):
                                 [coords[:, 1:2] + 1, coords[:, 4:5], coords[:, 3:4], coords[:, 2:3], h_val],
                                 dim=1)
 
+
                             return pred_final
                         except:
                             # print('haha')
@@ -216,3 +302,6 @@ def test_func(args, stdout=None):
         sys.stdout = save_stdout
         sys.stderr = save_stderr
 
+
+# cal_metrics_OneCls(pred, ocp, gt_coords, threshold, border_value, particle_volume=0)
+# return precision, recall, f1, avg_dist

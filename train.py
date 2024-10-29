@@ -68,6 +68,7 @@ class UNetExperiment(pl.LightningModule):
         return self.model(x)
 
     def training_step(self, train_batch, batch_idx):
+        torch.autograd.set_detect_anomaly(True)
         args = self.args
         img, label, index = train_batch
         img = img.to(torch.float32)
@@ -320,11 +321,13 @@ class UNetExperiment(pl.LightningModule):
 
 
 def train_func(args, stdout=None):
+    print("We are in train_func")
     if stdout is not None:
         save_stdout = sys.stdout
         save_stderr = sys.stderr
         sys.stdout = stdout
         sys.stderr = stdout
+        print(f'Training pid:{os.getpid()}')
 
     args.pad_size = args.pad_size[0]
     if 'test' in args.test_mode:
@@ -335,6 +338,7 @@ def train_func(args, stdout=None):
         checkpoint_callback = ModelCheckpoint(save_top_k=1,
                                               monitor='val_loss',
                                               mode='min')
+        print(f'checkpoint_callback: {checkpoint_callback}')
 
     model = UNetExperiment(args)
     logger_name = "{}_{}_BlockSize{}_{}Loss_MaxEpoch{}_bs{}_lr{}_IP{}_bg{}_coord{}_Softmax{}_{}_{}_TN{}".format(
@@ -360,9 +364,12 @@ def train_func(args, stdout=None):
                      profiler=True,
                      sync_batchnorm=True,
                      resume_from_checkpoint=args.checkpoints)
+    # check that runner has been created
+    print(f'runner: {runner}')
 
 
     try:
+        print('Trying to fit model')
         runner.fit(model)
         print('*' * 100)
         print('Training Finished')
@@ -373,11 +380,17 @@ def train_func(args, stdout=None):
             sys.stderr = save_stderr
             sys.stdout = save_stdout
         return os.getpid()
-    except:
+    except Exception as e:
+        print('Exception in training')
+        print(f'Error is {e}')
         torch.cuda.empty_cache()
         if stdout is not None:
             stdout.flush()
             stdout.write('Training Exception!')
+            print('Training Exception!')
             sys.stderr = save_stderr
             sys.stdout = save_stdout
+        # print(save_stderr)
+        # print(sys.stderr)
+
         return os.getpid()

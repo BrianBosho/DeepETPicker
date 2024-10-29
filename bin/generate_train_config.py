@@ -36,6 +36,7 @@ if __name__ == "__main__":
     print(train_config['gpu_ids'])
 
 
+
     with open(f"{args.cfg_save_path}/{args.dset_name}.py", 'w') as f:
         f.write("train_configs=")
         json.dump(train_config, f, separators=(',\n' + ' ' * len('train_configs={'), ': '))

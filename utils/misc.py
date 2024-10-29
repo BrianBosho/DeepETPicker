@@ -3,10 +3,11 @@ import numpy as np
 from skimage.measure import label
 from skimage.measure import regionprops
 from skimage.morphology import dilation
-from scipy.spatial import distance
+from scipy.spatial import distance as scipy_distance
 from pycm import ConfusionMatrix
-from pycm.pycm_output import table_print, stat_print
-from pycm.pycm_param import SUMMARY_CLASS, SUMMARY_OVERALL
+from pycm import *
+# from pycm.pycm_output import table_print, stat_print
+# from pycm.pycm_param import SUMMARY_CLASS, SUMMARY_OVERALL
 import scikitplot as skplt
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -155,7 +156,7 @@ def cal_metrics_OneCls(pred, ocp, gt_coords, threshold, border_value, particle_v
             if p_gt_id != 0:
                 p_gt_x, p_gt_y, p_gt_z = gt_particles[p_gt_id]
                 p_distance = np.abs(
-                    distance.euclidean((centroids[i][0], centroids[i][1], centroids[i][2]), (p_gt_x, p_gt_y, p_gt_z)))
+                    scipy_distance.euclidean((centroids[i][0], centroids[i][1], centroids[i][2]), (p_gt_x, p_gt_y, p_gt_z)))
                 k = k + 1
                 dist = dist + p_distance
                 k_dist.append([1, p_distance])
@@ -171,6 +172,8 @@ def cal_metrics_OneCls(pred, ocp, gt_coords, threshold, border_value, particle_v
 
 
 def cal_metrics_NMS_OneCls(pred_coords, gt_coords, occupancy_map, cfg):
+    if isinstance(pred_coords, torch.Tensor):
+        pred_coords = pred_coords.cpu().numpy()
     pred_coords = coord_duplication(pred_coords[:, 1:], cfg["ocp_diameter"])
     centroids = np.array(pred_coords)
 
@@ -192,7 +195,7 @@ def cal_metrics_NMS_OneCls(pred_coords, gt_coords, occupancy_map, cfg):
         if p_gt_id != 0:
             p_gt_x, p_gt_y, p_gt_z = gt_particles[p_gt_id]
             p_distance = np.abs(
-                distance.euclidean((centroids[i][0], centroids[i][1], centroids[i][2]), (p_gt_x, p_gt_y, p_gt_z)))
+                scipy_distance.euclidean((centroids[i][0], centroids[i][1], centroids[i][2]), (p_gt_x, p_gt_y, p_gt_z)))
             k = k + 1
             dist = dist + p_distance
             k_dist.append([1, p_distance])
@@ -330,7 +333,7 @@ def cal_metrics_MultiCls(pred, gt, occupancy_map, cfg, args, pad_size, dir_name,
         p_gt_pdb, p_gt_x, p_gt_y, p_gt_z = gt_particles[p_gt_id]
 
         # Compute distance from predicted center to real center
-        p_distance = np.abs(distance.euclidean((p_x, p_y, p_z), (p_gt_x, p_gt_y, p_gt_z)))
+        p_distance = np.abs(scipy_distance.euclidean((p_x, p_y, p_z), (p_gt_x, p_gt_y, p_gt_z)))
 
         # Register found particle, a class it is predicted to be and distance from predicted center to real center
         found_particles[p_gt_id].append((p_pdb, p_distance))
@@ -593,7 +596,7 @@ def cal_metrics_MultiCls(pred, gt, occupancy_map, cfg, args, pad_size, dir_name,
                 p_gt_pdb, p_gt_x, p_gt_y, p_gt_z = gt_particles[p_gt_id]
 
                 # Compute distance from predicted center to real center
-                p_distance = np.abs(distance.euclidean((p_x, p_y, p_z), (p_gt_x, p_gt_y, p_gt_z)))
+                p_distance = np.abs(scipy_distance.euclidean((p_x, p_y, p_z), (p_gt_x, p_gt_y, p_gt_z)))
 
                 if p_gt_pdb == p_pdb:
                     # print(p_gt_pdb, p_pdb)
@@ -671,8 +674,10 @@ def cal_metrics_MultiCls(pred, gt, occupancy_map, cfg, args, pad_size, dir_name,
 
 #
 def coord_duplication(pred, mini_dist):
+    # print('pred passed here is': pred.shape)
     mini_dist = int(float(mini_dist))
     pred_ = pred[:, :3].astype(float)
+    print(f'pred shape:, {pred.shape}')
     scores = pred[:, 3]
     indexs = []
     if pred_.shape[0] > 0:

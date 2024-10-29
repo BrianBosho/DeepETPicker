@@ -106,8 +106,10 @@ class Dataset_ClsBased(data.Dataset):
         # print(dir_names)
 
         if self.mode == 'train':
+            print(f"We are in the training mode")
             self.data_range = np.arange(data_split[0], data_split[1])
         elif self.mode == 'val':
+            print(f"We are in the validation mode")
             self.data_range = np.arange(data_split[2], data_split[3])
         else:  # test or test_val or val_v1
             self.data_range = np.arange(data_split[4], data_split[5])
