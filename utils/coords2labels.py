@@ -124,13 +124,31 @@ class Coord_to_Label():
         if len(self.dir_list) == 1:
             self.single_handle(0)
         else:
-            with Pool(len(self.dir_list)) as p:
-                p.map(self.single_handle, np.arange(len(self.dir_list)).tolist())
+        # Replace multiprocessing with sequential processing
+            for i in range(len(self.dir_list)):
+                try:
+                    print(f"Processing file {i+1}/{len(self.dir_list)}: {self.dir_list[i]}")
+                    self.single_handle(i)
+                except Exception as e:
+                    print(f"Error processing file {self.dir_list[i]}: {str(e)}")
+                    import traceback
+                    traceback.print_exc()
+        # else:
+        #     with Pool(len(self.dir_list)) as p:
+        #         p.map(self.single_handle, np.arange(len(self.dir_list)).tolist())
 
 
 def label_gen_show(args):
+
     base_path, coord_path, coord_format, tomo_path, tomo_format, \
     num_cls, label_type, label_diameter, stdout = args
+    print(f"""
+            Starting label generation with parameters:
+            - Label Type: {label_type}
+            - Diameter: {label_diameter}
+            - Path: {tomo_path}
+            """)
+
     if stdout is not None:
         save_stdout = sys.stdout
         save_stderr = sys.stderr
@@ -138,6 +156,7 @@ def label_gen_show(args):
         sys.stderr = stdout
 
     try:
+        print("We are in the try block of label_gen_show") 
         label_gen = Coord_to_Label(base_path,
                                    coord_path,
                                    coord_format,
@@ -146,6 +165,7 @@ def label_gen_show(args):
                                    num_cls,
                                    label_type,
                                    label_diameter)
+        print("We are about to call gen_labels")
         label_gen.gen_labels()
         if 'ocp' not in label_type:
             print('Label generation finished!')
@@ -158,6 +178,8 @@ def label_gen_show(args):
         if stdout is not None:
             stdout.flush()
             stdout.write(f"{ex}")
+            print(f'{term} Generation Exception!')
+            print(f"Run into an error: {ex}")
             stdout.write(f'{term} Generation Exception!')
             print('*' * 100)
         else:

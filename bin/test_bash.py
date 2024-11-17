@@ -69,10 +69,16 @@ if __name__ == '__main__':
     tomo_list = np.loadtxt(f"{cfg['base_path']}/data_std/num_name.csv",
                            delimiter='\t',
                            dtype=str)
-    args.test_idxs = np.arange(len(tomo_list))
+    # args.test_idxs = np.arange(len(tomo_list))
+    # test indices from 0 to 24
+    test_indices = np.arange(24)
+    args.test_idxs = test_indices[6:]
+    
 
     for k, v in sorted(vars(args).items()):
         print(k, '=', v)
 
     # Testing
     test.test_func(args, stdout=None)
+
+    # /home/brian_bosho/xulab/data/10004_subset/runs/DS_10004_subset_train/DS_10004_subset_train_ResUNet_BlockSize72_DiceLoss_MaxEpoch60_bs32_lr0.001_IP1_bg1_coord1_Softmax0_bn__TNNone/version_4/checkpoints/epoch=40-step=1926.ckpt

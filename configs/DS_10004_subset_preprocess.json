@@ -1,0 +1,16 @@
+{
+    "dset_name": "DS_10004_subset_preprocess",
+    "base_path": "/home/brian_bosho/xulab/data/10004_subset",
+    "coord_path": "/home/brian_bosho/xulab/data/10004_subset/raw_data_denoised",
+    "coord_format": ".coords",
+    "tomo_path": "/home/brian_bosho/xulab/data/10004_subset/raw_data_denoised",
+    "tomo_format": ".mrc",
+    "num_cls": 1,
+    "label_type": "gaussian",
+    "label_diameter": 25,
+    "ocp_type": "sphere",
+    "ocp_diameter": "35",
+    "norm_type": "standardization"
+}
+
+// python bin/preprocess.py --pre_configs /home/brian_bosho/xulab/DeepETPicker/configs/DS_10004_subset_preprocess.json 

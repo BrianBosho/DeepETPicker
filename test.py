@@ -169,6 +169,7 @@ def test_func(args, stdout=None):
                                            centroids.astype(float),
                                            fmt='%s',
                                            delimiter='\t')
+                                print(f"The predicted coordinates are saved in {out_dir}")
 
                                 coords = centroids[:, 0:4]
                                 print()
@@ -292,6 +293,7 @@ def test_func(args, stdout=None):
         end_time = time.time()
         used_time = end_time - start_time
         save_path = '/'.join(args.checkpoints.split('/')[:-2]) + f'/{args.out_name}'
+        print(f"Save path is {save_path}")
         os.makedirs(save_path, exist_ok=True)
         pad_size = args.pad_size[0]
 

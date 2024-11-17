@@ -51,7 +51,7 @@ if __name__ == '__main__':
     args.train_set_ids = cfg['train_set_ids']
     args.val_set_ids = cfg['val_set_ids']
     args.num_classes = train_cls_num
-
+    args.checkpoints = "/home/brian_bosho/xulab/data/10004_subset/runs/DS_10004_subset_train/DS_10004_subset_train_ResUNet_BlockSize72_DiceLoss_MaxEpoch42_bs4_lr0.001_IP1_bg1_coord1_Softmax0_bn__TNNone/version_0/checkpoints/epoch=33-step=19073.ckpt"
     train_list = []
     for item in args.train_set_ids.split(','):
         if '-' in item:
@@ -68,13 +68,22 @@ if __name__ == '__main__':
         else:
             val_list.append(int(item))
     val_first = len(train_list) if val_list[0] not in train_list else len(train_list) - 1
-    args.data_split = [0, len(train_list),  # train
-                       val_first, val_first + 1,  # val
-                       val_first, val_first + 1]  # test_val
+    # args.data_split = [0, len(train_list),  # train
+    #                    val_first, val_first + 1,  # val
+    #                    val_first, val_first + 1]  # test_val
+
+
+    args.data_split = [min(train_list), max(train_list) + 1,  # train
+                    min(val_list), max(val_list) + 1,      # val
+                    min(val_list), max(val_list) + 1]      # test_val
+
 
     for k, v in sorted(vars(args).items()):
         print(k, '=', v)
 
     # Training
     print('Training...')
+    # epochs
+    print('Max Epochs:', args.max_epoch)
+
     train.train_func(args, stdout=None)

@@ -22,7 +22,7 @@ def coords_gen(coord_path, coord_format, base_dir):
             for idx, item in enumerate(f):
                 data.append(item.rstrip('\n').split())
         try:
-            data = np.array(data).astype(np.float).astype(int)
+            data = np.array(data).astype(np.float32).astype(int)
         except:
             data = np.array(data).astype(np.float32).astype(int)
 

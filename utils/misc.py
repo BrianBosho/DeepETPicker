@@ -8,7 +8,7 @@ from pycm import ConfusionMatrix
 from pycm import *
 # from pycm.pycm_output import table_print, stat_print
 # from pycm.pycm_param import SUMMARY_CLASS, SUMMARY_OVERALL
-import scikitplot as skplt
+# import scikitplot as skplt
 import pandas as pd
 import matplotlib.pyplot as plt
 import os
@@ -179,7 +179,12 @@ def cal_metrics_NMS_OneCls(pred_coords, gt_coords, occupancy_map, cfg):
 
     gt_particles = [(0, 0, 0)]  # start with a "background" particle
     for i in range(len(gt_coords)):
-        x, y, z = gt_coords[i]
+        # print(f"GT Coords here are: {gt_coords[i]}")
+        if len(gt_coords[i]) == 4:
+            _, x, y, z = gt_coords[i]  # Ignore the first item if it's a class label
+        elif len(gt_coords[i]) == 3:
+            x, y, z = gt_coords[i]
+        # x, y, z = gt_coords[i]
         gt_particles.append((int(x), int(y), int(z)))
     n_gt_particles = len(gt_particles) - 1
     gt_particles = np.array(gt_particles)
@@ -189,18 +194,41 @@ def cal_metrics_NMS_OneCls(pred_coords, gt_coords, occupancy_map, cfg):
     k = 0
     k_dist = []
     for i in range(centroids.shape[0]):
-        p_gt_id = int(occupancy_map[int(centroids[i][2]),
-                          int(centroids[i][1]),
-                          int(centroids[i][0])])
-        if p_gt_id != 0:
-            p_gt_x, p_gt_y, p_gt_z = gt_particles[p_gt_id]
-            p_distance = np.abs(
-                scipy_distance.euclidean((centroids[i][0], centroids[i][1], centroids[i][2]), (p_gt_x, p_gt_y, p_gt_z)))
-            k = k + 1
-            dist = dist + p_distance
-            k_dist.append([1, p_distance])
-        else:
-            k_dist.append([0, 0])
+        try:
+            p_gt_id = int(occupancy_map[int(centroids[i][2]),
+                                        int(centroids[i][1]),
+                                        int(centroids[i][0])])
+            if p_gt_id != 0:
+                p_gt_x, p_gt_y, p_gt_z = gt_particles[p_gt_id]
+                p_distance = np.abs(
+                    scipy_distance.euclidean(
+                        (centroids[i][0], centroids[i][1], centroids[i][2]),
+                        (p_gt_x, p_gt_y, p_gt_z)
+                    )
+                )
+                k = k + 1
+                dist = dist + p_distance
+                k_dist.append([1, p_distance])
+            else:
+                k_dist.append([0, 0])
+        except IndexError as e:
+            # Optionally log the error or print a message
+            print(f"IndexError for centroid {i}: {e}")
+            # You can also keep track of skipped centroids if needed
+            continue  # Skip this centroid and continue with the next one
+    # for i in range(centroids.shape[0]):
+    #     p_gt_id = int(occupancy_map[int(centroids[i][2]),
+    #                       int(centroids[i][1]),
+    #                       int(centroids[i][0])])
+    #     if p_gt_id != 0:
+    #         p_gt_x, p_gt_y, p_gt_z = gt_particles[p_gt_id]
+    #         p_distance = np.abs(
+    #             scipy_distance.euclidean((centroids[i][0], centroids[i][1], centroids[i][2]), (p_gt_x, p_gt_y, p_gt_z)))
+    #         k = k + 1
+    #         dist = dist + p_distance
+    #         k_dist.append([1, p_distance])
+    #     else:
+    #         k_dist.append([0, 0])
 
     # centroids = np.concatenate((centroids, np.array(k_dist)), axis=1)
     avg_dist = dist / (k + 1e-7)

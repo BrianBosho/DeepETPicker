@@ -202,6 +202,8 @@ class UNetExperiment(pl.LightningModule):
 
     def train_dataloader(self):
         args = self.args
+        # print batch size
+        print(f'Batch size: {args.batch_size}')
         train_dataset = Dataset_ClsBased(mode=args.train_mode,
                                          block_size=args.block_size,
                                          num_class=args.num_classes,
@@ -341,6 +343,19 @@ def train_func(args, stdout=None):
         print(f'checkpoint_callback: {checkpoint_callback}')
 
     model = UNetExperiment(args)
+
+        # Load the model weights from the checkpoint if provided
+    if args.checkpoints:
+        checkpoint_path = args.checkpoints  # The path to your checkpoint file
+        print(f'Loading checkpoint from {checkpoint_path}')
+        checkpoint = torch.load(checkpoint_path, map_location=lambda storage, loc: storage)  # Ensure compatibility
+        model.load_state_dict(checkpoint['state_dict'])  # Load the model weights
+        print('Model weights loaded from checkpoint.')
+    else:
+        print('No checkpoint provided, training from scratch.')
+
+
+
     logger_name = "{}_{}_BlockSize{}_{}Loss_MaxEpoch{}_bs{}_lr{}_IP{}_bg{}_coord{}_Softmax{}_{}_{}_TN{}".format(
         model.train_cfg["dset_name"], args.network, args.block_size, args.loss_func_seg, args.max_epoch,
         args.batch_size,
@@ -363,7 +378,7 @@ def train_func(args, stdout=None):
                      precision=32,
                      profiler=True,
                      sync_batchnorm=True,
-                     resume_from_checkpoint=args.checkpoints)
+                     resume_from_checkpoint= None)
     # check that runner has been created
     print(f'runner: {runner}')
 

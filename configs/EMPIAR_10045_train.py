@@ -18,11 +18,11 @@ train_configs = {
     "model_name": "ResUNet",
     "train_set_ids": "0",
     "val_set_ids": "0",
-    "batch_size": 8,
+    "batch_size": 32,
     "patch_size": 72,
     "padding_size": 12,
     "lr": 0.001,
-    "max_epochs": 60,
+    "max_epochs": 30,
     "seg_thresh": 0.5,
-    "gpu_ids": "0,1"
+    "gpu_ids": "0"
 }

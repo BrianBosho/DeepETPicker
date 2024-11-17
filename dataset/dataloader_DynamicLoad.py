@@ -107,7 +107,9 @@ class Dataset_ClsBased(data.Dataset):
 
         if self.mode == 'train':
             print(f"We are in the training mode")
+            print(f"data_split:{data_split}")
             self.data_range = np.arange(data_split[0], data_split[1])
+            print(f"The data range from the loader is {self.data_range}")
         elif self.mode == 'val':
             print(f"We are in the validation mode")
             self.data_range = np.arange(data_split[2], data_split[3])
