@@ -180,12 +180,17 @@ def test_func(args, stdout=None):
                                            delimiter='\t')
                                 pred_coords=coords[:, 0:5]
                                 print(f'pred_coords shape:, {pred_coords.shape}')
-                                precision, recall, f1, avg_dist = cal_metrics_NMS_OneCls(coords_out,
+                                try:
+                                    precision, recall, f1, avg_dist = cal_metrics_NMS_OneCls(coords_out,
                                                        self.gt_coords,
                                                        self.occupancy_map,
                                                        cfg,
                                                        )
-                                print(f' Precision: {precision}, Recall: {recall}, F1-score: {f1}, Avg Distance: {avg_dist}')
+                                    print(f' Precision: {precision}, Recall: {recall}, F1-score: {f1}, Avg Distance: {avg_dist}')
+                                except Exception as e:
+                                    print(f"Error: {e}")
+
+                                
 
                                
 

@@ -51,7 +51,7 @@ if __name__ == '__main__':
     args.train_set_ids = cfg['train_set_ids']
     args.val_set_ids = cfg['val_set_ids']
     args.num_classes = train_cls_num
-    args.checkpoints = "/home/brian_bosho/xulab/data/10004_subset/runs/DS_10004_subset_train/DS_10004_subset_train_ResUNet_BlockSize72_DiceLoss_MaxEpoch42_bs4_lr0.001_IP1_bg1_coord1_Softmax0_bn__TNNone/version_0/checkpoints/epoch=33-step=19073.ckpt"
+    args.checkpoints = "/home/brian_bosho/xulab/data/10004_subset/runs/DS_10004_subset_train/DS_10004_subset_train_ResUNet_BlockSize72_DiceLoss_MaxEpoch35_bs16_lr0.001_IP1_bg1_coord1_Softmax0_bn__TNNone/version_8/checkpoints/epoch=0-step=57.ckpt"
     train_list = []
     for item in args.train_set_ids.split(','):
         if '-' in item:

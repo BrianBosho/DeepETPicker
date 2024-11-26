@@ -16,13 +16,13 @@
     "ocp_name": "data_ocp",
     "ocp_path": "/home/brian_bosho/xulab/data/10004_subset/data_ocp",
     "model_name": "ResUNet",
-    "train_set_ids": "0-10",
+    "train_set_ids": "13-17",
     "val_set_ids": "18-19",
     "batch_size": 16,
     "patch_size": 72,
     "padding_size": 12,
     "lr": 0.001,
-    "max_epochs": 31,
+    "max_epochs": 35,
     "seg_thresh": 0.5,
     "gpu_ids": "0"
 }

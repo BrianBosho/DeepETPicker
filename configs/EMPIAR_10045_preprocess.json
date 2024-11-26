@@ -1,9 +1,9 @@
 {
     "dset_name": "EMPIAR_10045_preprocess",
     "base_path": "/shared/scratch/0/home/v_brian_bosho/SampleDatasets/EMPIAR_10045",
-    "coord_path": "/shared/scratch/0/home/v_brian_bosho/SampleDatasets/EMPIAR_10045/raw_data",
+    "coord_path": "/shared/scratch/0/home/v_brian_bosho/SampleDatasets/EMPIAR_10045/raw_data_denoised",
     "coord_format": ".coords",
-    "tomo_path": "/shared/scratch/0/home/v_brian_bosho/SampleDatasets/EMPIAR_10045/raw_data",
+    "tomo_path": "/shared/scratch/0/home/v_brian_bosho/SampleDatasets/EMPIAR_10045/raw_data_denoised",
     "tomo_format": ".mrc",
     "num_cls": 1,
     "label_type": "gaussian",

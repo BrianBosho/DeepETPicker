@@ -1,0 +1,586 @@
+2024-11-26 14:03:40.234825: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:485] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-11-26 14:03:40.250601: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:8454] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-11-26 14:03:40.255251: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1452] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-11-26 14:03:40.266994: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-11-26 14:03:40.988503: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+GPU available: True, used: True
+TPU available: None, using: 0 TPU cores
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+CL_DA_fmt = mean
+FL_a0 = 0.1
+FL_a1 = 0.9
+Gau_nms = False
+Gau_num = 2
+HRNet_c = 12
+JudgeInDilation = False
+NoBG = False
+ResearchTitle = None
+Sel_Referance = False
+T = 0.5
+act = relu
+add_dropout_layer = False
+alpha = 0.7
+batch_size = 16
+beta = 0.3
+block_size = 72
+border_value = 0
+cent_feats = None
+cent_kernel = 1
+cfg_save_path = .
+checkpoints = /home/brian_bosho/xulab/data/10004_subset/runs/DS_10004_subset_train/DS_10004_subset_train_ResUNet_BlockSize72_DiceLoss_MaxEpoch35_bs16_lr0.001_IP1_bg1_coord1_Softmax0_bn__TNNone/version_8/checkpoints/epoch=0-step=57.ckpt
+checkpoints_version = None
+ck_mode = 
+class_checkpoints = None
+configs = /home/brian_bosho/xulab/DeepETPicker/configs/DS_10004_subset_train.json
+coord_path = None
+data_split = [0, 1, 0, 1, 0, 1]
+de_dup_fmt = fmt4
+de_duplication = True
+dimensions = 3
+dir_name = None
+dset_name = None
+ema_decay = 0.999
+eta = 0.3
+eval_cls = False
+eval_str = class
+f_maps = [24, 48, 72, 108]
+final_double = False
+first_idx = 0
+gamma = 0.75
+gau_thresh = 0.5
+gpu_id = [0]
+in_channels = 1
+initial_channels = 16
+input_cat = False
+input_cat_items = None
+iteration_idx = 0
+learning_rate = 0.001
+loader_type = dataloader_DynamicLoad
+loss_func_dn = MSE
+loss_func_paf = MSE
+loss_func_seg = Dice
+lw_kernel = 3
+max_epoch = 35
+max_pxs = 18
+meanPool_NMS = True
+meanPool_kernel = 5
+mf_groups = 16
+min_dist = 10
+min_vol = 100
+mini_dist = 18
+n_block = 2
+n_stages = [1, 1, 1, 1]
+network = ResUNet
+nms_kernel = 3
+nms_topK = 3
+norm = bn
+num_classes = 1
+optim = AdamW
+others = 
+out_name = PredictedLabels
+pad_loss = False
+pad_size = [12]
+paf_connect = False
+paf_sigmoid = False
+paf_weight = 1
+particle_idx = 70
+pif_model = 
+pif_sigmoid = False
+pre_configs = 
+pred2d_3d = False
+prf1_alpha = 3
+rand_max = 99
+rand_min = 0
+rand_scale = 100
+random_num = 0
+reduce_ratio = 1
+running = False
+save_FPsTPs = False
+save_mrc = False
+save_pred = False
+scheduler = OneCycleLR
+seg_tau = 0.95
+sel_particle_num = 100
+sel_train_num = None
+skip_4v94 = False
+skip_vesicles = False
+step1 = False
+step2 = False
+stride = 8
+test_idxs = [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18]
+test_mode = test
+test_use_pad = True
+threshold = 0.5
+train_configs = /home/brian_bosho/xulab/DeepETPicker/configs/DS_10004_subset_train.json
+train_mode = train
+train_set_ids = 0
+use_CL = False
+use_CL_DA = False
+use_DS = False
+use_IP = True
+use_LAM = False
+use_Res = False
+use_SimSeg_iteration = False
+use_aspp = False
+use_att = False
+use_bg = True
+use_bg_part = False
+use_cluster = False
+use_coord = True
+use_dilation = False
+use_ema = False
+use_eval = False
+use_ice_part = False
+use_lw = False
+use_mask = False
+use_paf = False
+use_se_loss = False
+use_seg = True
+use_seg_gau = False
+use_sigmoid = True
+use_softmax = False
+use_softpool = False
+use_tanh = False
+use_uncert = False
+use_wDS = False
+use_wds = False
+use_weight = False
+val_batch_size = 16
+val_block_size = 72
+val_configs = 
+val_set_ids = 0
+weight_decay = 0.01
+The test index is 0
+Testing on 0
+num_name:      0                        1
+0    0    position_415_denoised
+1    1    position_403_denoised
+2    2    position_355_denoised
+3    3    position_399_denoised
+4    4    position_369_denoised
+5    5    position_487_denoised
+6    6    position_495_denoised
+7    7    position_494_denoised
+8    8   position_42_3_denoised
+9    9   position_44_2_denoised
+10  10  position_374_2_denoised
+11  11    position_458_denoised
+12  12  position_365_2_denoised
+13  13    position_491_denoised
+14  14    position_329_denoised
+15  15  position_493_2_denoised
+16  16     position_48_denoised
+17  17  position_381_3_denoised
+18  18    position_492_denoised
+19  19    position_493_denoised
+position_415_denoised
+(450, 1024, 1024)
+****************************************************************************************************
+num_name: /home/brian_bosho/xulab/data/10004_subset/coords/num_name.csv
+base_path:/home/brian_bosho/xulab/data/10004_subset
+coord_path:/home/brian_bosho/xulab/data/10004_subset/coords
+tomo_path:/home/brian_bosho/xulab/data/10004_subset/data_std
+label_path:/home/brian_bosho/xulab/data/10004_subset/gaussian25
+ocp_path:/home/brian_bosho/xulab/data/10004_subset/data_ocp
+label_name:gaussian25
+coord_format:.coords
+tomo_format:.mrc
+norm_type:standardization
+ocp_name:data_ocp
+****************************************************************************************************
+        0                        1   2
+0   237.0    position_329_denoised   0
+1   238.0    position_355_denoised   1
+2   321.0  position_365_2_denoised   2
+3   262.0    position_369_denoised   3
+4   279.0  position_374_2_denoised   4
+5   647.0  position_381_3_denoised   5
+6   145.0    position_399_denoised   6
+7   240.0    position_403_denoised   7
+8   193.0    position_415_denoised   8
+9     6.0   position_42_3_denoised   9
+10   59.0   position_44_2_denoised  10
+11  359.0    position_458_denoised  11
+12  206.0    position_487_denoised  12
+13   12.0     position_48_denoised  13
+14  217.0    position_491_denoised  14
+15  385.0    position_492_denoised  15
+16  258.0  position_493_2_denoised  16
+17   45.0    position_493_denoised  17
+18  146.0    position_494_denoised  18
+19  228.0    position_495_denoised  19
+data_range:[0]
+36 48
+Test dataset contains 4840 samples
+/home/brian_bosho/xulab/data/10004_subset/data_ocp/position_329_denoised.mrc
+Testing: 0it [00:00, ?it/s]Testing:   0%|          | 1/303 [00:00<03:17,  1.53it/s]Testing:   1%|          | 2/303 [00:00<01:51,  2.69it/s]Testing:   1%|          | 3/303 [00:00<01:23,  3.61it/s]Testing:   1%|▏         | 4/303 [00:01<01:09,  4.29it/s]Testing:   2%|▏         | 5/303 [00:01<01:02,  4.80it/s]Testing:   2%|▏         | 6/303 [00:01<00:56,  5.21it/s]Testing:   2%|▏         | 7/303 [00:01<00:53,  5.51it/s]Testing:   3%|▎         | 8/303 [00:01<00:51,  5.70it/s]Testing:   3%|▎         | 9/303 [00:01<00:50,  5.83it/s]Testing:   3%|▎         | 10/303 [00:02<00:49,  5.89it/s]Testing:   4%|▎         | 11/303 [00:02<00:48,  5.97it/s]Testing:   4%|▍         | 12/303 [00:02<00:48,  6.02it/s]Testing:   4%|▍         | 13/303 [00:02<00:47,  6.07it/s]Testing:   5%|▍         | 14/303 [00:02<00:47,  6.11it/s]Testing:   5%|▍         | 15/303 [00:02<00:46,  6.14it/s]Testing:   5%|▌         | 16/303 [00:03<00:46,  6.14it/s]Testing:   6%|▌         | 17/303 [00:03<00:46,  6.18it/s]Testing:   6%|▌         | 18/303 [00:03<00:46,  6.16it/s]Testing:   6%|▋         | 19/303 [00:03<00:46,  6.13it/s]Testing:   7%|▋         | 20/303 [00:03<00:46,  6.12it/s]Testing:   7%|▋         | 21/303 [00:03<00:46,  6.13it/s]Testing:   7%|▋         | 22/303 [00:04<00:45,  6.15it/s]Testing:   8%|▊         | 23/303 [00:04<00:45,  6.20it/s]Testing:   8%|▊         | 24/303 [00:04<00:44,  6.20it/s]Testing:   8%|▊         | 25/303 [00:04<00:44,  6.19it/s]Testing:   9%|▊         | 26/303 [00:04<00:44,  6.18it/s]Testing:   9%|▉         | 27/303 [00:04<00:44,  6.14it/s]Testing:   9%|▉         | 28/303 [00:05<00:44,  6.12it/s]Testing:  10%|▉         | 29/303 [00:05<00:44,  6.13it/s]Testing:  10%|▉         | 30/303 [00:05<00:44,  6.14it/s]Testing:  10%|█         | 31/303 [00:05<00:44,  6.15it/s]Testing:  11%|█         | 32/303 [00:05<00:44,  6.14it/s]Testing:  11%|█         | 33/303 [00:05<00:44,  6.12it/s]Testing:  11%|█         | 34/303 [00:06<00:44,  6.09it/s]Testing:  12%|█▏        | 35/303 [00:06<00:43,  6.10it/s]Testing:  12%|█▏        | 36/303 [00:06<00:43,  6.12it/s]Testing:  12%|█▏        | 37/303 [00:06<00:43,  6.13it/s]Testing:  13%|█▎        | 38/303 [00:06<00:43,  6.10it/s]Testing:  13%|█▎        | 39/303 [00:06<00:43,  6.08it/s]Testing:  13%|█▎        | 40/303 [00:07<00:43,  6.10it/s]Testing:  14%|█▎        | 41/303 [00:07<00:42,  6.15it/s]Testing:  14%|█▍        | 42/303 [00:07<00:42,  6.15it/s]Testing:  14%|█▍        | 43/303 [00:07<00:42,  6.15it/s]Testing:  15%|█▍        | 44/303 [00:07<00:42,  6.13it/s]Testing:  15%|█▍        | 45/303 [00:07<00:42,  6.10it/s]Testing:  15%|█▌        | 46/303 [00:07<00:42,  6.11it/s]Testing:  16%|█▌        | 47/303 [00:08<00:41,  6.12it/s]Testing:  16%|█▌        | 48/303 [00:08<00:41,  6.14it/s]Testing:  16%|█▌        | 49/303 [00:08<00:41,  6.14it/s]Testing:  17%|█▋        | 50/303 [00:08<00:41,  6.12it/s]Testing:  17%|█▋        | 51/303 [00:08<00:41,  6.10it/s]Testing:  17%|█▋        | 52/303 [00:08<00:41,  6.10it/s]Testing:  17%|█▋        | 53/303 [00:09<00:40,  6.13it/s]Testing:  18%|█▊        | 54/303 [00:09<00:40,  6.14it/s]Testing:  18%|█▊        | 55/303 [00:09<00:40,  6.14it/s]Testing:  18%|█▊        | 56/303 [00:09<00:40,  6.11it/s]Testing:  19%|█▉        | 57/303 [00:09<00:40,  6.09it/s]Testing:  19%|█▉        | 58/303 [00:09<00:40,  6.11it/s]Testing:  19%|█▉        | 59/303 [00:10<00:39,  6.13it/s]Testing:  20%|█▉        | 60/303 [00:10<00:39,  6.14it/s]Testing:  20%|██        | 61/303 [00:10<00:39,  6.14it/s]Testing:  20%|██        | 62/303 [00:10<00:39,  6.10it/s]Testing:  21%|██        | 63/303 [00:10<00:39,  6.10it/s]Testing:  21%|██        | 64/303 [00:10<00:39,  6.11it/s]Testing:  21%|██▏       | 65/303 [00:11<00:38,  6.14it/s]Testing:  22%|██▏       | 66/303 [00:11<00:38,  6.15it/s]Testing:  22%|██▏       | 67/303 [00:11<00:38,  6.14it/s]Testing:  22%|██▏       | 68/303 [00:11<00:38,  6.09it/s]Testing:  23%|██▎       | 69/303 [00:11<00:38,  6.09it/s]Testing:  23%|██▎       | 70/303 [00:11<00:38,  6.11it/s]Testing:  23%|██▎       | 71/303 [00:12<00:37,  6.15it/s]Testing:  24%|██▍       | 72/303 [00:12<00:37,  6.15it/s]Testing:  24%|██▍       | 73/303 [00:12<00:37,  6.15it/s]Testing:  24%|██▍       | 74/303 [00:12<00:37,  6.11it/s]Testing:  25%|██▍       | 75/303 [00:12<00:37,  6.10it/s]Testing:  25%|██▌       | 76/303 [00:12<00:37,  6.11it/s]Testing:  25%|██▌       | 77/303 [00:13<00:36,  6.15it/s]Testing:  26%|██▌       | 78/303 [00:13<00:36,  6.18it/s]Testing:  26%|██▌       | 79/303 [00:13<00:36,  6.17it/s]Testing:  26%|██▋       | 80/303 [00:13<00:36,  6.15it/s]Testing:  27%|██▋       | 81/303 [00:13<00:36,  6.10it/s]Testing:  27%|██▋       | 82/303 [00:13<00:36,  6.10it/s]Testing:  27%|██▋       | 83/303 [00:14<00:36,  6.11it/s]Testing:  28%|██▊       | 84/303 [00:14<00:35,  6.12it/s]Testing:  28%|██▊       | 85/303 [00:14<00:35,  6.10it/s]Testing:  28%|██▊       | 86/303 [00:14<00:35,  6.08it/s]Testing:  29%|██▊       | 87/303 [00:14<00:35,  6.09it/s]Testing:  29%|██▉       | 88/303 [00:14<00:35,  6.11it/s]Testing:  29%|██▉       | 89/303 [00:15<00:34,  6.15it/s]Testing:  30%|██▉       | 90/303 [00:15<00:34,  6.15it/s]Testing:  30%|███       | 91/303 [00:15<00:34,  6.13it/s]Testing:  30%|███       | 92/303 [00:15<00:34,  6.09it/s]Testing:  31%|███       | 93/303 [00:15<00:34,  6.09it/s]Testing:  31%|███       | 94/303 [00:15<00:34,  6.11it/s]Testing:  31%|███▏      | 95/303 [00:15<00:33,  6.15it/s]Testing:  32%|███▏      | 96/303 [00:16<00:33,  6.15it/s]Testing:  32%|███▏      | 97/303 [00:16<00:33,  6.12it/s]Testing:  32%|███▏      | 98/303 [00:16<00:33,  6.09it/s]Testing:  33%|███▎      | 99/303 [00:16<00:33,  6.09it/s]Testing:  33%|███▎      | 100/303 [00:16<00:33,  6.11it/s]Testing:  33%|███▎      | 101/303 [00:16<00:32,  6.15it/s]Testing:  34%|███▎      | 102/303 [00:17<00:32,  6.13it/s]Testing:  34%|███▍      | 103/303 [00:17<00:32,  6.09it/s]Testing:  34%|███▍      | 104/303 [00:17<00:32,  6.13it/s]Testing:  35%|███▍      | 105/303 [00:17<00:32,  6.12it/s]Testing:  35%|███▍      | 106/303 [00:17<00:32,  6.12it/s]Testing:  35%|███▌      | 107/303 [00:17<00:31,  6.16it/s]Testing:  36%|███▌      | 108/303 [00:18<00:31,  6.16it/s]Testing:  36%|███▌      | 109/303 [00:18<00:31,  6.13it/s]Testing:  36%|███▋      | 110/303 [00:18<00:31,  6.09it/s]Testing:  37%|███▋      | 111/303 [00:18<00:31,  6.10it/s]Testing:  37%|███▋      | 112/303 [00:18<00:31,  6.11it/s]Testing:  37%|███▋      | 113/303 [00:18<00:30,  6.15it/s]Testing:  38%|███▊      | 114/303 [00:19<00:30,  6.14it/s]Testing:  38%|███▊      | 115/303 [00:19<00:30,  6.10it/s]Testing:  38%|███▊      | 116/303 [00:19<00:30,  6.09it/s]Testing:  39%|███▊      | 117/303 [00:19<00:30,  6.09it/s]Testing:  39%|███▉      | 118/303 [00:19<00:30,  6.09it/s]Testing:  39%|███▉      | 119/303 [00:19<00:30,  6.13it/s]Testing:  40%|███▉      | 120/303 [00:20<00:30,  6.09it/s]Testing:  40%|███▉      | 121/303 [00:20<00:29,  6.08it/s]Testing:  40%|████      | 122/303 [00:20<00:29,  6.12it/s]Testing:  41%|████      | 123/303 [00:20<00:29,  6.14it/s]Testing:  41%|████      | 124/303 [00:20<00:29,  6.13it/s]Testing:  41%|████▏     | 125/303 [00:20<00:29,  6.09it/s]Testing:  42%|████▏     | 126/303 [00:21<00:29,  6.09it/s]Testing:  42%|████▏     | 127/303 [00:21<00:28,  6.09it/s]Testing:  42%|████▏     | 128/303 [00:21<00:28,  6.10it/s]Testing:  43%|████▎     | 129/303 [00:21<00:28,  6.09it/s]Testing:  43%|████▎     | 130/303 [00:21<00:28,  6.07it/s]Testing:  43%|████▎     | 131/303 [00:21<00:28,  6.07it/s]Testing:  44%|████▎     | 132/303 [00:22<00:28,  6.09it/s]Testing:  44%|████▍     | 133/303 [00:22<00:28,  6.07it/s]Testing:  44%|████▍     | 134/303 [00:22<00:27,  6.05it/s]Testing:  45%|████▍     | 135/303 [00:22<00:27,  6.06it/s]Testing:  45%|████▍     | 136/303 [00:22<00:27,  6.08it/s]Testing:  45%|████▌     | 137/303 [00:22<00:27,  6.08it/s]Testing:  46%|████▌     | 138/303 [00:23<00:27,  6.05it/s]Testing:  46%|████▌     | 139/303 [00:23<00:27,  6.07it/s]Testing:  46%|████▌     | 140/303 [00:23<00:26,  6.08it/s]Testing:  47%|████▋     | 141/303 [00:23<00:26,  6.09it/s]Testing:  47%|████▋     | 142/303 [00:23<00:26,  6.13it/s]Testing:  47%|████▋     | 143/303 [00:23<00:26,  6.09it/s]Testing:  48%|████▊     | 144/303 [00:24<00:26,  6.08it/s]Testing:  48%|████▊     | 145/303 [00:24<00:25,  6.11it/s]Testing:  48%|████▊     | 146/303 [00:24<00:25,  6.12it/s]Testing:  49%|████▊     | 147/303 [00:24<00:25,  6.10it/s]Testing:  49%|████▉     | 148/303 [00:24<00:25,  6.07it/s]Testing:  49%|████▉     | 149/303 [00:24<00:25,  6.06it/s]Testing:  50%|████▉     | 150/303 [00:25<00:25,  6.07it/s]Testing:  50%|████▉     | 151/303 [00:25<00:25,  6.06it/s]Testing:  50%|█████     | 152/303 [00:25<00:24,  6.04it/s]Testing:  50%|█████     | 153/303 [00:25<00:24,  6.06it/s]Testing:  51%|█████     | 154/303 [00:25<00:24,  6.07it/s]Testing:  51%|█████     | 155/303 [00:25<00:24,  6.05it/s]Testing:  51%|█████▏    | 156/303 [00:26<00:24,  6.03it/s]Testing:  52%|█████▏    | 157/303 [00:26<00:24,  6.05it/s]Testing:  52%|█████▏    | 158/303 [00:26<00:23,  6.06it/s]Testing:  52%|█████▏    | 159/303 [00:26<00:23,  6.04it/s]Testing:  53%|█████▎    | 160/303 [00:26<00:23,  6.05it/s]Testing:  53%|█████▎    | 161/303 [00:26<00:23,  6.08it/s]Testing:  53%|█████▎    | 162/303 [00:27<00:23,  6.08it/s]Testing:  54%|█████▍    | 163/303 [00:27<00:23,  6.05it/s]Testing:  54%|█████▍    | 164/303 [00:27<00:22,  6.05it/s]Testing:  54%|█████▍    | 165/303 [00:27<00:22,  6.08it/s]Testing:  55%|█████▍    | 166/303 [00:27<00:22,  6.08it/s]Testing:  55%|█████▌    | 167/303 [00:27<00:22,  6.05it/s]Testing:  55%|█████▌    | 168/303 [00:27<00:22,  6.06it/s]Testing:  56%|█████▌    | 169/303 [00:28<00:22,  6.08it/s]Testing:  56%|█████▌    | 170/303 [00:28<00:21,  6.13it/s]Testing:  56%|█████▋    | 171/303 [00:28<00:21,  6.13it/s]Testing:  57%|█████▋    | 172/303 [00:28<00:21,  6.09it/s]Testing:  57%|█████▋    | 173/303 [00:28<00:21,  6.05it/s]Testing:  57%|█████▋    | 174/303 [00:28<00:21,  6.04it/s]Testing:  58%|█████▊    | 175/303 [00:29<00:21,  6.01it/s]Testing:  58%|█████▊    | 176/303 [00:29<00:21,  6.02it/s]Testing:  58%|█████▊    | 177/303 [00:29<00:20,  6.04it/s]Testing:  59%|█████▊    | 178/303 [00:29<00:20,  6.05it/s]Testing:  59%|█████▉    | 179/303 [00:29<00:20,  6.02it/s]Testing:  59%|█████▉    | 180/303 [00:29<00:20,  6.04it/s]Testing:  60%|█████▉    | 181/303 [00:30<00:20,  6.09it/s]Testing:  60%|██████    | 182/303 [00:30<00:19,  6.13it/s]Testing:  60%|██████    | 183/303 [00:30<00:19,  6.12it/s]Testing:  61%|██████    | 184/303 [00:30<00:19,  6.07it/s]Testing:  61%|██████    | 185/303 [00:30<00:19,  6.07it/s]Testing:  61%|██████▏   | 186/303 [00:30<00:19,  6.09it/s]Testing:  62%|██████▏   | 187/303 [00:31<00:18,  6.13it/s]Testing:  62%|██████▏   | 188/303 [00:31<00:18,  6.12it/s]Testing:  62%|██████▏   | 189/303 [00:31<00:18,  6.07it/s]Testing:  63%|██████▎   | 190/303 [00:31<00:18,  6.08it/s]Testing:  63%|██████▎   | 191/303 [00:31<00:18,  6.08it/s]Testing:  63%|██████▎   | 192/303 [00:31<00:18,  6.07it/s]Testing:  64%|██████▎   | 193/303 [00:32<00:17,  6.12it/s]Testing:  64%|██████▍   | 194/303 [00:32<00:17,  6.09it/s]Testing:  64%|██████▍   | 195/303 [00:32<00:17,  6.08it/s]Testing:  65%|██████▍   | 196/303 [00:32<00:17,  6.09it/s]Testing:  65%|██████▌   | 197/303 [00:32<00:17,  6.04it/s]Testing:  65%|██████▌   | 198/303 [00:32<00:17,  6.05it/s]Testing:  66%|██████▌   | 199/303 [00:33<00:17,  6.07it/s]Testing:  66%|██████▌   | 200/303 [00:33<00:16,  6.07it/s]Testing:  66%|██████▋   | 201/303 [00:33<00:16,  6.05it/s]Testing:  67%|██████▋   | 202/303 [00:33<00:16,  6.05it/s]Testing:  67%|██████▋   | 203/303 [00:33<00:16,  6.07it/s]Testing:  67%|██████▋   | 204/303 [00:33<00:16,  6.10it/s]Testing:  68%|██████▊   | 205/303 [00:34<00:16,  6.07it/s]Testing:  68%|██████▊   | 206/303 [00:34<00:16,  6.05it/s]Testing:  68%|██████▊   | 207/303 [00:34<00:15,  6.06it/s]Testing:  69%|██████▊   | 208/303 [00:34<00:15,  6.06it/s]Testing:  69%|██████▉   | 209/303 [00:34<00:15,  6.01it/s]Testing:  69%|██████▉   | 210/303 [00:34<00:15,  6.02it/s]Testing:  70%|██████▉   | 211/303 [00:35<00:15,  6.03it/s]Testing:  70%|██████▉   | 212/303 [00:35<00:15,  6.00it/s]Testing:  70%|███████   | 213/303 [00:35<00:14,  6.02it/s]Testing:  71%|███████   | 214/303 [00:35<00:14,  6.05it/s]Testing:  71%|███████   | 215/303 [00:35<00:14,  6.10it/s]Testing:  71%|███████▏  | 216/303 [00:35<00:14,  6.06it/s]Testing:  72%|███████▏  | 217/303 [00:36<00:14,  6.05it/s]Testing:  72%|███████▏  | 218/303 [00:36<00:13,  6.09it/s]Testing:  72%|███████▏  | 219/303 [00:36<00:13,  6.08it/s]Testing:  73%|███████▎  | 220/303 [00:36<00:13,  6.06it/s]Testing:  73%|███████▎  | 221/303 [00:36<00:13,  6.04it/s]Testing:  73%|███████▎  | 222/303 [00:36<00:13,  6.06it/s]Testing:  74%|███████▎  | 223/303 [00:37<00:13,  6.06it/s]Testing:  74%|███████▍  | 224/303 [00:37<00:13,  6.02it/s]Testing:  74%|███████▍  | 225/303 [00:37<00:12,  6.03it/s]Testing:  75%|███████▍  | 226/303 [00:37<00:12,  6.08it/s]Testing:  75%|███████▍  | 227/303 [00:37<00:12,  6.07it/s]Testing:  75%|███████▌  | 228/303 [00:37<00:12,  6.04it/s]Testing:  76%|███████▌  | 229/303 [00:38<00:12,  6.05it/s]Testing:  76%|███████▌  | 230/303 [00:38<00:12,  6.06it/s]Testing:  76%|███████▌  | 231/303 [00:38<00:11,  6.03it/s]Testing:  77%|███████▋  | 232/303 [00:38<00:11,  6.03it/s]Testing:  77%|███████▋  | 233/303 [00:38<00:11,  6.05it/s]Testing:  77%|███████▋  | 234/303 [00:38<00:11,  6.06it/s]Testing:  78%|███████▊  | 235/303 [00:39<00:11,  6.02it/s]Testing:  78%|███████▊  | 236/303 [00:39<00:11,  6.03it/s]Testing:  78%|███████▊  | 237/303 [00:39<00:10,  6.08it/s]Testing:  79%|███████▊  | 238/303 [00:39<00:10,  6.06it/s]Testing:  79%|███████▉  | 239/303 [00:39<00:10,  6.03it/s]Testing:  79%|███████▉  | 240/303 [00:39<00:10,  6.05it/s]Testing:  80%|███████▉  | 241/303 [00:40<00:10,  6.05it/s]Testing:  80%|███████▉  | 242/303 [00:40<00:10,  6.02it/s]Testing:  80%|████████  | 243/303 [00:40<00:09,  6.02it/s]Testing:  81%|████████  | 244/303 [00:40<00:09,  6.04it/s]Testing:  81%|████████  | 245/303 [00:40<00:09,  6.02it/s]Testing:  81%|████████  | 246/303 [00:40<00:09,  6.02it/s]Testing:  82%|████████▏ | 247/303 [00:41<00:09,  6.04it/s]Testing:  82%|████████▏ | 248/303 [00:41<00:09,  6.10it/s]Testing:  82%|████████▏ | 249/303 [00:41<00:08,  6.08it/s]Testing:  83%|████████▎ | 250/303 [00:41<00:08,  6.04it/s]Testing:  83%|████████▎ | 251/303 [00:41<00:08,  6.07it/s]Testing:  83%|████████▎ | 252/303 [00:41<00:08,  6.08it/s]Testing:  83%|████████▎ | 253/303 [00:42<00:08,  6.06it/s]Testing:  84%|████████▍ | 254/303 [00:42<00:08,  6.04it/s]Testing:  84%|████████▍ | 255/303 [00:42<00:07,  6.04it/s]Testing:  84%|████████▍ | 256/303 [00:42<00:07,  6.04it/s]Testing:  85%|████████▍ | 257/303 [00:42<00:07,  6.02it/s]Testing:  85%|████████▌ | 258/303 [00:42<00:07,  6.03it/s]Testing:  85%|████████▌ | 259/303 [00:43<00:07,  6.08it/s]Testing:  86%|████████▌ | 260/303 [00:43<00:07,  6.08it/s]Testing:  86%|████████▌ | 261/303 [00:43<00:06,  6.02it/s]Testing:  86%|████████▋ | 262/303 [00:43<00:06,  6.05it/s]Testing:  87%|████████▋ | 263/303 [00:43<00:06,  6.06it/s]Testing:  87%|████████▋ | 264/303 [00:43<00:06,  6.03it/s]Testing:  87%|████████▋ | 265/303 [00:44<00:06,  6.03it/s]Testing:  88%|████████▊ | 266/303 [00:44<00:06,  6.04it/s]Testing:  88%|████████▊ | 267/303 [00:44<00:05,  6.03it/s]Testing:  88%|████████▊ | 268/303 [00:44<00:05,  6.01it/s]Testing:  89%|████████▉ | 269/303 [00:44<00:05,  6.02it/s]Testing:  89%|████████▉ | 270/303 [00:44<00:05,  6.07it/s]Testing:  89%|████████▉ | 271/303 [00:44<00:05,  6.05it/s]Testing:  90%|████████▉ | 272/303 [00:45<00:05,  6.04it/s]Testing:  90%|█████████ | 273/303 [00:45<00:04,  6.05it/s]Testing:  90%|█████████ | 274/303 [00:45<00:04,  6.05it/s]Testing:  91%|█████████ | 275/303 [00:45<00:04,  6.03it/s]Testing:  91%|█████████ | 276/303 [00:45<00:04,  6.03it/s]Testing:  91%|█████████▏| 277/303 [00:45<00:04,  6.04it/s]Testing:  92%|█████████▏| 278/303 [00:46<00:04,  6.02it/s]Testing:  92%|█████████▏| 279/303 [00:46<00:03,  6.01it/s]Testing:  92%|█████████▏| 280/303 [00:46<00:03,  6.03it/s]Testing:  93%|█████████▎| 281/303 [00:46<00:03,  6.09it/s]Testing:  93%|█████████▎| 282/303 [00:46<00:03,  6.05it/s]Testing:  93%|█████████▎| 283/303 [00:46<00:03,  6.04it/s]Testing:  94%|█████████▎| 284/303 [00:47<00:03,  6.06it/s]Testing:  94%|█████████▍| 285/303 [00:47<00:02,  6.04it/s]Testing:  94%|█████████▍| 286/303 [00:47<00:02,  6.02it/s]Testing:  95%|█████████▍| 287/303 [00:47<00:02,  6.04it/s]Testing:  95%|█████████▌| 288/303 [00:47<00:02,  6.04it/s]Testing:  95%|█████████▌| 289/303 [00:47<00:02,  6.01it/s]Testing:  96%|█████████▌| 290/303 [00:48<00:02,  6.02it/s]Testing:  96%|█████████▌| 291/303 [00:48<00:01,  6.03it/s]Testing:  96%|█████████▋| 292/303 [00:48<00:01,  6.07it/s]Testing:  97%|█████████▋| 293/303 [00:48<00:01,  6.04it/s]Testing:  97%|█████████▋| 294/303 [00:48<00:01,  6.02it/s]Testing:  97%|█████████▋| 295/303 [00:48<00:01,  6.01it/s]Testing:  98%|█████████▊| 296/303 [00:49<00:01,  6.00it/s]Testing:  98%|█████████▊| 297/303 [00:49<00:00,  6.03it/s]Testing:  98%|█████████▊| 298/303 [00:49<00:00,  6.05it/s]Testing:  99%|█████████▊| 299/303 [00:49<00:00,  6.02it/s]Testing:  99%|█████████▉| 300/303 [00:49<00:00,  6.02it/s]Testing:  99%|█████████▉| 301/303 [00:49<00:00,  6.04it/s]Testing: 100%|█████████▉| 302/303 [00:50<00:00,  6.02it/s]coords_out: (1712, 5)
+de_duplication
+Before De_Dup: 1712
+After De_Dup: 1348
+centroids (1348, 5)
+The predicted coordinates are saved in /home/brian_bosho/xulab/data/10004_subset/runs/DS_10004_subset_train/DS_10004_subset_train_ResUNet_BlockSize72_DiceLoss_MaxEpoch35_bs16_lr0.001_IP1_bg1_coord1_Softmax0_bn__TNNone/version_8/PredictedLabels
+
+pred_coords shape:, (1348, 4)
+pred shape:, (1712, 4)
+ Precision: 0.17017691658212494, Recall: 0.8523206747458563, F1-score: 0.28370783738213956, Avg Distance: 3.9721026918193076
+Testing: 100%|██████████| 303/303 [00:50<00:00,  6.00it/s]GPU available: True, used: True
+TPU available: None, using: 0 TPU cores
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+--------------------------------------------------------------------------------
+DATALOADER:0 TEST RESULTS
+{}
+--------------------------------------------------------------------------------
+Save path is /home/brian_bosho/xulab/data/10004_subset/runs/DS_10004_subset_train/DS_10004_subset_train_ResUNet_BlockSize72_DiceLoss_MaxEpoch35_bs16_lr0.001_IP1_bg1_coord1_Softmax0_bn__TNNone/version_8/PredictedLabels
+The test index is 1
+Testing on 1
+num_name:      0                        1
+0    0    position_415_denoised
+1    1    position_403_denoised
+2    2    position_355_denoised
+3    3    position_399_denoised
+4    4    position_369_denoised
+5    5    position_487_denoised
+6    6    position_495_denoised
+7    7    position_494_denoised
+8    8   position_42_3_denoised
+9    9   position_44_2_denoised
+10  10  position_374_2_denoised
+11  11    position_458_denoised
+12  12  position_365_2_denoised
+13  13    position_491_denoised
+14  14    position_329_denoised
+15  15  position_493_2_denoised
+16  16     position_48_denoised
+17  17  position_381_3_denoised
+18  18    position_492_denoised
+19  19    position_493_denoised
+position_403_denoised
+(450, 1024, 1024)
+****************************************************************************************************
+num_name: /home/brian_bosho/xulab/data/10004_subset/coords/num_name.csv
+base_path:/home/brian_bosho/xulab/data/10004_subset
+coord_path:/home/brian_bosho/xulab/data/10004_subset/coords
+tomo_path:/home/brian_bosho/xulab/data/10004_subset/data_std
+label_path:/home/brian_bosho/xulab/data/10004_subset/gaussian25
+ocp_path:/home/brian_bosho/xulab/data/10004_subset/data_ocp
+label_name:gaussian25
+coord_format:.coords
+tomo_format:.mrc
+norm_type:standardization
+ocp_name:data_ocp
+****************************************************************************************************
+        0                        1   2
+0   237.0    position_329_denoised   0
+1   238.0    position_355_denoised   1
+2   321.0  position_365_2_denoised   2
+3   262.0    position_369_denoised   3
+4   279.0  position_374_2_denoised   4
+5   647.0  position_381_3_denoised   5
+6   145.0    position_399_denoised   6
+7   240.0    position_403_denoised   7
+8   193.0    position_415_denoised   8
+9     6.0   position_42_3_denoised   9
+10   59.0   position_44_2_denoised  10
+11  359.0    position_458_denoised  11
+12  206.0    position_487_denoised  12
+13   12.0     position_48_denoised  13
+14  217.0    position_491_denoised  14
+15  385.0    position_492_denoised  15
+16  258.0  position_493_2_denoised  16
+17   45.0    position_493_denoised  17
+18  146.0    position_494_denoised  18
+19  228.0    position_495_denoised  19
+data_range:[1]
+36 48
+Test dataset contains 4840 samples
+/home/brian_bosho/xulab/data/10004_subset/data_ocp/position_355_denoised.mrc
+Testing: 0it [00:00, ?it/s]Testing:   0%|          | 1/303 [00:00<03:04,  1.64it/s]Testing:   1%|          | 2/303 [00:00<01:44,  2.89it/s]Testing:   1%|          | 3/303 [00:00<01:19,  3.79it/s]Testing:   1%|▏         | 4/303 [00:01<01:06,  4.47it/s]Testing:   2%|▏         | 5/303 [00:01<01:01,  4.88it/s]Testing:   2%|▏         | 6/303 [00:01<00:56,  5.23it/s]Testing:   2%|▏         | 7/303 [00:01<00:53,  5.49it/s]Testing:   3%|▎         | 8/303 [00:01<00:51,  5.69it/s]Testing:   3%|▎         | 9/303 [00:01<00:50,  5.77it/s]Testing:   3%|▎         | 10/303 [00:02<00:50,  5.83it/s]Testing:   4%|▎         | 11/303 [00:02<00:49,  5.91it/s]Testing:   4%|▍         | 12/303 [00:02<00:48,  5.94it/s]Testing:   4%|▍         | 13/303 [00:02<00:48,  5.95it/s]Testing:   5%|▍         | 14/303 [00:02<00:48,  5.99it/s]Testing:   5%|▍         | 15/303 [00:02<00:47,  6.01it/s]Testing:   5%|▌         | 16/303 [00:03<00:47,  5.99it/s]Testing:   6%|▌         | 17/303 [00:03<00:47,  6.01it/s]Testing:   6%|▌         | 18/303 [00:03<00:47,  6.03it/s]Testing:   6%|▋         | 19/303 [00:03<00:47,  6.02it/s]Testing:   7%|▋         | 20/303 [00:03<00:47,  6.01it/s]Testing:   7%|▋         | 21/303 [00:03<00:46,  6.04it/s]Testing:   7%|▋         | 22/303 [00:04<00:46,  6.04it/s]Testing:   8%|▊         | 23/303 [00:04<00:46,  6.02it/s]Testing:   8%|▊         | 24/303 [00:04<00:46,  6.03it/s]Testing:   8%|▊         | 25/303 [00:04<00:46,  6.04it/s]Testing:   9%|▊         | 26/303 [00:04<00:46,  6.02it/s]Testing:   9%|▉         | 27/303 [00:04<00:45,  6.02it/s]Testing:   9%|▉         | 28/303 [00:05<00:45,  6.04it/s]Testing:  10%|▉         | 29/303 [00:05<00:45,  6.04it/s]Testing:  10%|▉         | 30/303 [00:05<00:45,  6.01it/s]Testing:  10%|█         | 31/303 [00:05<00:45,  6.03it/s]Testing:  11%|█         | 32/303 [00:05<00:44,  6.02it/s]Testing:  11%|█         | 33/303 [00:05<00:44,  6.00it/s]Testing:  11%|█         | 34/303 [00:06<00:44,  6.02it/s]Testing:  12%|█▏        | 35/303 [00:06<00:44,  6.03it/s]Testing:  12%|█▏        | 36/303 [00:06<00:44,  6.00it/s]Testing:  12%|█▏        | 37/303 [00:06<00:44,  6.02it/s]Testing:  13%|█▎        | 38/303 [00:06<00:43,  6.04it/s]Testing:  13%|█▎        | 39/303 [00:06<00:43,  6.01it/s]Testing:  13%|█▎        | 40/303 [00:07<00:43,  6.01it/s]Testing:  14%|█▎        | 41/303 [00:07<00:43,  6.02it/s]Testing:  14%|█▍        | 42/303 [00:07<00:43,  5.99it/s]Testing:  14%|█▍        | 43/303 [00:07<00:43,  6.00it/s]Testing:  15%|█▍        | 44/303 [00:07<00:43,  6.02it/s]Testing:  15%|█▍        | 45/303 [00:07<00:43,  5.99it/s]Testing:  15%|█▌        | 46/303 [00:08<00:42,  6.00it/s]Testing:  16%|█▌        | 47/303 [00:08<00:42,  6.03it/s]Testing:  16%|█▌        | 48/303 [00:08<00:42,  6.00it/s]Testing:  16%|█▌        | 49/303 [00:08<00:42,  6.01it/s]Testing:  17%|█▋        | 50/303 [00:08<00:41,  6.03it/s]Testing:  17%|█▋        | 51/303 [00:08<00:41,  6.02it/s]Testing:  17%|█▋        | 52/303 [00:09<00:41,  6.00it/s]Testing:  17%|█▋        | 53/303 [00:09<00:41,  6.03it/s]Testing:  18%|█▊        | 54/303 [00:09<00:41,  6.03it/s]Testing:  18%|█▊        | 55/303 [00:09<00:41,  6.01it/s]Testing:  18%|█▊        | 56/303 [00:09<00:41,  6.02it/s]Testing:  19%|█▉        | 57/303 [00:09<00:40,  6.03it/s]Testing:  19%|█▉        | 58/303 [00:10<00:40,  6.00it/s]Testing:  19%|█▉        | 59/303 [00:10<00:40,  6.01it/s]Testing:  20%|█▉        | 60/303 [00:10<00:40,  6.02it/s]Testing:  20%|██        | 61/303 [00:10<00:39,  6.06it/s]Testing:  20%|██        | 62/303 [00:10<00:39,  6.03it/s]Testing:  21%|██        | 63/303 [00:10<00:39,  6.03it/s]Testing:  21%|██        | 64/303 [00:11<00:39,  6.02it/s]Testing:  21%|██▏       | 65/303 [00:11<00:39,  6.00it/s]Testing:  22%|██▏       | 66/303 [00:11<00:39,  6.01it/s]Testing:  22%|██▏       | 67/303 [00:11<00:39,  6.00it/s]Testing:  22%|██▏       | 68/303 [00:11<00:39,  5.99it/s]Testing:  23%|██▎       | 69/303 [00:11<00:38,  6.04it/s]Testing:  23%|██▎       | 70/303 [00:12<00:38,  6.03it/s]Testing:  23%|██▎       | 71/303 [00:12<00:38,  5.99it/s]Testing:  24%|██▍       | 72/303 [00:12<00:38,  6.00it/s]Testing:  24%|██▍       | 73/303 [00:12<00:38,  6.00it/s]Testing:  24%|██▍       | 74/303 [00:12<00:38,  5.96it/s]Testing:  25%|██▍       | 75/303 [00:12<00:38,  5.97it/s]Testing:  25%|██▌       | 76/303 [00:13<00:38,  5.96it/s]Testing:  25%|██▌       | 77/303 [00:13<00:37,  5.98it/s]Testing:  26%|██▌       | 78/303 [00:13<00:37,  5.98it/s]Testing:  26%|██▌       | 79/303 [00:13<00:37,  5.95it/s]Testing:  26%|██▋       | 80/303 [00:13<00:37,  5.98it/s]Testing:  27%|██▋       | 81/303 [00:13<00:37,  5.99it/s]Testing:  27%|██▋       | 82/303 [00:14<00:36,  5.99it/s]Testing:  27%|██▋       | 83/303 [00:14<00:36,  6.01it/s]Testing:  28%|██▊       | 84/303 [00:14<00:36,  6.01it/s]Testing:  28%|██▊       | 85/303 [00:14<00:36,  6.00it/s]Testing:  28%|██▊       | 86/303 [00:14<00:36,  6.01it/s]Testing:  29%|██▊       | 87/303 [00:14<00:35,  6.07it/s]Testing:  29%|██▉       | 88/303 [00:15<00:35,  6.04it/s]Testing:  29%|██▉       | 89/303 [00:15<00:35,  6.02it/s]Testing:  30%|██▉       | 90/303 [00:15<00:35,  6.03it/s]Testing:  30%|███       | 91/303 [00:15<00:35,  6.01it/s]Testing:  30%|███       | 92/303 [00:15<00:35,  6.00it/s]Testing:  31%|███       | 93/303 [00:15<00:34,  6.01it/s]Testing:  31%|███       | 94/303 [00:16<00:34,  5.99it/s]Testing:  31%|███▏      | 95/303 [00:16<00:34,  5.99it/s]Testing:  32%|███▏      | 96/303 [00:16<00:34,  6.00it/s]Testing:  32%|███▏      | 97/303 [00:16<00:34,  5.95it/s]Testing:  32%|███▏      | 98/303 [00:16<00:34,  5.98it/s]Testing:  33%|███▎      | 99/303 [00:16<00:34,  5.97it/s]Testing:  33%|███▎      | 100/303 [00:17<00:34,  5.95it/s]Testing:  33%|███▎      | 101/303 [00:17<00:33,  5.98it/s]Testing:  34%|███▎      | 102/303 [00:17<00:33,  5.94it/s]Testing:  34%|███▍      | 103/303 [00:17<00:33,  5.96it/s]Testing:  34%|███▍      | 104/303 [00:17<00:33,  5.97it/s]Testing:  35%|███▍      | 105/303 [00:17<00:33,  5.94it/s]Testing:  35%|███▍      | 106/303 [00:18<00:33,  5.93it/s]Testing:  35%|███▌      | 107/303 [00:18<00:33,  5.94it/s]Testing:  36%|███▌      | 108/303 [00:18<00:32,  5.96it/s]Testing:  36%|███▌      | 109/303 [00:18<00:32,  5.95it/s]Testing:  36%|███▋      | 110/303 [00:18<00:32,  6.00it/s]Testing:  37%|███▋      | 111/303 [00:18<00:32,  5.99it/s]Testing:  37%|███▋      | 112/303 [00:19<00:32,  5.97it/s]Testing:  37%|███▋      | 113/303 [00:19<00:31,  5.97it/s]Testing:  38%|███▊      | 114/303 [00:19<00:31,  5.96it/s]Testing:  38%|███▊      | 115/303 [00:19<00:31,  5.92it/s]Testing:  38%|███▊      | 116/303 [00:19<00:31,  5.94it/s]Testing:  39%|███▊      | 117/303 [00:19<00:31,  5.93it/s]Testing:  39%|███▉      | 118/303 [00:20<00:31,  5.96it/s]Testing:  39%|███▉      | 119/303 [00:20<00:31,  5.93it/s]Testing:  40%|███▉      | 120/303 [00:20<00:30,  5.95it/s]Testing:  40%|███▉      | 121/303 [00:20<00:30,  5.97it/s]Testing:  40%|████      | 122/303 [00:20<00:30,  5.94it/s]Testing:  41%|████      | 123/303 [00:20<00:30,  5.97it/s]Testing:  41%|████      | 124/303 [00:21<00:29,  5.97it/s]Testing:  41%|████▏     | 125/303 [00:21<00:29,  5.96it/s]Testing:  42%|████▏     | 126/303 [00:21<00:29,  5.99it/s]Testing:  42%|████▏     | 127/303 [00:21<00:29,  5.97it/s]Testing:  42%|████▏     | 128/303 [00:21<00:29,  5.97it/s]Testing:  43%|████▎     | 129/303 [00:21<00:29,  5.99it/s]Testing:  43%|████▎     | 130/303 [00:22<00:29,  5.96it/s]Testing:  43%|████▎     | 131/303 [00:22<00:28,  5.98it/s]Testing:  44%|████▎     | 132/303 [00:22<00:28,  5.97it/s]Testing:  44%|████▍     | 133/303 [00:22<00:28,  5.96it/s]Testing:  44%|████▍     | 134/303 [00:22<00:28,  5.98it/s]Testing:  45%|████▍     | 135/303 [00:22<00:28,  5.96it/s]Testing:  45%|████▍     | 136/303 [00:23<00:27,  5.96it/s]Testing:  45%|████▌     | 137/303 [00:23<00:27,  5.97it/s]Testing:  46%|████▌     | 138/303 [00:23<00:27,  5.96it/s]Testing:  46%|████▌     | 139/303 [00:23<00:27,  5.98it/s]Testing:  46%|████▌     | 140/303 [00:23<00:27,  5.97it/s]Testing:  47%|████▋     | 141/303 [00:23<00:27,  5.96it/s]Testing:  47%|████▋     | 142/303 [00:24<00:26,  5.98it/s]Testing:  47%|████▋     | 143/303 [00:24<00:26,  6.03it/s]Testing:  48%|████▊     | 144/303 [00:24<00:26,  5.98it/s]Testing:  48%|████▊     | 145/303 [00:24<00:26,  5.99it/s]Testing:  48%|████▊     | 146/303 [00:24<00:26,  5.96it/s]Testing:  49%|████▊     | 147/303 [00:24<00:26,  5.97it/s]Testing:  49%|████▉     | 148/303 [00:25<00:25,  6.02it/s]Testing:  49%|████▉     | 149/303 [00:25<00:25,  5.98it/s]Testing:  50%|████▉     | 150/303 [00:25<00:25,  5.98it/s]Testing:  50%|████▉     | 151/303 [00:25<00:25,  5.96it/s]Testing:  50%|█████     | 152/303 [00:25<00:25,  5.95it/s]Testing:  50%|█████     | 153/303 [00:25<00:24,  6.01it/s]Testing:  51%|█████     | 154/303 [00:26<00:24,  6.01it/s]Testing:  51%|█████     | 155/303 [00:26<00:24,  5.97it/s]Testing:  51%|█████▏    | 156/303 [00:26<00:24,  5.97it/s]Testing:  52%|█████▏    | 157/303 [00:26<00:24,  5.93it/s]Testing:  52%|█████▏    | 158/303 [00:26<00:24,  5.96it/s]Testing:  52%|█████▏    | 159/303 [00:26<00:24,  5.95it/s]Testing:  53%|█████▎    | 160/303 [00:27<00:24,  5.95it/s]Testing:  53%|█████▎    | 161/303 [00:27<00:23,  5.96it/s]Testing:  53%|█████▎    | 162/303 [00:27<00:23,  5.95it/s]Testing:  54%|█████▍    | 163/303 [00:27<00:23,  5.96it/s]Testing:  54%|█████▍    | 164/303 [00:27<00:23,  5.94it/s]Testing:  54%|█████▍    | 165/303 [00:27<00:23,  5.94it/s]Testing:  55%|█████▍    | 166/303 [00:28<00:23,  5.95it/s]Testing:  55%|█████▌    | 167/303 [00:28<00:22,  5.94it/s]Testing:  55%|█████▌    | 168/303 [00:28<00:22,  5.99it/s]Testing:  56%|█████▌    | 169/303 [00:28<00:22,  5.99it/s]Testing:  56%|█████▌    | 170/303 [00:28<00:22,  5.96it/s]Testing:  56%|█████▋    | 171/303 [00:28<00:22,  5.98it/s]Testing:  57%|█████▋    | 172/303 [00:29<00:22,  5.94it/s]Testing:  57%|█████▋    | 173/303 [00:29<00:21,  5.95it/s]Testing:  57%|█████▋    | 174/303 [00:29<00:21,  5.93it/s]Testing:  58%|█████▊    | 175/303 [00:29<00:21,  5.93it/s]Testing:  58%|█████▊    | 176/303 [00:29<00:21,  5.94it/s]Testing:  58%|█████▊    | 177/303 [00:29<00:21,  5.93it/s]Testing:  59%|█████▊    | 178/303 [00:30<00:20,  5.99it/s]Testing:  59%|█████▉    | 179/303 [00:30<00:20,  5.99it/s]Testing:  59%|█████▉    | 180/303 [00:30<00:20,  5.97it/s]Testing:  60%|█████▉    | 181/303 [00:30<00:20,  6.01it/s]Testing:  60%|██████    | 182/303 [00:30<00:20,  5.98it/s]Testing:  60%|██████    | 183/303 [00:30<00:20,  5.96it/s]Testing:  61%|██████    | 184/303 [00:31<00:19,  5.97it/s]Testing:  61%|██████    | 185/303 [00:31<00:19,  5.95it/s]Testing:  61%|██████▏   | 186/303 [00:31<00:19,  6.00it/s]Testing:  62%|██████▏   | 187/303 [00:31<00:19,  6.00it/s]Testing:  62%|██████▏   | 188/303 [00:31<00:19,  5.97it/s]Testing:  62%|██████▏   | 189/303 [00:31<00:18,  6.02it/s]Testing:  63%|██████▎   | 190/303 [00:32<00:18,  6.02it/s]Testing:  63%|██████▎   | 191/303 [00:32<00:18,  5.98it/s]Testing:  63%|██████▎   | 192/303 [00:32<00:18,  5.99it/s]Testing:  64%|██████▎   | 193/303 [00:32<00:18,  5.98it/s]Testing:  64%|██████▍   | 194/303 [00:32<00:18,  5.97it/s]Testing:  64%|██████▍   | 195/303 [00:32<00:18,  5.98it/s]Testing:  65%|██████▍   | 196/303 [00:33<00:17,  5.95it/s]Testing:  65%|██████▌   | 197/303 [00:33<00:17,  5.96it/s]Testing:  65%|██████▌   | 198/303 [00:33<00:17,  5.96it/s]Testing:  66%|██████▌   | 199/303 [00:33<00:17,  5.95it/s]Testing:  66%|██████▌   | 200/303 [00:33<00:17,  5.97it/s]Testing:  66%|██████▋   | 201/303 [00:34<00:17,  5.95it/s]Testing:  67%|██████▋   | 202/303 [00:34<00:16,  5.96it/s]Testing:  67%|██████▋   | 203/303 [00:34<00:16,  5.96it/s]Testing:  67%|██████▋   | 204/303 [00:34<00:16,  5.94it/s]Testing:  68%|██████▊   | 205/303 [00:34<00:16,  5.96it/s]Testing:  68%|██████▊   | 206/303 [00:34<00:16,  5.94it/s]Testing:  68%|██████▊   | 207/303 [00:35<00:16,  5.95it/s]Testing:  69%|██████▊   | 208/303 [00:35<00:15,  5.95it/s]Testing:  69%|██████▉   | 209/303 [00:35<00:15,  5.94it/s]Testing:  69%|██████▉   | 210/303 [00:35<00:15,  5.96it/s]Testing:  70%|██████▉   | 211/303 [00:35<00:15,  5.94it/s]Testing:  70%|██████▉   | 212/303 [00:35<00:15,  5.95it/s]Testing:  70%|███████   | 213/303 [00:36<00:15,  5.94it/s]Testing:  71%|███████   | 214/303 [00:36<00:14,  5.95it/s]Testing:  71%|███████   | 215/303 [00:36<00:14,  5.96it/s]Testing:  71%|███████▏  | 216/303 [00:36<00:14,  5.95it/s]Testing:  72%|███████▏  | 217/303 [00:36<00:14,  5.97it/s]Testing:  72%|███████▏  | 218/303 [00:36<00:14,  5.95it/s]Testing:  72%|███████▏  | 219/303 [00:37<00:13,  6.02it/s]Testing:  73%|███████▎  | 220/303 [00:37<00:13,  6.01it/s]Testing:  73%|███████▎  | 221/303 [00:37<00:13,  6.00it/s]Testing:  73%|███████▎  | 222/303 [00:37<00:13,  5.98it/s]Testing:  74%|███████▎  | 223/303 [00:37<00:13,  5.99it/s]Testing:  74%|███████▍  | 224/303 [00:37<00:13,  6.03it/s]Testing:  74%|███████▍  | 225/303 [00:38<00:13,  5.99it/s]Testing:  75%|███████▍  | 226/303 [00:38<00:12,  5.99it/s]Testing:  75%|███████▍  | 227/303 [00:38<00:12,  5.97it/s]Testing:  75%|███████▌  | 228/303 [00:38<00:12,  5.95it/s]Testing:  76%|███████▌  | 229/303 [00:38<00:12,  6.01it/s]Testing:  76%|███████▌  | 230/303 [00:38<00:12,  5.98it/s]Testing:  76%|███████▌  | 231/303 [00:39<00:12,  5.97it/s]Testing:  77%|███████▋  | 232/303 [00:39<00:11,  5.97it/s]Testing:  77%|███████▋  | 233/303 [00:39<00:11,  5.93it/s]Testing:  77%|███████▋  | 234/303 [00:39<00:11,  5.99it/s]Testing:  78%|███████▊  | 235/303 [00:39<00:11,  5.97it/s]Testing:  78%|███████▊  | 236/303 [00:39<00:11,  5.95it/s]Testing:  78%|███████▊  | 237/303 [00:40<00:11,  5.95it/s]Testing:  79%|███████▊  | 238/303 [00:40<00:10,  5.93it/s]Testing:  79%|███████▉  | 239/303 [00:40<00:10,  5.99it/s]Testing:  79%|███████▉  | 240/303 [00:40<00:10,  5.99it/s]Testing:  80%|███████▉  | 241/303 [00:40<00:10,  5.96it/s]Testing:  80%|███████▉  | 242/303 [00:40<00:10,  5.98it/s]Testing:  80%|████████  | 243/303 [00:41<00:10,  5.96it/s]Testing:  81%|████████  | 244/303 [00:41<00:09,  5.97it/s]Testing:  81%|████████  | 245/303 [00:41<00:09,  5.96it/s]Testing:  81%|████████  | 246/303 [00:41<00:09,  5.96it/s]Testing:  82%|████████▏ | 247/303 [00:41<00:09,  5.99it/s]Testing:  82%|████████▏ | 248/303 [00:41<00:09,  5.97it/s]Testing:  82%|████████▏ | 249/303 [00:42<00:09,  5.97it/s]Testing:  83%|████████▎ | 250/303 [00:42<00:08,  5.98it/s]Testing:  83%|████████▎ | 251/303 [00:42<00:08,  5.96it/s]Testing:  83%|████████▎ | 252/303 [00:42<00:08,  5.97it/s]Testing:  83%|████████▎ | 253/303 [00:42<00:08,  5.96it/s]Testing:  84%|████████▍ | 254/303 [00:42<00:08,  5.96it/s]Testing:  84%|████████▍ | 255/303 [00:43<00:08,  5.99it/s]Testing:  84%|████████▍ | 256/303 [00:43<00:07,  5.97it/s]Testing:  85%|████████▍ | 257/303 [00:43<00:07,  5.97it/s]Testing:  85%|████████▌ | 258/303 [00:43<00:07,  5.99it/s]Testing:  85%|████████▌ | 259/303 [00:43<00:07,  5.94it/s]Testing:  86%|████████▌ | 260/303 [00:43<00:07,  5.96it/s]Testing:  86%|████████▌ | 261/303 [00:44<00:07,  5.94it/s]Testing:  86%|████████▋ | 262/303 [00:44<00:06,  5.95it/s]Testing:  87%|████████▋ | 263/303 [00:44<00:06,  5.96it/s]Testing:  87%|████████▋ | 264/303 [00:44<00:06,  5.93it/s]Testing:  87%|████████▋ | 265/303 [00:44<00:06,  5.96it/s]Testing:  88%|████████▊ | 266/303 [00:44<00:06,  5.93it/s]Testing:  88%|████████▊ | 267/303 [00:45<00:06,  5.96it/s]Testing:  88%|████████▊ | 268/303 [00:45<00:05,  5.97it/s]Testing:  89%|████████▉ | 269/303 [00:45<00:05,  5.93it/s]Testing:  89%|████████▉ | 270/303 [00:45<00:05,  5.95it/s]Testing:  89%|████████▉ | 271/303 [00:45<00:05,  5.94it/s]Testing:  90%|████████▉ | 272/303 [00:45<00:05,  5.96it/s]Testing:  90%|█████████ | 273/303 [00:46<00:05,  5.98it/s]Testing:  90%|█████████ | 274/303 [00:46<00:04,  5.94it/s]Testing:  91%|█████████ | 275/303 [00:46<00:04,  5.97it/s]Testing:  91%|█████████ | 276/303 [00:46<00:04,  5.95it/s]Testing:  91%|█████████▏| 277/303 [00:46<00:04,  5.97it/s]Testing:  92%|█████████▏| 278/303 [00:46<00:04,  5.98it/s]Testing:  92%|█████████▏| 279/303 [00:47<00:04,  5.96it/s]Testing:  92%|█████████▏| 280/303 [00:47<00:03,  5.97it/s]Testing:  93%|█████████▎| 281/303 [00:47<00:03,  5.96it/s]Testing:  93%|█████████▎| 282/303 [00:47<00:03,  5.95it/s]Testing:  93%|█████████▎| 283/303 [00:47<00:03,  5.95it/s]Testing:  94%|█████████▎| 284/303 [00:47<00:03,  5.94it/s]Testing:  94%|█████████▍| 285/303 [00:48<00:03,  5.96it/s]Testing:  94%|█████████▍| 286/303 [00:48<00:02,  5.95it/s]Testing:  95%|█████████▍| 287/303 [00:48<00:02,  5.95it/s]Testing:  95%|█████████▌| 288/303 [00:48<00:02,  5.92it/s]Testing:  95%|█████████▌| 289/303 [00:48<00:02,  5.93it/s]Testing:  96%|█████████▌| 290/303 [00:48<00:02,  5.96it/s]Testing:  96%|█████████▌| 291/303 [00:49<00:02,  5.94it/s]Testing:  96%|█████████▋| 292/303 [00:49<00:01,  5.97it/s]Testing:  97%|█████████▋| 293/303 [00:49<00:01,  5.97it/s]Testing:  97%|█████████▋| 294/303 [00:49<00:01,  5.95it/s]Testing:  97%|█████████▋| 295/303 [00:49<00:01,  5.97it/s]Testing:  98%|█████████▊| 296/303 [00:49<00:01,  5.97it/s]Testing:  98%|█████████▊| 297/303 [00:50<00:01,  5.96it/s]Testing:  98%|█████████▊| 298/303 [00:50<00:00,  5.96it/s]Testing:  99%|█████████▊| 299/303 [00:50<00:00,  5.95it/s]Testing:  99%|█████████▉| 300/303 [00:50<00:00,  5.98it/s]Testing:  99%|█████████▉| 301/303 [00:50<00:00,  5.99it/s]Testing: 100%|█████████▉| 302/303 [00:50<00:00,  5.99it/s]coords_out: (1536, 5)
+de_duplication
+Before De_Dup: 1536
+After De_Dup: 1339
+centroids (1339, 5)
+The predicted coordinates are saved in /home/brian_bosho/xulab/data/10004_subset/runs/DS_10004_subset_train/DS_10004_subset_train_ResUNet_BlockSize72_DiceLoss_MaxEpoch35_bs16_lr0.001_IP1_bg1_coord1_Softmax0_bn__TNNone/version_8/PredictedLabels
+
+pred_coords shape:, (1339, 4)
+pred shape:, (1536, 4)
+ Precision: 0.14911463185935556, Recall: 0.6722689072805593, F1-score: 0.24408845232077, Avg Distance: 4.4986062985167505
+Testing: 100%|██████████| 303/303 [00:51<00:00,  5.90it/s]GPU available: True, used: True
+TPU available: None, using: 0 TPU cores
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+--------------------------------------------------------------------------------
+DATALOADER:0 TEST RESULTS
+{}
+--------------------------------------------------------------------------------
+Save path is /home/brian_bosho/xulab/data/10004_subset/runs/DS_10004_subset_train/DS_10004_subset_train_ResUNet_BlockSize72_DiceLoss_MaxEpoch35_bs16_lr0.001_IP1_bg1_coord1_Softmax0_bn__TNNone/version_8/PredictedLabels
+The test index is 2
+Testing on 2
+num_name:      0                        1
+0    0    position_415_denoised
+1    1    position_403_denoised
+2    2    position_355_denoised
+3    3    position_399_denoised
+4    4    position_369_denoised
+5    5    position_487_denoised
+6    6    position_495_denoised
+7    7    position_494_denoised
+8    8   position_42_3_denoised
+9    9   position_44_2_denoised
+10  10  position_374_2_denoised
+11  11    position_458_denoised
+12  12  position_365_2_denoised
+13  13    position_491_denoised
+14  14    position_329_denoised
+15  15  position_493_2_denoised
+16  16     position_48_denoised
+17  17  position_381_3_denoised
+18  18    position_492_denoised
+19  19    position_493_denoised
+position_355_denoised
+(450, 1024, 1024)
+****************************************************************************************************
+num_name: /home/brian_bosho/xulab/data/10004_subset/coords/num_name.csv
+base_path:/home/brian_bosho/xulab/data/10004_subset
+coord_path:/home/brian_bosho/xulab/data/10004_subset/coords
+tomo_path:/home/brian_bosho/xulab/data/10004_subset/data_std
+label_path:/home/brian_bosho/xulab/data/10004_subset/gaussian25
+ocp_path:/home/brian_bosho/xulab/data/10004_subset/data_ocp
+label_name:gaussian25
+coord_format:.coords
+tomo_format:.mrc
+norm_type:standardization
+ocp_name:data_ocp
+****************************************************************************************************
+        0                        1   2
+0   237.0    position_329_denoised   0
+1   238.0    position_355_denoised   1
+2   321.0  position_365_2_denoised   2
+3   262.0    position_369_denoised   3
+4   279.0  position_374_2_denoised   4
+5   647.0  position_381_3_denoised   5
+6   145.0    position_399_denoised   6
+7   240.0    position_403_denoised   7
+8   193.0    position_415_denoised   8
+9     6.0   position_42_3_denoised   9
+10   59.0   position_44_2_denoised  10
+11  359.0    position_458_denoised  11
+12  206.0    position_487_denoised  12
+13   12.0     position_48_denoised  13
+14  217.0    position_491_denoised  14
+15  385.0    position_492_denoised  15
+16  258.0  position_493_2_denoised  16
+17   45.0    position_493_denoised  17
+18  146.0    position_494_denoised  18
+19  228.0    position_495_denoised  19
+data_range:[2]
+36 48
+Test dataset contains 4840 samples
+/home/brian_bosho/xulab/data/10004_subset/data_ocp/position_365_2_denoised.mrc
+Testing: 0it [00:00, ?it/s]Testing:   0%|          | 1/303 [00:00<03:49,  1.32it/s]Testing:   1%|          | 2/303 [00:00<02:02,  2.46it/s]Testing:   1%|          | 3/303 [00:01<01:29,  3.36it/s]Testing:   1%|▏         | 4/303 [00:01<01:13,  4.08it/s]Testing:   2%|▏         | 5/303 [00:01<01:05,  4.56it/s]Testing:   2%|▏         | 6/303 [00:01<00:59,  4.98it/s]Testing:   2%|▏         | 7/303 [00:01<00:55,  5.29it/s]Testing:   3%|▎         | 8/303 [00:01<00:53,  5.50it/s]Testing:   3%|▎         | 9/303 [00:02<00:52,  5.63it/s]Testing:   3%|▎         | 10/303 [00:02<00:50,  5.78it/s]Testing:   4%|▎         | 11/303 [00:02<00:50,  5.83it/s]Testing:   4%|▍         | 12/303 [00:02<00:49,  5.87it/s]Testing:   4%|▍         | 13/303 [00:02<00:49,  5.91it/s]Testing:   5%|▍         | 14/303 [00:02<00:49,  5.89it/s]Testing:   5%|▍         | 15/303 [00:03<00:48,  5.95it/s]Testing:   5%|▌         | 16/303 [00:03<00:48,  5.94it/s]Testing:   6%|▌         | 17/303 [00:03<00:48,  5.94it/s]Testing:   6%|▌         | 18/303 [00:03<00:47,  5.97it/s]Testing:   6%|▋         | 19/303 [00:03<00:47,  5.96it/s]Testing:   7%|▋         | 20/303 [00:03<00:47,  5.96it/s]Testing:   7%|▋         | 21/303 [00:04<00:47,  5.95it/s]Testing:   7%|▋         | 22/303 [00:04<00:47,  5.94it/s]Testing:   8%|▊         | 23/303 [00:04<00:46,  5.97it/s]Testing:   8%|▊         | 24/303 [00:04<00:46,  5.95it/s]Testing:   8%|▊         | 25/303 [00:04<00:46,  5.96it/s]Testing:   9%|▊         | 26/303 [00:04<00:46,  5.96it/s]Testing:   9%|▉         | 27/303 [00:05<00:46,  5.96it/s]Testing:   9%|▉         | 28/303 [00:05<00:46,  5.97it/s]Testing:  10%|▉         | 29/303 [00:05<00:46,  5.95it/s]Testing:  10%|▉         | 30/303 [00:05<00:45,  5.95it/s]Testing:  10%|█         | 31/303 [00:05<00:46,  5.91it/s]Testing:  11%|█         | 32/303 [00:05<00:45,  5.92it/s]Testing:  11%|█         | 33/303 [00:06<00:45,  5.93it/s]Testing:  11%|█         | 34/303 [00:06<00:45,  5.93it/s]Testing:  12%|█▏        | 35/303 [00:06<00:44,  5.96it/s]Testing:  12%|█▏        | 36/303 [00:06<00:44,  5.95it/s]Testing:  12%|█▏        | 37/303 [00:06<00:44,  5.95it/s]Testing:  13%|█▎        | 38/303 [00:06<00:44,  5.96it/s]Testing:  13%|█▎        | 39/303 [00:07<00:44,  5.94it/s]Testing:  13%|█▎        | 40/303 [00:07<00:44,  5.96it/s]Testing:  14%|█▎        | 41/303 [00:07<00:44,  5.94it/s]Testing:  14%|█▍        | 42/303 [00:07<00:43,  5.95it/s]Testing:  14%|█▍        | 43/303 [00:07<00:43,  5.97it/s]Testing:  15%|█▍        | 44/303 [00:07<00:43,  5.95it/s]Testing:  15%|█▍        | 45/303 [00:08<00:43,  5.98it/s]Testing:  15%|█▌        | 46/303 [00:08<00:42,  5.99it/s]Testing:  16%|█▌        | 47/303 [00:08<00:42,  5.96it/s]Testing:  16%|█▌        | 48/303 [00:08<00:42,  5.98it/s]Testing:  16%|█▌        | 49/303 [00:08<00:42,  5.97it/s]Testing:  17%|█▋        | 50/303 [00:08<00:42,  5.96it/s]Testing:  17%|█▋        | 51/303 [00:09<00:42,  5.97it/s]Testing:  17%|█▋        | 52/303 [00:09<00:42,  5.93it/s]Testing:  17%|█▋        | 53/303 [00:09<00:41,  5.96it/s]Testing:  18%|█▊        | 54/303 [00:09<00:41,  5.95it/s]Testing:  18%|█▊        | 55/303 [00:09<00:41,  5.96it/s]Testing:  18%|█▊        | 56/303 [00:09<00:41,  5.98it/s]Testing:  19%|█▉        | 57/303 [00:10<00:41,  5.96it/s]Testing:  19%|█▉        | 58/303 [00:10<00:41,  5.97it/s]Testing:  19%|█▉        | 59/303 [00:10<00:40,  5.96it/s]Testing:  20%|█▉        | 60/303 [00:10<00:40,  5.94it/s]Testing:  20%|██        | 61/303 [00:10<00:40,  5.91it/s]Testing:  20%|██        | 62/303 [00:10<00:40,  5.91it/s]Testing:  21%|██        | 63/303 [00:11<00:40,  5.94it/s]Testing:  21%|██        | 64/303 [00:11<00:40,  5.93it/s]Testing:  21%|██▏       | 65/303 [00:11<00:39,  5.95it/s]Testing:  22%|██▏       | 66/303 [00:11<00:39,  5.94it/s]Testing:  22%|██▏       | 67/303 [00:11<00:39,  5.94it/s]Testing:  22%|██▏       | 68/303 [00:11<00:39,  5.91it/s]Testing:  23%|██▎       | 69/303 [00:12<00:39,  5.92it/s]Testing:  23%|██▎       | 70/303 [00:12<00:39,  5.90it/s]Testing:  23%|██▎       | 71/303 [00:12<00:39,  5.91it/s]Testing:  24%|██▍       | 72/303 [00:12<00:38,  5.93it/s]Testing:  24%|██▍       | 73/303 [00:12<00:38,  5.92it/s]Testing:  24%|██▍       | 74/303 [00:13<00:38,  5.95it/s]Testing:  25%|██▍       | 75/303 [00:13<00:38,  5.92it/s]Testing:  25%|██▌       | 76/303 [00:13<00:38,  5.93it/s]Testing:  25%|██▌       | 77/303 [00:13<00:37,  5.99it/s]Testing:  26%|██▌       | 78/303 [00:13<00:37,  5.95it/s]Testing:  26%|██▌       | 79/303 [00:13<00:37,  5.95it/s]Testing:  26%|██▋       | 80/303 [00:14<00:37,  5.92it/s]Testing:  27%|██▋       | 81/303 [00:14<00:37,  5.93it/s]Testing:  27%|██▋       | 82/303 [00:14<00:36,  5.99it/s]Testing:  27%|██▋       | 83/303 [00:14<00:36,  5.96it/s]Testing:  28%|██▊       | 84/303 [00:14<00:36,  5.96it/s]Testing:  28%|██▊       | 85/303 [00:14<00:36,  5.94it/s]Testing:  28%|██▊       | 86/303 [00:15<00:36,  5.94it/s]Testing:  29%|██▊       | 87/303 [00:15<00:36,  5.99it/s]Testing:  29%|██▉       | 88/303 [00:15<00:36,  5.96it/s]Testing:  29%|██▉       | 89/303 [00:15<00:35,  5.97it/s]Testing:  30%|██▉       | 90/303 [00:15<00:35,  5.95it/s]Testing:  30%|███       | 91/303 [00:15<00:35,  5.94it/s]Testing:  30%|███       | 92/303 [00:16<00:35,  6.00it/s]Testing:  31%|███       | 93/303 [00:16<00:35,  5.95it/s]Testing:  31%|███       | 94/303 [00:16<00:35,  5.95it/s]Testing:  31%|███▏      | 95/303 [00:16<00:35,  5.93it/s]Testing:  32%|███▏      | 96/303 [00:16<00:34,  5.93it/s]Testing:  32%|███▏      | 97/303 [00:16<00:34,  5.99it/s]Testing:  32%|███▏      | 98/303 [00:17<00:34,  5.95it/s]Testing:  33%|███▎      | 99/303 [00:17<00:34,  5.96it/s]Testing:  33%|███▎      | 100/303 [00:17<00:34,  5.93it/s]Testing:  33%|███▎      | 101/303 [00:17<00:34,  5.93it/s]Testing:  34%|███▎      | 102/303 [00:17<00:33,  5.98it/s]Testing:  34%|███▍      | 103/303 [00:17<00:33,  5.95it/s]Testing:  34%|███▍      | 104/303 [00:18<00:33,  5.96it/s]Testing:  35%|███▍      | 105/303 [00:18<00:33,  5.92it/s]Testing:  35%|███▍      | 106/303 [00:18<00:33,  5.93it/s]Testing:  35%|███▌      | 107/303 [00:18<00:32,  5.99it/s]Testing:  36%|███▌      | 108/303 [00:18<00:32,  5.96it/s]Testing:  36%|███▌      | 109/303 [00:18<00:32,  5.97it/s]Testing:  36%|███▋      | 110/303 [00:19<00:32,  5.93it/s]Testing:  37%|███▋      | 111/303 [00:19<00:32,  5.93it/s]Testing:  37%|███▋      | 112/303 [00:19<00:32,  5.91it/s]Testing:  37%|███▋      | 113/303 [00:19<00:32,  5.91it/s]Testing:  38%|███▊      | 114/303 [00:19<00:32,  5.89it/s]Testing:  38%|███▊      | 115/303 [00:19<00:31,  5.91it/s]Testing:  38%|███▊      | 116/303 [00:20<00:31,  5.91it/s]Testing:  39%|███▊      | 117/303 [00:20<00:31,  5.91it/s]Testing:  39%|███▉      | 118/303 [00:20<00:31,  5.92it/s]Testing:  39%|███▉      | 119/303 [00:20<00:31,  5.89it/s]Testing:  40%|███▉      | 120/303 [00:20<00:31,  5.85it/s]Testing:  40%|███▉      | 121/303 [00:20<00:30,  5.87it/s]Testing:  40%|████      | 122/303 [00:21<00:30,  5.87it/s]Testing:  41%|████      | 123/303 [00:21<00:30,  5.89it/s]Testing:  41%|████      | 124/303 [00:21<00:30,  5.89it/s]Testing:  41%|████▏     | 125/303 [00:21<00:30,  5.90it/s]Testing:  42%|████▏     | 126/303 [00:21<00:29,  5.97it/s]Testing:  42%|████▏     | 127/303 [00:21<00:29,  5.93it/s]Testing:  42%|████▏     | 128/303 [00:22<00:29,  5.94it/s]Testing:  43%|████▎     | 129/303 [00:22<00:29,  5.91it/s]Testing:  43%|████▎     | 130/303 [00:22<00:29,  5.92it/s]Testing:  43%|████▎     | 131/303 [00:22<00:28,  5.98it/s]Testing:  44%|████▎     | 132/303 [00:22<00:28,  5.95it/s]Testing:  44%|████▍     | 133/303 [00:22<00:28,  5.95it/s]Testing:  44%|████▍     | 134/303 [00:23<00:28,  5.92it/s]Testing:  45%|████▍     | 135/303 [00:23<00:28,  5.93it/s]Testing:  45%|████▍     | 136/303 [00:23<00:27,  5.99it/s]Testing:  45%|████▌     | 137/303 [00:23<00:27,  5.95it/s]Testing:  46%|████▌     | 138/303 [00:23<00:27,  5.96it/s]Testing:  46%|████▌     | 139/303 [00:23<00:27,  5.93it/s]Testing:  46%|████▌     | 140/303 [00:24<00:27,  5.93it/s]Testing:  47%|████▋     | 141/303 [00:24<00:27,  5.99it/s]Testing:  47%|████▋     | 142/303 [00:24<00:27,  5.95it/s]Testing:  47%|████▋     | 143/303 [00:24<00:26,  5.95it/s]Testing:  48%|████▊     | 144/303 [00:24<00:26,  5.92it/s]Testing:  48%|████▊     | 145/303 [00:24<00:26,  5.94it/s]Testing:  48%|████▊     | 146/303 [00:25<00:26,  5.99it/s]Testing:  49%|████▊     | 147/303 [00:25<00:26,  5.96it/s]Testing:  49%|████▉     | 148/303 [00:25<00:25,  5.97it/s]Testing:  49%|████▉     | 149/303 [00:25<00:25,  5.93it/s]Testing:  50%|████▉     | 150/303 [00:25<00:25,  5.93it/s]Testing:  50%|████▉     | 151/303 [00:25<00:25,  5.98it/s]Testing:  50%|█████     | 152/303 [00:26<00:25,  5.95it/s]Testing:  50%|█████     | 153/303 [00:26<00:25,  5.96it/s]Testing:  51%|█████     | 154/303 [00:26<00:25,  5.93it/s]Testing:  51%|█████     | 155/303 [00:26<00:24,  5.93it/s]Testing:  51%|█████▏    | 156/303 [00:26<00:24,  5.99it/s]Testing:  52%|█████▏    | 157/303 [00:26<00:24,  5.95it/s]Testing:  52%|█████▏    | 158/303 [00:27<00:24,  5.95it/s]Testing:  52%|█████▏    | 159/303 [00:27<00:24,  5.92it/s]Testing:  53%|█████▎    | 160/303 [00:27<00:24,  5.94it/s]Testing:  53%|█████▎    | 161/303 [00:27<00:23,  6.00it/s]Testing:  53%|█████▎    | 162/303 [00:27<00:23,  5.96it/s]Testing:  54%|█████▍    | 163/303 [00:27<00:23,  5.96it/s]Testing:  54%|█████▍    | 164/303 [00:28<00:23,  5.92it/s]Testing:  54%|█████▍    | 165/303 [00:28<00:23,  5.94it/s]Testing:  55%|█████▍    | 166/303 [00:28<00:22,  5.99it/s]Testing:  55%|█████▌    | 167/303 [00:28<00:22,  5.95it/s]Testing:  55%|█████▌    | 168/303 [00:28<00:22,  5.95it/s]Testing:  56%|█████▌    | 169/303 [00:28<00:22,  5.93it/s]Testing:  56%|█████▌    | 170/303 [00:29<00:22,  5.95it/s]Testing:  56%|█████▋    | 171/303 [00:29<00:22,  6.00it/s]Testing:  57%|█████▋    | 172/303 [00:29<00:21,  5.96it/s]Testing:  57%|█████▋    | 173/303 [00:29<00:21,  5.96it/s]Testing:  57%|█████▋    | 174/303 [00:29<00:21,  5.92it/s]Testing:  58%|█████▊    | 175/303 [00:30<00:21,  5.93it/s]Testing:  58%|█████▊    | 176/303 [00:30<00:21,  5.99it/s]Testing:  58%|█████▊    | 177/303 [00:30<00:21,  5.96it/s]Testing:  59%|█████▊    | 178/303 [00:30<00:21,  5.93it/s]Testing:  59%|█████▉    | 179/303 [00:30<00:20,  5.91it/s]Testing:  59%|█████▉    | 180/303 [00:30<00:20,  5.93it/s]Testing:  60%|█████▉    | 181/303 [00:31<00:20,  5.91it/s]Testing:  60%|██████    | 182/303 [00:31<00:20,  5.93it/s]Testing:  60%|██████    | 183/303 [00:31<00:20,  5.89it/s]Testing:  61%|██████    | 184/303 [00:31<00:20,  5.91it/s]Testing:  61%|██████    | 185/303 [00:31<00:20,  5.89it/s]Testing:  61%|██████▏   | 186/303 [00:31<00:19,  5.91it/s]Testing:  62%|██████▏   | 187/303 [00:32<00:19,  5.90it/s]Testing:  62%|██████▏   | 188/303 [00:32<00:19,  5.90it/s]Testing:  62%|██████▏   | 189/303 [00:32<00:19,  5.89it/s]Testing:  63%|██████▎   | 190/303 [00:32<00:19,  5.90it/s]Testing:  63%|██████▎   | 191/303 [00:32<00:19,  5.89it/s]Testing:  63%|██████▎   | 192/303 [00:32<00:18,  5.90it/s]Testing:  64%|██████▎   | 193/303 [00:33<00:18,  5.87it/s]Testing:  64%|██████▍   | 194/303 [00:33<00:18,  5.89it/s]Testing:  64%|██████▍   | 195/303 [00:33<00:18,  5.96it/s]Testing:  65%|██████▍   | 196/303 [00:33<00:18,  5.93it/s]Testing:  65%|██████▌   | 197/303 [00:33<00:17,  5.94it/s]Testing:  65%|██████▌   | 198/303 [00:33<00:17,  5.92it/s]Testing:  66%|██████▌   | 199/303 [00:34<00:17,  5.93it/s]Testing:  66%|██████▌   | 200/303 [00:34<00:17,  5.99it/s]Testing:  66%|██████▋   | 201/303 [00:34<00:17,  5.94it/s]Testing:  67%|██████▋   | 202/303 [00:34<00:16,  5.95it/s]Testing:  67%|██████▋   | 203/303 [00:34<00:16,  5.92it/s]Testing:  67%|██████▋   | 204/303 [00:34<00:16,  5.93it/s]Testing:  68%|██████▊   | 205/303 [00:35<00:16,  5.98it/s]Testing:  68%|██████▊   | 206/303 [00:35<00:16,  5.96it/s]Testing:  68%|██████▊   | 207/303 [00:35<00:16,  5.92it/s]Testing:  69%|██████▊   | 208/303 [00:35<00:16,  5.91it/s]Testing:  69%|██████▉   | 209/303 [00:35<00:15,  5.91it/s]Testing:  69%|██████▉   | 210/303 [00:35<00:15,  5.90it/s]Testing:  70%|██████▉   | 211/303 [00:36<00:15,  5.92it/s]Testing:  70%|██████▉   | 212/303 [00:36<00:15,  5.90it/s]Testing:  70%|███████   | 213/303 [00:36<00:15,  5.93it/s]Testing:  71%|███████   | 214/303 [00:36<00:15,  5.91it/s]Testing:  71%|███████   | 215/303 [00:36<00:14,  5.92it/s]Testing:  71%|███████▏  | 216/303 [00:36<00:14,  5.90it/s]Testing:  72%|███████▏  | 217/303 [00:37<00:14,  5.92it/s]Testing:  72%|███████▏  | 218/303 [00:37<00:14,  5.92it/s]Testing:  72%|███████▏  | 219/303 [00:37<00:14,  5.89it/s]Testing:  73%|███████▎  | 220/303 [00:37<00:14,  5.88it/s]Testing:  73%|███████▎  | 221/303 [00:37<00:13,  5.89it/s]Testing:  73%|███████▎  | 222/303 [00:37<00:13,  5.87it/s]Testing:  74%|███████▎  | 223/303 [00:38<00:13,  5.89it/s]Testing:  74%|███████▍  | 224/303 [00:38<00:13,  5.95it/s]Testing:  74%|███████▍  | 225/303 [00:38<00:13,  5.92it/s]Testing:  75%|███████▍  | 226/303 [00:38<00:12,  5.94it/s]Testing:  75%|███████▍  | 227/303 [00:38<00:12,  5.92it/s]Testing:  75%|███████▌  | 228/303 [00:38<00:12,  5.92it/s]Testing:  76%|███████▌  | 229/303 [00:39<00:12,  5.98it/s]Testing:  76%|███████▌  | 230/303 [00:39<00:12,  5.95it/s]Testing:  76%|███████▌  | 231/303 [00:39<00:12,  5.95it/s]Testing:  77%|███████▋  | 232/303 [00:39<00:12,  5.91it/s]Testing:  77%|███████▋  | 233/303 [00:39<00:11,  5.93it/s]Testing:  77%|███████▋  | 234/303 [00:39<00:11,  5.98it/s]Testing:  78%|███████▊  | 235/303 [00:40<00:11,  5.95it/s]Testing:  78%|███████▊  | 236/303 [00:40<00:11,  5.95it/s]Testing:  78%|███████▊  | 237/303 [00:40<00:11,  5.92it/s]Testing:  79%|███████▊  | 238/303 [00:40<00:10,  5.94it/s]Testing:  79%|███████▉  | 239/303 [00:40<00:10,  6.00it/s]Testing:  79%|███████▉  | 240/303 [00:40<00:10,  5.96it/s]Testing:  80%|███████▉  | 241/303 [00:41<00:10,  5.95it/s]Testing:  80%|███████▉  | 242/303 [00:41<00:10,  5.93it/s]Testing:  80%|████████  | 243/303 [00:41<00:10,  5.94it/s]Testing:  81%|████████  | 244/303 [00:41<00:09,  6.00it/s]Testing:  81%|████████  | 245/303 [00:41<00:09,  5.97it/s]Testing:  81%|████████  | 246/303 [00:41<00:09,  5.98it/s]Testing:  82%|████████▏ | 247/303 [00:42<00:09,  5.94it/s]Testing:  82%|████████▏ | 248/303 [00:42<00:09,  5.95it/s]Testing:  82%|████████▏ | 249/303 [00:42<00:09,  6.00it/s]Testing:  83%|████████▎ | 250/303 [00:42<00:08,  5.95it/s]Testing:  83%|████████▎ | 251/303 [00:42<00:08,  5.96it/s]Testing:  83%|████████▎ | 252/303 [00:42<00:08,  5.92it/s]Testing:  83%|████████▎ | 253/303 [00:43<00:08,  5.94it/s]Testing:  84%|████████▍ | 254/303 [00:43<00:08,  5.99it/s]Testing:  84%|████████▍ | 255/303 [00:43<00:08,  5.95it/s]Testing:  84%|████████▍ | 256/303 [00:43<00:07,  5.96it/s]Testing:  85%|████████▍ | 257/303 [00:43<00:07,  5.92it/s]Testing:  85%|████████▌ | 258/303 [00:44<00:07,  5.94it/s]Testing:  85%|████████▌ | 259/303 [00:44<00:07,  5.99it/s]Testing:  86%|████████▌ | 260/303 [00:44<00:07,  5.96it/s]Testing:  86%|████████▌ | 261/303 [00:44<00:07,  5.93it/s]Testing:  86%|████████▋ | 262/303 [00:44<00:06,  5.91it/s]Testing:  87%|████████▋ | 263/303 [00:44<00:06,  5.93it/s]Testing:  87%|████████▋ | 264/303 [00:45<00:06,  5.91it/s]Testing:  87%|████████▋ | 265/303 [00:45<00:06,  5.92it/s]Testing:  88%|████████▊ | 266/303 [00:45<00:06,  5.90it/s]Testing:  88%|████████▊ | 267/303 [00:45<00:06,  5.91it/s]Testing:  88%|████████▊ | 268/303 [00:45<00:05,  5.90it/s]Testing:  89%|████████▉ | 269/303 [00:45<00:05,  5.91it/s]Testing:  89%|████████▉ | 270/303 [00:46<00:05,  5.90it/s]Testing:  89%|████████▉ | 271/303 [00:46<00:05,  5.92it/s]Testing:  90%|████████▉ | 272/303 [00:46<00:05,  5.92it/s]Testing:  90%|█████████ | 273/303 [00:46<00:05,  5.90it/s]Testing:  90%|█████████ | 274/303 [00:46<00:04,  5.91it/s]Testing:  91%|█████████ | 275/303 [00:46<00:04,  5.90it/s]Testing:  91%|█████████ | 276/303 [00:47<00:04,  5.93it/s]Testing:  91%|█████████▏| 277/303 [00:47<00:04,  5.91it/s]Testing:  92%|█████████▏| 278/303 [00:47<00:04,  5.93it/s]Testing:  92%|█████████▏| 279/303 [00:47<00:04,  5.92it/s]Testing:  92%|█████████▏| 280/303 [00:47<00:03,  5.93it/s]Testing:  93%|█████████▎| 281/303 [00:47<00:03,  5.93it/s]Testing:  93%|█████████▎| 282/303 [00:48<00:03,  5.92it/s]Testing:  93%|█████████▎| 283/303 [00:48<00:03,  5.98it/s]Testing:  94%|█████████▎| 284/303 [00:48<00:03,  5.97it/s]Testing:  94%|█████████▍| 285/303 [00:48<00:03,  5.95it/s]Testing:  94%|█████████▍| 286/303 [00:48<00:02,  5.95it/s]Testing:  95%|█████████▍| 287/303 [00:48<00:02,  5.93it/s]Testing:  95%|█████████▌| 288/303 [00:49<00:02,  5.95it/s]Testing:  95%|█████████▌| 289/303 [00:49<00:02,  5.93it/s]Testing:  96%|█████████▌| 290/303 [00:49<00:02,  5.94it/s]Testing:  96%|█████████▌| 291/303 [00:49<00:02,  5.93it/s]Testing:  96%|█████████▋| 292/303 [00:49<00:01,  5.93it/s]Testing:  97%|█████████▋| 293/303 [00:49<00:01,  5.99it/s]Testing:  97%|█████████▋| 294/303 [00:50<00:01,  5.95it/s]Testing:  97%|█████████▋| 295/303 [00:50<00:01,  5.95it/s]Testing:  98%|█████████▊| 296/303 [00:50<00:01,  5.94it/s]Testing:  98%|█████████▊| 297/303 [00:50<00:01,  5.94it/s]Testing:  98%|█████████▊| 298/303 [00:50<00:00,  6.01it/s]Testing:  99%|█████████▊| 299/303 [00:50<00:00,  6.02it/s]Testing:  99%|█████████▉| 300/303 [00:51<00:00,  5.99it/s]Testing:  99%|█████████▉| 301/303 [00:51<00:00,  6.00it/s]Testing: 100%|█████████▉| 302/303 [00:51<00:00,  5.98it/s]coords_out: (1370, 5)
+de_duplication
+Before De_Dup: 1370
+After De_Dup: 1186
+centroids (1186, 5)
+The predicted coordinates are saved in /home/brian_bosho/xulab/data/10004_subset/runs/DS_10004_subset_train/DS_10004_subset_train_ResUNet_BlockSize72_DiceLoss_MaxEpoch35_bs16_lr0.001_IP1_bg1_coord1_Softmax0_bn__TNNone/version_8/PredictedLabels
+
+pred_coords shape:, (1186, 4)
+pred shape:, (1370, 4)
+Error: 'NoneType' object is not subscriptable
+Testing: 100%|██████████| 303/303 [00:51<00:00,  5.84it/s]GPU available: True, used: True
+TPU available: None, using: 0 TPU cores
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+--------------------------------------------------------------------------------
+DATALOADER:0 TEST RESULTS
+{}
+--------------------------------------------------------------------------------
+Save path is /home/brian_bosho/xulab/data/10004_subset/runs/DS_10004_subset_train/DS_10004_subset_train_ResUNet_BlockSize72_DiceLoss_MaxEpoch35_bs16_lr0.001_IP1_bg1_coord1_Softmax0_bn__TNNone/version_8/PredictedLabels
+The test index is 3
+Testing on 3
+num_name:      0                        1
+0    0    position_415_denoised
+1    1    position_403_denoised
+2    2    position_355_denoised
+3    3    position_399_denoised
+4    4    position_369_denoised
+5    5    position_487_denoised
+6    6    position_495_denoised
+7    7    position_494_denoised
+8    8   position_42_3_denoised
+9    9   position_44_2_denoised
+10  10  position_374_2_denoised
+11  11    position_458_denoised
+12  12  position_365_2_denoised
+13  13    position_491_denoised
+14  14    position_329_denoised
+15  15  position_493_2_denoised
+16  16     position_48_denoised
+17  17  position_381_3_denoised
+18  18    position_492_denoised
+19  19    position_493_denoised
+position_399_denoised
+(450, 1024, 1024)
+****************************************************************************************************
+num_name: /home/brian_bosho/xulab/data/10004_subset/coords/num_name.csv
+base_path:/home/brian_bosho/xulab/data/10004_subset
+coord_path:/home/brian_bosho/xulab/data/10004_subset/coords
+tomo_path:/home/brian_bosho/xulab/data/10004_subset/data_std
+label_path:/home/brian_bosho/xulab/data/10004_subset/gaussian25
+ocp_path:/home/brian_bosho/xulab/data/10004_subset/data_ocp
+label_name:gaussian25
+coord_format:.coords
+tomo_format:.mrc
+norm_type:standardization
+ocp_name:data_ocp
+****************************************************************************************************
+        0                        1   2
+0   237.0    position_329_denoised   0
+1   238.0    position_355_denoised   1
+2   321.0  position_365_2_denoised   2
+3   262.0    position_369_denoised   3
+4   279.0  position_374_2_denoised   4
+5   647.0  position_381_3_denoised   5
+6   145.0    position_399_denoised   6
+7   240.0    position_403_denoised   7
+8   193.0    position_415_denoised   8
+9     6.0   position_42_3_denoised   9
+10   59.0   position_44_2_denoised  10
+11  359.0    position_458_denoised  11
+12  206.0    position_487_denoised  12
+13   12.0     position_48_denoised  13
+14  217.0    position_491_denoised  14
+15  385.0    position_492_denoised  15
+16  258.0  position_493_2_denoised  16
+17   45.0    position_493_denoised  17
+18  146.0    position_494_denoised  18
+19  228.0    position_495_denoised  19
+data_range:[3]
+36 48
+Test dataset contains 4840 samples
+/home/brian_bosho/xulab/data/10004_subset/data_ocp/position_369_denoised.mrc
+Testing: 0it [00:00, ?it/s]Testing:   0%|          | 1/303 [00:00<02:35,  1.94it/s]Testing:   1%|          | 2/303 [00:00<01:33,  3.21it/s]Testing:   1%|          | 3/303 [00:00<01:14,  4.05it/s]Testing:   1%|▏         | 4/303 [00:01<01:03,  4.69it/s]Testing:   2%|▏         | 5/303 [00:01<00:59,  5.01it/s]Testing:   2%|▏         | 6/303 [00:01<00:56,  5.29it/s]Testing:   2%|▏         | 7/303 [00:01<00:53,  5.48it/s]Testing:   3%|▎         | 8/303 [00:01<00:52,  5.62it/s]Testing:   3%|▎         | 9/303 [00:01<00:51,  5.72it/s]Testing:   3%|▎         | 10/303 [00:02<00:50,  5.76it/s]Testing:   4%|▎         | 11/303 [00:02<00:50,  5.83it/s]Testing:   4%|▍         | 12/303 [00:02<00:49,  5.83it/s]Testing:   4%|▍         | 13/303 [00:02<00:49,  5.87it/s]Testing:   5%|▍         | 14/303 [00:02<00:49,  5.85it/s]Testing:   5%|▍         | 15/303 [00:02<00:48,  5.89it/s]Testing:   5%|▌         | 16/303 [00:03<00:48,  5.96it/s]Testing:   6%|▌         | 17/303 [00:03<00:48,  5.93it/s]Testing:   6%|▌         | 18/303 [00:03<00:47,  5.95it/s]Testing:   6%|▋         | 19/303 [00:03<00:48,  5.91it/s]Testing:   7%|▋         | 20/303 [00:03<00:47,  5.93it/s]Testing:   7%|▋         | 21/303 [00:03<00:47,  5.98it/s]Testing:   7%|▋         | 22/303 [00:04<00:47,  5.95it/s]Testing:   8%|▊         | 23/303 [00:04<00:47,  5.93it/s]Testing:   8%|▊         | 24/303 [00:04<00:47,  5.91it/s]Testing:   8%|▊         | 25/303 [00:04<00:46,  5.92it/s]Testing:   9%|▊         | 26/303 [00:04<00:46,  5.98it/s]Testing:   9%|▉         | 27/303 [00:04<00:46,  5.96it/s]Testing:   9%|▉         | 28/303 [00:05<00:46,  5.95it/s]Testing:  10%|▉         | 29/303 [00:05<00:46,  5.92it/s]Testing:  10%|▉         | 30/303 [00:05<00:46,  5.93it/s]Testing:  10%|█         | 31/303 [00:05<00:46,  5.90it/s]Testing:  11%|█         | 32/303 [00:05<00:45,  5.91it/s]Testing:  11%|█         | 33/303 [00:05<00:46,  5.86it/s]Testing:  11%|█         | 34/303 [00:06<00:46,  5.82it/s]Testing:  12%|█▏        | 35/303 [00:06<00:45,  5.85it/s]Testing:  12%|█▏        | 36/303 [00:06<00:45,  5.83it/s]Testing:  12%|█▏        | 37/303 [00:06<00:45,  5.87it/s]Testing:  13%|█▎        | 38/303 [00:06<00:45,  5.84it/s]Testing:  13%|█▎        | 39/303 [00:06<00:44,  5.87it/s]Testing:  13%|█▎        | 40/303 [00:07<00:44,  5.93it/s]Testing:  14%|█▎        | 41/303 [00:07<00:44,  5.91it/s]Testing:  14%|█▍        | 42/303 [00:07<00:44,  5.88it/s]Testing:  14%|█▍        | 43/303 [00:07<00:44,  5.88it/s]Testing:  15%|█▍        | 44/303 [00:07<00:44,  5.85it/s]Testing:  15%|█▍        | 45/303 [00:07<00:43,  5.88it/s]Testing:  15%|█▌        | 46/303 [00:08<00:43,  5.86it/s]Testing:  16%|█▌        | 47/303 [00:08<00:43,  5.91it/s]Testing:  16%|█▌        | 48/303 [00:08<00:43,  5.87it/s]Testing:  16%|█▌        | 49/303 [00:08<00:43,  5.89it/s]Testing:  17%|█▋        | 50/303 [00:08<00:43,  5.87it/s]Testing:  17%|█▋        | 51/303 [00:08<00:42,  5.88it/s]Testing:  17%|█▋        | 52/303 [00:09<00:42,  5.87it/s]Testing:  17%|█▋        | 53/303 [00:09<00:42,  5.90it/s]Testing:  18%|█▊        | 54/303 [00:09<00:41,  5.95it/s]Testing:  18%|█▊        | 55/303 [00:09<00:41,  5.92it/s]Testing:  18%|█▊        | 56/303 [00:09<00:41,  5.88it/s]Testing:  19%|█▉        | 57/303 [00:09<00:41,  5.89it/s]Testing:  19%|█▉        | 58/303 [00:10<00:41,  5.86it/s]Testing:  19%|█▉        | 59/303 [00:10<00:41,  5.88it/s]Testing:  20%|█▉        | 60/303 [00:10<00:41,  5.86it/s]Testing:  20%|██        | 61/303 [00:10<00:41,  5.89it/s]Testing:  20%|██        | 62/303 [00:10<00:41,  5.85it/s]Testing:  21%|██        | 63/303 [00:11<00:40,  5.90it/s]Testing:  21%|██        | 64/303 [00:11<00:40,  5.87it/s]Testing:  21%|██▏       | 65/303 [00:11<00:40,  5.88it/s]Testing:  22%|██▏       | 66/303 [00:11<00:40,  5.85it/s]Testing:  22%|██▏       | 67/303 [00:11<00:40,  5.87it/s]Testing:  22%|██▏       | 68/303 [00:11<00:40,  5.85it/s]Testing:  23%|██▎       | 69/303 [00:12<00:40,  5.85it/s]Testing:  23%|██▎       | 70/303 [00:12<00:39,  5.90it/s]Testing:  23%|██▎       | 71/303 [00:12<00:39,  5.87it/s]Testing:  24%|██▍       | 72/303 [00:12<00:39,  5.85it/s]Testing:  24%|██▍       | 73/303 [00:12<00:39,  5.85it/s]Testing:  24%|██▍       | 74/303 [00:12<00:39,  5.86it/s]Testing:  25%|██▍       | 75/303 [00:13<00:39,  5.84it/s]Testing:  25%|██▌       | 76/303 [00:13<00:38,  5.86it/s]Testing:  25%|██▌       | 77/303 [00:13<00:38,  5.92it/s]Testing:  26%|██▌       | 78/303 [00:13<00:38,  5.89it/s]Testing:  26%|██▌       | 79/303 [00:13<00:38,  5.84it/s]Testing:  26%|██▋       | 80/303 [00:13<00:37,  5.87it/s]Testing:  27%|██▋       | 81/303 [00:14<00:37,  5.84it/s]Testing:  27%|██▋       | 82/303 [00:14<00:37,  5.87it/s]Testing:  27%|██▋       | 83/303 [00:14<00:37,  5.86it/s]Testing:  28%|██▊       | 84/303 [00:14<00:37,  5.91it/s]Testing:  28%|██▊       | 85/303 [00:14<00:37,  5.86it/s]Testing:  28%|██▊       | 86/303 [00:14<00:36,  5.89it/s]Testing:  29%|██▊       | 87/303 [00:15<00:36,  5.87it/s]Testing:  29%|██▉       | 88/303 [00:15<00:36,  5.89it/s]Testing:  29%|██▉       | 89/303 [00:15<00:36,  5.87it/s]Testing:  30%|██▉       | 90/303 [00:15<00:36,  5.89it/s]Testing:  30%|███       | 91/303 [00:15<00:35,  5.95it/s]Testing:  30%|███       | 92/303 [00:15<00:35,  5.92it/s]Testing:  31%|███       | 93/303 [00:16<00:35,  5.86it/s]Testing:  31%|███       | 94/303 [00:16<00:35,  5.86it/s]Testing:  31%|███▏      | 95/303 [00:16<00:35,  5.84it/s]Testing:  32%|███▏      | 96/303 [00:16<00:35,  5.85it/s]Testing:  32%|███▏      | 97/303 [00:16<00:35,  5.84it/s]Testing:  32%|███▏      | 98/303 [00:16<00:35,  5.84it/s]Testing:  33%|███▎      | 99/303 [00:17<00:34,  5.84it/s]Testing:  33%|███▎      | 100/303 [00:17<00:34,  5.90it/s]Testing:  33%|███▎      | 101/303 [00:17<00:34,  5.88it/s]Testing:  34%|███▎      | 102/303 [00:17<00:34,  5.86it/s]Testing:  34%|███▍      | 103/303 [00:17<00:34,  5.86it/s]Testing:  34%|███▍      | 104/303 [00:18<00:34,  5.85it/s]Testing:  35%|███▍      | 105/303 [00:18<00:33,  5.86it/s]Testing:  35%|███▍      | 106/303 [00:18<00:33,  5.84it/s]Testing:  35%|███▌      | 107/303 [00:18<00:33,  5.89it/s]Testing:  36%|███▌      | 108/303 [00:18<00:33,  5.85it/s]Testing:  36%|███▌      | 109/303 [00:18<00:32,  5.91it/s]Testing:  36%|███▋      | 110/303 [00:19<00:32,  5.88it/s]Testing:  37%|███▋      | 111/303 [00:19<00:32,  5.89it/s]Testing:  37%|███▋      | 112/303 [00:19<00:32,  5.85it/s]Testing:  37%|███▋      | 113/303 [00:19<00:32,  5.88it/s]Testing:  38%|███▊      | 114/303 [00:19<00:32,  5.86it/s]Testing:  38%|███▊      | 115/303 [00:19<00:31,  5.88it/s]Testing:  38%|███▊      | 116/303 [00:20<00:31,  5.84it/s]Testing:  39%|███▊      | 117/303 [00:20<00:32,  5.80it/s]Testing:  39%|███▉      | 118/303 [00:20<00:31,  5.84it/s]Testing:  39%|███▉      | 119/303 [00:20<00:31,  5.82it/s]Testing:  40%|███▉      | 120/303 [00:20<00:31,  5.85it/s]Testing:  40%|███▉      | 121/303 [00:20<00:31,  5.84it/s]Testing:  40%|████      | 122/303 [00:21<00:30,  5.86it/s]Testing:  41%|████      | 123/303 [00:21<00:30,  5.84it/s]Testing:  41%|████      | 124/303 [00:21<00:30,  5.84it/s]Testing:  41%|████▏     | 125/303 [00:21<00:30,  5.84it/s]Testing:  42%|████▏     | 126/303 [00:21<00:30,  5.80it/s]Testing:  42%|████▏     | 127/303 [00:21<00:30,  5.87it/s]Testing:  42%|████▏     | 128/303 [00:22<00:29,  5.84it/s]Testing:  43%|████▎     | 129/303 [00:22<00:29,  5.84it/s]Testing:  43%|████▎     | 130/303 [00:22<00:29,  5.84it/s]Testing:  43%|████▎     | 131/303 [00:22<00:29,  5.84it/s]Testing:  44%|████▎     | 132/303 [00:22<00:29,  5.83it/s]Testing:  44%|████▍     | 133/303 [00:22<00:29,  5.80it/s]Testing:  44%|████▍     | 134/303 [00:23<00:28,  5.83it/s]Testing:  45%|████▍     | 135/303 [00:23<00:28,  5.82it/s]Testing:  45%|████▍     | 136/303 [00:23<00:28,  5.89it/s]Testing:  45%|████▌     | 137/303 [00:23<00:28,  5.85it/s]Testing:  46%|████▌     | 138/303 [00:23<00:28,  5.87it/s]Testing:  46%|████▌     | 139/303 [00:23<00:28,  5.85it/s]Testing:  46%|████▌     | 140/303 [00:24<00:27,  5.85it/s]Testing:  47%|████▋     | 141/303 [00:24<00:27,  5.84it/s]Testing:  47%|████▋     | 142/303 [00:24<00:27,  5.83it/s]Testing:  47%|████▋     | 143/303 [00:24<00:27,  5.87it/s]Testing:  48%|████▊     | 144/303 [00:24<00:27,  5.83it/s]Testing:  48%|████▊     | 145/303 [00:25<00:26,  5.89it/s]Testing:  48%|████▊     | 146/303 [00:25<00:26,  5.87it/s]Testing:  49%|████▊     | 147/303 [00:25<00:26,  5.87it/s]Testing:  49%|████▉     | 148/303 [00:25<00:26,  5.85it/s]Testing:  49%|████▉     | 149/303 [00:25<00:26,  5.87it/s]Testing:  50%|████▉     | 150/303 [00:25<00:26,  5.85it/s]Testing:  50%|████▉     | 151/303 [00:26<00:25,  5.85it/s]Testing:  50%|█████     | 152/303 [00:26<00:25,  5.89it/s]Testing:  50%|█████     | 153/303 [00:26<00:25,  5.88it/s]Testing:  51%|█████     | 154/303 [00:26<00:25,  5.85it/s]Testing:  51%|█████     | 155/303 [00:26<00:25,  5.85it/s]Testing:  51%|█████▏    | 156/303 [00:26<00:25,  5.84it/s]Testing:  52%|█████▏    | 157/303 [00:27<00:25,  5.82it/s]Testing:  52%|█████▏    | 158/303 [00:27<00:24,  5.84it/s]Testing:  52%|█████▏    | 159/303 [00:27<00:24,  5.91it/s]Testing:  53%|█████▎    | 160/303 [00:27<00:24,  5.88it/s]Testing:  53%|█████▎    | 161/303 [00:27<00:24,  5.83it/s]Testing:  53%|█████▎    | 162/303 [00:27<00:24,  5.85it/s]Testing:  54%|█████▍    | 163/303 [00:28<00:23,  5.84it/s]Testing:  54%|█████▍    | 164/303 [00:28<00:23,  5.83it/s]Testing:  54%|█████▍    | 165/303 [00:28<00:23,  5.83it/s]Testing:  55%|█████▍    | 166/303 [00:28<00:23,  5.82it/s]Testing:  55%|█████▌    | 167/303 [00:28<00:23,  5.85it/s]Testing:  55%|█████▌    | 168/303 [00:28<00:22,  5.91it/s]Testing:  56%|█████▌    | 169/303 [00:29<00:22,  5.94it/s]Testing:  56%|█████▌    | 170/303 [00:29<00:22,  5.93it/s]Testing:  56%|█████▋    | 171/303 [00:29<00:22,  5.89it/s]Testing:  57%|█████▋    | 172/303 [00:29<00:22,  5.89it/s]Testing:  57%|█████▋    | 173/303 [00:29<00:22,  5.87it/s]Testing:  57%|█████▋    | 174/303 [00:29<00:22,  5.86it/s]Testing:  58%|█████▊    | 175/303 [00:30<00:21,  5.86it/s]Testing:  58%|█████▊    | 176/303 [00:30<00:21,  5.82it/s]Testing:  58%|█████▊    | 177/303 [00:30<00:21,  5.88it/s]Testing:  59%|█████▊    | 178/303 [00:30<00:21,  5.86it/s]Testing:  59%|█████▉    | 179/303 [00:30<00:21,  5.87it/s]Testing:  59%|█████▉    | 180/303 [00:30<00:21,  5.84it/s]Testing:  60%|█████▉    | 181/303 [00:31<00:20,  5.87it/s]Testing:  60%|██████    | 182/303 [00:31<00:20,  5.84it/s]Testing:  60%|██████    | 183/303 [00:31<00:20,  5.85it/s]Testing:  61%|██████    | 184/303 [00:31<00:20,  5.84it/s]Testing:  61%|██████    | 185/303 [00:31<00:20,  5.80it/s]Testing:  61%|██████▏   | 186/303 [00:32<00:19,  5.87it/s]Testing:  62%|██████▏   | 187/303 [00:32<00:19,  5.84it/s]Testing:  62%|██████▏   | 188/303 [00:32<00:19,  5.86it/s]Testing:  62%|██████▏   | 189/303 [00:32<00:19,  5.84it/s]Testing:  63%|██████▎   | 190/303 [00:32<00:19,  5.85it/s]Testing:  63%|██████▎   | 191/303 [00:32<00:19,  5.83it/s]Testing:  63%|██████▎   | 192/303 [00:33<00:19,  5.82it/s]Testing:  64%|██████▎   | 193/303 [00:33<00:18,  5.86it/s]Testing:  64%|██████▍   | 194/303 [00:33<00:18,  5.82it/s]Testing:  64%|██████▍   | 195/303 [00:33<00:18,  5.88it/s]Testing:  65%|██████▍   | 196/303 [00:33<00:18,  5.85it/s]Testing:  65%|██████▌   | 197/303 [00:33<00:18,  5.87it/s]Testing:  65%|██████▌   | 198/303 [00:34<00:17,  5.84it/s]Testing:  66%|██████▌   | 199/303 [00:34<00:17,  5.86it/s]Testing:  66%|██████▌   | 200/303 [00:34<00:17,  5.84it/s]Testing:  66%|██████▋   | 201/303 [00:34<00:17,  5.81it/s]Testing:  67%|██████▋   | 202/303 [00:34<00:17,  5.84it/s]Testing:  67%|██████▋   | 203/303 [00:34<00:17,  5.81it/s]Testing:  67%|██████▋   | 204/303 [00:35<00:16,  5.88it/s]Testing:  68%|██████▊   | 205/303 [00:35<00:16,  5.86it/s]Testing:  68%|██████▊   | 206/303 [00:35<00:16,  5.87it/s]Testing:  68%|██████▊   | 207/303 [00:35<00:16,  5.86it/s]Testing:  69%|██████▊   | 208/303 [00:35<00:16,  5.87it/s]Testing:  69%|██████▉   | 209/303 [00:35<00:15,  5.93it/s]Testing:  69%|██████▉   | 210/303 [00:36<00:15,  5.91it/s]Testing:  70%|██████▉   | 211/303 [00:36<00:15,  5.84it/s]Testing:  70%|██████▉   | 212/303 [00:36<00:15,  5.86it/s]Testing:  70%|███████   | 213/303 [00:36<00:15,  5.85it/s]Testing:  71%|███████   | 214/303 [00:36<00:15,  5.87it/s]Testing:  71%|███████   | 215/303 [00:36<00:15,  5.85it/s]Testing:  71%|███████▏  | 216/303 [00:37<00:14,  5.86it/s]Testing:  72%|███████▏  | 217/303 [00:37<00:14,  5.86it/s]Testing:  72%|███████▏  | 218/303 [00:37<00:14,  5.91it/s]Testing:  72%|███████▏  | 219/303 [00:37<00:14,  5.88it/s]Testing:  73%|███████▎  | 220/303 [00:37<00:14,  5.88it/s]Testing:  73%|███████▎  | 221/303 [00:37<00:13,  5.86it/s]Testing:  73%|███████▎  | 222/303 [00:38<00:13,  5.85it/s]Testing:  74%|███████▎  | 223/303 [00:38<00:13,  5.85it/s]Testing:  74%|███████▍  | 224/303 [00:38<00:13,  5.83it/s]Testing:  74%|███████▍  | 225/303 [00:38<00:13,  5.87it/s]Testing:  75%|███████▍  | 226/303 [00:38<00:13,  5.83it/s]Testing:  75%|███████▍  | 227/303 [00:39<00:12,  5.89it/s]Testing:  75%|███████▌  | 228/303 [00:39<00:12,  5.85it/s]Testing:  76%|███████▌  | 229/303 [00:39<00:12,  5.86it/s]Testing:  76%|███████▌  | 230/303 [00:39<00:12,  5.84it/s]Testing:  76%|███████▌  | 231/303 [00:39<00:12,  5.85it/s]Testing:  77%|███████▋  | 232/303 [00:39<00:12,  5.84it/s]Testing:  77%|███████▋  | 233/303 [00:40<00:12,  5.82it/s]Testing:  77%|███████▋  | 234/303 [00:40<00:11,  5.87it/s]Testing:  78%|███████▊  | 235/303 [00:40<00:11,  5.82it/s]Testing:  78%|███████▊  | 236/303 [00:40<00:11,  5.85it/s]Testing:  78%|███████▊  | 237/303 [00:40<00:11,  5.84it/s]Testing:  79%|███████▊  | 238/303 [00:40<00:11,  5.84it/s]Testing:  79%|███████▉  | 239/303 [00:41<00:10,  5.84it/s]Testing:  79%|███████▉  | 240/303 [00:41<00:10,  5.82it/s]Testing:  80%|███████▉  | 241/303 [00:41<00:10,  5.84it/s]Testing:  80%|███████▉  | 242/303 [00:41<00:10,  5.82it/s]Testing:  80%|████████  | 243/303 [00:41<00:10,  5.87it/s]Testing:  81%|████████  | 244/303 [00:41<00:10,  5.84it/s]Testing:  81%|████████  | 245/303 [00:42<00:09,  5.91it/s]Testing:  81%|████████  | 246/303 [00:42<00:09,  5.88it/s]Testing:  82%|████████▏ | 247/303 [00:42<00:09,  5.89it/s]Testing:  82%|████████▏ | 248/303 [00:42<00:09,  5.86it/s]Testing:  82%|████████▏ | 249/303 [00:42<00:09,  5.88it/s]Testing:  83%|████████▎ | 250/303 [00:42<00:09,  5.86it/s]Testing:  83%|████████▎ | 251/303 [00:43<00:08,  5.86it/s]Testing:  83%|████████▎ | 252/303 [00:43<00:08,  5.84it/s]Testing:  83%|████████▎ | 253/303 [00:43<00:08,  5.82it/s]Testing:  84%|████████▍ | 254/303 [00:43<00:08,  5.86it/s]Testing:  84%|████████▍ | 255/303 [00:43<00:08,  5.86it/s]Testing:  84%|████████▍ | 256/303 [00:43<00:08,  5.86it/s]Testing:  85%|████████▍ | 257/303 [00:44<00:07,  5.83it/s]Testing:  85%|████████▌ | 258/303 [00:44<00:07,  5.86it/s]Testing:  85%|████████▌ | 259/303 [00:44<00:07,  5.92it/s]Testing:  86%|████████▌ | 260/303 [00:44<00:07,  5.90it/s]Testing:  86%|████████▌ | 261/303 [00:44<00:07,  5.84it/s]Testing:  86%|████████▋ | 262/303 [00:44<00:07,  5.85it/s]Testing:  87%|████████▋ | 263/303 [00:45<00:06,  5.84it/s]Testing:  87%|████████▋ | 264/303 [00:45<00:06,  5.84it/s]Testing:  87%|████████▋ | 265/303 [00:45<00:06,  5.84it/s]Testing:  88%|████████▊ | 266/303 [00:45<00:06,  5.80it/s]Testing:  88%|████████▊ | 267/303 [00:45<00:06,  5.82it/s]Testing:  88%|████████▊ | 268/303 [00:46<00:06,  5.82it/s]Testing:  89%|████████▉ | 269/303 [00:46<00:05,  5.83it/s]Testing:  89%|████████▉ | 270/303 [00:46<00:05,  5.83it/s]Testing:  89%|████████▉ | 271/303 [00:46<00:05,  5.80it/s]Testing:  90%|████████▉ | 272/303 [00:46<00:05,  5.87it/s]Testing:  90%|█████████ | 273/303 [00:46<00:05,  5.84it/s]Testing:  90%|█████████ | 274/303 [00:47<00:04,  5.86it/s]Testing:  91%|█████████ | 275/303 [00:47<00:04,  5.85it/s]Testing:  91%|█████████ | 276/303 [00:47<00:04,  5.87it/s]Testing:  91%|█████████▏| 277/303 [00:47<00:04,  5.93it/s]Testing:  92%|█████████▏| 278/303 [00:47<00:04,  5.89it/s]Testing:  92%|█████████▏| 279/303 [00:47<00:04,  5.87it/s]Testing:  92%|█████████▏| 280/303 [00:48<00:03,  5.88it/s]Testing:  93%|█████████▎| 281/303 [00:48<00:03,  5.85it/s]Testing:  93%|█████████▎| 282/303 [00:48<00:03,  5.87it/s]Testing:  93%|█████████▎| 283/303 [00:48<00:03,  5.85it/s]Testing:  94%|█████████▎| 284/303 [00:48<00:03,  5.85it/s]Testing:  94%|█████████▍| 285/303 [00:48<00:03,  5.84it/s]Testing:  94%|█████████▍| 286/303 [00:49<00:02,  5.91it/s]Testing:  95%|█████████▍| 287/303 [00:49<00:02,  5.87it/s]Testing:  95%|█████████▌| 288/303 [00:49<00:02,  5.86it/s]Testing:  95%|█████████▌| 289/303 [00:49<00:02,  5.85it/s]Testing:  96%|█████████▌| 290/303 [00:49<00:02,  5.83it/s]Testing:  96%|█████████▌| 291/303 [00:49<00:02,  5.85it/s]Testing:  96%|█████████▋| 292/303 [00:50<00:01,  5.83it/s]Testing:  97%|█████████▋| 293/303 [00:50<00:01,  5.86it/s]Testing:  97%|█████████▋| 294/303 [00:50<00:01,  5.84it/s]Testing:  97%|█████████▋| 295/303 [00:50<00:01,  5.90it/s]Testing:  98%|█████████▊| 296/303 [00:50<00:01,  5.88it/s]Testing:  98%|█████████▊| 297/303 [00:50<00:01,  5.89it/s]Testing:  98%|█████████▊| 298/303 [00:51<00:00,  5.87it/s]Testing:  99%|█████████▊| 299/303 [00:51<00:00,  5.90it/s]Testing:  99%|█████████▉| 300/303 [00:51<00:00,  5.96it/s]Testing:  99%|█████████▉| 301/303 [00:51<00:00,  5.93it/s]Testing: 100%|█████████▉| 302/303 [00:51<00:00,  5.95it/s]coords_out: (1794, 5)
+de_duplication
+Before De_Dup: 1794
+After De_Dup: 1554
+centroids (1554, 5)
+The predicted coordinates are saved in /home/brian_bosho/xulab/data/10004_subset/runs/DS_10004_subset_train/DS_10004_subset_train_ResUNet_BlockSize72_DiceLoss_MaxEpoch35_bs16_lr0.001_IP1_bg1_coord1_Softmax0_bn__TNNone/version_8/PredictedLabels
+
+pred_coords shape:, (1554, 4)
+pred shape:, (1794, 4)
+Error: 'NoneType' object is not subscriptable
+Testing: 100%|██████████| 303/303 [00:52<00:00,  5.80it/s]GPU available: True, used: True
+TPU available: None, using: 0 TPU cores
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+--------------------------------------------------------------------------------
+DATALOADER:0 TEST RESULTS
+{}
+--------------------------------------------------------------------------------
+Save path is /home/brian_bosho/xulab/data/10004_subset/runs/DS_10004_subset_train/DS_10004_subset_train_ResUNet_BlockSize72_DiceLoss_MaxEpoch35_bs16_lr0.001_IP1_bg1_coord1_Softmax0_bn__TNNone/version_8/PredictedLabels
+The test index is 4
+Testing on 4
+num_name:      0                        1
+0    0    position_415_denoised
+1    1    position_403_denoised
+2    2    position_355_denoised
+3    3    position_399_denoised
+4    4    position_369_denoised
+5    5    position_487_denoised
+6    6    position_495_denoised
+7    7    position_494_denoised
+8    8   position_42_3_denoised
+9    9   position_44_2_denoised
+10  10  position_374_2_denoised
+11  11    position_458_denoised
+12  12  position_365_2_denoised
+13  13    position_491_denoised
+14  14    position_329_denoised
+15  15  position_493_2_denoised
+16  16     position_48_denoised
+17  17  position_381_3_denoised
+18  18    position_492_denoised
+19  19    position_493_denoised
+position_369_denoised
+(450, 1024, 1024)
+****************************************************************************************************
+num_name: /home/brian_bosho/xulab/data/10004_subset/coords/num_name.csv
+base_path:/home/brian_bosho/xulab/data/10004_subset
+coord_path:/home/brian_bosho/xulab/data/10004_subset/coords
+tomo_path:/home/brian_bosho/xulab/data/10004_subset/data_std
+label_path:/home/brian_bosho/xulab/data/10004_subset/gaussian25
+ocp_path:/home/brian_bosho/xulab/data/10004_subset/data_ocp
+label_name:gaussian25
+coord_format:.coords
+tomo_format:.mrc
+norm_type:standardization
+ocp_name:data_ocp
+****************************************************************************************************
+        0                        1   2
+0   237.0    position_329_denoised   0
+1   238.0    position_355_denoised   1
+2   321.0  position_365_2_denoised   2
+3   262.0    position_369_denoised   3
+4   279.0  position_374_2_denoised   4
+5   647.0  position_381_3_denoised   5
+6   145.0    position_399_denoised   6
+7   240.0    position_403_denoised   7
+8   193.0    position_415_denoised   8
+9     6.0   position_42_3_denoised   9
+10   59.0   position_44_2_denoised  10
+11  359.0    position_458_denoised  11
+12  206.0    position_487_denoised  12
+13   12.0     position_48_denoised  13
+14  217.0    position_491_denoised  14
+15  385.0    position_492_denoised  15
+16  258.0  position_493_2_denoised  16
+17   45.0    position_493_denoised  17
+18  146.0    position_494_denoised  18
+19  228.0    position_495_denoised  19
+data_range:[4]
+36 48
+Test dataset contains 4840 samples
+/home/brian_bosho/xulab/data/10004_subset/data_ocp/position_374_2_denoised.mrc
+Traceback (most recent call last):
+  File "/home/brian_bosho/xulab/DeepETPicker/bin/test_bash.py", line 82, in <module>
+    test.test_func(args, stdout=None)
+  File "/home/brian_bosho/xulab/DeepETPicker/test.py", line 296, in test_func
+    runner.test(model=model)
+  File "/home/brian_bosho/miniconda3/envs/deepetpicker-env/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 752, in test
+    results = self.__test_given_model(model, test_dataloaders)
+  File "/home/brian_bosho/miniconda3/envs/deepetpicker-env/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 817, in __test_given_model
+    results = self.fit(model)
+  File "/home/brian_bosho/miniconda3/envs/deepetpicker-env/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 470, in fit
+    results = self.accelerator_backend.train()
+  File "/home/brian_bosho/miniconda3/envs/deepetpicker-env/lib/python3.10/site-packages/pytorch_lightning/accelerators/dp_accelerator.py", line 110, in train
+    results = self.train_or_test()
+  File "/home/brian_bosho/miniconda3/envs/deepetpicker-env/lib/python3.10/site-packages/pytorch_lightning/accelerators/accelerator.py", line 63, in train_or_test
+    results = self.trainer.run_test()
+  File "/home/brian_bosho/miniconda3/envs/deepetpicker-env/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 659, in run_test
+    eval_loop_results, _ = self.run_evaluation(test_mode=True)
+  File "/home/brian_bosho/miniconda3/envs/deepetpicker-env/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 563, in run_evaluation
+    dataloaders, max_batches = self.evaluation_loop.get_evaluation_dataloaders(max_batches)
+  File "/home/brian_bosho/miniconda3/envs/deepetpicker-env/lib/python3.10/site-packages/pytorch_lightning/trainer/evaluation_loop.py", line 56, in get_evaluation_dataloaders
+    self.trainer.reset_test_dataloader(model)
+  File "/home/brian_bosho/miniconda3/envs/deepetpicker-env/lib/python3.10/site-packages/pytorch_lightning/trainer/data_loading.py", line 299, in reset_test_dataloader
+    self._reset_eval_dataloader(model, 'test')
+  File "/home/brian_bosho/miniconda3/envs/deepetpicker-env/lib/python3.10/site-packages/pytorch_lightning/trainer/data_loading.py", line 207, in _reset_eval_dataloader
+    dataloaders = self.request_dataloader(getattr(model, loader_name))
+  File "/home/brian_bosho/miniconda3/envs/deepetpicker-env/lib/python3.10/site-packages/pytorch_lightning/trainer/data_loading.py", line 310, in request_dataloader
+    dataloader = dataloader_fx()
+  File "/home/brian_bosho/xulab/DeepETPicker/test.py", line 200, in test_dataloader
+    test_dataset = Dataset_ClsBased(mode='test',
+  File "/home/brian_bosho/xulab/DeepETPicker/dataset/dataloader_DynamicLoad.py", line 376, in __init__
+    with mrcfile.open(os.path.join(ocp_path, dir_names[self.data_range[0]] + tomo_format), permissive=True) as f:
+  File "/home/brian_bosho/miniconda3/envs/deepetpicker-env/lib/python3.10/site-packages/mrcfile/load_functions.py", line 145, in open
+    return NewMrc(name, mode=mode, permissive=permissive,
+  File "/home/brian_bosho/miniconda3/envs/deepetpicker-env/lib/python3.10/site-packages/mrcfile/mrcfile.py", line 115, in __init__
+    self._read(header_only)
+  File "/home/brian_bosho/miniconda3/envs/deepetpicker-env/lib/python3.10/site-packages/mrcfile/mrcfile.py", line 131, in _read
+    super(MrcFile, self)._read(header_only)
+  File "/home/brian_bosho/miniconda3/envs/deepetpicker-env/lib/python3.10/site-packages/mrcfile/mrcinterpreter.py", line 170, in _read
+    self._read_header()
+  File "/home/brian_bosho/miniconda3/envs/deepetpicker-env/lib/python3.10/site-packages/mrcfile/mrcinterpreter.py", line 192, in _read_header
+    raise ValueError("Couldn't read enough bytes for MRC header")
+ValueError: Couldn't read enough bytes for MRC header

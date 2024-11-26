@@ -13,4 +13,3 @@
     "norm_type": "standardization"
 }
 
-// python bin/preprocess.py --pre_configs /home/brian_bosho/xulab/DeepETPicker/configs/DS_10004_subset_preprocess.json 
