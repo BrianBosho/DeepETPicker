@@ -194,6 +194,10 @@ def cal_metrics_NMS_OneCls(pred_coords, gt_coords, occupancy_map, cfg):
     k = 0
     k_dist = []
     for i in range(centroids.shape[0]):
+        # check the occupancy map if its none else print the size
+        occupancy_map_size = occupancy_map.shape
+        print(f"Occupancy Map Size: {occupancy_map_size}")
+        
         try:
             p_gt_id = int(occupancy_map[int(centroids[i][2]),
                                         int(centroids[i][1]),
