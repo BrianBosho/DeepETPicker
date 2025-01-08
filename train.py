@@ -19,6 +19,7 @@ from utils.misc import combine, cal_metrics_NMS_OneCls, get_centroids, cal_metri
 from sklearn.metrics import precision_recall_fscore_support
 import time
 import json
+import traceback
 
 if not sys.warnoptions:
     import warnings
@@ -397,7 +398,9 @@ def train_func(args, stdout=None):
         return os.getpid()
     except Exception as e:
         print('Exception in training')
+        traceback.print_exc()
         print(f'Error is {e}')
+        # traceback.print_exc()
         torch.cuda.empty_cache()
         if stdout is not None:
             stdout.flush()
@@ -406,6 +409,6 @@ def train_func(args, stdout=None):
             sys.stderr = save_stderr
             sys.stdout = save_stdout
         # print(save_stderr)
-        # print(sys.stderr)
+        print(sys.stderr)
 
         return os.getpid()

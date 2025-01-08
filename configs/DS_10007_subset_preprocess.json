@@ -1,0 +1,15 @@
+{
+    "dset_name": "DS_10007_subset_preprocess",
+    "base_path": "/home/brian_bosho/xulab/data/10007_subset",
+    "coord_path": "/home/brian_bosho/xulab/data/10007_subset/raw_data_denoised",
+    "coord_format": ".coords",
+    "tomo_path": "/home/brian_bosho/xulab/data/10007_subset/raw_data_denoised",
+    "tomo_format": ".mrc",
+    "num_cls": 1,
+    "label_type": "gaussian",
+    "label_diameter": 25,
+    "ocp_type": "sphere",
+    "ocp_diameter": "35",
+    "norm_type": "standardization"
+}
+

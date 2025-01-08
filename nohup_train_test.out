@@ -1,0 +1,1021 @@
+2024-12-30 16:44:21.611801: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:485] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-12-30 16:44:21.704749: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:8454] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-12-30 16:44:21.739165: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1452] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-12-30 16:44:21.918163: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-12-30 16:44:23.161410: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+GPU available: True, used: True
+TPU available: None, using: 0 TPU cores
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+CL_DA_fmt = mean
+FL_a0 = 0.1
+FL_a1 = 0.9
+Gau_nms = False
+Gau_num = 2
+HRNet_c = 12
+JudgeInDilation = False
+NoBG = False
+ResearchTitle = None
+Sel_Referance = False
+T = 0.5
+act = relu
+add_dropout_layer = False
+alpha = 0.7
+batch_size = 16
+beta = 0.3
+block_size = 72
+border_value = 0
+cent_feats = None
+cent_kernel = 1
+cfg_save_path = .
+checkpoints = /home/brian_bosho/xulab/data/10004_subset/runs/DS_10004_subset_train/DS_10004_subset_train_ResUNet_BlockSize72_DiceLoss_MaxEpoch37_bs16_lr0.001_IP1_bg1_coord1_Softmax0_bn__TNNone/version_0/checkpoints/epoch=5-step=605.ckpt
+checkpoints_version = None
+ck_mode = 
+class_checkpoints = None
+configs = /home/brian_bosho/xulab/DeepETPicker/configs/DS_10007_subset_train.json
+coord_path = None
+data_split = [0, 4, 4, 5, 4, 5]
+de_dup_fmt = fmt4
+de_duplication = False
+dimensions = 3
+dir_name = None
+dset_name = None
+ema_decay = 0.999
+eta = 0.3
+eval_cls = False
+eval_str = class
+f_maps = [24, 48, 72, 108]
+final_double = False
+first_idx = 0
+gamma = 0.75
+gau_thresh = 0.5
+gpu_id = [0]
+in_channels = 1
+initial_channels = 16
+input_cat = False
+input_cat_items = None
+iteration_idx = 0
+learning_rate = 0.001
+loader_type = dataloader_DynamicLoad
+loss_func_dn = MSE
+loss_func_paf = MSE
+loss_func_seg = Dice
+lw_kernel = 3
+max_epoch = 10
+max_pxs = 18
+meanPool_NMS = True
+meanPool_kernel = 5
+mf_groups = 16
+min_dist = 10
+min_vol = 100
+mini_dist = 10
+n_block = 2
+n_stages = [1, 1, 1, 1]
+network = ResUNet
+nms_kernel = 3
+nms_topK = 3
+norm = bn
+num_classes = 1
+optim = AdamW
+others = 
+out_name = TestRes
+pad_loss = False
+pad_size = [12]
+paf_connect = False
+paf_sigmoid = False
+paf_weight = 1
+particle_idx = 70
+pif_model = 
+pif_sigmoid = False
+pre_configs = 
+pred2d_3d = False
+prf1_alpha = 3
+rand_max = 99
+rand_min = 0
+rand_scale = 100
+random_num = 0
+reduce_ratio = 1
+running = False
+save_FPsTPs = False
+save_mrc = False
+save_pred = False
+scheduler = OneCycleLR
+seg_tau = 0.95
+sel_particle_num = 100
+sel_train_num = None
+skip_4v94 = False
+skip_vesicles = False
+step1 = False
+step2 = False
+stride = 8
+test_idxs = [0]
+test_mode = val
+test_use_pad = True
+threshold = 0.5
+train_configs = /home/brian_bosho/xulab/DeepETPicker/configs/DS_10007_subset_train.json
+train_mode = train
+train_set_ids = 0-3
+use_CL = False
+use_CL_DA = False
+use_DS = False
+use_IP = True
+use_LAM = False
+use_Res = False
+use_SimSeg_iteration = False
+use_aspp = False
+use_att = False
+use_bg = True
+use_bg_part = False
+use_cluster = False
+use_coord = True
+use_dilation = False
+use_ema = False
+use_eval = False
+use_ice_part = False
+use_lw = False
+use_mask = False
+use_paf = False
+use_se_loss = False
+use_seg = False
+use_seg_gau = False
+use_sigmoid = True
+use_softmax = False
+use_softpool = False
+use_tanh = False
+use_uncert = False
+use_wDS = False
+use_wds = False
+use_weight = False
+val_batch_size = 16
+val_block_size = 72
+val_configs = 
+val_set_ids = 4
+weight_decay = 0.01
+Training...
+Max Epochs: 10
+We are in train_func
+checkpoint_callback: <pytorch_lightning.callbacks.model_checkpoint.ModelCheckpoint object at 0x7f8780fae020>
+12
+ResidualUNet3D(
+  (pools): ModuleList(
+    (0-2): 3 x AvgPool3d(kernel_size=2, stride=2, padding=0)
+  )
+  (encoders): ModuleList(
+    (0): Encoder(
+      (basic_module): ExtResNetBlock(
+        (conv1): SingleConv(
+          (conv): Conv3d(4, 24, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(24, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (conv2): SingleConv(
+          (conv): Conv3d(24, 24, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(24, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (conv3): SingleConv(
+          (conv): Conv3d(24, 24, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(24, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (non_linearity): ELU(alpha=1.0)
+      )
+      (coord_conv): AddCoords()
+    )
+    (1): Encoder(
+      (pooling): AvgPool3d(kernel_size=2, stride=2, padding=0)
+      (basic_module): ExtResNetBlock(
+        (conv1): SingleConv(
+          (conv): Conv3d(28, 48, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(48, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (conv2): SingleConv(
+          (conv): Conv3d(48, 48, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(48, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (conv3): SingleConv(
+          (conv): Conv3d(48, 48, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(48, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (non_linearity): ELU(alpha=1.0)
+      )
+      (coord_conv): AddCoords()
+    )
+    (2): Encoder(
+      (pooling): AvgPool3d(kernel_size=2, stride=2, padding=0)
+      (basic_module): ExtResNetBlock(
+        (conv1): SingleConv(
+          (conv): Conv3d(52, 72, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (conv2): SingleConv(
+          (conv): Conv3d(72, 72, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (conv3): SingleConv(
+          (conv): Conv3d(72, 72, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (non_linearity): ELU(alpha=1.0)
+      )
+      (coord_conv): AddCoords()
+    )
+    (3): Encoder(
+      (pooling): AvgPool3d(kernel_size=2, stride=2, padding=0)
+      (basic_module): ExtResNetBlock(
+        (conv1): SingleConv(
+          (conv): Conv3d(76, 108, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(108, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (conv2): SingleConv(
+          (conv): Conv3d(108, 108, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(108, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (conv3): SingleConv(
+          (conv): Conv3d(108, 108, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(108, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (non_linearity): ELU(alpha=1.0)
+      )
+      (coord_conv): AddCoords()
+    )
+  )
+  (decoders): ModuleList(
+    (0): Decoder(
+      (coord_conv): AddCoords()
+      (upsampling): Upsampling(
+        (upsample): ConvTranspose3d(108, 72, kernel_size=(3, 3, 3), stride=(2, 2, 2), padding=(1, 1, 1))
+      )
+      (basic_module): ExtResNetBlock(
+        (conv1): SingleConv(
+          (conv): Conv3d(75, 72, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (conv2): SingleConv(
+          (conv): Conv3d(72, 72, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (conv3): SingleConv(
+          (conv): Conv3d(72, 72, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (non_linearity): ELU(alpha=1.0)
+      )
+    )
+    (1): Decoder(
+      (coord_conv): AddCoords()
+      (upsampling): Upsampling(
+        (upsample): ConvTranspose3d(72, 48, kernel_size=(3, 3, 3), stride=(2, 2, 2), padding=(1, 1, 1))
+      )
+      (basic_module): ExtResNetBlock(
+        (conv1): SingleConv(
+          (conv): Conv3d(51, 48, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(48, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (conv2): SingleConv(
+          (conv): Conv3d(48, 48, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(48, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (conv3): SingleConv(
+          (conv): Conv3d(48, 48, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(48, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (non_linearity): ELU(alpha=1.0)
+      )
+    )
+    (2): Decoder(
+      (coord_conv): AddCoords()
+      (upsampling): Upsampling(
+        (upsample): ConvTranspose3d(48, 24, kernel_size=(3, 3, 3), stride=(2, 2, 2), padding=(1, 1, 1))
+      )
+      (basic_module): ExtResNetBlock(
+        (conv1): SingleConv(
+          (conv): Conv3d(27, 24, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(24, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (conv2): SingleConv(
+          (conv): Conv3d(24, 24, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(24, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (conv3): SingleConv(
+          (conv): Conv3d(24, 24, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(24, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (non_linearity): ELU(alpha=1.0)
+      )
+    )
+  )
+  (final_conv): Conv3d(24, 1, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+)
+Loading checkpoint from /home/brian_bosho/xulab/data/10004_subset/runs/DS_10004_subset_train/DS_10004_subset_train_ResUNet_BlockSize72_DiceLoss_MaxEpoch37_bs16_lr0.001_IP1_bg1_coord1_Softmax0_bn__TNNone/version_0/checkpoints/epoch=5-step=605.ckpt
+Model weights loaded from checkpoint.
+runner: <pytorch_lightning.trainer.trainer.Trainer object at 0x7f8780f8eb30>
+Trying to fit model
+Exception in training
+Error is float division by zero
+2024-12-30 17:17:15.623993: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:485] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-12-30 17:17:15.640610: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:8454] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-12-30 17:17:15.645315: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1452] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-12-30 17:17:15.656615: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-12-30 17:17:16.476729: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+GPU available: True, used: True
+TPU available: None, using: 0 TPU cores
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+
+  | Name              | Type           | Params
+-----------------------------------------------------
+0 | model             | ResidualUNet3D | 2.4 M 
+1 | loss_function_seg | DiceLoss       | 0     
+-----------------------------------------------------
+2.4 M     Trainable params
+0         Non-trainable params
+2.4 M     Total params
+CL_DA_fmt = mean
+FL_a0 = 0.1
+FL_a1 = 0.9
+Gau_nms = False
+Gau_num = 2
+HRNet_c = 12
+JudgeInDilation = False
+NoBG = False
+ResearchTitle = None
+Sel_Referance = False
+T = 0.5
+act = relu
+add_dropout_layer = False
+alpha = 0.7
+batch_size = 16
+beta = 0.3
+block_size = 72
+border_value = 0
+cent_feats = None
+cent_kernel = 1
+cfg_save_path = .
+checkpoints = None
+checkpoints_version = None
+ck_mode = 
+class_checkpoints = None
+configs = /home/brian_bosho/xulab/DeepETPicker/configs/DS_10007_subset_train.json
+coord_path = None
+data_split = [0, 4, 4, 5, 4, 5]
+de_dup_fmt = fmt4
+de_duplication = False
+dimensions = 3
+dir_name = None
+dset_name = None
+ema_decay = 0.999
+eta = 0.3
+eval_cls = False
+eval_str = class
+f_maps = [24, 48, 72, 108]
+final_double = False
+first_idx = 0
+gamma = 0.75
+gau_thresh = 0.5
+gpu_id = [0]
+in_channels = 1
+initial_channels = 16
+input_cat = False
+input_cat_items = None
+iteration_idx = 0
+learning_rate = 0.001
+loader_type = dataloader_DynamicLoad
+loss_func_dn = MSE
+loss_func_paf = MSE
+loss_func_seg = Dice
+lw_kernel = 3
+max_epoch = 17
+max_pxs = 18
+meanPool_NMS = True
+meanPool_kernel = 5
+mf_groups = 16
+min_dist = 10
+min_vol = 100
+mini_dist = 10
+n_block = 2
+n_stages = [1, 1, 1, 1]
+network = ResUNet
+nms_kernel = 3
+nms_topK = 3
+norm = bn
+num_classes = 1
+optim = AdamW
+others = 
+out_name = TestRes
+pad_loss = False
+pad_size = [12]
+paf_connect = False
+paf_sigmoid = False
+paf_weight = 1
+particle_idx = 70
+pif_model = 
+pif_sigmoid = False
+pre_configs = 
+pred2d_3d = False
+prf1_alpha = 3
+rand_max = 99
+rand_min = 0
+rand_scale = 100
+random_num = 0
+reduce_ratio = 1
+running = False
+save_FPsTPs = False
+save_mrc = False
+save_pred = False
+scheduler = OneCycleLR
+seg_tau = 0.95
+sel_particle_num = 100
+sel_train_num = None
+skip_4v94 = False
+skip_vesicles = False
+step1 = False
+step2 = False
+stride = 8
+test_idxs = [0]
+test_mode = val
+test_use_pad = True
+threshold = 0.5
+train_configs = /home/brian_bosho/xulab/DeepETPicker/configs/DS_10007_subset_train.json
+train_mode = train
+train_set_ids = 0-3
+use_CL = False
+use_CL_DA = False
+use_DS = False
+use_IP = True
+use_LAM = False
+use_Res = False
+use_SimSeg_iteration = False
+use_aspp = False
+use_att = False
+use_bg = True
+use_bg_part = False
+use_cluster = False
+use_coord = True
+use_dilation = False
+use_ema = False
+use_eval = False
+use_ice_part = False
+use_lw = False
+use_mask = False
+use_paf = False
+use_se_loss = False
+use_seg = False
+use_seg_gau = False
+use_sigmoid = True
+use_softmax = False
+use_softpool = False
+use_tanh = False
+use_uncert = False
+use_wDS = False
+use_wds = False
+use_weight = False
+val_batch_size = 16
+val_block_size = 72
+val_configs = 
+val_set_ids = 4
+weight_decay = 0.01
+Training...
+Max Epochs: 17
+We are in train_func
+checkpoint_callback: <pytorch_lightning.callbacks.model_checkpoint.ModelCheckpoint object at 0x7f4ad1bc2050>
+12
+ResidualUNet3D(
+  (pools): ModuleList(
+    (0-2): 3 x AvgPool3d(kernel_size=2, stride=2, padding=0)
+  )
+  (encoders): ModuleList(
+    (0): Encoder(
+      (basic_module): ExtResNetBlock(
+        (conv1): SingleConv(
+          (conv): Conv3d(4, 24, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(24, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (conv2): SingleConv(
+          (conv): Conv3d(24, 24, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(24, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (conv3): SingleConv(
+          (conv): Conv3d(24, 24, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(24, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (non_linearity): ELU(alpha=1.0)
+      )
+      (coord_conv): AddCoords()
+    )
+    (1): Encoder(
+      (pooling): AvgPool3d(kernel_size=2, stride=2, padding=0)
+      (basic_module): ExtResNetBlock(
+        (conv1): SingleConv(
+          (conv): Conv3d(28, 48, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(48, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (conv2): SingleConv(
+          (conv): Conv3d(48, 48, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(48, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (conv3): SingleConv(
+          (conv): Conv3d(48, 48, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(48, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (non_linearity): ELU(alpha=1.0)
+      )
+      (coord_conv): AddCoords()
+    )
+    (2): Encoder(
+      (pooling): AvgPool3d(kernel_size=2, stride=2, padding=0)
+      (basic_module): ExtResNetBlock(
+        (conv1): SingleConv(
+          (conv): Conv3d(52, 72, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (conv2): SingleConv(
+          (conv): Conv3d(72, 72, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (conv3): SingleConv(
+          (conv): Conv3d(72, 72, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (non_linearity): ELU(alpha=1.0)
+      )
+      (coord_conv): AddCoords()
+    )
+    (3): Encoder(
+      (pooling): AvgPool3d(kernel_size=2, stride=2, padding=0)
+      (basic_module): ExtResNetBlock(
+        (conv1): SingleConv(
+          (conv): Conv3d(76, 108, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(108, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (conv2): SingleConv(
+          (conv): Conv3d(108, 108, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(108, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (conv3): SingleConv(
+          (conv): Conv3d(108, 108, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(108, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (non_linearity): ELU(alpha=1.0)
+      )
+      (coord_conv): AddCoords()
+    )
+  )
+  (decoders): ModuleList(
+    (0): Decoder(
+      (coord_conv): AddCoords()
+      (upsampling): Upsampling(
+        (upsample): ConvTranspose3d(108, 72, kernel_size=(3, 3, 3), stride=(2, 2, 2), padding=(1, 1, 1))
+      )
+      (basic_module): ExtResNetBlock(
+        (conv1): SingleConv(
+          (conv): Conv3d(75, 72, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (conv2): SingleConv(
+          (conv): Conv3d(72, 72, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (conv3): SingleConv(
+          (conv): Conv3d(72, 72, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (non_linearity): ELU(alpha=1.0)
+      )
+    )
+    (1): Decoder(
+      (coord_conv): AddCoords()
+      (upsampling): Upsampling(
+        (upsample): ConvTranspose3d(72, 48, kernel_size=(3, 3, 3), stride=(2, 2, 2), padding=(1, 1, 1))
+      )
+      (basic_module): ExtResNetBlock(
+        (conv1): SingleConv(
+          (conv): Conv3d(51, 48, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(48, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (conv2): SingleConv(
+          (conv): Conv3d(48, 48, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(48, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (conv3): SingleConv(
+          (conv): Conv3d(48, 48, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(48, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (non_linearity): ELU(alpha=1.0)
+      )
+    )
+    (2): Decoder(
+      (coord_conv): AddCoords()
+      (upsampling): Upsampling(
+        (upsample): ConvTranspose3d(48, 24, kernel_size=(3, 3, 3), stride=(2, 2, 2), padding=(1, 1, 1))
+      )
+      (basic_module): ExtResNetBlock(
+        (conv1): SingleConv(
+          (conv): Conv3d(27, 24, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(24, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (conv2): SingleConv(
+          (conv): Conv3d(24, 24, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(24, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (conv3): SingleConv(
+          (conv): Conv3d(24, 24, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(24, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (non_linearity): ELU(alpha=1.0)
+      )
+    )
+  )
+  (final_conv): Conv3d(24, 1, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+)
+No checkpoint provided, training from scratch.
+runner: <pytorch_lightning.trainer.trainer.Trainer object at 0x7f4ad1bc0cd0>
+Trying to fit model
+****************************************************************************************************
+num_name: /home/brian_bosho/xulab/data/10007_subset/coords/num_name.csv
+base_path:/home/brian_bosho/xulab/data/10007_subset
+coord_path:/home/brian_bosho/xulab/data/10007_subset/coords
+tomo_path:/home/brian_bosho/xulab/data/10007_subset/data_std
+label_path:/home/brian_bosho/xulab/data/10007_subset/gaussian25
+ocp_path:/home/brian_bosho/xulab/data/10007_subset/data_ocp
+label_name:gaussian25
+coord_format:.coords
+tomo_format:.mrc
+norm_type:standardization
+ocp_name:data_ocp
+****************************************************************************************************
+       0                                              1  2
+0   74.0  ay08102021_grid_1_atc_lamella1_pos11_denoised  0
+1  124.0  ay08102021_grid_1_atc_lamella1_pos12_denoised  1
+2  439.0  ay08102021_grid_1_atc_lamella1_pos13_denoised  2
+3   23.0   ay08102021_grid_1_atc_lamella1_pos8_denoised  3
+4   55.0   ay08102021_grid_1_atc_lamella1_pos9_denoised  4
+We are in the validation mode
+data_range:[4]
+['/home/brian_bosho/xulab/data/10007_subset/data_std/ay08102021_grid_1_atc_lamella1_pos9_denoised.mrc']
+Validation dataset contains 55 samples
+Validation sanity check: 0it [00:00, ?it/s]Validation sanity check:  50%|█████     | 1/2 [00:00<00:00,  1.20it/s]Validation sanity check: 100%|██████████| 2/2 [00:01<00:00,  2.18it/s]                                                                      Batch size: 16
+****************************************************************************************************
+num_name: /home/brian_bosho/xulab/data/10007_subset/coords/num_name.csv
+base_path:/home/brian_bosho/xulab/data/10007_subset
+coord_path:/home/brian_bosho/xulab/data/10007_subset/coords
+tomo_path:/home/brian_bosho/xulab/data/10007_subset/data_std
+label_path:/home/brian_bosho/xulab/data/10007_subset/gaussian25
+ocp_path:/home/brian_bosho/xulab/data/10007_subset/data_ocp
+label_name:gaussian25
+coord_format:.coords
+tomo_format:.mrc
+norm_type:standardization
+ocp_name:data_ocp
+****************************************************************************************************
+       0                                              1  2
+0   74.0  ay08102021_grid_1_atc_lamella1_pos11_denoised  0
+1  124.0  ay08102021_grid_1_atc_lamella1_pos12_denoised  1
+2  439.0  ay08102021_grid_1_atc_lamella1_pos13_denoised  2
+3   23.0   ay08102021_grid_1_atc_lamella1_pos8_denoised  3
+4   55.0   ay08102021_grid_1_atc_lamella1_pos9_denoised  4
+We are in the training mode
+data_split:[0, 4, 4, 5, 4, 5]
+The data range from the loader is [0 1 2 3]
+data_range:[0 1 2 3]
+['/home/brian_bosho/xulab/data/10007_subset/data_std/ay08102021_grid_1_atc_lamella1_pos11_denoised.mrc', '/home/brian_bosho/xulab/data/10007_subset/data_std/ay08102021_grid_1_atc_lamella1_pos12_denoised.mrc', '/home/brian_bosho/xulab/data/10007_subset/data_std/ay08102021_grid_1_atc_lamella1_pos13_denoised.mrc', '/home/brian_bosho/xulab/data/10007_subset/data_std/ay08102021_grid_1_atc_lamella1_pos8_denoised.mrc']
+Training dataset contains 660 samples
+Training: 0it [00:00, ?it/s]Training:   0%|          | 0/46 [00:00<?, ?it/s]Epoch 0:   0%|          | 0/46 [00:00<?, ?it/s] Epoch 0:   2%|▏         | 1/46 [00:02<01:49,  2.43s/it]Epoch 0:   2%|▏         | 1/46 [00:02<01:49,  2.44s/it, loss=0.881, v_num=0]Epoch 0:   4%|▍         | 2/46 [00:03<01:07,  1.54s/it, loss=0.881, v_num=0]Epoch 0:   4%|▍         | 2/46 [00:03<01:07,  1.54s/it, loss=0.889, v_num=0]Epoch 0:   7%|▋         | 3/46 [00:03<00:53,  1.25s/it, loss=0.889, v_num=0]Epoch 0:   7%|▋         | 3/46 [00:03<00:53,  1.25s/it, loss=0.892, v_num=0]Epoch 0:   9%|▊         | 4/46 [00:04<00:46,  1.10s/it, loss=0.892, v_num=0]Epoch 0:   9%|▊         | 4/46 [00:04<00:46,  1.10s/it, loss=0.89, v_num=0] Epoch 0:  11%|█         | 5/46 [00:05<00:41,  1.02s/it, loss=0.89, v_num=0]Epoch 0:  11%|█         | 5/46 [00:05<00:41,  1.02s/it, loss=0.888, v_num=0]Epoch 0:  13%|█▎        | 6/46 [00:05<00:38,  1.04it/s, loss=0.888, v_num=0]Epoch 0:  13%|█▎        | 6/46 [00:05<00:38,  1.04it/s, loss=0.888, v_num=0]Epoch 0:  15%|█▌        | 7/46 [00:06<00:35,  1.09it/s, loss=0.888, v_num=0]Epoch 0:  15%|█▌        | 7/46 [00:06<00:35,  1.09it/s, loss=0.886, v_num=0]Epoch 0:  17%|█▋        | 8/46 [00:07<00:33,  1.13it/s, loss=0.886, v_num=0]Epoch 0:  17%|█▋        | 8/46 [00:07<00:33,  1.13it/s, loss=0.884, v_num=0]Epoch 0:  20%|█▉        | 9/46 [00:07<00:31,  1.16it/s, loss=0.884, v_num=0]Epoch 0:  20%|█▉        | 9/46 [00:07<00:31,  1.16it/s, loss=0.883, v_num=0]Epoch 0:  22%|██▏       | 10/46 [00:08<00:30,  1.18it/s, loss=0.883, v_num=0]Epoch 0:  22%|██▏       | 10/46 [00:08<00:30,  1.18it/s, loss=0.881, v_num=0]Epoch 0:  24%|██▍       | 11/46 [00:09<00:28,  1.21it/s, loss=0.881, v_num=0]Epoch 0:  24%|██▍       | 11/46 [00:09<00:28,  1.21it/s, loss=0.882, v_num=0]Epoch 0:  26%|██▌       | 12/46 [00:09<00:27,  1.23it/s, loss=0.882, v_num=0]Epoch 0:  26%|██▌       | 12/46 [00:09<00:27,  1.23it/s, loss=0.88, v_num=0] Epoch 0:  28%|██▊       | 13/46 [00:10<00:26,  1.24it/s, loss=0.88, v_num=0]Epoch 0:  28%|██▊       | 13/46 [00:10<00:26,  1.24it/s, loss=0.879, v_num=0]Epoch 0:  30%|███       | 14/46 [00:11<00:25,  1.26it/s, loss=0.879, v_num=0]Epoch 0:  30%|███       | 14/46 [00:11<00:25,  1.26it/s, loss=0.878, v_num=0]Epoch 0:  33%|███▎      | 15/46 [00:11<00:24,  1.27it/s, loss=0.878, v_num=0]Epoch 0:  33%|███▎      | 15/46 [00:11<00:24,  1.27it/s, loss=0.878, v_num=0]Epoch 0:  35%|███▍      | 16/46 [00:12<00:23,  1.28it/s, loss=0.878, v_num=0]Epoch 0:  35%|███▍      | 16/46 [00:12<00:23,  1.28it/s, loss=0.877, v_num=0]Epoch 0:  37%|███▋      | 17/46 [00:13<00:22,  1.29it/s, loss=0.877, v_num=0]Epoch 0:  37%|███▋      | 17/46 [00:13<00:22,  1.29it/s, loss=0.877, v_num=0]Epoch 0:  39%|███▉      | 18/46 [00:13<00:21,  1.30it/s, loss=0.877, v_num=0]Epoch 0:  39%|███▉      | 18/46 [00:13<00:21,  1.30it/s, loss=0.876, v_num=0]Epoch 0:  41%|████▏     | 19/46 [00:14<00:20,  1.31it/s, loss=0.876, v_num=0]Epoch 0:  41%|████▏     | 19/46 [00:14<00:20,  1.31it/s, loss=0.875, v_num=0]Epoch 0:  43%|████▎     | 20/46 [00:15<00:19,  1.31it/s, loss=0.875, v_num=0]Epoch 0:  43%|████▎     | 20/46 [00:15<00:19,  1.31it/s, loss=0.875, v_num=0]Epoch 0:  46%|████▌     | 21/46 [00:15<00:18,  1.32it/s, loss=0.875, v_num=0]Epoch 0:  46%|████▌     | 21/46 [00:15<00:18,  1.32it/s, loss=0.874, v_num=0]Epoch 0:  48%|████▊     | 22/46 [00:16<00:18,  1.33it/s, loss=0.874, v_num=0]Epoch 0:  48%|████▊     | 22/46 [00:16<00:18,  1.33it/s, loss=0.873, v_num=0]Epoch 0:  50%|█████     | 23/46 [00:17<00:17,  1.33it/s, loss=0.873, v_num=0]Epoch 0:  50%|█████     | 23/46 [00:17<00:17,  1.33it/s, loss=0.869, v_num=0]Epoch 0:  52%|█████▏    | 24/46 [00:17<00:16,  1.34it/s, loss=0.869, v_num=0]Epoch 0:  52%|█████▏    | 24/46 [00:17<00:16,  1.34it/s, loss=0.867, v_num=0]Epoch 0:  54%|█████▍    | 25/46 [00:18<00:15,  1.34it/s, loss=0.867, v_num=0]Epoch 0:  54%|█████▍    | 25/46 [00:18<00:15,  1.34it/s, loss=0.866, v_num=0]Epoch 0:  57%|█████▋    | 26/46 [00:19<00:14,  1.35it/s, loss=0.866, v_num=0]Epoch 0:  57%|█████▋    | 26/46 [00:19<00:14,  1.35it/s, loss=0.864, v_num=0]Epoch 0:  59%|█████▊    | 27/46 [00:19<00:14,  1.35it/s, loss=0.864, v_num=0]Epoch 0:  59%|█████▊    | 27/46 [00:19<00:14,  1.35it/s, loss=0.863, v_num=0]Epoch 0:  61%|██████    | 28/46 [00:20<00:13,  1.36it/s, loss=0.863, v_num=0]Epoch 0:  61%|██████    | 28/46 [00:20<00:13,  1.36it/s, loss=0.862, v_num=0]Epoch 0:  63%|██████▎   | 29/46 [00:21<00:12,  1.36it/s, loss=0.862, v_num=0]Epoch 0:  63%|██████▎   | 29/46 [00:21<00:12,  1.36it/s, loss=0.861, v_num=0]Epoch 0:  65%|██████▌   | 30/46 [00:21<00:11,  1.36it/s, loss=0.861, v_num=0]Epoch 0:  65%|██████▌   | 30/46 [00:21<00:11,  1.36it/s, loss=0.86, v_num=0] Epoch 0:  67%|██████▋   | 31/46 [00:22<00:10,  1.37it/s, loss=0.86, v_num=0]Epoch 0:  67%|██████▋   | 31/46 [00:22<00:10,  1.37it/s, loss=0.858, v_num=0]Epoch 0:  70%|██████▉   | 32/46 [00:23<00:10,  1.37it/s, loss=0.858, v_num=0]Epoch 0:  70%|██████▉   | 32/46 [00:23<00:10,  1.37it/s, loss=0.858, v_num=0]Epoch 0:  72%|███████▏  | 33/46 [00:24<00:09,  1.37it/s, loss=0.858, v_num=0]Epoch 0:  72%|███████▏  | 33/46 [00:24<00:09,  1.37it/s, loss=0.857, v_num=0]Epoch 0:  74%|███████▍  | 34/46 [00:24<00:08,  1.38it/s, loss=0.857, v_num=0]Epoch 0:  74%|███████▍  | 34/46 [00:24<00:08,  1.38it/s, loss=0.855, v_num=0]Epoch 0:  76%|███████▌  | 35/46 [00:25<00:07,  1.38it/s, loss=0.855, v_num=0]Epoch 0:  76%|███████▌  | 35/46 [00:25<00:07,  1.38it/s, loss=0.852, v_num=0]Epoch 0:  78%|███████▊  | 36/46 [00:26<00:07,  1.38it/s, loss=0.852, v_num=0]Epoch 0:  78%|███████▊  | 36/46 [00:26<00:07,  1.38it/s, loss=0.851, v_num=0]Epoch 0:  80%|████████  | 37/46 [00:26<00:06,  1.38it/s, loss=0.851, v_num=0]Epoch 0:  80%|████████  | 37/46 [00:26<00:06,  1.38it/s, loss=0.849, v_num=0]Epoch 0:  83%|████████▎ | 38/46 [00:27<00:05,  1.39it/s, loss=0.849, v_num=0]Epoch 0:  83%|████████▎ | 38/46 [00:27<00:05,  1.39it/s, loss=0.847, v_num=0]Epoch 0:  85%|████████▍ | 39/46 [00:28<00:05,  1.39it/s, loss=0.847, v_num=0]Epoch 0:  85%|████████▍ | 39/46 [00:28<00:05,  1.39it/s, loss=0.846, v_num=0]Epoch 0:  87%|████████▋ | 40/46 [00:28<00:04,  1.39it/s, loss=0.846, v_num=0]Epoch 0:  87%|████████▋ | 40/46 [00:28<00:04,  1.39it/s, loss=0.844, v_num=0]Epoch 0:  89%|████████▉ | 41/46 [00:29<00:03,  1.39it/s, loss=0.844, v_num=0]Epoch 0:  89%|████████▉ | 41/46 [00:29<00:03,  1.39it/s, loss=0.842, v_num=0]Epoch 0:  91%|█████████▏| 42/46 [00:29<00:02,  1.40it/s, loss=0.842, v_num=0]Epoch 0:  91%|█████████▏| 42/46 [00:29<00:02,  1.40it/s, loss=0.841, v_num=0]
+Validating: 0it [00:00, ?it/s][A
+Validating:  25%|██▌       | 1/4 [00:01<00:04,  1.35s/it][AEpoch 0:  96%|█████████▌| 44/46 [00:31<00:01,  1.40it/s, loss=0.841, v_num=0]
+Validating:  50%|█████     | 2/4 [00:01<00:01,  1.52it/s][A
+Validating:  75%|███████▌  | 3/4 [00:01<00:00,  2.29it/s][AEpoch 0: 100%|██████████| 46/46 [00:31<00:00,  1.45it/s, loss=0.841, v_num=0]Epoch 0: 100%|██████████| 46/46 [00:32<00:00,  1.43it/s, loss=0.841, v_num=0]
+                                                         [AEpoch 0:   0%|          | 0/46 [00:00<?, ?it/s, loss=0.841, v_num=0]         Epoch 1:   0%|          | 0/46 [00:00<?, ?it/s, loss=0.841, v_num=0]Epoch 1:   2%|▏         | 1/46 [00:02<01:57,  2.61s/it, loss=0.842, v_num=0]Epoch 1:   4%|▍         | 2/46 [00:03<01:12,  1.65s/it, loss=0.842, v_num=0]Epoch 1:   4%|▍         | 2/46 [00:03<01:12,  1.65s/it, loss=0.839, v_num=0]Epoch 1:   7%|▋         | 3/46 [00:03<00:56,  1.32s/it, loss=0.837, v_num=0]Epoch 1:   9%|▊         | 4/46 [00:04<00:50,  1.20s/it, loss=0.837, v_num=0]Epoch 1:   9%|▊         | 4/46 [00:04<00:50,  1.20s/it, loss=0.834, v_num=0]Epoch 1:  11%|█         | 5/46 [00:05<00:44,  1.10s/it, loss=0.831, v_num=0]Epoch 1:  13%|█▎        | 6/46 [00:06<00:41,  1.03s/it, loss=0.831, v_num=0]Epoch 1:  13%|█▎        | 6/46 [00:06<00:41,  1.03s/it, loss=0.827, v_num=0]Epoch 1:  15%|█▌        | 7/46 [00:06<00:38,  1.02it/s, loss=0.824, v_num=0]Epoch 1:  17%|█▋        | 8/46 [00:07<00:35,  1.06it/s, loss=0.824, v_num=0]Epoch 1:  17%|█▋        | 8/46 [00:07<00:35,  1.06it/s, loss=0.82, v_num=0] Epoch 1:  20%|█▉        | 9/46 [00:08<00:33,  1.09it/s, loss=0.816, v_num=0]Epoch 1:  22%|██▏       | 10/46 [00:08<00:32,  1.12it/s, loss=0.816, v_num=0]Epoch 1:  22%|██▏       | 10/46 [00:08<00:32,  1.12it/s, loss=0.812, v_num=0]Epoch 1:  24%|██▍       | 11/46 [00:09<00:30,  1.15it/s, loss=0.808, v_num=0]Epoch 1:  26%|██▌       | 12/46 [00:10<00:29,  1.16it/s, loss=0.808, v_num=0]Epoch 1:  26%|██▌       | 12/46 [00:10<00:29,  1.16it/s, loss=0.804, v_num=0]Epoch 1:  28%|██▊       | 13/46 [00:11<00:27,  1.18it/s, loss=0.8, v_num=0]  Epoch 1:  30%|███       | 14/46 [00:11<00:26,  1.19it/s, loss=0.8, v_num=0]Epoch 1:  30%|███       | 14/46 [00:11<00:26,  1.19it/s, loss=0.796, v_num=0]Epoch 1:  33%|███▎      | 15/46 [00:12<00:25,  1.20it/s, loss=0.79, v_num=0] Epoch 1:  35%|███▍      | 16/46 [00:13<00:24,  1.21it/s, loss=0.79, v_num=0]Epoch 1:  35%|███▍      | 16/46 [00:13<00:24,  1.21it/s, loss=0.787, v_num=0]Epoch 1:  37%|███▋      | 17/46 [00:14<00:24,  1.21it/s, loss=0.783, v_num=0]Epoch 1:  39%|███▉      | 18/46 [00:14<00:23,  1.21it/s, loss=0.783, v_num=0]Epoch 1:  39%|███▉      | 18/46 [00:14<00:23,  1.21it/s, loss=0.779, v_num=0]Epoch 1:  41%|████▏     | 19/46 [00:15<00:22,  1.21it/s, loss=0.774, v_num=0]Epoch 1:  43%|████▎     | 20/46 [00:16<00:21,  1.21it/s, loss=0.774, v_num=0]Epoch 1:  43%|████▎     | 20/46 [00:16<00:21,  1.21it/s, loss=0.769, v_num=0]Epoch 1:  46%|████▌     | 21/46 [00:17<00:20,  1.21it/s, loss=0.765, v_num=0]Epoch 1:  48%|████▊     | 22/46 [00:18<00:19,  1.21it/s, loss=0.765, v_num=0]Epoch 1:  48%|████▊     | 22/46 [00:18<00:19,  1.21it/s, loss=0.762, v_num=0]Epoch 1:  50%|█████     | 23/46 [00:19<00:19,  1.21it/s, loss=0.758, v_num=0]Epoch 1:  52%|█████▏    | 24/46 [00:19<00:18,  1.21it/s, loss=0.758, v_num=0]Epoch 1:  52%|█████▏    | 24/46 [00:19<00:18,  1.21it/s, loss=0.754, v_num=0]Epoch 1:  54%|█████▍    | 25/46 [00:20<00:17,  1.21it/s, loss=0.751, v_num=0]Epoch 1:  57%|█████▋    | 26/46 [00:21<00:16,  1.21it/s, loss=0.751, v_num=0]Epoch 1:  57%|█████▋    | 26/46 [00:21<00:16,  1.21it/s, loss=0.745, v_num=0]Epoch 1:  59%|█████▊    | 27/46 [00:22<00:15,  1.22it/s, loss=0.742, v_num=0]Epoch 1:  61%|██████    | 28/46 [00:22<00:14,  1.22it/s, loss=0.742, v_num=0]Epoch 1:  61%|██████    | 28/46 [00:22<00:14,  1.22it/s, loss=0.737, v_num=0]Epoch 1:  63%|██████▎   | 29/46 [00:23<00:13,  1.23it/s, loss=0.732, v_num=0]Epoch 1:  65%|██████▌   | 30/46 [00:24<00:12,  1.23it/s, loss=0.732, v_num=0]Epoch 1:  65%|██████▌   | 30/46 [00:24<00:12,  1.23it/s, loss=0.728, v_num=0]Epoch 1:  67%|██████▋   | 31/46 [00:25<00:12,  1.24it/s, loss=0.726, v_num=0]Epoch 1:  70%|██████▉   | 32/46 [00:25<00:11,  1.24it/s, loss=0.726, v_num=0]Epoch 1:  70%|██████▉   | 32/46 [00:25<00:11,  1.24it/s, loss=0.723, v_num=0]Epoch 1:  72%|███████▏  | 33/46 [00:26<00:10,  1.25it/s, loss=0.719, v_num=0]Epoch 1:  74%|███████▍  | 34/46 [00:27<00:09,  1.26it/s, loss=0.719, v_num=0]Epoch 1:  74%|███████▍  | 34/46 [00:27<00:09,  1.26it/s, loss=0.715, v_num=0]Epoch 1:  76%|███████▌  | 35/46 [00:27<00:08,  1.26it/s, loss=0.714, v_num=0]Epoch 1:  78%|███████▊  | 36/46 [00:28<00:07,  1.26it/s, loss=0.714, v_num=0]Epoch 1:  78%|███████▊  | 36/46 [00:28<00:07,  1.26it/s, loss=0.71, v_num=0] Epoch 1:  80%|████████  | 37/46 [00:29<00:07,  1.27it/s, loss=0.707, v_num=0]Epoch 1:  83%|████████▎ | 38/46 [00:29<00:06,  1.27it/s, loss=0.707, v_num=0]Epoch 1:  83%|████████▎ | 38/46 [00:29<00:06,  1.27it/s, loss=0.704, v_num=0]Epoch 1:  85%|████████▍ | 39/46 [00:30<00:05,  1.27it/s, loss=0.699, v_num=0]Epoch 1:  87%|████████▋ | 40/46 [00:31<00:04,  1.28it/s, loss=0.699, v_num=0]Epoch 1:  87%|████████▋ | 40/46 [00:31<00:04,  1.28it/s, loss=0.695, v_num=0]Epoch 1:  89%|████████▉ | 41/46 [00:31<00:03,  1.28it/s, loss=0.689, v_num=0]Epoch 1:  91%|█████████▏| 42/46 [00:32<00:03,  1.29it/s, loss=0.689, v_num=0]Epoch 1:  91%|█████████▏| 42/46 [00:32<00:03,  1.29it/s, loss=0.687, v_num=0]
+Validating: 0it [00:00, ?it/s][A
+Validating:  25%|██▌       | 1/4 [00:01<00:04,  1.54s/it][AEpoch 1:  96%|█████████▌| 44/46 [00:34<00:01,  1.29it/s, loss=0.687, v_num=0]
+Validating:  50%|█████     | 2/4 [00:01<00:01,  1.37it/s][A
+Validating:  75%|███████▌  | 3/4 [00:01<00:00,  2.11it/s][AEpoch 1: 100%|██████████| 46/46 [00:34<00:00,  1.34it/s, loss=0.687, v_num=0]Epoch 1: 100%|██████████| 46/46 [00:34<00:00,  1.32it/s, loss=0.687, v_num=0]
+                                                         [AEpoch 1:   0%|          | 0/46 [00:00<?, ?it/s, loss=0.687, v_num=0]         Epoch 2:   0%|          | 0/46 [00:00<?, ?it/s, loss=0.687, v_num=0]Epoch 2:   2%|▏         | 1/46 [00:03<02:17,  3.05s/it, loss=0.683, v_num=0]Epoch 2:   4%|▍         | 2/46 [00:03<01:24,  1.92s/it, loss=0.683, v_num=0]Epoch 2:   4%|▍         | 2/46 [00:03<01:24,  1.92s/it, loss=0.679, v_num=0]Epoch 2:   7%|▋         | 3/46 [00:04<01:05,  1.53s/it, loss=0.676, v_num=0]Epoch 2:   9%|▊         | 4/46 [00:05<00:56,  1.34s/it, loss=0.676, v_num=0]Epoch 2:   9%|▊         | 4/46 [00:05<00:56,  1.34s/it, loss=0.674, v_num=0]Epoch 2:  11%|█         | 5/46 [00:06<00:50,  1.23s/it, loss=0.668, v_num=0]Epoch 2:  13%|█▎        | 6/46 [00:06<00:46,  1.16s/it, loss=0.668, v_num=0]Epoch 2:  13%|█▎        | 6/46 [00:06<00:46,  1.16s/it, loss=0.666, v_num=0]Epoch 2:  15%|█▌        | 7/46 [00:07<00:43,  1.11s/it, loss=0.663, v_num=0]Epoch 2:  17%|█▋        | 8/46 [00:08<00:40,  1.06s/it, loss=0.663, v_num=0]Epoch 2:  17%|█▋        | 8/46 [00:08<00:40,  1.06s/it, loss=0.66, v_num=0] Epoch 2:  20%|█▉        | 9/46 [00:09<00:37,  1.02s/it, loss=0.657, v_num=0]Epoch 2:  22%|██▏       | 10/46 [00:09<00:35,  1.02it/s, loss=0.657, v_num=0]Epoch 2:  22%|██▏       | 10/46 [00:09<00:35,  1.02it/s, loss=0.653, v_num=0]Epoch 2:  24%|██▍       | 11/46 [00:10<00:33,  1.04it/s, loss=0.649, v_num=0]Epoch 2:  24%|██▍       | 11/46 [00:24<01:17,  2.20s/it, loss=0.649, v_num=0]Epoch 2:  26%|██▌       | 12/46 [02:32<07:12, 12.71s/it, loss=0.649, v_num=0]Epoch 2:  26%|██▌       | 12/46 [02:32<07:12, 12.71s/it, loss=0.647, v_num=0]Epoch 2:  28%|██▊       | 13/46 [02:33<06:28, 11.79s/it, loss=0.647, v_num=0]Epoch 2:  28%|██▊       | 13/46 [02:33<06:28, 11.79s/it, loss=0.644, v_num=0]Epoch 2:  30%|███       | 14/46 [02:56<06:44, 12.63s/it, loss=0.644, v_num=0]Epoch 2:  30%|███       | 14/46 [02:56<06:44, 12.63s/it, loss=0.639, v_num=0]Epoch 2:  33%|███▎      | 15/46 [02:57<06:07, 11.84s/it, loss=0.639, v_num=0]Epoch 2:  33%|███▎      | 15/46 [02:57<06:07, 11.84s/it, loss=0.633, v_num=0]Epoch 2:  35%|███▍      | 16/46 [02:58<05:34, 11.14s/it, loss=0.633, v_num=0]Epoch 2:  35%|███▍      | 16/46 [02:58<05:34, 11.14s/it, loss=0.63, v_num=0] Epoch 2:  37%|███▋      | 17/46 [02:58<05:05, 10.53s/it, loss=0.63, v_num=0]Epoch 2:  37%|███▋      | 17/46 [02:58<05:05, 10.53s/it, loss=0.629, v_num=0]Epoch 2:  39%|███▉      | 18/46 [03:02<04:43, 10.12s/it, loss=0.629, v_num=0]Epoch 2:  39%|███▉      | 18/46 [03:02<04:43, 10.14s/it, loss=0.625, v_num=0]Epoch 2:  41%|████▏     | 19/46 [06:33<09:19, 20.72s/it, loss=0.625, v_num=0]Epoch 2:  41%|████▏     | 19/46 [06:33<09:19, 20.72s/it, loss=0.623, v_num=0]Epoch 2:  43%|████▎     | 20/46 [06:34<08:32, 19.72s/it, loss=0.623, v_num=0]Epoch 2:  43%|████▎     | 20/46 [06:34<08:32, 19.72s/it, loss=0.617, v_num=0]Epoch 2:  46%|████▌     | 21/46 [06:35<07:50, 18.81s/it, loss=0.617, v_num=0]Epoch 2:  46%|████▌     | 21/46 [06:35<07:50, 18.81s/it, loss=0.614, v_num=0]Epoch 2:  48%|████▊     | 22/46 [06:35<07:11, 17.99s/it, loss=0.614, v_num=0]Epoch 2:  48%|████▊     | 22/46 [06:35<07:11, 17.99s/it, loss=0.611, v_num=0]Epoch 2:  50%|█████     | 23/46 [06:36<06:36, 17.24s/it, loss=0.611, v_num=0]Epoch 2:  50%|█████     | 23/46 [06:36<06:36, 17.24s/it, loss=0.607, v_num=0]Epoch 2:  52%|█████▏    | 24/46 [06:37<06:04, 16.55s/it, loss=0.607, v_num=0]Epoch 2:  52%|█████▏    | 24/46 [06:37<06:04, 16.55s/it, loss=0.606, v_num=0]Epoch 2:  54%|█████▍    | 25/46 [06:37<05:34, 15.91s/it, loss=0.606, v_num=0]Epoch 2:  54%|█████▍    | 25/46 [06:37<05:34, 15.91s/it, loss=0.605, v_num=0]Epoch 2:  57%|█████▋    | 26/46 [06:38<05:06, 15.33s/it, loss=0.605, v_num=0]Epoch 2:  57%|█████▋    | 26/46 [06:38<05:06, 15.33s/it, loss=0.604, v_num=0]Epoch 2:  59%|█████▊    | 27/46 [06:39<04:40, 14.78s/it, loss=0.604, v_num=0]Epoch 2:  59%|█████▊    | 27/46 [06:39<04:40, 14.78s/it, loss=0.601, v_num=0]Epoch 2:  61%|██████    | 28/46 [06:39<04:17, 14.28s/it, loss=0.601, v_num=0]Epoch 2:  61%|██████    | 28/46 [06:39<04:17, 14.28s/it, loss=0.6, v_num=0]  Epoch 2:  63%|██████▎   | 29/46 [06:40<03:54, 13.81s/it, loss=0.6, v_num=0]Epoch 2:  63%|██████▎   | 29/46 [06:40<03:54, 13.81s/it, loss=0.598, v_num=0]Epoch 2:  65%|██████▌   | 30/46 [06:41<03:34, 13.38s/it, loss=0.598, v_num=0]Epoch 2:  65%|██████▌   | 30/46 [06:41<03:34, 13.38s/it, loss=0.595, v_num=0]Epoch 2:  67%|██████▋   | 31/46 [06:41<03:14, 12.97s/it, loss=0.595, v_num=0]Epoch 2:  67%|██████▋   | 31/46 [06:41<03:14, 12.97s/it, loss=0.595, v_num=0]Epoch 2:  70%|██████▉   | 32/46 [06:42<02:56, 12.59s/it, loss=0.595, v_num=0]Epoch 2:  70%|██████▉   | 32/46 [06:42<02:56, 12.59s/it, loss=0.591, v_num=0]Epoch 2:  72%|███████▏  | 33/46 [07:09<02:49, 13.02s/it, loss=0.591, v_num=0]Epoch 2:  72%|███████▏  | 33/46 [07:09<02:49, 13.02s/it, loss=0.589, v_num=0]Epoch 2:  74%|███████▍  | 34/46 [07:10<02:31, 12.66s/it, loss=0.589, v_num=0]Epoch 2:  74%|███████▍  | 34/46 [07:10<02:31, 12.66s/it, loss=0.586, v_num=0]Epoch 2:  76%|███████▌  | 35/46 [07:11<02:15, 12.32s/it, loss=0.586, v_num=0]Epoch 2:  76%|███████▌  | 35/46 [07:11<02:15, 12.32s/it, loss=0.587, v_num=0]Epoch 2:  78%|███████▊  | 36/46 [07:11<01:59, 12.00s/it, loss=0.587, v_num=0]Epoch 2:  78%|███████▊  | 36/46 [07:11<01:59, 12.00s/it, loss=0.585, v_num=0]Epoch 2:  80%|████████  | 37/46 [07:12<01:45, 11.69s/it, loss=0.585, v_num=0]Epoch 2:  80%|████████  | 37/46 [07:12<01:45, 11.69s/it, loss=0.581, v_num=0]Epoch 2:  83%|████████▎ | 38/46 [07:13<01:31, 11.40s/it, loss=0.581, v_num=0]Epoch 2:  83%|████████▎ | 38/46 [07:13<01:31, 11.40s/it, loss=0.579, v_num=0]Epoch 2:  85%|████████▍ | 39/46 [07:13<01:17, 11.13s/it, loss=0.579, v_num=0]Epoch 2:  85%|████████▍ | 39/46 [07:13<01:17, 11.13s/it, loss=0.576, v_num=0]Epoch 2:  87%|████████▋ | 40/46 [07:14<01:05, 10.87s/it, loss=0.576, v_num=0]Epoch 2:  87%|████████▋ | 40/46 [07:14<01:05, 10.87s/it, loss=0.574, v_num=0]Epoch 2:  89%|████████▉ | 41/46 [07:15<00:53, 10.62s/it, loss=0.574, v_num=0]Epoch 2:  89%|████████▉ | 41/46 [07:15<00:53, 10.62s/it, loss=0.571, v_num=0]Epoch 2:  91%|█████████▏| 42/46 [07:15<00:41, 10.38s/it, loss=0.571, v_num=0]Epoch 2:  91%|█████████▏| 42/46 [07:15<00:41, 10.38s/it, loss=0.569, v_num=0]
+Validating: 0it [00:00, ?it/s][A
+Validating:  25%|██▌       | 1/4 [00:01<00:04,  1.64s/it][AEpoch 2:  96%|█████████▌| 44/46 [07:17<00:19,  9.94s/it, loss=0.569, v_num=0]
+Validating:  50%|█████     | 2/4 [00:01<00:01,  1.19it/s][A
+Validating:  75%|███████▌  | 3/4 [00:02<00:00,  1.87it/s][AEpoch 2: 100%|██████████| 46/46 [07:17<00:00,  9.52s/it, loss=0.569, v_num=0]Epoch 2: 100%|██████████| 46/46 [07:18<00:00,  9.53s/it, loss=0.569, v_num=0]
+                                                         [AEpoch 2:   0%|          | 0/46 [00:00<?, ?it/s, loss=0.569, v_num=0]         Epoch 3:   0%|          | 0/46 [00:00<?, ?it/s, loss=0.569, v_num=0]Epoch 3:   2%|▏         | 1/46 [00:05<03:50,  5.13s/it, loss=0.566, v_num=0]Epoch 3:   4%|▍         | 2/46 [00:05<02:08,  2.91s/it, loss=0.566, v_num=0]Epoch 3:   4%|▍         | 2/46 [00:05<02:08,  2.91s/it, loss=0.561, v_num=0]Epoch 3:   7%|▋         | 3/46 [00:06<01:33,  2.17s/it, loss=0.557, v_num=0]Epoch 3:   9%|▊         | 4/46 [00:07<01:15,  1.80s/it, loss=0.557, v_num=0]Epoch 3:   9%|▊         | 4/46 [00:07<01:15,  1.80s/it, loss=0.554, v_num=0]Epoch 3:  11%|█         | 5/46 [00:07<01:04,  1.58s/it, loss=0.554, v_num=0]Epoch 3:  13%|█▎        | 6/46 [00:08<00:57,  1.43s/it, loss=0.554, v_num=0]Epoch 3:  13%|█▎        | 6/46 [00:08<00:57,  1.43s/it, loss=0.553, v_num=0]Epoch 3:  15%|█▌        | 7/46 [00:09<00:51,  1.32s/it, loss=0.549, v_num=0]Epoch 3:  17%|█▋        | 8/46 [00:09<00:47,  1.24s/it, loss=0.549, v_num=0]Epoch 3:  17%|█▋        | 8/46 [00:09<00:47,  1.24s/it, loss=0.548, v_num=0]Epoch 3:  20%|█▉        | 9/46 [00:10<00:43,  1.18s/it, loss=0.546, v_num=0]Epoch 3:  22%|██▏       | 10/46 [00:11<00:40,  1.13s/it, loss=0.546, v_num=0]Epoch 3:  22%|██▏       | 10/46 [00:11<00:40,  1.13s/it, loss=0.544, v_num=0]Epoch 3:  24%|██▍       | 11/46 [00:11<00:38,  1.09s/it, loss=0.541, v_num=0]Epoch 3:  26%|██▌       | 12/46 [00:12<00:35,  1.06s/it, loss=0.541, v_num=0]Epoch 3:  26%|██▌       | 12/46 [00:12<00:35,  1.06s/it, loss=0.541, v_num=0]Epoch 3:  28%|██▊       | 13/46 [00:13<00:33,  1.03s/it, loss=0.537, v_num=0]Epoch 3:  30%|███       | 14/46 [00:14<00:32,  1.00s/it, loss=0.537, v_num=0]Epoch 3:  30%|███       | 14/46 [00:14<00:32,  1.00s/it, loss=0.533, v_num=0]Epoch 3:  33%|███▎      | 15/46 [00:14<00:30,  1.02it/s, loss=0.535, v_num=0]Epoch 3:  35%|███▍      | 16/46 [00:15<00:29,  1.03it/s, loss=0.535, v_num=0]Epoch 3:  35%|███▍      | 16/46 [00:15<00:29,  1.03it/s, loss=0.534, v_num=0]Epoch 3:  37%|███▋      | 17/46 [00:16<00:27,  1.05it/s, loss=0.535, v_num=0]Epoch 3:  39%|███▉      | 18/46 [00:17<00:26,  1.06it/s, loss=0.535, v_num=0]Epoch 3:  39%|███▉      | 18/46 [00:17<00:26,  1.06it/s, loss=0.534, v_num=0]Epoch 3:  41%|████▏     | 19/46 [00:17<00:25,  1.07it/s, loss=0.533, v_num=0]Epoch 3:  43%|████▎     | 20/46 [00:18<00:24,  1.08it/s, loss=0.533, v_num=0]Epoch 3:  43%|████▎     | 20/46 [00:18<00:24,  1.08it/s, loss=0.533, v_num=0]Epoch 3:  46%|████▌     | 21/46 [00:19<00:22,  1.09it/s, loss=0.533, v_num=0]Epoch 3:  48%|████▊     | 22/46 [00:19<00:21,  1.10it/s, loss=0.533, v_num=0]Epoch 3:  48%|████▊     | 22/46 [00:19<00:21,  1.10it/s, loss=0.535, v_num=0]Epoch 3:  50%|█████     | 23/46 [00:20<00:20,  1.11it/s, loss=0.534, v_num=0]Epoch 3:  52%|█████▏    | 24/46 [00:21<00:19,  1.11it/s, loss=0.534, v_num=0]Epoch 3:  52%|█████▏    | 24/46 [00:21<00:19,  1.11it/s, loss=0.532, v_num=0]Epoch 3:  54%|█████▍    | 25/46 [00:33<00:28,  1.35s/it, loss=0.529, v_num=0]Epoch 3:  57%|█████▋    | 26/46 [00:34<00:26,  1.32s/it, loss=0.529, v_num=0]Epoch 3:  57%|█████▋    | 26/46 [00:34<00:26,  1.32s/it, loss=0.526, v_num=0]Epoch 3:  59%|█████▊    | 27/46 [00:35<00:24,  1.30s/it, loss=0.526, v_num=0]Epoch 3:  59%|█████▊    | 27/46 [00:35<00:24,  1.30s/it, loss=0.524, v_num=0]Epoch 3:  61%|██████    | 28/46 [00:35<00:23,  1.28s/it, loss=0.524, v_num=0]Epoch 3:  61%|██████    | 28/46 [00:35<00:23,  1.28s/it, loss=0.524, v_num=0]Epoch 3:  63%|██████▎   | 29/46 [00:36<00:21,  1.26s/it, loss=0.524, v_num=0]Epoch 3:  63%|██████▎   | 29/46 [00:36<00:21,  1.26s/it, loss=0.522, v_num=0]Epoch 3:  65%|██████▌   | 30/46 [00:37<00:19,  1.25s/it, loss=0.522, v_num=0]Epoch 3:  65%|██████▌   | 30/46 [00:37<00:19,  1.25s/it, loss=0.524, v_num=0]Epoch 3:  67%|██████▋   | 31/46 [00:38<00:18,  1.23s/it, loss=0.524, v_num=0]Epoch 3:  67%|██████▋   | 31/46 [00:38<00:18,  1.23s/it, loss=0.522, v_num=0]Epoch 3:  70%|██████▉   | 32/46 [00:38<00:16,  1.21s/it, loss=0.522, v_num=0]Epoch 3:  70%|██████▉   | 32/46 [00:38<00:16,  1.21s/it, loss=0.521, v_num=0]Epoch 3:  72%|███████▏  | 33/46 [00:39<00:15,  1.20s/it, loss=0.521, v_num=0]Epoch 3:  72%|███████▏  | 33/46 [00:39<00:15,  1.20s/it, loss=0.52, v_num=0] Epoch 3:  74%|███████▍  | 34/46 [00:40<00:14,  1.18s/it, loss=0.52, v_num=0]Epoch 3:  74%|███████▍  | 34/46 [00:40<00:14,  1.18s/it, loss=0.521, v_num=0]Epoch 3:  76%|███████▌  | 35/46 [00:40<00:12,  1.17s/it, loss=0.521, v_num=0]Epoch 3:  76%|███████▌  | 35/46 [00:40<00:12,  1.17s/it, loss=0.519, v_num=0]Epoch 3:  78%|███████▊  | 36/46 [00:41<00:11,  1.16s/it, loss=0.519, v_num=0]Epoch 3:  78%|███████▊  | 36/46 [00:41<00:11,  1.16s/it, loss=0.52, v_num=0] Epoch 3:  80%|████████  | 37/46 [00:42<00:10,  1.15s/it, loss=0.52, v_num=0]Epoch 3:  80%|████████  | 37/46 [00:42<00:10,  1.15s/it, loss=0.522, v_num=0]Epoch 3:  83%|████████▎ | 38/46 [00:43<00:09,  1.13s/it, loss=0.522, v_num=0]Epoch 3:  83%|████████▎ | 38/46 [00:43<00:09,  1.13s/it, loss=0.521, v_num=0]Epoch 3:  85%|████████▍ | 39/46 [00:43<00:07,  1.12s/it, loss=0.521, v_num=0]Epoch 3:  85%|████████▍ | 39/46 [00:43<00:07,  1.12s/it, loss=0.519, v_num=0]Epoch 3:  87%|████████▋ | 40/46 [00:44<00:06,  1.11s/it, loss=0.519, v_num=0]Epoch 3:  87%|████████▋ | 40/46 [00:44<00:06,  1.11s/it, loss=0.52, v_num=0] Epoch 3:  89%|████████▉ | 41/46 [00:45<00:05,  1.10s/it, loss=0.52, v_num=0]Epoch 3:  89%|████████▉ | 41/46 [00:45<00:05,  1.10s/it, loss=0.522, v_num=0]Epoch 3:  91%|█████████▏| 42/46 [00:45<00:04,  1.09s/it, loss=0.522, v_num=0]Epoch 3:  91%|█████████▏| 42/46 [00:45<00:04,  1.09s/it, loss=0.526, v_num=0]
+Validating: 0it [00:00, ?it/s][A
+Validating:  25%|██▌       | 1/4 [00:02<00:08,  2.98s/it][AEpoch 3:  96%|█████████▌| 44/46 [00:48<00:02,  1.11s/it, loss=0.526, v_num=0]
+Validating:  50%|█████     | 2/4 [00:03<00:02,  1.33s/it][A
+Validating:  75%|███████▌  | 3/4 [00:03<00:00,  1.25it/s][AEpoch 3: 100%|██████████| 46/46 [00:49<00:00,  1.07s/it, loss=0.526, v_num=0]Epoch 3: 100%|██████████| 46/46 [00:49<00:00,  1.08s/it, loss=0.526, v_num=0]
+                                                         [AEpoch 3:   0%|          | 0/46 [00:00<?, ?it/s, loss=0.526, v_num=0]         Epoch 4:   0%|          | 0/46 [00:00<?, ?it/s, loss=0.526, v_num=0]Epoch 4:   2%|▏         | 1/46 [00:02<01:36,  2.15s/it, loss=0.529, v_num=0]Epoch 4:   4%|▍         | 2/46 [00:02<01:02,  1.41s/it, loss=0.529, v_num=0]Epoch 4:   4%|▍         | 2/46 [00:02<01:02,  1.41s/it, loss=0.531, v_num=0]Epoch 4:   7%|▋         | 3/46 [00:03<00:50,  1.18s/it, loss=0.533, v_num=0]Epoch 4:   9%|▊         | 4/46 [00:04<00:44,  1.06s/it, loss=0.533, v_num=0]Epoch 4:   9%|▊         | 4/46 [00:04<00:44,  1.06s/it, loss=0.534, v_num=0]Epoch 4:  11%|█         | 5/46 [00:04<00:40,  1.01it/s, loss=0.539, v_num=0]Epoch 4:  13%|█▎        | 6/46 [00:05<00:37,  1.06it/s, loss=0.539, v_num=0]Epoch 4:  13%|█▎        | 6/46 [00:05<00:37,  1.06it/s, loss=0.54, v_num=0] Epoch 4:  15%|█▌        | 7/46 [00:06<00:35,  1.10it/s, loss=0.54, v_num=0]Epoch 4:  17%|█▋        | 8/46 [00:07<00:33,  1.14it/s, loss=0.54, v_num=0]Epoch 4:  17%|█▋        | 8/46 [00:07<00:33,  1.14it/s, loss=0.539, v_num=0]Epoch 4:  20%|█▉        | 9/46 [00:07<00:31,  1.16it/s, loss=0.537, v_num=0]Epoch 4:  22%|██▏       | 10/46 [00:08<00:30,  1.18it/s, loss=0.537, v_num=0]Epoch 4:  22%|██▏       | 10/46 [00:08<00:30,  1.18it/s, loss=0.535, v_num=0]Epoch 4:  24%|██▍       | 11/46 [00:09<00:29,  1.20it/s, loss=0.534, v_num=0]Epoch 4:  26%|██▌       | 12/46 [00:09<00:27,  1.22it/s, loss=0.534, v_num=0]Epoch 4:  26%|██▌       | 12/46 [00:09<00:27,  1.22it/s, loss=0.531, v_num=0]Epoch 4:  28%|██▊       | 13/46 [00:10<00:26,  1.23it/s, loss=0.53, v_num=0] Epoch 4:  30%|███       | 14/46 [00:11<00:25,  1.25it/s, loss=0.53, v_num=0]Epoch 4:  30%|███       | 14/46 [00:11<00:25,  1.25it/s, loss=0.528, v_num=0]Epoch 4:  33%|███▎      | 15/46 [00:11<00:24,  1.26it/s, loss=0.526, v_num=0]Epoch 4:  35%|███▍      | 16/46 [00:12<00:23,  1.27it/s, loss=0.526, v_num=0]Epoch 4:  35%|███▍      | 16/46 [00:12<00:23,  1.27it/s, loss=0.525, v_num=0]Epoch 4:  37%|███▋      | 17/46 [00:13<00:22,  1.27it/s, loss=0.527, v_num=0]Epoch 4:  39%|███▉      | 18/46 [00:14<00:21,  1.28it/s, loss=0.527, v_num=0]Epoch 4:  39%|███▉      | 18/46 [00:14<00:21,  1.28it/s, loss=0.528, v_num=0]Epoch 4:  41%|████▏     | 19/46 [00:14<00:20,  1.29it/s, loss=0.523, v_num=0]Epoch 4:  43%|████▎     | 20/46 [00:15<00:20,  1.30it/s, loss=0.523, v_num=0]Epoch 4:  43%|████▎     | 20/46 [00:15<00:20,  1.30it/s, loss=0.515, v_num=0]Epoch 4:  46%|████▌     | 21/46 [00:16<00:19,  1.30it/s, loss=0.512, v_num=0]Epoch 4:  48%|████▊     | 22/46 [00:16<00:18,  1.31it/s, loss=0.512, v_num=0]Epoch 4:  48%|████▊     | 22/46 [00:16<00:18,  1.31it/s, loss=0.511, v_num=0]Epoch 4:  50%|█████     | 23/46 [00:17<00:17,  1.31it/s, loss=0.509, v_num=0]Epoch 4:  52%|█████▏    | 24/46 [00:18<00:16,  1.31it/s, loss=0.509, v_num=0]Epoch 4:  52%|█████▏    | 24/46 [00:18<00:16,  1.31it/s, loss=0.506, v_num=0]Epoch 4:  54%|█████▍    | 25/46 [00:19<00:15,  1.32it/s, loss=0.5, v_num=0]  Epoch 4:  57%|█████▋    | 26/46 [00:19<00:15,  1.32it/s, loss=0.5, v_num=0]Epoch 4:  57%|█████▋    | 26/46 [00:19<00:15,  1.32it/s, loss=0.499, v_num=0]Epoch 4:  59%|█████▊    | 27/46 [00:20<00:14,  1.32it/s, loss=0.495, v_num=0]Epoch 4:  61%|██████    | 28/46 [00:21<00:13,  1.33it/s, loss=0.495, v_num=0]Epoch 4:  61%|██████    | 28/46 [00:21<00:13,  1.33it/s, loss=0.494, v_num=0]Epoch 4:  63%|██████▎   | 29/46 [00:21<00:12,  1.33it/s, loss=0.496, v_num=0]Epoch 4:  65%|██████▌   | 30/46 [00:22<00:12,  1.33it/s, loss=0.496, v_num=0]Epoch 4:  65%|██████▌   | 30/46 [00:22<00:12,  1.33it/s, loss=0.5, v_num=0]  Epoch 4:  67%|██████▋   | 31/46 [00:23<00:11,  1.33it/s, loss=0.501, v_num=0]Epoch 4:  70%|██████▉   | 32/46 [00:23<00:10,  1.34it/s, loss=0.501, v_num=0]Epoch 4:  70%|██████▉   | 32/46 [00:23<00:10,  1.34it/s, loss=0.502, v_num=0]Epoch 4:  72%|███████▏  | 33/46 [00:24<00:09,  1.34it/s, loss=0.502, v_num=0]Epoch 4:  74%|███████▍  | 34/46 [00:25<00:08,  1.34it/s, loss=0.502, v_num=0]Epoch 4:  74%|███████▍  | 34/46 [00:25<00:08,  1.34it/s, loss=0.5, v_num=0]  Epoch 4:  76%|███████▌  | 35/46 [00:26<00:08,  1.35it/s, loss=0.498, v_num=0]Epoch 4:  78%|███████▊  | 36/46 [00:26<00:07,  1.35it/s, loss=0.498, v_num=0]Epoch 4:  78%|███████▊  | 36/46 [00:26<00:07,  1.35it/s, loss=0.497, v_num=0]Epoch 4:  80%|████████  | 37/46 [00:27<00:06,  1.35it/s, loss=0.494, v_num=0]Epoch 4:  83%|████████▎ | 38/46 [00:28<00:05,  1.35it/s, loss=0.494, v_num=0]Epoch 4:  83%|████████▎ | 38/46 [00:28<00:05,  1.35it/s, loss=0.49, v_num=0] Epoch 4:  85%|████████▍ | 39/46 [00:28<00:05,  1.35it/s, loss=0.493, v_num=0]Epoch 4:  87%|████████▋ | 40/46 [00:29<00:04,  1.36it/s, loss=0.493, v_num=0]Epoch 4:  87%|████████▋ | 40/46 [00:29<00:04,  1.36it/s, loss=0.494, v_num=0]Epoch 4:  89%|████████▉ | 41/46 [00:30<00:03,  1.36it/s, loss=0.497, v_num=0]Epoch 4:  91%|█████████▏| 42/46 [00:30<00:02,  1.37it/s, loss=0.497, v_num=0]Epoch 4:  91%|█████████▏| 42/46 [00:30<00:02,  1.37it/s, loss=0.495, v_num=0]
+Validating: 0it [00:00, ?it/s][A
+Validating:  25%|██▌       | 1/4 [00:01<00:04,  1.39s/it][AEpoch 4:  96%|█████████▌| 44/46 [00:32<00:01,  1.37it/s, loss=0.495, v_num=0]
+Validating:  50%|█████     | 2/4 [00:01<00:01,  1.47it/s][A
+Validating:  75%|███████▌  | 3/4 [00:01<00:00,  2.24it/s][AEpoch 4: 100%|██████████| 46/46 [00:32<00:00,  1.42it/s, loss=0.495, v_num=0]Epoch 4: 100%|██████████| 46/46 [00:32<00:00,  1.40it/s, loss=0.495, v_num=0]
+                                                         [AEpoch 4:   0%|          | 0/46 [00:00<?, ?it/s, loss=0.495, v_num=0]         Epoch 5:   0%|          | 0/46 [00:00<?, ?it/s, loss=0.495, v_num=0]Epoch 5:   2%|▏         | 1/46 [00:02<01:51,  2.49s/it, loss=0.496, v_num=0]Epoch 5:   4%|▍         | 2/46 [00:03<01:11,  1.61s/it, loss=0.496, v_num=0]Epoch 5:   4%|▍         | 2/46 [00:03<01:11,  1.61s/it, loss=0.497, v_num=0]Epoch 5:   7%|▋         | 3/46 [00:03<00:56,  1.31s/it, loss=0.497, v_num=0]Epoch 5:   9%|▊         | 4/46 [00:04<00:48,  1.16s/it, loss=0.497, v_num=0]Epoch 5:   9%|▊         | 4/46 [00:04<00:48,  1.16s/it, loss=0.497, v_num=0]Epoch 5:  11%|█         | 5/46 [00:05<00:43,  1.07s/it, loss=0.497, v_num=0]Epoch 5:  13%|█▎        | 6/46 [00:06<00:40,  1.01s/it, loss=0.497, v_num=0]Epoch 5:  13%|█▎        | 6/46 [00:06<00:40,  1.01s/it, loss=0.498, v_num=0]Epoch 5:  15%|█▌        | 7/46 [00:06<00:37,  1.04it/s, loss=0.495, v_num=0]Epoch 5:  17%|█▋        | 8/46 [00:07<00:35,  1.07it/s, loss=0.495, v_num=0]Epoch 5:  17%|█▋        | 8/46 [00:07<00:35,  1.07it/s, loss=0.492, v_num=0]Epoch 5:  20%|█▉        | 9/46 [00:08<00:33,  1.10it/s, loss=0.489, v_num=0]Epoch 5:  22%|██▏       | 10/46 [00:08<00:32,  1.12it/s, loss=0.489, v_num=0]Epoch 5:  22%|██▏       | 10/46 [00:08<00:32,  1.12it/s, loss=0.487, v_num=0]Epoch 5:  24%|██▍       | 11/46 [00:09<00:30,  1.14it/s, loss=0.488, v_num=0]Epoch 5:  26%|██▌       | 12/46 [00:10<00:29,  1.16it/s, loss=0.488, v_num=0]Epoch 5:  26%|██▌       | 12/46 [00:10<00:29,  1.16it/s, loss=0.488, v_num=0]Epoch 5:  28%|██▊       | 13/46 [00:11<00:28,  1.17it/s, loss=0.489, v_num=0]Epoch 5:  30%|███       | 14/46 [00:11<00:26,  1.19it/s, loss=0.489, v_num=0]Epoch 5:  30%|███       | 14/46 [00:11<00:26,  1.19it/s, loss=0.491, v_num=0]Epoch 5:  33%|███▎      | 15/46 [00:12<00:25,  1.20it/s, loss=0.488, v_num=0]Epoch 5:  35%|███▍      | 16/46 [00:13<00:24,  1.21it/s, loss=0.488, v_num=0]Epoch 5:  35%|███▍      | 16/46 [00:13<00:24,  1.21it/s, loss=0.488, v_num=0]Epoch 5:  37%|███▋      | 17/46 [00:13<00:23,  1.22it/s, loss=0.488, v_num=0]Epoch 5:  39%|███▉      | 18/46 [00:14<00:22,  1.23it/s, loss=0.488, v_num=0]Epoch 5:  39%|███▉      | 18/46 [00:14<00:22,  1.23it/s, loss=0.488, v_num=0]Epoch 5:  41%|████▏     | 19/46 [00:15<00:21,  1.24it/s, loss=0.484, v_num=0]Epoch 5:  43%|████▎     | 20/46 [00:16<00:20,  1.25it/s, loss=0.484, v_num=0]Epoch 5:  43%|████▎     | 20/46 [00:16<00:20,  1.25it/s, loss=0.483, v_num=0]Epoch 5:  46%|████▌     | 21/46 [00:16<00:19,  1.25it/s, loss=0.479, v_num=0]Epoch 5:  48%|████▊     | 22/46 [00:17<00:19,  1.26it/s, loss=0.479, v_num=0]Epoch 5:  48%|████▊     | 22/46 [00:17<00:19,  1.26it/s, loss=0.479, v_num=0]Epoch 5:  50%|█████     | 23/46 [00:18<00:18,  1.27it/s, loss=0.477, v_num=0]Epoch 5:  52%|█████▏    | 24/46 [00:18<00:17,  1.27it/s, loss=0.477, v_num=0]Epoch 5:  52%|█████▏    | 24/46 [00:18<00:17,  1.27it/s, loss=0.476, v_num=0]Epoch 5:  54%|█████▍    | 25/46 [00:19<00:16,  1.28it/s, loss=0.477, v_num=0]Epoch 5:  57%|█████▋    | 26/46 [00:20<00:15,  1.28it/s, loss=0.477, v_num=0]Epoch 5:  57%|█████▋    | 26/46 [00:20<00:15,  1.28it/s, loss=0.477, v_num=0]Epoch 5:  59%|█████▊    | 27/46 [00:20<00:14,  1.29it/s, loss=0.48, v_num=0] Epoch 5:  61%|██████    | 28/46 [00:21<00:13,  1.29it/s, loss=0.48, v_num=0]Epoch 5:  61%|██████    | 28/46 [00:21<00:13,  1.29it/s, loss=0.476, v_num=0]Epoch 5:  63%|██████▎   | 29/46 [00:22<00:13,  1.29it/s, loss=0.479, v_num=0]Epoch 5:  65%|██████▌   | 30/46 [00:23<00:12,  1.30it/s, loss=0.479, v_num=0]Epoch 5:  65%|██████▌   | 30/46 [00:23<00:12,  1.30it/s, loss=0.484, v_num=0]Epoch 5:  67%|██████▋   | 31/46 [00:23<00:11,  1.30it/s, loss=0.485, v_num=0]Epoch 5:  70%|██████▉   | 32/46 [00:24<00:10,  1.30it/s, loss=0.485, v_num=0]Epoch 5:  70%|██████▉   | 32/46 [00:24<00:10,  1.30it/s, loss=0.483, v_num=0]Epoch 5:  72%|███████▏  | 33/46 [00:25<00:09,  1.31it/s, loss=0.483, v_num=0]Epoch 5:  74%|███████▍  | 34/46 [00:25<00:09,  1.31it/s, loss=0.483, v_num=0]Epoch 5:  74%|███████▍  | 34/46 [00:25<00:09,  1.31it/s, loss=0.486, v_num=0]Epoch 5:  76%|███████▌  | 35/46 [00:26<00:08,  1.31it/s, loss=0.49, v_num=0] Epoch 5:  78%|███████▊  | 36/46 [00:27<00:07,  1.31it/s, loss=0.49, v_num=0]Epoch 5:  78%|███████▊  | 36/46 [00:27<00:07,  1.31it/s, loss=0.487, v_num=0]Epoch 5:  80%|████████  | 37/46 [00:28<00:06,  1.32it/s, loss=0.484, v_num=0]Epoch 5:  83%|████████▎ | 38/46 [00:28<00:06,  1.32it/s, loss=0.484, v_num=0]Epoch 5:  83%|████████▎ | 38/46 [00:28<00:06,  1.32it/s, loss=0.483, v_num=0]Epoch 5:  85%|████████▍ | 39/46 [00:29<00:05,  1.32it/s, loss=0.483, v_num=0]Epoch 5:  87%|████████▋ | 40/46 [00:30<00:04,  1.32it/s, loss=0.483, v_num=0]Epoch 5:  87%|████████▋ | 40/46 [00:30<00:04,  1.32it/s, loss=0.484, v_num=0]Epoch 5:  89%|████████▉ | 41/46 [00:30<00:03,  1.32it/s, loss=0.487, v_num=0]Epoch 5:  91%|█████████▏| 42/46 [00:31<00:02,  1.33it/s, loss=0.487, v_num=0]Epoch 5:  91%|█████████▏| 42/46 [00:31<00:02,  1.33it/s, loss=0.488, v_num=0]
+Validating: 0it [00:00, ?it/s][A
+Validating:  25%|██▌       | 1/4 [00:01<00:04,  1.62s/it][AEpoch 5:  96%|█████████▌| 44/46 [00:33<00:01,  1.33it/s, loss=0.488, v_num=0]
+Validating:  50%|█████     | 2/4 [00:01<00:01,  1.27it/s][A
+Validating:  75%|███████▌  | 3/4 [00:02<00:00,  1.92it/s][AEpoch 5: 100%|██████████| 46/46 [00:33<00:00,  1.37it/s, loss=0.488, v_num=0]Epoch 5: 100%|██████████| 46/46 [00:34<00:00,  1.35it/s, loss=0.488, v_num=0]
+                                                         [AEpoch 5:   0%|          | 0/46 [00:00<?, ?it/s, loss=0.488, v_num=0]         Epoch 6:   0%|          | 0/46 [00:00<?, ?it/s, loss=0.488, v_num=0]Epoch 6:   2%|▏         | 1/46 [00:03<02:32,  3.39s/it, loss=0.49, v_num=0]Epoch 6:   4%|▍         | 2/46 [00:04<01:32,  2.09s/it, loss=0.49, v_num=0]Epoch 6:   4%|▍         | 2/46 [00:04<01:32,  2.09s/it, loss=0.486, v_num=0]Epoch 6:   7%|▋         | 3/46 [00:05<01:11,  1.67s/it, loss=0.489, v_num=0]Epoch 6:   9%|▊         | 4/46 [00:05<01:00,  1.44s/it, loss=0.489, v_num=0]Epoch 6:   9%|▊         | 4/46 [00:05<01:00,  1.44s/it, loss=0.49, v_num=0] Epoch 6:  11%|█         | 5/46 [00:06<00:53,  1.31s/it, loss=0.489, v_num=0]Epoch 6:  13%|█▎        | 6/46 [00:07<00:48,  1.21s/it, loss=0.489, v_num=0]Epoch 6:  13%|█▎        | 6/46 [00:07<00:48,  1.21s/it, loss=0.493, v_num=0]Epoch 6:  15%|█▌        | 7/46 [00:08<00:45,  1.17s/it, loss=0.49, v_num=0] Epoch 6:  17%|█▋        | 8/46 [00:08<00:42,  1.12s/it, loss=0.49, v_num=0]Epoch 6:  17%|█▋        | 8/46 [00:08<00:42,  1.12s/it, loss=0.488, v_num=0]Epoch 6:  20%|█▉        | 9/46 [00:09<00:39,  1.07s/it, loss=0.486, v_num=0]Epoch 6:  22%|██▏       | 10/46 [00:10<00:37,  1.04s/it, loss=0.486, v_num=0]Epoch 6:  22%|██▏       | 10/46 [00:10<00:37,  1.04s/it, loss=0.49, v_num=0] Epoch 6:  24%|██▍       | 11/46 [00:11<00:35,  1.01s/it, loss=0.489, v_num=0]Epoch 6:  26%|██▌       | 12/46 [00:11<00:33,  1.02it/s, loss=0.489, v_num=0]Epoch 6:  26%|██▌       | 12/46 [00:11<00:33,  1.02it/s, loss=0.486, v_num=0]Epoch 6:  28%|██▊       | 13/46 [00:12<00:31,  1.04it/s, loss=0.487, v_num=0]Epoch 6:  30%|███       | 14/46 [00:13<00:30,  1.06it/s, loss=0.487, v_num=0]Epoch 6:  30%|███       | 14/46 [00:13<00:30,  1.06it/s, loss=0.486, v_num=0]Epoch 6:  33%|███▎      | 15/46 [00:13<00:28,  1.07it/s, loss=0.49, v_num=0] Epoch 6:  35%|███▍      | 16/46 [00:14<00:27,  1.09it/s, loss=0.49, v_num=0]Epoch 6:  35%|███▍      | 16/46 [00:14<00:27,  1.09it/s, loss=0.49, v_num=0]Epoch 6:  37%|███▋      | 17/46 [00:15<00:26,  1.11it/s, loss=0.489, v_num=0]Epoch 6:  39%|███▉      | 18/46 [00:16<00:25,  1.12it/s, loss=0.489, v_num=0]Epoch 6:  39%|███▉      | 18/46 [00:16<00:25,  1.12it/s, loss=0.49, v_num=0] Epoch 6:  41%|████▏     | 19/46 [00:16<00:23,  1.13it/s, loss=0.491, v_num=0]Epoch 6:  43%|████▎     | 20/46 [00:17<00:22,  1.14it/s, loss=0.491, v_num=0]Epoch 6:  43%|████▎     | 20/46 [00:17<00:22,  1.14it/s, loss=0.491, v_num=0]Epoch 6:  46%|████▌     | 21/46 [00:18<00:21,  1.15it/s, loss=0.491, v_num=0]Epoch 6:  48%|████▊     | 22/46 [00:18<00:20,  1.16it/s, loss=0.491, v_num=0]Epoch 6:  48%|████▊     | 22/46 [00:18<00:20,  1.16it/s, loss=0.492, v_num=0]Epoch 6:  50%|█████     | 23/46 [00:19<00:19,  1.17it/s, loss=0.49, v_num=0] Epoch 6:  52%|█████▏    | 24/46 [00:20<00:18,  1.18it/s, loss=0.49, v_num=0]Epoch 6:  52%|█████▏    | 24/46 [00:20<00:18,  1.18it/s, loss=0.486, v_num=0]Epoch 6:  54%|█████▍    | 25/46 [00:21<00:17,  1.19it/s, loss=0.486, v_num=0]Epoch 6:  57%|█████▋    | 26/46 [00:21<00:16,  1.19it/s, loss=0.486, v_num=0]Epoch 6:  57%|█████▋    | 26/46 [00:21<00:16,  1.19it/s, loss=0.485, v_num=0]Epoch 6:  59%|█████▊    | 27/46 [00:22<00:15,  1.20it/s, loss=0.488, v_num=0]Epoch 6:  61%|██████    | 28/46 [00:23<00:14,  1.21it/s, loss=0.488, v_num=0]Epoch 6:  61%|██████    | 28/46 [00:23<00:14,  1.21it/s, loss=0.488, v_num=0]Epoch 6:  63%|██████▎   | 29/46 [00:24<00:14,  1.21it/s, loss=0.488, v_num=0]Epoch 6:  65%|██████▌   | 30/46 [00:24<00:13,  1.21it/s, loss=0.488, v_num=0]Epoch 6:  65%|██████▌   | 30/46 [00:24<00:13,  1.21it/s, loss=0.487, v_num=0]Epoch 6:  67%|██████▋   | 31/46 [00:25<00:12,  1.22it/s, loss=0.488, v_num=0]Epoch 6:  70%|██████▉   | 32/46 [00:26<00:11,  1.22it/s, loss=0.488, v_num=0]Epoch 6:  70%|██████▉   | 32/46 [00:26<00:11,  1.22it/s, loss=0.487, v_num=0]Epoch 6:  72%|███████▏  | 33/46 [00:26<00:10,  1.23it/s, loss=0.486, v_num=0]Epoch 6:  74%|███████▍  | 34/46 [00:27<00:09,  1.23it/s, loss=0.486, v_num=0]Epoch 6:  74%|███████▍  | 34/46 [00:27<00:09,  1.23it/s, loss=0.491, v_num=0]Epoch 6:  76%|███████▌  | 35/46 [00:28<00:08,  1.24it/s, loss=0.485, v_num=0]Epoch 6:  78%|███████▊  | 36/46 [00:28<00:08,  1.24it/s, loss=0.485, v_num=0]Epoch 6:  78%|███████▊  | 36/46 [00:28<00:08,  1.24it/s, loss=0.486, v_num=0]Epoch 6:  80%|████████  | 37/46 [00:29<00:07,  1.24it/s, loss=0.487, v_num=0]Epoch 6:  83%|████████▎ | 38/46 [00:30<00:06,  1.25it/s, loss=0.487, v_num=0]Epoch 6:  83%|████████▎ | 38/46 [00:30<00:06,  1.25it/s, loss=0.486, v_num=0]Epoch 6:  85%|████████▍ | 39/46 [00:31<00:05,  1.25it/s, loss=0.482, v_num=0]Epoch 6:  87%|████████▋ | 40/46 [00:31<00:04,  1.26it/s, loss=0.482, v_num=0]Epoch 6:  87%|████████▋ | 40/46 [00:31<00:04,  1.26it/s, loss=0.481, v_num=0]Epoch 6:  89%|████████▉ | 41/46 [00:32<00:03,  1.26it/s, loss=0.482, v_num=0]Epoch 6:  91%|█████████▏| 42/46 [00:33<00:03,  1.24it/s, loss=0.482, v_num=0]Epoch 6:  91%|█████████▏| 42/46 [00:33<00:03,  1.24it/s, loss=0.479, v_num=0]
+Validating: 0it [00:00, ?it/s][A
+Validating:  25%|██▌       | 1/4 [00:01<00:04,  1.59s/it][AEpoch 6:  96%|█████████▌| 44/46 [00:35<00:01,  1.24it/s, loss=0.479, v_num=0]
+Validating:  50%|█████     | 2/4 [00:01<00:01,  1.32it/s][A
+Validating:  75%|███████▌  | 3/4 [00:01<00:00,  2.05it/s][AEpoch 6: 100%|██████████| 46/46 [00:35<00:00,  1.29it/s, loss=0.479, v_num=0]Epoch 6: 100%|██████████| 46/46 [00:36<00:00,  1.27it/s, loss=0.479, v_num=0]
+                                                         [AEpoch 6:   0%|          | 0/46 [00:00<?, ?it/s, loss=0.479, v_num=0]         Epoch 7:   0%|          | 0/46 [00:00<?, ?it/s, loss=0.479, v_num=0]Epoch 7:   2%|▏         | 1/46 [00:03<02:18,  3.09s/it, loss=0.477, v_num=0]Epoch 7:   4%|▍         | 2/46 [00:03<01:26,  1.97s/it, loss=0.477, v_num=0]Epoch 7:   4%|▍         | 2/46 [00:03<01:26,  1.97s/it, loss=0.481, v_num=0]Epoch 7:   7%|▋         | 3/46 [00:04<01:08,  1.60s/it, loss=0.484, v_num=0]Epoch 7:   9%|▊         | 4/46 [00:05<00:57,  1.38s/it, loss=0.484, v_num=0]Epoch 7:   9%|▊         | 4/46 [00:05<00:57,  1.38s/it, loss=0.485, v_num=0]Epoch 7:  11%|█         | 5/46 [00:06<00:52,  1.27s/it, loss=0.487, v_num=0]Epoch 7:  13%|█▎        | 6/46 [00:07<00:49,  1.23s/it, loss=0.487, v_num=0]Epoch 7:  13%|█▎        | 6/46 [00:07<00:49,  1.23s/it, loss=0.485, v_num=0]Epoch 7:  15%|█▌        | 7/46 [00:08<00:46,  1.18s/it, loss=0.488, v_num=0]Epoch 7:  17%|█▋        | 8/46 [00:09<00:43,  1.14s/it, loss=0.488, v_num=0]Epoch 7:  17%|█▋        | 8/46 [00:09<00:43,  1.14s/it, loss=0.487, v_num=0]Epoch 7:  20%|█▉        | 9/46 [00:10<00:41,  1.13s/it, loss=0.486, v_num=0]Epoch 7:  22%|██▏       | 10/46 [00:11<00:39,  1.11s/it, loss=0.486, v_num=0]Epoch 7:  22%|██▏       | 10/46 [00:11<00:39,  1.11s/it, loss=0.486, v_num=0]Epoch 7:  24%|██▍       | 11/46 [00:11<00:38,  1.09s/it, loss=0.486, v_num=0]Epoch 7:  26%|██▌       | 12/46 [00:12<00:35,  1.05s/it, loss=0.486, v_num=0]Epoch 7:  26%|██▌       | 12/46 [00:12<00:35,  1.05s/it, loss=0.479, v_num=0]Epoch 7:  28%|██▊       | 13/46 [00:13<00:33,  1.03s/it, loss=0.481, v_num=0]Epoch 7:  30%|███       | 14/46 [00:14<00:32,  1.01s/it, loss=0.481, v_num=0]Epoch 7:  30%|███       | 14/46 [00:14<00:32,  1.01s/it, loss=0.481, v_num=0]Epoch 7:  33%|███▎      | 15/46 [00:14<00:30,  1.01it/s, loss=0.481, v_num=0]Epoch 7:  35%|███▍      | 16/46 [00:15<00:29,  1.03it/s, loss=0.481, v_num=0]Epoch 7:  35%|███▍      | 16/46 [00:15<00:29,  1.03it/s, loss=0.481, v_num=0]Epoch 7:  37%|███▋      | 17/46 [00:16<00:27,  1.05it/s, loss=0.484, v_num=0]Epoch 7:  39%|███▉      | 18/46 [00:16<00:26,  1.06it/s, loss=0.484, v_num=0]Epoch 7:  39%|███▉      | 18/46 [00:16<00:26,  1.06it/s, loss=0.483, v_num=0]Epoch 7:  41%|████▏     | 19/46 [00:17<00:25,  1.08it/s, loss=0.482, v_num=0]Epoch 7:  43%|████▎     | 20/46 [00:18<00:23,  1.09it/s, loss=0.482, v_num=0]Epoch 7:  43%|████▎     | 20/46 [00:18<00:23,  1.09it/s, loss=0.488, v_num=0]Epoch 7:  46%|████▌     | 21/46 [00:19<00:22,  1.10it/s, loss=0.49, v_num=0] Epoch 7:  48%|████▊     | 22/46 [00:19<00:21,  1.11it/s, loss=0.49, v_num=0]Epoch 7:  48%|████▊     | 22/46 [00:19<00:21,  1.11it/s, loss=0.486, v_num=0]Epoch 7:  50%|█████     | 23/46 [00:20<00:20,  1.12it/s, loss=0.482, v_num=0]Epoch 7:  52%|█████▏    | 24/46 [00:21<00:19,  1.13it/s, loss=0.482, v_num=0]Epoch 7:  52%|█████▏    | 24/46 [00:21<00:19,  1.13it/s, loss=0.48, v_num=0] Epoch 7:  54%|█████▍    | 25/46 [00:21<00:18,  1.14it/s, loss=0.477, v_num=0]Epoch 7:  57%|█████▋    | 26/46 [00:22<00:17,  1.15it/s, loss=0.477, v_num=0]Epoch 7:  57%|█████▋    | 26/46 [00:22<00:17,  1.15it/s, loss=0.477, v_num=0]Epoch 7:  59%|█████▊    | 27/46 [00:23<00:16,  1.16it/s, loss=0.471, v_num=0]Epoch 7:  61%|██████    | 28/46 [00:24<00:15,  1.17it/s, loss=0.471, v_num=0]Epoch 7:  61%|██████    | 28/46 [00:24<00:15,  1.17it/s, loss=0.47, v_num=0] Epoch 7:  63%|██████▎   | 29/46 [00:24<00:14,  1.17it/s, loss=0.47, v_num=0]Epoch 7:  65%|██████▌   | 30/46 [00:25<00:13,  1.18it/s, loss=0.47, v_num=0]Epoch 7:  65%|██████▌   | 30/46 [00:25<00:13,  1.18it/s, loss=0.473, v_num=0]Epoch 7:  67%|██████▋   | 31/46 [00:26<00:12,  1.18it/s, loss=0.473, v_num=0]Epoch 7:  70%|██████▉   | 32/46 [00:26<00:11,  1.19it/s, loss=0.473, v_num=0]Epoch 7:  70%|██████▉   | 32/46 [00:26<00:11,  1.19it/s, loss=0.477, v_num=0]Epoch 7:  72%|███████▏  | 33/46 [00:27<00:10,  1.20it/s, loss=0.479, v_num=0]Epoch 7:  74%|███████▍  | 34/46 [00:28<00:09,  1.20it/s, loss=0.479, v_num=0]Epoch 7:  74%|███████▍  | 34/46 [00:28<00:09,  1.20it/s, loss=0.477, v_num=0]Epoch 7:  76%|███████▌  | 35/46 [00:29<00:09,  1.21it/s, loss=0.476, v_num=0]Epoch 7:  78%|███████▊  | 36/46 [00:29<00:08,  1.21it/s, loss=0.476, v_num=0]Epoch 7:  78%|███████▊  | 36/46 [00:29<00:08,  1.21it/s, loss=0.478, v_num=0]Epoch 7:  80%|████████  | 37/46 [00:30<00:07,  1.21it/s, loss=0.475, v_num=0]Epoch 7:  83%|████████▎ | 38/46 [00:31<00:06,  1.22it/s, loss=0.475, v_num=0]Epoch 7:  83%|████████▎ | 38/46 [00:31<00:06,  1.22it/s, loss=0.476, v_num=0]Epoch 7:  85%|████████▍ | 39/46 [00:31<00:05,  1.22it/s, loss=0.474, v_num=0]Epoch 7:  87%|████████▋ | 40/46 [00:32<00:04,  1.23it/s, loss=0.474, v_num=0]Epoch 7:  87%|████████▋ | 40/46 [00:32<00:04,  1.23it/s, loss=0.472, v_num=0]Epoch 7:  89%|████████▉ | 41/46 [00:33<00:04,  1.23it/s, loss=0.469, v_num=0]Epoch 7:  91%|█████████▏| 42/46 [00:34<00:03,  1.22it/s, loss=0.469, v_num=0]Epoch 7:  91%|█████████▏| 42/46 [00:34<00:03,  1.22it/s, loss=0.467, v_num=0]
+Validating: 0it [00:00, ?it/s][A
+Validating:  25%|██▌       | 1/4 [00:03<00:09,  3.02s/it][AEpoch 7:  96%|█████████▌| 44/46 [00:37<00:01,  1.18it/s, loss=0.467, v_num=0]
+Validating:  50%|█████     | 2/4 [00:03<00:02,  1.34s/it][A
+Validating:  75%|███████▌  | 3/4 [00:03<00:00,  1.22it/s][AEpoch 7: 100%|██████████| 46/46 [00:37<00:00,  1.22it/s, loss=0.467, v_num=0]Epoch 7: 100%|██████████| 46/46 [00:38<00:00,  1.20it/s, loss=0.467, v_num=0]
+                                                         [AEpoch 7:   0%|          | 0/46 [00:00<?, ?it/s, loss=0.467, v_num=0]         Epoch 8:   0%|          | 0/46 [00:00<?, ?it/s, loss=0.467, v_num=0]Epoch 8:   2%|▏         | 1/46 [00:03<02:24,  3.22s/it, loss=0.469, v_num=0]Epoch 8:   4%|▍         | 2/46 [00:03<01:26,  1.97s/it, loss=0.469, v_num=0]Epoch 8:   4%|▍         | 2/46 [00:03<01:26,  1.97s/it, loss=0.468, v_num=0]Epoch 8:   7%|▋         | 3/46 [00:04<01:07,  1.58s/it, loss=0.468, v_num=0]Epoch 8:   9%|▊         | 4/46 [00:05<00:56,  1.36s/it, loss=0.468, v_num=0]Epoch 8:   9%|▊         | 4/46 [00:05<00:56,  1.36s/it, loss=0.471, v_num=0]Epoch 8:  11%|█         | 5/46 [00:06<00:50,  1.24s/it, loss=0.475, v_num=0]Epoch 8:  13%|█▎        | 6/46 [00:06<00:46,  1.15s/it, loss=0.475, v_num=0]Epoch 8:  13%|█▎        | 6/46 [00:06<00:46,  1.15s/it, loss=0.473, v_num=0]Epoch 8:  15%|█▌        | 7/46 [00:07<00:42,  1.09s/it, loss=0.473, v_num=0]Epoch 8:  17%|█▋        | 8/46 [00:08<00:39,  1.04s/it, loss=0.473, v_num=0]Epoch 8:  17%|█▋        | 8/46 [00:08<00:39,  1.04s/it, loss=0.471, v_num=0]Epoch 8:  20%|█▉        | 9/46 [00:09<00:37,  1.00s/it, loss=0.469, v_num=0]Epoch 8:  22%|██▏       | 10/46 [00:09<00:34,  1.03it/s, loss=0.469, v_num=0]Epoch 8:  22%|██▏       | 10/46 [00:09<00:34,  1.03it/s, loss=0.467, v_num=0]Epoch 8:  24%|██▍       | 11/46 [00:10<00:33,  1.06it/s, loss=0.463, v_num=0]Epoch 8:  26%|██▌       | 12/46 [00:11<00:32,  1.06it/s, loss=0.463, v_num=0]Epoch 8:  26%|██▌       | 12/46 [00:11<00:32,  1.06it/s, loss=0.464, v_num=0]Epoch 8:  28%|██▊       | 13/46 [00:20<00:52,  1.59s/it, loss=0.461, v_num=0]Epoch 8:  30%|███       | 14/46 [00:21<00:48,  1.53s/it, loss=0.461, v_num=0]Epoch 8:  30%|███       | 14/46 [00:21<00:48,  1.53s/it, loss=0.458, v_num=0]Epoch 8:  33%|███▎      | 15/46 [00:22<00:45,  1.47s/it, loss=0.458, v_num=0]Epoch 8:  33%|███▎      | 15/46 [00:22<00:45,  1.47s/it, loss=0.461, v_num=0]Epoch 8:  35%|███▍      | 16/46 [00:22<00:42,  1.42s/it, loss=0.461, v_num=0]Epoch 8:  35%|███▍      | 16/46 [00:22<00:42,  1.42s/it, loss=0.463, v_num=0]Epoch 8:  37%|███▋      | 17/46 [00:23<00:40,  1.38s/it, loss=0.463, v_num=0]Epoch 8:  37%|███▋      | 17/46 [00:23<00:40,  1.38s/it, loss=0.463, v_num=0]Epoch 8:  39%|███▉      | 18/46 [00:24<00:37,  1.35s/it, loss=0.463, v_num=0]Epoch 8:  39%|███▉      | 18/46 [00:24<00:37,  1.35s/it, loss=0.465, v_num=0]Epoch 8:  41%|████▏     | 19/46 [00:25<00:35,  1.32s/it, loss=0.465, v_num=0]Epoch 8:  41%|████▏     | 19/46 [00:25<00:35,  1.32s/it, loss=0.466, v_num=0]Epoch 8:  43%|████▎     | 20/46 [00:25<00:33,  1.30s/it, loss=0.466, v_num=0]Epoch 8:  43%|████▎     | 20/46 [00:25<00:33,  1.30s/it, loss=0.469, v_num=0]Epoch 8:  46%|████▌     | 21/46 [00:27<00:32,  1.30s/it, loss=0.469, v_num=0]Epoch 8:  46%|████▌     | 21/46 [00:27<00:32,  1.30s/it, loss=0.467, v_num=0]Epoch 8:  48%|████▊     | 22/46 [01:29<01:37,  4.07s/it, loss=0.467, v_num=0]Epoch 8:  48%|████▊     | 22/46 [01:29<01:37,  4.08s/it, loss=0.468, v_num=0]Epoch 8:  50%|█████     | 23/46 [02:01<02:01,  5.27s/it, loss=0.468, v_num=0]Epoch 8:  50%|█████     | 23/46 [02:01<02:01,  5.27s/it, loss=0.466, v_num=0]Epoch 8:  52%|█████▏    | 24/46 [02:01<01:51,  5.08s/it, loss=0.466, v_num=0]Epoch 8:  52%|█████▏    | 24/46 [02:01<01:51,  5.08s/it, loss=0.465, v_num=0]Epoch 8:  54%|█████▍    | 25/46 [02:02<01:42,  4.90s/it, loss=0.465, v_num=0]Epoch 8:  54%|█████▍    | 25/46 [02:02<01:42,  4.90s/it, loss=0.464, v_num=0]Epoch 8:  57%|█████▋    | 26/46 [02:03<01:34,  4.74s/it, loss=0.464, v_num=0]Epoch 8:  57%|█████▋    | 26/46 [02:03<01:34,  4.74s/it, loss=0.466, v_num=0]Epoch 8:  59%|█████▊    | 27/46 [02:05<01:28,  4.65s/it, loss=0.466, v_num=0]Epoch 8:  59%|█████▊    | 27/46 [02:05<01:28,  4.66s/it, loss=0.466, v_num=0]Epoch 8:  61%|██████    | 28/46 [03:05<01:59,  6.64s/it, loss=0.466, v_num=0]Epoch 8:  61%|██████    | 28/46 [03:05<01:59,  6.64s/it, loss=0.467, v_num=0]Epoch 8:  63%|██████▎   | 29/46 [03:06<01:49,  6.43s/it, loss=0.467, v_num=0]Epoch 8:  63%|██████▎   | 29/46 [03:06<01:49,  6.43s/it, loss=0.468, v_num=0]Epoch 8:  65%|██████▌   | 30/46 [03:07<01:39,  6.24s/it, loss=0.468, v_num=0]Epoch 8:  65%|██████▌   | 30/46 [03:07<01:39,  6.24s/it, loss=0.471, v_num=0]Epoch 8:  67%|██████▋   | 31/46 [03:07<01:30,  6.06s/it, loss=0.471, v_num=0]Epoch 8:  67%|██████▋   | 31/46 [03:07<01:30,  6.06s/it, loss=0.472, v_num=0]Epoch 8:  70%|██████▉   | 32/46 [03:08<01:22,  5.89s/it, loss=0.472, v_num=0]Epoch 8:  70%|██████▉   | 32/46 [03:08<01:22,  5.89s/it, loss=0.472, v_num=0]Epoch 8:  72%|███████▏  | 33/46 [03:09<01:14,  5.74s/it, loss=0.472, v_num=0]Epoch 8:  72%|███████▏  | 33/46 [03:09<01:14,  5.74s/it, loss=0.473, v_num=0]Epoch 8:  74%|███████▍  | 34/46 [03:10<01:07,  5.59s/it, loss=0.473, v_num=0]Epoch 8:  74%|███████▍  | 34/46 [03:10<01:07,  5.59s/it, loss=0.474, v_num=0]Epoch 8:  76%|███████▌  | 35/46 [03:10<00:59,  5.45s/it, loss=0.474, v_num=0]Epoch 8:  76%|███████▌  | 35/46 [03:10<00:59,  5.45s/it, loss=0.471, v_num=0]Epoch 8:  78%|███████▊  | 36/46 [03:11<00:53,  5.32s/it, loss=0.471, v_num=0]Epoch 8:  78%|███████▊  | 36/46 [03:11<00:53,  5.32s/it, loss=0.47, v_num=0] Epoch 8:  80%|████████  | 37/46 [03:12<00:46,  5.20s/it, loss=0.47, v_num=0]Epoch 8:  80%|████████  | 37/46 [03:12<00:46,  5.20s/it, loss=0.468, v_num=0]Epoch 8:  83%|████████▎ | 38/46 [03:20<00:42,  5.28s/it, loss=0.468, v_num=0]Epoch 8:  83%|████████▎ | 38/46 [03:20<00:42,  5.28s/it, loss=0.466, v_num=0]Epoch 8:  85%|████████▍ | 39/46 [04:19<00:46,  6.64s/it, loss=0.466, v_num=0]Epoch 8:  85%|████████▍ | 39/46 [04:19<00:46,  6.65s/it, loss=0.468, v_num=0]Epoch 8:  87%|████████▋ | 40/46 [06:17<00:56,  9.44s/it, loss=0.468, v_num=0]Epoch 8:  87%|████████▋ | 40/46 [06:17<00:56,  9.44s/it, loss=0.467, v_num=0]Epoch 8:  89%|████████▉ | 41/46 [06:18<00:46,  9.23s/it, loss=0.467, v_num=0]Epoch 8:  89%|████████▉ | 41/46 [06:18<00:46,  9.23s/it, loss=0.468, v_num=0]Epoch 8:  91%|█████████▏| 42/46 [06:18<00:36,  9.02s/it, loss=0.468, v_num=0]Epoch 8:  91%|█████████▏| 42/46 [06:18<00:36,  9.02s/it, loss=0.472, v_num=0]
+Validating: 0it [00:00, ?it/s][A
+Validating:  25%|██▌       | 1/4 [00:02<00:06,  2.20s/it][AEpoch 8:  96%|█████████▌| 44/46 [06:20<00:17,  8.66s/it, loss=0.472, v_num=0]Epoch 8:  96%|█████████▌| 44/46 [06:36<00:18,  9.02s/it, loss=0.472, v_num=0]
+Validating:  50%|█████     | 2/4 [03:14<03:29, 104.82s/it][AEpoch 8:  98%|█████████▊| 45/46 [11:00<00:14, 14.69s/it, loss=0.472, v_num=0]
+Validating:  75%|███████▌  | 3/4 [04:42<01:44, 104.35s/it][AEpoch 8: 100%|██████████| 46/46 [11:01<00:00, 14.38s/it, loss=0.472, v_num=0]Epoch 8: 100%|██████████| 46/46 [11:02<00:00, 14.39s/it, loss=0.472, v_num=0]
+                                                          [AEpoch 8:   0%|          | 0/46 [00:00<?, ?it/s, loss=0.472, v_num=0]         Epoch 9:   0%|          | 0/46 [00:00<?, ?it/s, loss=0.472, v_num=0]Epoch 9:   2%|▏         | 1/46 [00:01<01:25,  1.91s/it, loss=0.472, v_num=0]Epoch 9:   2%|▏         | 1/46 [00:01<01:25,  1.91s/it, loss=0.472, v_num=0]Epoch 9:   4%|▍         | 2/46 [01:23<30:29, 41.59s/it, loss=0.472, v_num=0]Epoch 9:   4%|▍         | 2/46 [01:23<30:29, 41.59s/it, loss=0.473, v_num=0]Epoch 9:   7%|▋         | 3/46 [01:23<20:02, 27.97s/it, loss=0.473, v_num=0]Epoch 9:   7%|▋         | 3/46 [01:23<20:02, 27.97s/it, loss=0.472, v_num=0]Epoch 9:   9%|▊         | 4/46 [01:24<14:48, 21.14s/it, loss=0.472, v_num=0]Epoch 9:   9%|▊         | 4/46 [01:24<14:48, 21.14s/it, loss=0.473, v_num=0]Epoch 9:  11%|█         | 5/46 [01:25<11:39, 17.05s/it, loss=0.473, v_num=0]Epoch 9:  11%|█         | 5/46 [01:25<11:39, 17.05s/it, loss=0.472, v_num=0]Epoch 9:  13%|█▎        | 6/46 [01:26<09:33, 14.34s/it, loss=0.472, v_num=0]Epoch 9:  13%|█▎        | 6/46 [01:26<09:33, 14.34s/it, loss=0.469, v_num=0]Epoch 9:  15%|█▌        | 7/46 [01:28<08:13, 12.65s/it, loss=0.469, v_num=0]Epoch 9:  15%|█▌        | 7/46 [01:28<08:14, 12.68s/it, loss=0.467, v_num=0]Epoch 9:  17%|█▋        | 8/46 [03:46<17:56, 28.34s/it, loss=0.467, v_num=0]Epoch 9:  17%|█▋        | 8/46 [03:46<17:56, 28.34s/it, loss=0.469, v_num=0]Epoch 9:  20%|█▉        | 9/46 [03:47<15:34, 25.26s/it, loss=0.469, v_num=0]Epoch 9:  20%|█▉        | 9/46 [03:47<15:34, 25.26s/it, loss=0.47, v_num=0] Epoch 9:  22%|██▏       | 10/46 [03:48<13:40, 22.81s/it, loss=0.47, v_num=0]Epoch 9:  22%|██▏       | 10/46 [03:48<13:40, 22.81s/it, loss=0.471, v_num=0]Epoch 9:  24%|██▍       | 11/46 [03:48<12:07, 20.79s/it, loss=0.471, v_num=0]Epoch 9:  24%|██▍       | 11/46 [03:48<12:07, 20.79s/it, loss=0.472, v_num=0]Epoch 9:  26%|██▌       | 12/46 [03:49<10:49, 19.12s/it, loss=0.472, v_num=0]Epoch 9:  26%|██▌       | 12/46 [03:49<10:49, 19.12s/it, loss=0.471, v_num=0]Epoch 9:  28%|██▊       | 13/46 [03:50<09:44, 17.70s/it, loss=0.471, v_num=0]Epoch 9:  28%|██▊       | 13/46 [03:50<09:44, 17.70s/it, loss=0.471, v_num=0]Epoch 9:  30%|███       | 14/46 [03:50<08:47, 16.48s/it, loss=0.471, v_num=0]Epoch 9:  30%|███       | 14/46 [03:50<08:47, 16.48s/it, loss=0.47, v_num=0] Epoch 9:  33%|███▎      | 15/46 [03:51<07:58, 15.43s/it, loss=0.47, v_num=0]Epoch 9:  33%|███▎      | 15/46 [03:51<07:58, 15.43s/it, loss=0.468, v_num=0]Epoch 9:  35%|███▍      | 16/46 [08:08<15:15, 30.51s/it, loss=0.468, v_num=0]Epoch 9:  35%|███▍      | 16/46 [08:08<15:15, 30.52s/it, loss=0.465, v_num=0]Epoch 9:  37%|███▋      | 17/46 [08:08<13:54, 28.76s/it, loss=0.465, v_num=0]Epoch 9:  37%|███▋      | 17/46 [08:08<13:54, 28.76s/it, loss=0.463, v_num=0]Epoch 9:  39%|███▉      | 18/46 [08:09<12:41, 27.20s/it, loss=0.463, v_num=0]Epoch 9:  39%|███▉      | 18/46 [08:09<12:41, 27.20s/it, loss=0.463, v_num=0]Epoch 9:  41%|████▏     | 19/46 [08:10<11:36, 25.81s/it, loss=0.463, v_num=0]Epoch 9:  41%|████▏     | 19/46 [08:10<11:36, 25.81s/it, loss=0.463, v_num=0]Epoch 9:  43%|████▎     | 20/46 [08:11<10:38, 24.55s/it, loss=0.463, v_num=0]Epoch 9:  43%|████▎     | 20/46 [08:11<10:38, 24.55s/it, loss=0.459, v_num=0]Epoch 9:  46%|████▌     | 21/46 [08:11<09:45, 23.42s/it, loss=0.459, v_num=0]Epoch 9:  46%|████▌     | 21/46 [08:11<09:45, 23.42s/it, loss=0.459, v_num=0]Epoch 9:  48%|████▊     | 22/46 [08:12<08:57, 22.38s/it, loss=0.459, v_num=0]Epoch 9:  48%|████▊     | 22/46 [08:12<08:57, 22.38s/it, loss=0.461, v_num=0]Epoch 9:  50%|█████     | 23/46 [08:13<08:13, 21.44s/it, loss=0.461, v_num=0]Epoch 9:  50%|█████     | 23/46 [08:13<08:13, 21.44s/it, loss=0.461, v_num=0]Epoch 9:  52%|█████▏    | 24/46 [08:13<07:32, 20.57s/it, loss=0.461, v_num=0]Epoch 9:  52%|█████▏    | 24/46 [08:13<07:32, 20.57s/it, loss=0.46, v_num=0] Epoch 9:  54%|█████▍    | 25/46 [08:14<06:55, 19.78s/it, loss=0.46, v_num=0]Epoch 9:  54%|█████▍    | 25/46 [08:14<06:55, 19.78s/it, loss=0.459, v_num=0]Epoch 9:  57%|█████▋    | 26/46 [08:15<06:20, 19.04s/it, loss=0.459, v_num=0]Epoch 9:  57%|█████▋    | 26/46 [08:15<06:20, 19.04s/it, loss=0.46, v_num=0] Epoch 9:  59%|█████▊    | 27/46 [08:15<05:48, 18.36s/it, loss=0.46, v_num=0]Epoch 9:  59%|█████▊    | 27/46 [08:15<05:48, 18.36s/it, loss=0.461, v_num=0]Epoch 9:  61%|██████    | 28/46 [08:16<05:19, 17.73s/it, loss=0.461, v_num=0]Epoch 9:  61%|██████    | 28/46 [08:16<05:19, 17.73s/it, loss=0.46, v_num=0] Epoch 9:  63%|██████▎   | 29/46 [08:17<04:51, 17.14s/it, loss=0.46, v_num=0]Epoch 9:  63%|██████▎   | 29/46 [08:17<04:51, 17.14s/it, loss=0.46, v_num=0]Epoch 9:  65%|██████▌   | 30/46 [08:17<04:25, 16.59s/it, loss=0.46, v_num=0]Epoch 9:  65%|██████▌   | 30/46 [08:17<04:25, 16.59s/it, loss=0.462, v_num=0]Epoch 9:  67%|██████▋   | 31/46 [08:18<04:01, 16.09s/it, loss=0.462, v_num=0]Epoch 9:  67%|██████▋   | 31/46 [08:18<04:01, 16.09s/it, loss=0.463, v_num=0]Epoch 9:  70%|██████▉   | 32/46 [08:19<03:38, 15.62s/it, loss=0.463, v_num=0]Epoch 9:  70%|██████▉   | 32/46 [08:19<03:38, 15.62s/it, loss=0.458, v_num=0]Epoch 9:  72%|███████▏  | 33/46 [08:20<03:17, 15.17s/it, loss=0.458, v_num=0]Epoch 9:  72%|███████▏  | 33/46 [08:20<03:17, 15.17s/it, loss=0.462, v_num=0]Epoch 9:  74%|███████▍  | 34/46 [08:21<02:56, 14.74s/it, loss=0.462, v_num=0]Epoch 9:  74%|███████▍  | 34/46 [08:21<02:56, 14.74s/it, loss=0.459, v_num=0]Epoch 9:  76%|███████▌  | 35/46 [08:21<02:37, 14.34s/it, loss=0.459, v_num=0]Epoch 9:  76%|███████▌  | 35/46 [08:21<02:37, 14.34s/it, loss=0.464, v_num=0]Epoch 9:  78%|███████▊  | 36/46 [08:22<02:19, 13.96s/it, loss=0.464, v_num=0]Epoch 9:  78%|███████▊  | 36/46 [08:22<02:19, 13.96s/it, loss=0.469, v_num=0]Epoch 9:  80%|████████  | 37/46 [08:23<02:02, 13.60s/it, loss=0.469, v_num=0]Epoch 9:  80%|████████  | 37/46 [08:23<02:02, 13.60s/it, loss=0.468, v_num=0]Epoch 9:  83%|████████▎ | 38/46 [08:23<01:46, 13.26s/it, loss=0.468, v_num=0]Epoch 9:  83%|████████▎ | 38/46 [08:23<01:46, 13.26s/it, loss=0.471, v_num=0]Epoch 9:  85%|████████▍ | 39/46 [08:24<01:30, 12.94s/it, loss=0.471, v_num=0]Epoch 9:  85%|████████▍ | 39/46 [08:24<01:30, 12.94s/it, loss=0.469, v_num=0]Epoch 9:  87%|████████▋ | 40/46 [08:25<01:15, 12.63s/it, loss=0.469, v_num=0]Epoch 9:  87%|████████▋ | 40/46 [08:25<01:15, 12.63s/it, loss=0.47, v_num=0] Epoch 9:  89%|████████▉ | 41/46 [08:25<01:01, 12.34s/it, loss=0.47, v_num=0]Epoch 9:  89%|████████▉ | 41/46 [08:25<01:01, 12.34s/it, loss=0.469, v_num=0]Epoch 9:  91%|█████████▏| 42/46 [08:26<00:48, 12.06s/it, loss=0.469, v_num=0]Epoch 9:  91%|█████████▏| 42/46 [08:26<00:48, 12.06s/it, loss=0.466, v_num=0]
+Validating: 0it [00:00, ?it/s][A
+Validating:  25%|██▌       | 1/4 [00:01<00:04,  1.39s/it][AEpoch 9:  96%|█████████▌| 44/46 [08:27<00:23, 11.54s/it, loss=0.466, v_num=0]
+Validating:  50%|█████     | 2/4 [00:01<00:01,  1.50it/s][A
+Validating:  75%|███████▌  | 3/4 [00:01<00:00,  2.27it/s][AEpoch 9: 100%|██████████| 46/46 [08:28<00:00, 11.05s/it, loss=0.466, v_num=0]Epoch 9: 100%|██████████| 46/46 [08:28<00:00, 11.06s/it, loss=0.466, v_num=0]
+                                                         [AEpoch 9:   0%|          | 0/46 [00:00<?, ?it/s, loss=0.466, v_num=0]         Epoch 10:   0%|          | 0/46 [00:00<?, ?it/s, loss=0.466, v_num=0]Epoch 10:   2%|▏         | 1/46 [00:02<01:52,  2.50s/it, loss=0.465, v_num=0]Epoch 10:   4%|▍         | 2/46 [00:03<01:09,  1.59s/it, loss=0.465, v_num=0]Epoch 10:   4%|▍         | 2/46 [00:03<01:09,  1.59s/it, loss=0.464, v_num=0]Epoch 10:   7%|▋         | 3/46 [00:03<00:55,  1.29s/it, loss=0.466, v_num=0]Epoch 10:   9%|▊         | 4/46 [00:04<00:47,  1.13s/it, loss=0.466, v_num=0]Epoch 10:   9%|▊         | 4/46 [00:04<00:47,  1.13s/it, loss=0.465, v_num=0]Epoch 10:  11%|█         | 5/46 [00:05<00:42,  1.04s/it, loss=0.462, v_num=0]Epoch 10:  13%|█▎        | 6/46 [00:05<00:39,  1.02it/s, loss=0.462, v_num=0]Epoch 10:  13%|█▎        | 6/46 [00:05<00:39,  1.02it/s, loss=0.463, v_num=0]Epoch 10:  15%|█▌        | 7/46 [00:06<00:36,  1.07it/s, loss=0.46, v_num=0] Epoch 10:  17%|█▋        | 8/46 [00:07<00:34,  1.11it/s, loss=0.46, v_num=0]Epoch 10:  17%|█▋        | 8/46 [00:07<00:34,  1.11it/s, loss=0.46, v_num=0]Epoch 10:  20%|█▉        | 9/46 [00:07<00:32,  1.14it/s, loss=0.457, v_num=0]Epoch 10:  22%|██▏       | 10/46 [00:08<00:30,  1.17it/s, loss=0.457, v_num=0]Epoch 10:  22%|██▏       | 10/46 [00:08<00:30,  1.17it/s, loss=0.462, v_num=0]Epoch 10:  24%|██▍       | 11/46 [00:09<00:29,  1.18it/s, loss=0.456, v_num=0]Epoch 10:  26%|██▌       | 12/46 [00:09<00:28,  1.21it/s, loss=0.456, v_num=0]Epoch 10:  26%|██▌       | 12/46 [00:09<00:28,  1.21it/s, loss=0.459, v_num=0]Epoch 10:  28%|██▊       | 13/46 [00:10<00:26,  1.22it/s, loss=0.458, v_num=0]Epoch 10:  30%|███       | 14/46 [00:11<00:25,  1.24it/s, loss=0.458, v_num=0]Epoch 10:  30%|███       | 14/46 [00:11<00:25,  1.24it/s, loss=0.456, v_num=0]Epoch 10:  33%|███▎      | 15/46 [00:11<00:24,  1.25it/s, loss=0.456, v_num=0]Epoch 10:  35%|███▍      | 16/46 [00:12<00:23,  1.26it/s, loss=0.456, v_num=0]Epoch 10:  35%|███▍      | 16/46 [00:12<00:23,  1.26it/s, loss=0.453, v_num=0]Epoch 10:  37%|███▋      | 17/46 [00:13<00:22,  1.27it/s, loss=0.45, v_num=0] Epoch 10:  39%|███▉      | 18/46 [00:14<00:21,  1.28it/s, loss=0.45, v_num=0]Epoch 10:  39%|███▉      | 18/46 [00:14<00:21,  1.28it/s, loss=0.449, v_num=0]Epoch 10:  41%|████▏     | 19/46 [00:14<00:21,  1.28it/s, loss=0.452, v_num=0]Epoch 10:  43%|████▎     | 20/46 [00:15<00:20,  1.29it/s, loss=0.452, v_num=0]Epoch 10:  43%|████▎     | 20/46 [00:15<00:20,  1.29it/s, loss=0.453, v_num=0]Epoch 10:  46%|████▌     | 21/46 [00:16<00:19,  1.30it/s, loss=0.455, v_num=0]Epoch 10:  48%|████▊     | 22/46 [00:16<00:18,  1.30it/s, loss=0.455, v_num=0]Epoch 10:  48%|████▊     | 22/46 [00:16<00:18,  1.30it/s, loss=0.455, v_num=0]Epoch 10:  50%|█████     | 23/46 [00:17<00:17,  1.31it/s, loss=0.455, v_num=0]Epoch 10:  52%|█████▏    | 24/46 [00:18<00:16,  1.32it/s, loss=0.455, v_num=0]Epoch 10:  52%|█████▏    | 24/46 [00:18<00:16,  1.32it/s, loss=0.454, v_num=0]Epoch 10:  54%|█████▍    | 25/46 [00:18<00:15,  1.32it/s, loss=0.457, v_num=0]Epoch 10:  57%|█████▋    | 26/46 [00:19<00:15,  1.33it/s, loss=0.457, v_num=0]Epoch 10:  57%|█████▋    | 26/46 [00:19<00:15,  1.33it/s, loss=0.456, v_num=0]Epoch 10:  59%|█████▊    | 27/46 [00:20<00:14,  1.33it/s, loss=0.457, v_num=0]Epoch 10:  61%|██████    | 28/46 [00:20<00:13,  1.34it/s, loss=0.457, v_num=0]Epoch 10:  61%|██████    | 28/46 [00:20<00:13,  1.34it/s, loss=0.456, v_num=0]Epoch 10:  63%|██████▎   | 29/46 [00:21<00:12,  1.34it/s, loss=0.459, v_num=0]Epoch 10:  65%|██████▌   | 30/46 [00:22<00:11,  1.34it/s, loss=0.459, v_num=0]Epoch 10:  65%|██████▌   | 30/46 [00:22<00:11,  1.34it/s, loss=0.459, v_num=0]Epoch 10:  67%|██████▋   | 31/46 [00:23<00:11,  1.35it/s, loss=0.46, v_num=0] Epoch 10:  70%|██████▉   | 32/46 [00:23<00:10,  1.35it/s, loss=0.46, v_num=0]Epoch 10:  70%|██████▉   | 32/46 [00:23<00:10,  1.35it/s, loss=0.464, v_num=0]Epoch 10:  72%|███████▏  | 33/46 [00:24<00:09,  1.35it/s, loss=0.463, v_num=0]Epoch 10:  74%|███████▍  | 34/46 [00:25<00:08,  1.36it/s, loss=0.463, v_num=0]Epoch 10:  74%|███████▍  | 34/46 [00:25<00:08,  1.36it/s, loss=0.463, v_num=0]Epoch 10:  76%|███████▌  | 35/46 [00:25<00:08,  1.36it/s, loss=0.461, v_num=0]Epoch 10:  78%|███████▊  | 36/46 [00:26<00:07,  1.36it/s, loss=0.461, v_num=0]Epoch 10:  78%|███████▊  | 36/46 [00:26<00:07,  1.36it/s, loss=0.465, v_num=0]Epoch 10:  80%|████████  | 37/46 [00:27<00:06,  1.36it/s, loss=0.465, v_num=0]Epoch 10:  83%|████████▎ | 38/46 [00:27<00:05,  1.37it/s, loss=0.465, v_num=0]Epoch 10:  83%|████████▎ | 38/46 [00:27<00:05,  1.37it/s, loss=0.469, v_num=0]Epoch 10:  85%|████████▍ | 39/46 [00:28<00:05,  1.37it/s, loss=0.465, v_num=0]Epoch 10:  87%|████████▋ | 40/46 [00:29<00:04,  1.37it/s, loss=0.465, v_num=0]Epoch 10:  87%|████████▋ | 40/46 [00:29<00:04,  1.37it/s, loss=0.462, v_num=0]Epoch 10:  89%|████████▉ | 41/46 [00:29<00:03,  1.37it/s, loss=0.461, v_num=0]Epoch 10:  91%|█████████▏| 42/46 [00:30<00:02,  1.38it/s, loss=0.461, v_num=0]Epoch 10:  91%|█████████▏| 42/46 [00:30<00:02,  1.38it/s, loss=0.464, v_num=0]
+Validating: 0it [00:00, ?it/s][A
+Validating:  25%|██▌       | 1/4 [00:01<00:03,  1.29s/it][AEpoch 10:  96%|█████████▌| 44/46 [00:31<00:01,  1.39it/s, loss=0.464, v_num=0]
+Validating:  50%|█████     | 2/4 [00:01<00:01,  1.59it/s][A
+Validating:  75%|███████▌  | 3/4 [00:01<00:00,  2.39it/s][AEpoch 10: 100%|██████████| 46/46 [00:32<00:00,  1.44it/s, loss=0.464, v_num=0]Epoch 10: 100%|██████████| 46/46 [00:32<00:00,  1.42it/s, loss=0.464, v_num=0]
+                                                         [AEpoch 10:   0%|          | 0/46 [00:00<?, ?it/s, loss=0.464, v_num=0]         Epoch 11:   0%|          | 0/46 [00:00<?, ?it/s, loss=0.464, v_num=0]Epoch 11:   2%|▏         | 1/46 [00:02<01:35,  2.12s/it, loss=0.462, v_num=0]Epoch 11:   4%|▍         | 2/46 [00:02<01:01,  1.40s/it, loss=0.462, v_num=0]Epoch 11:   4%|▍         | 2/46 [00:02<01:01,  1.40s/it, loss=0.461, v_num=0]Epoch 11:   7%|▋         | 3/46 [00:03<00:50,  1.17s/it, loss=0.458, v_num=0]Epoch 11:   9%|▊         | 4/46 [00:04<00:43,  1.05s/it, loss=0.458, v_num=0]Epoch 11:   9%|▊         | 4/46 [00:04<00:43,  1.05s/it, loss=0.456, v_num=0]Epoch 11:  11%|█         | 5/46 [00:04<00:39,  1.03it/s, loss=0.455, v_num=0]Epoch 11:  13%|█▎        | 6/46 [00:05<00:37,  1.08it/s, loss=0.455, v_num=0]Epoch 11:  13%|█▎        | 6/46 [00:05<00:37,  1.08it/s, loss=0.456, v_num=0]Epoch 11:  15%|█▌        | 7/46 [00:06<00:34,  1.12it/s, loss=0.454, v_num=0]Epoch 11:  17%|█▋        | 8/46 [00:06<00:32,  1.15it/s, loss=0.454, v_num=0]Epoch 11:  17%|█▋        | 8/46 [00:06<00:32,  1.15it/s, loss=0.453, v_num=0]Epoch 11:  20%|█▉        | 9/46 [00:07<00:31,  1.18it/s, loss=0.454, v_num=0]Epoch 11:  22%|██▏       | 10/46 [00:08<00:30,  1.20it/s, loss=0.454, v_num=0]Epoch 11:  22%|██▏       | 10/46 [00:08<00:30,  1.20it/s, loss=0.449, v_num=0]Epoch 11:  24%|██▍       | 11/46 [00:09<00:28,  1.22it/s, loss=0.451, v_num=0]Epoch 11:  26%|██▌       | 12/46 [00:09<00:27,  1.23it/s, loss=0.451, v_num=0]Epoch 11:  26%|██▌       | 12/46 [00:09<00:27,  1.23it/s, loss=0.453, v_num=0]Epoch 11:  28%|██▊       | 13/46 [00:10<00:26,  1.25it/s, loss=0.456, v_num=0]Epoch 11:  30%|███       | 14/46 [00:11<00:25,  1.26it/s, loss=0.456, v_num=0]Epoch 11:  30%|███       | 14/46 [00:11<00:25,  1.26it/s, loss=0.457, v_num=0]Epoch 11:  33%|███▎      | 15/46 [00:11<00:24,  1.27it/s, loss=0.459, v_num=0]Epoch 11:  35%|███▍      | 16/46 [00:12<00:23,  1.28it/s, loss=0.459, v_num=0]Epoch 11:  35%|███▍      | 16/46 [00:12<00:23,  1.28it/s, loss=0.455, v_num=0]Epoch 11:  37%|███▋      | 17/46 [00:13<00:22,  1.29it/s, loss=0.457, v_num=0]Epoch 11:  39%|███▉      | 18/46 [00:13<00:21,  1.30it/s, loss=0.457, v_num=0]Epoch 11:  39%|███▉      | 18/46 [00:13<00:21,  1.30it/s, loss=0.461, v_num=0]Epoch 11:  41%|████▏     | 19/46 [00:14<00:20,  1.30it/s, loss=0.457, v_num=0]Epoch 11:  43%|████▎     | 20/46 [00:15<00:19,  1.31it/s, loss=0.457, v_num=0]Epoch 11:  43%|████▎     | 20/46 [00:15<00:19,  1.31it/s, loss=0.451, v_num=0]Epoch 11:  46%|████▌     | 21/46 [00:16<00:19,  1.31it/s, loss=0.451, v_num=0]Epoch 11:  48%|████▊     | 22/46 [00:16<00:18,  1.32it/s, loss=0.451, v_num=0]Epoch 11:  48%|████▊     | 22/46 [00:16<00:18,  1.32it/s, loss=0.459, v_num=0]Epoch 11:  50%|█████     | 23/46 [00:17<00:17,  1.32it/s, loss=0.461, v_num=0]Epoch 11:  52%|█████▏    | 24/46 [00:18<00:16,  1.33it/s, loss=0.461, v_num=0]Epoch 11:  52%|█████▏    | 24/46 [00:18<00:16,  1.33it/s, loss=0.464, v_num=0]Epoch 11:  54%|█████▍    | 25/46 [00:18<00:15,  1.33it/s, loss=0.465, v_num=0]Epoch 11:  57%|█████▋    | 26/46 [00:19<00:14,  1.33it/s, loss=0.465, v_num=0]Epoch 11:  57%|█████▋    | 26/46 [00:19<00:14,  1.33it/s, loss=0.466, v_num=0]Epoch 11:  59%|█████▊    | 27/46 [00:20<00:14,  1.34it/s, loss=0.469, v_num=0]Epoch 11:  61%|██████    | 28/46 [00:20<00:13,  1.34it/s, loss=0.469, v_num=0]Epoch 11:  61%|██████    | 28/46 [00:20<00:13,  1.34it/s, loss=0.47, v_num=0] Epoch 11:  63%|██████▎   | 29/46 [00:21<00:12,  1.34it/s, loss=0.47, v_num=0]Epoch 11:  65%|██████▌   | 30/46 [00:22<00:11,  1.34it/s, loss=0.47, v_num=0]Epoch 11:  65%|██████▌   | 30/46 [00:22<00:11,  1.34it/s, loss=0.473, v_num=0]Epoch 11:  67%|██████▋   | 31/46 [00:23<00:11,  1.35it/s, loss=0.469, v_num=0]Epoch 11:  70%|██████▉   | 32/46 [00:23<00:10,  1.35it/s, loss=0.469, v_num=0]Epoch 11:  70%|██████▉   | 32/46 [00:23<00:10,  1.35it/s, loss=0.463, v_num=0]Epoch 11:  72%|███████▏  | 33/46 [00:24<00:09,  1.35it/s, loss=0.464, v_num=0]Epoch 11:  74%|███████▍  | 34/46 [00:25<00:08,  1.35it/s, loss=0.464, v_num=0]Epoch 11:  74%|███████▍  | 34/46 [00:25<00:08,  1.35it/s, loss=0.459, v_num=0]Epoch 11:  76%|███████▌  | 35/46 [00:25<00:08,  1.36it/s, loss=0.459, v_num=0]Epoch 11:  78%|███████▊  | 36/46 [00:26<00:07,  1.36it/s, loss=0.459, v_num=0]Epoch 11:  78%|███████▊  | 36/46 [00:26<00:07,  1.36it/s, loss=0.46, v_num=0] Epoch 11:  80%|████████  | 37/46 [00:27<00:06,  1.36it/s, loss=0.458, v_num=0]Epoch 11:  83%|████████▎ | 38/46 [00:27<00:05,  1.36it/s, loss=0.458, v_num=0]Epoch 11:  83%|████████▎ | 38/46 [00:27<00:05,  1.36it/s, loss=0.456, v_num=0]Epoch 11:  85%|████████▍ | 39/46 [00:28<00:05,  1.36it/s, loss=0.459, v_num=0]Epoch 11:  87%|████████▋ | 40/46 [00:29<00:04,  1.37it/s, loss=0.459, v_num=0]Epoch 11:  87%|████████▋ | 40/46 [00:29<00:04,  1.37it/s, loss=0.463, v_num=0]Epoch 11:  89%|████████▉ | 41/46 [00:29<00:03,  1.37it/s, loss=0.462, v_num=0]Epoch 11:  91%|█████████▏| 42/46 [00:30<00:02,  1.38it/s, loss=0.462, v_num=0]Epoch 11:  91%|█████████▏| 42/46 [00:30<00:02,  1.38it/s, loss=0.46, v_num=0] 
+Validating: 0it [00:00, ?it/s][A
+Validating:  25%|██▌       | 1/4 [00:01<00:04,  1.47s/it][AEpoch 11:  96%|█████████▌| 44/46 [00:31<00:01,  1.38it/s, loss=0.46, v_num=0]
+Validating:  50%|█████     | 2/4 [00:01<00:01,  1.41it/s][A
+Validating:  75%|███████▌  | 3/4 [00:01<00:00,  2.17it/s][AEpoch 11: 100%|██████████| 46/46 [00:32<00:00,  1.42it/s, loss=0.46, v_num=0]Epoch 11: 100%|██████████| 46/46 [00:32<00:00,  1.41it/s, loss=0.46, v_num=0]
+                                                         [AEpoch 11:   0%|          | 0/46 [00:00<?, ?it/s, loss=0.46, v_num=0]         Epoch 12:   0%|          | 0/46 [00:00<?, ?it/s, loss=0.46, v_num=0]Epoch 12:   2%|▏         | 1/46 [00:02<02:13,  2.96s/it, loss=0.457, v_num=0]Epoch 12:   4%|▍         | 2/46 [00:03<01:20,  1.83s/it, loss=0.457, v_num=0]Epoch 12:   4%|▍         | 2/46 [00:03<01:20,  1.83s/it, loss=0.457, v_num=0]Epoch 12:   7%|▋         | 3/46 [00:04<01:02,  1.45s/it, loss=0.455, v_num=0]Epoch 12:   9%|▊         | 4/46 [00:05<00:53,  1.26s/it, loss=0.455, v_num=0]Epoch 12:   9%|▊         | 4/46 [00:05<00:53,  1.26s/it, loss=0.453, v_num=0]Epoch 12:  11%|█         | 5/46 [00:05<00:47,  1.15s/it, loss=0.452, v_num=0]Epoch 12:  13%|█▎        | 6/46 [00:06<00:42,  1.07s/it, loss=0.452, v_num=0]Epoch 12:  13%|█▎        | 6/46 [00:06<00:42,  1.07s/it, loss=0.452, v_num=0]Epoch 12:  15%|█▌        | 7/46 [00:07<00:39,  1.02s/it, loss=0.447, v_num=0]Epoch 12:  17%|█▋        | 8/46 [00:07<00:37,  1.02it/s, loss=0.447, v_num=0]Epoch 12:  17%|█▋        | 8/46 [00:07<00:37,  1.02it/s, loss=0.444, v_num=0]Epoch 12:  20%|█▉        | 9/46 [00:08<00:35,  1.05it/s, loss=0.446, v_num=0]Epoch 12:  22%|██▏       | 10/46 [00:09<00:33,  1.08it/s, loss=0.446, v_num=0]Epoch 12:  22%|██▏       | 10/46 [00:09<00:33,  1.08it/s, loss=0.449, v_num=0]Epoch 12:  24%|██▍       | 11/46 [00:10<00:31,  1.10it/s, loss=0.449, v_num=0]Epoch 12:  26%|██▌       | 12/46 [00:10<00:30,  1.11it/s, loss=0.449, v_num=0]Epoch 12:  26%|██▌       | 12/46 [00:10<00:30,  1.11it/s, loss=0.449, v_num=0]Epoch 12:  28%|██▊       | 13/46 [00:11<00:29,  1.13it/s, loss=0.451, v_num=0]Epoch 12:  30%|███       | 14/46 [00:12<00:28,  1.14it/s, loss=0.451, v_num=0]Epoch 12:  30%|███       | 14/46 [00:12<00:28,  1.14it/s, loss=0.452, v_num=0]Epoch 12:  33%|███▎      | 15/46 [00:13<00:26,  1.15it/s, loss=0.453, v_num=0]Epoch 12:  35%|███▍      | 16/46 [00:13<00:25,  1.15it/s, loss=0.453, v_num=0]Epoch 12:  35%|███▍      | 16/46 [00:13<00:25,  1.15it/s, loss=0.456, v_num=0]Epoch 12:  37%|███▋      | 17/46 [00:14<00:24,  1.16it/s, loss=0.454, v_num=0]Epoch 12:  39%|███▉      | 18/46 [00:15<00:23,  1.18it/s, loss=0.454, v_num=0]Epoch 12:  39%|███▉      | 18/46 [00:15<00:23,  1.18it/s, loss=0.454, v_num=0]Epoch 12:  41%|████▏     | 19/46 [00:16<00:22,  1.18it/s, loss=0.451, v_num=0]Epoch 12:  43%|████▎     | 20/46 [00:16<00:21,  1.19it/s, loss=0.451, v_num=0]Epoch 12:  43%|████▎     | 20/46 [00:16<00:21,  1.19it/s, loss=0.447, v_num=0]Epoch 12:  46%|████▌     | 21/46 [00:17<00:20,  1.20it/s, loss=0.449, v_num=0]Epoch 12:  48%|████▊     | 22/46 [00:18<00:19,  1.21it/s, loss=0.449, v_num=0]Epoch 12:  48%|████▊     | 22/46 [00:18<00:19,  1.21it/s, loss=0.448, v_num=0]Epoch 12:  50%|█████     | 23/46 [00:18<00:18,  1.22it/s, loss=0.447, v_num=0]Epoch 12:  52%|█████▏    | 24/46 [00:19<00:17,  1.23it/s, loss=0.447, v_num=0]Epoch 12:  52%|█████▏    | 24/46 [00:19<00:17,  1.23it/s, loss=0.45, v_num=0] Epoch 12:  54%|█████▍    | 25/46 [00:20<00:17,  1.23it/s, loss=0.447, v_num=0]Epoch 12:  57%|█████▋    | 26/46 [00:20<00:16,  1.24it/s, loss=0.447, v_num=0]Epoch 12:  57%|█████▋    | 26/46 [00:20<00:16,  1.24it/s, loss=0.448, v_num=0]Epoch 12:  59%|█████▊    | 27/46 [00:21<00:15,  1.24it/s, loss=0.454, v_num=0]Epoch 12:  61%|██████    | 28/46 [00:22<00:14,  1.25it/s, loss=0.454, v_num=0]Epoch 12:  61%|██████    | 28/46 [00:22<00:14,  1.25it/s, loss=0.452, v_num=0]Epoch 12:  63%|██████▎   | 29/46 [00:23<00:13,  1.25it/s, loss=0.452, v_num=0]Epoch 12:  65%|██████▌   | 30/46 [00:23<00:12,  1.25it/s, loss=0.452, v_num=0]Epoch 12:  65%|██████▌   | 30/46 [00:23<00:12,  1.25it/s, loss=0.453, v_num=0]Epoch 12:  67%|██████▋   | 31/46 [00:24<00:11,  1.26it/s, loss=0.451, v_num=0]Epoch 12:  70%|██████▉   | 32/46 [00:25<00:11,  1.26it/s, loss=0.451, v_num=0]Epoch 12:  70%|██████▉   | 32/46 [00:25<00:11,  1.26it/s, loss=0.452, v_num=0]Epoch 12:  72%|███████▏  | 33/46 [00:26<00:10,  1.27it/s, loss=0.45, v_num=0] Epoch 12:  74%|███████▍  | 34/46 [00:26<00:09,  1.27it/s, loss=0.45, v_num=0]Epoch 12:  74%|███████▍  | 34/46 [00:26<00:09,  1.27it/s, loss=0.451, v_num=0]Epoch 12:  76%|███████▌  | 35/46 [00:27<00:08,  1.27it/s, loss=0.452, v_num=0]Epoch 12:  78%|███████▊  | 36/46 [00:28<00:07,  1.28it/s, loss=0.452, v_num=0]Epoch 12:  78%|███████▊  | 36/46 [00:28<00:07,  1.28it/s, loss=0.452, v_num=0]Epoch 12:  80%|████████  | 37/46 [00:28<00:07,  1.28it/s, loss=0.454, v_num=0]Epoch 12:  83%|████████▎ | 38/46 [00:29<00:06,  1.28it/s, loss=0.454, v_num=0]Epoch 12:  83%|████████▎ | 38/46 [00:29<00:06,  1.28it/s, loss=0.452, v_num=0]Epoch 12:  85%|████████▍ | 39/46 [00:30<00:05,  1.29it/s, loss=0.458, v_num=0]Epoch 12:  87%|████████▋ | 40/46 [00:31<00:04,  1.29it/s, loss=0.458, v_num=0]Epoch 12:  87%|████████▋ | 40/46 [00:31<00:04,  1.29it/s, loss=0.46, v_num=0] Epoch 12:  89%|████████▉ | 41/46 [00:31<00:03,  1.29it/s, loss=0.461, v_num=0]Epoch 12:  91%|█████████▏| 42/46 [00:32<00:03,  1.30it/s, loss=0.461, v_num=0]Epoch 12:  91%|█████████▏| 42/46 [00:32<00:03,  1.30it/s, loss=0.458, v_num=0]
+Validating: 0it [00:00, ?it/s][A
+Validating:  25%|██▌       | 1/4 [00:01<00:05,  1.85s/it][AEpoch 12:  96%|█████████▌| 44/46 [00:34<00:01,  1.29it/s, loss=0.458, v_num=0]
+Validating:  50%|█████     | 2/4 [00:02<00:02,  1.06s/it][A
+Validating:  75%|███████▌  | 3/4 [00:02<00:00,  1.46it/s][AEpoch 12: 100%|██████████| 46/46 [00:34<00:00,  1.32it/s, loss=0.458, v_num=0]Epoch 12: 100%|██████████| 46/46 [00:35<00:00,  1.30it/s, loss=0.458, v_num=0]
+                                                         [AEpoch 12:   0%|          | 0/46 [00:00<?, ?it/s, loss=0.458, v_num=0]         Epoch 13:   0%|          | 0/46 [00:00<?, ?it/s, loss=0.458, v_num=0]Epoch 13:   2%|▏         | 1/46 [00:24<18:30, 24.69s/it, loss=0.459, v_num=0]Epoch 13:   2%|▏         | 1/46 [00:31<23:41, 31.59s/it, loss=0.459, v_num=0]Epoch 13:   4%|▍         | 2/46 [00:39<14:36, 19.91s/it, loss=0.459, v_num=0]Epoch 13:   4%|▍         | 2/46 [00:39<14:36, 19.92s/it, loss=0.458, v_num=0]Epoch 13:   7%|▋         | 3/46 [00:40<09:41, 13.53s/it, loss=0.458, v_num=0]Epoch 13:   7%|▋         | 3/46 [00:40<09:41, 13.53s/it, loss=0.457, v_num=0]Epoch 13:   9%|▊         | 4/46 [00:41<07:13, 10.32s/it, loss=0.457, v_num=0]Epoch 13:   9%|▊         | 4/46 [00:41<07:13, 10.32s/it, loss=0.456, v_num=0]Epoch 13:  11%|█         | 5/46 [00:41<05:44,  8.39s/it, loss=0.456, v_num=0]Epoch 13:  11%|█         | 5/46 [00:41<05:44,  8.39s/it, loss=0.454, v_num=0]Epoch 13:  13%|█▎        | 6/46 [00:42<04:44,  7.11s/it, loss=0.454, v_num=0]Epoch 13:  13%|█▎        | 6/46 [00:42<04:44,  7.11s/it, loss=0.457, v_num=0]Epoch 13:  15%|█▌        | 7/46 [00:43<04:01,  6.20s/it, loss=0.457, v_num=0]Epoch 13:  15%|█▌        | 7/46 [00:43<04:01,  6.20s/it, loss=0.457, v_num=0]Epoch 13:  17%|█▋        | 8/46 [00:44<03:29,  5.51s/it, loss=0.457, v_num=0]Epoch 13:  17%|█▋        | 8/46 [00:44<03:29,  5.51s/it, loss=0.455, v_num=0]Epoch 13:  20%|█▉        | 9/46 [00:44<03:04,  4.98s/it, loss=0.455, v_num=0]Epoch 13:  20%|█▉        | 9/46 [00:44<03:04,  4.98s/it, loss=0.459, v_num=0]Epoch 13:  22%|██▏       | 10/46 [00:45<02:43,  4.55s/it, loss=0.459, v_num=0]Epoch 13:  22%|██▏       | 10/46 [00:45<02:43,  4.55s/it, loss=0.463, v_num=0]Epoch 13:  24%|██▍       | 11/46 [00:46<02:26,  4.20s/it, loss=0.463, v_num=0]Epoch 13:  24%|██▍       | 11/46 [00:46<02:26,  4.20s/it, loss=0.462, v_num=0]Epoch 13:  26%|██▌       | 12/46 [00:46<02:12,  3.91s/it, loss=0.462, v_num=0]Epoch 13:  26%|██▌       | 12/46 [00:46<02:12,  3.91s/it, loss=0.461, v_num=0]Epoch 13:  28%|██▊       | 13/46 [00:47<02:01,  3.68s/it, loss=0.461, v_num=0]Epoch 13:  28%|██▊       | 13/46 [00:47<02:01,  3.68s/it, loss=0.457, v_num=0]Epoch 13:  30%|███       | 14/46 [01:59<04:32,  8.53s/it, loss=0.457, v_num=0]Epoch 13:  30%|███       | 14/46 [01:59<04:32,  8.53s/it, loss=0.455, v_num=0]Epoch 13:  33%|███▎      | 15/46 [02:00<04:08,  8.01s/it, loss=0.455, v_num=0]Epoch 13:  33%|███▎      | 15/46 [02:00<04:08,  8.01s/it, loss=0.455, v_num=0]Epoch 13:  35%|███▍      | 16/46 [02:00<03:46,  7.55s/it, loss=0.455, v_num=0]Epoch 13:  35%|███▍      | 16/46 [02:00<03:46,  7.55s/it, loss=0.458, v_num=0]Epoch 13:  37%|███▋      | 17/46 [02:01<03:27,  7.15s/it, loss=0.458, v_num=0]Epoch 13:  37%|███▋      | 17/46 [02:01<03:27,  7.15s/it, loss=0.457, v_num=0]Epoch 13:  39%|███▉      | 18/46 [02:02<03:10,  6.79s/it, loss=0.457, v_num=0]Epoch 13:  39%|███▉      | 18/46 [02:02<03:10,  6.79s/it, loss=0.457, v_num=0]Epoch 13:  41%|████▏     | 19/46 [02:02<02:54,  6.47s/it, loss=0.457, v_num=0]Epoch 13:  41%|████▏     | 19/46 [02:02<02:54,  6.47s/it, loss=0.456, v_num=0]Epoch 13:  43%|████▎     | 20/46 [02:03<02:40,  6.18s/it, loss=0.456, v_num=0]Epoch 13:  43%|████▎     | 20/46 [02:03<02:40,  6.18s/it, loss=0.459, v_num=0]Epoch 13:  46%|████▌     | 21/46 [02:04<02:28,  5.92s/it, loss=0.459, v_num=0]Epoch 13:  46%|████▌     | 21/46 [02:04<02:28,  5.92s/it, loss=0.459, v_num=0]Epoch 13:  48%|████▊     | 22/46 [02:05<02:16,  5.68s/it, loss=0.459, v_num=0]Epoch 13:  48%|████▊     | 22/46 [02:05<02:16,  5.68s/it, loss=0.458, v_num=0]Epoch 13:  50%|█████     | 23/46 [02:05<02:05,  5.47s/it, loss=0.458, v_num=0]Epoch 13:  50%|█████     | 23/46 [02:05<02:05,  5.47s/it, loss=0.459, v_num=0]Epoch 13:  52%|█████▏    | 24/46 [02:07<01:56,  5.30s/it, loss=0.459, v_num=0]Epoch 13:  52%|█████▏    | 24/46 [02:07<01:56,  5.30s/it, loss=0.456, v_num=0]Epoch 13:  54%|█████▍    | 25/46 [02:08<01:47,  5.14s/it, loss=0.456, v_num=0]Epoch 13:  54%|█████▍    | 25/46 [02:08<01:47,  5.14s/it, loss=0.455, v_num=0]Epoch 13:  57%|█████▋    | 26/46 [02:11<01:40,  5.04s/it, loss=0.455, v_num=0]Epoch 13:  57%|█████▋    | 26/46 [02:11<01:40,  5.04s/it, loss=0.454, v_num=0]Epoch 13:  59%|█████▊    | 27/46 [02:12<01:32,  4.89s/it, loss=0.454, v_num=0]Epoch 13:  59%|█████▊    | 27/46 [02:12<01:32,  4.89s/it, loss=0.454, v_num=0]Epoch 13:  61%|██████    | 28/46 [02:13<01:25,  4.76s/it, loss=0.454, v_num=0]Epoch 13:  61%|██████    | 28/46 [02:13<01:25,  4.76s/it, loss=0.455, v_num=0]Epoch 13:  63%|██████▎   | 29/46 [03:46<02:12,  7.82s/it, loss=0.455, v_num=0]Epoch 13:  63%|██████▎   | 29/46 [03:46<02:12,  7.82s/it, loss=0.453, v_num=0]Epoch 13:  65%|██████▌   | 30/46 [03:47<02:01,  7.58s/it, loss=0.453, v_num=0]Epoch 13:  65%|██████▌   | 30/46 [03:47<02:01,  7.58s/it, loss=0.449, v_num=0]Epoch 13:  67%|██████▋   | 31/46 [03:48<01:50,  7.36s/it, loss=0.449, v_num=0]Epoch 13:  67%|██████▋   | 31/46 [03:48<01:50,  7.36s/it, loss=0.448, v_num=0]Epoch 13:  70%|██████▉   | 32/46 [03:48<01:40,  7.15s/it, loss=0.448, v_num=0]Epoch 13:  70%|██████▉   | 32/46 [03:48<01:40,  7.15s/it, loss=0.449, v_num=0]Epoch 13:  72%|███████▏  | 33/46 [03:49<01:30,  6.96s/it, loss=0.449, v_num=0]Epoch 13:  72%|███████▏  | 33/46 [03:49<01:30,  6.96s/it, loss=0.453, v_num=0]Epoch 13:  74%|███████▍  | 34/46 [03:50<01:21,  6.77s/it, loss=0.453, v_num=0]Epoch 13:  74%|███████▍  | 34/46 [03:50<01:21,  6.77s/it, loss=0.451, v_num=0]Epoch 13:  76%|███████▌  | 35/46 [03:51<01:12,  6.60s/it, loss=0.451, v_num=0]Epoch 13:  76%|███████▌  | 35/46 [03:51<01:12,  6.60s/it, loss=0.453, v_num=0]Epoch 13:  78%|███████▊  | 36/46 [03:51<01:04,  6.44s/it, loss=0.453, v_num=0]Epoch 13:  78%|███████▊  | 36/46 [03:51<01:04,  6.44s/it, loss=0.451, v_num=0]Epoch 13:  80%|████████  | 37/46 [03:52<00:56,  6.28s/it, loss=0.451, v_num=0]Epoch 13:  80%|████████  | 37/46 [03:52<00:56,  6.28s/it, loss=0.447, v_num=0]Epoch 13:  83%|████████▎ | 38/46 [03:53<00:49,  6.14s/it, loss=0.447, v_num=0]Epoch 13:  83%|████████▎ | 38/46 [03:53<00:49,  6.14s/it, loss=0.444, v_num=0]Epoch 13:  85%|████████▍ | 39/46 [04:15<00:45,  6.54s/it, loss=0.444, v_num=0]Epoch 13:  85%|████████▍ | 39/46 [04:15<00:45,  6.55s/it, loss=0.445, v_num=0]Epoch 13:  87%|████████▋ | 40/46 [05:20<00:48,  8.00s/it, loss=0.445, v_num=0]Epoch 13:  87%|████████▋ | 40/46 [05:20<00:48,  8.00s/it, loss=0.447, v_num=0]Epoch 13:  89%|████████▉ | 41/46 [05:20<00:39,  7.82s/it, loss=0.447, v_num=0]Epoch 13:  89%|████████▉ | 41/46 [05:20<00:39,  7.82s/it, loss=0.449, v_num=0]Epoch 13:  91%|█████████▏| 42/46 [05:21<00:30,  7.65s/it, loss=0.449, v_num=0]Epoch 13:  91%|█████████▏| 42/46 [05:21<00:30,  7.65s/it, loss=0.453, v_num=0]
+Validating: 0it [00:00, ?it/s][A
+Validating:  25%|██▌       | 1/4 [01:18<03:55, 78.49s/it][AEpoch 13:  96%|█████████▌| 44/46 [06:39<00:18,  9.09s/it, loss=0.453, v_num=0]
+Validating:  50%|█████     | 2/4 [02:26<02:24, 72.27s/it][AEpoch 13:  98%|█████████▊| 45/46 [07:47<00:10, 10.39s/it, loss=0.453, v_num=0]
+Validating:  75%|███████▌  | 3/4 [02:26<00:39, 39.36s/it][AEpoch 13: 100%|██████████| 46/46 [07:47<00:00, 10.17s/it, loss=0.453, v_num=0]Epoch 13: 100%|██████████| 46/46 [07:48<00:00, 10.18s/it, loss=0.453, v_num=0]
+                                                         [AEpoch 13:   0%|          | 0/46 [00:00<?, ?it/s, loss=0.453, v_num=0]         Epoch 14:   0%|          | 0/46 [00:00<?, ?it/s, loss=0.453, v_num=0]Epoch 14:   2%|▏         | 1/46 [00:02<01:53,  2.52s/it, loss=0.453, v_num=0]Epoch 14:   2%|▏         | 1/46 [00:02<01:53,  2.53s/it, loss=0.451, v_num=0]Epoch 14:   4%|▍         | 2/46 [00:15<05:40,  7.74s/it, loss=0.451, v_num=0]Epoch 14:   4%|▍         | 2/46 [00:15<05:40,  7.74s/it, loss=0.453, v_num=0]Epoch 14:   7%|▋         | 3/46 [00:16<03:52,  5.41s/it, loss=0.453, v_num=0]Epoch 14:   7%|▋         | 3/46 [00:16<03:52,  5.41s/it, loss=0.453, v_num=0]Epoch 14:   9%|▊         | 4/46 [00:16<02:57,  4.23s/it, loss=0.453, v_num=0]Epoch 14:   9%|▊         | 4/46 [00:16<02:57,  4.23s/it, loss=0.456, v_num=0]Epoch 14:  11%|█         | 5/46 [00:17<02:24,  3.52s/it, loss=0.456, v_num=0]Epoch 14:  11%|█         | 5/46 [00:17<02:24,  3.52s/it, loss=0.457, v_num=0]Epoch 14:  13%|█▎        | 6/46 [00:18<02:01,  3.05s/it, loss=0.457, v_num=0]Epoch 14:  13%|█▎        | 6/46 [00:18<02:01,  3.05s/it, loss=0.457, v_num=0]Epoch 14:  15%|█▌        | 7/46 [00:18<01:45,  2.71s/it, loss=0.457, v_num=0]Epoch 14:  15%|█▌        | 7/46 [00:18<01:45,  2.71s/it, loss=0.458, v_num=0]Epoch 14:  17%|█▋        | 8/46 [00:19<01:33,  2.46s/it, loss=0.458, v_num=0]Epoch 14:  17%|█▋        | 8/46 [00:19<01:33,  2.46s/it, loss=0.456, v_num=0]Epoch 14:  20%|█▉        | 9/46 [00:20<01:23,  2.26s/it, loss=0.456, v_num=0]Epoch 14:  20%|█▉        | 9/46 [00:20<01:23,  2.26s/it, loss=0.457, v_num=0]Epoch 14:  22%|██▏       | 10/46 [00:21<01:15,  2.10s/it, loss=0.457, v_num=0]Epoch 14:  22%|██▏       | 10/46 [00:21<01:15,  2.10s/it, loss=0.455, v_num=0]Epoch 14:  24%|██▍       | 11/46 [00:21<01:09,  1.97s/it, loss=0.455, v_num=0]Epoch 14:  24%|██▍       | 11/46 [00:21<01:09,  1.97s/it, loss=0.453, v_num=0]Epoch 14:  26%|██▌       | 12/46 [00:22<01:03,  1.87s/it, loss=0.453, v_num=0]Epoch 14:  26%|██▌       | 12/46 [00:22<01:03,  1.87s/it, loss=0.459, v_num=0]Epoch 14:  28%|██▊       | 13/46 [00:23<00:58,  1.78s/it, loss=0.459, v_num=0]Epoch 14:  28%|██▊       | 13/46 [00:23<00:58,  1.78s/it, loss=0.456, v_num=0]Epoch 14:  30%|███       | 14/46 [00:24<00:54,  1.72s/it, loss=0.456, v_num=0]Epoch 14:  30%|███       | 14/46 [00:24<00:54,  1.72s/it, loss=0.455, v_num=0]Epoch 14:  33%|███▎      | 15/46 [00:26<00:54,  1.76s/it, loss=0.455, v_num=0]Epoch 14:  33%|███▎      | 15/46 [00:26<00:54,  1.76s/it, loss=0.459, v_num=0]Epoch 14:  35%|███▍      | 16/46 [02:43<05:06, 10.20s/it, loss=0.459, v_num=0]Epoch 14:  35%|███▍      | 16/46 [02:43<05:06, 10.20s/it, loss=0.461, v_num=0]Epoch 14:  37%|███▋      | 17/46 [02:43<04:39,  9.65s/it, loss=0.461, v_num=0]Epoch 14:  37%|███▋      | 17/46 [02:43<04:39,  9.65s/it, loss=0.461, v_num=0]Epoch 14:  39%|███▉      | 18/46 [02:44<04:16,  9.15s/it, loss=0.461, v_num=0]Epoch 14:  39%|███▉      | 18/46 [02:44<04:16,  9.15s/it, loss=0.46, v_num=0] Epoch 14:  41%|████▏     | 19/46 [02:45<03:54,  8.70s/it, loss=0.46, v_num=0]Epoch 14:  41%|████▏     | 19/46 [02:45<03:54,  8.70s/it, loss=0.456, v_num=0]Epoch 14:  43%|████▎     | 20/46 [02:46<03:35,  8.30s/it, loss=0.456, v_num=0]Epoch 14:  43%|████▎     | 20/46 [02:46<03:35,  8.30s/it, loss=0.453, v_num=0]Epoch 14:  46%|████▌     | 21/46 [02:46<03:18,  7.94s/it, loss=0.453, v_num=0]Epoch 14:  46%|████▌     | 21/46 [02:46<03:18,  7.94s/it, loss=0.455, v_num=0]Epoch 14:  48%|████▊     | 22/46 [02:47<03:02,  7.61s/it, loss=0.455, v_num=0]Epoch 14:  48%|████▊     | 22/46 [02:47<03:02,  7.61s/it, loss=0.457, v_num=0]Epoch 14:  50%|█████     | 23/46 [02:48<02:48,  7.31s/it, loss=0.457, v_num=0]Epoch 14:  50%|█████     | 23/46 [02:48<02:48,  7.31s/it, loss=0.458, v_num=0]Epoch 14:  52%|█████▏    | 24/46 [02:48<02:34,  7.03s/it, loss=0.458, v_num=0]Epoch 14:  52%|█████▏    | 24/46 [02:48<02:34,  7.03s/it, loss=0.457, v_num=0]Epoch 14:  54%|█████▍    | 25/46 [02:49<02:22,  6.78s/it, loss=0.457, v_num=0]Epoch 14:  54%|█████▍    | 25/46 [02:49<02:22,  6.78s/it, loss=0.459, v_num=0]Epoch 14:  57%|█████▋    | 26/46 [02:50<02:10,  6.55s/it, loss=0.459, v_num=0]Epoch 14:  57%|█████▋    | 26/46 [02:50<02:10,  6.55s/it, loss=0.461, v_num=0]Epoch 14:  59%|█████▊    | 27/46 [02:50<02:00,  6.33s/it, loss=0.461, v_num=0]Epoch 14:  59%|█████▊    | 27/46 [02:50<02:00,  6.33s/it, loss=0.462, v_num=0]Epoch 14:  61%|██████    | 28/46 [02:51<01:50,  6.13s/it, loss=0.462, v_num=0]Epoch 14:  61%|██████    | 28/46 [02:51<01:50,  6.13s/it, loss=0.464, v_num=0]Epoch 14:  63%|██████▎   | 29/46 [02:52<01:41,  5.94s/it, loss=0.464, v_num=0]Epoch 14:  63%|██████▎   | 29/46 [02:52<01:41,  5.94s/it, loss=0.465, v_num=0]Epoch 14:  65%|██████▌   | 30/46 [02:53<01:32,  5.77s/it, loss=0.465, v_num=0]Epoch 14:  65%|██████▌   | 30/46 [02:53<01:32,  5.77s/it, loss=0.466, v_num=0]Epoch 14:  67%|██████▋   | 31/46 [02:53<01:24,  5.60s/it, loss=0.466, v_num=0]Epoch 14:  67%|██████▋   | 31/46 [02:53<01:24,  5.60s/it, loss=0.466, v_num=0]Epoch 14:  70%|██████▉   | 32/46 [02:54<01:16,  5.45s/it, loss=0.466, v_num=0]Epoch 14:  70%|██████▉   | 32/46 [02:54<01:16,  5.45s/it, loss=0.458, v_num=0]Epoch 14:  72%|███████▏  | 33/46 [02:55<01:08,  5.31s/it, loss=0.458, v_num=0]Epoch 14:  72%|███████▏  | 33/46 [02:55<01:08,  5.31s/it, loss=0.459, v_num=0]Epoch 14:  74%|███████▍  | 34/46 [02:55<01:02,  5.17s/it, loss=0.459, v_num=0]Epoch 14:  74%|███████▍  | 34/46 [02:55<01:02,  5.17s/it, loss=0.458, v_num=0]Epoch 14:  76%|███████▌  | 35/46 [02:56<00:55,  5.04s/it, loss=0.458, v_num=0]Epoch 14:  76%|███████▌  | 35/46 [02:56<00:55,  5.04s/it, loss=0.456, v_num=0]Epoch 14:  78%|███████▊  | 36/46 [02:57<00:49,  4.92s/it, loss=0.456, v_num=0]Epoch 14:  78%|███████▊  | 36/46 [02:57<00:49,  4.92s/it, loss=0.451, v_num=0]Epoch 14:  80%|████████  | 37/46 [02:57<00:43,  4.81s/it, loss=0.451, v_num=0]Epoch 14:  80%|████████  | 37/46 [02:57<00:43,  4.81s/it, loss=0.449, v_num=0]Epoch 14:  83%|████████▎ | 38/46 [02:58<00:37,  4.70s/it, loss=0.449, v_num=0]Epoch 14:  83%|████████▎ | 38/46 [02:58<00:37,  4.70s/it, loss=0.447, v_num=0]Epoch 14:  85%|████████▍ | 39/46 [02:59<00:32,  4.60s/it, loss=0.447, v_num=0]Epoch 14:  85%|████████▍ | 39/46 [02:59<00:32,  4.60s/it, loss=0.449, v_num=0]Epoch 14:  87%|████████▋ | 40/46 [02:59<00:26,  4.50s/it, loss=0.449, v_num=0]Epoch 14:  87%|████████▋ | 40/46 [02:59<00:26,  4.50s/it, loss=0.448, v_num=0]Epoch 14:  89%|████████▉ | 41/46 [03:00<00:22,  4.40s/it, loss=0.448, v_num=0]Epoch 14:  89%|████████▉ | 41/46 [03:00<00:22,  4.40s/it, loss=0.448, v_num=0]Epoch 14:  91%|█████████▏| 42/46 [03:01<00:17,  4.31s/it, loss=0.448, v_num=0]Epoch 14:  91%|█████████▏| 42/46 [03:01<00:17,  4.31s/it, loss=0.454, v_num=0]
+Validating: 0it [00:00, ?it/s][A
+Validating:  25%|██▌       | 1/4 [00:01<00:03,  1.32s/it][AEpoch 14:  96%|█████████▌| 44/46 [03:02<00:08,  4.15s/it, loss=0.454, v_num=0]
+Validating:  50%|█████     | 2/4 [00:01<00:01,  1.56it/s][A
+Validating:  75%|███████▌  | 3/4 [00:01<00:00,  2.36it/s][AEpoch 14: 100%|██████████| 46/46 [03:02<00:00,  3.97s/it, loss=0.454, v_num=0]Epoch 14: 100%|██████████| 46/46 [03:03<00:00,  3.98s/it, loss=0.454, v_num=0]
+                                                         [AEpoch 14:   0%|          | 0/46 [00:00<?, ?it/s, loss=0.454, v_num=0]         Epoch 15:   0%|          | 0/46 [00:00<?, ?it/s, loss=0.454, v_num=0]Epoch 15:   2%|▏         | 1/46 [00:04<03:05,  4.13s/it, loss=0.45, v_num=0]Epoch 15:   4%|▍         | 2/46 [00:04<01:47,  2.44s/it, loss=0.45, v_num=0]Epoch 15:   4%|▍         | 2/46 [00:04<01:47,  2.44s/it, loss=0.449, v_num=0]Epoch 15:   7%|▋         | 3/46 [00:05<01:19,  1.85s/it, loss=0.451, v_num=0]Epoch 15:   9%|▊         | 4/46 [00:06<01:05,  1.56s/it, loss=0.451, v_num=0]Epoch 15:   9%|▊         | 4/46 [00:06<01:05,  1.56s/it, loss=0.448, v_num=0]Epoch 15:  11%|█         | 5/46 [00:06<00:56,  1.39s/it, loss=0.445, v_num=0]Epoch 15:  13%|█▎        | 6/46 [00:07<00:50,  1.27s/it, loss=0.445, v_num=0]Epoch 15:  13%|█▎        | 6/46 [00:07<00:50,  1.27s/it, loss=0.443, v_num=0]Epoch 15:  15%|█▌        | 7/46 [00:08<00:46,  1.19s/it, loss=0.445, v_num=0]Epoch 15:  17%|█▋        | 8/46 [00:08<00:42,  1.12s/it, loss=0.445, v_num=0]Epoch 15:  17%|█▋        | 8/46 [00:08<00:42,  1.12s/it, loss=0.445, v_num=0]Epoch 15:  20%|█▉        | 9/46 [00:09<00:39,  1.08s/it, loss=0.443, v_num=0]Epoch 15:  22%|██▏       | 10/46 [00:10<00:37,  1.04s/it, loss=0.443, v_num=0]Epoch 15:  22%|██▏       | 10/46 [00:10<00:37,  1.04s/it, loss=0.448, v_num=0]Epoch 15:  24%|██▍       | 11/46 [00:11<00:35,  1.01s/it, loss=0.446, v_num=0]Epoch 15:  26%|██▌       | 12/46 [00:11<00:33,  1.02it/s, loss=0.446, v_num=0]Epoch 15:  26%|██▌       | 12/46 [00:11<00:33,  1.02it/s, loss=0.45, v_num=0] Epoch 15:  28%|██▊       | 13/46 [00:12<00:31,  1.05it/s, loss=0.452, v_num=0]Epoch 15:  30%|███       | 14/46 [00:13<00:29,  1.07it/s, loss=0.452, v_num=0]Epoch 15:  30%|███       | 14/46 [00:13<00:29,  1.07it/s, loss=0.456, v_num=0]Epoch 15:  33%|███▎      | 15/46 [00:13<00:28,  1.09it/s, loss=0.457, v_num=0]Epoch 15:  35%|███▍      | 16/46 [00:14<00:27,  1.10it/s, loss=0.457, v_num=0]Epoch 15:  35%|███▍      | 16/46 [00:14<00:27,  1.10it/s, loss=0.458, v_num=0]Epoch 15:  37%|███▋      | 17/46 [00:15<00:25,  1.12it/s, loss=0.458, v_num=0]Epoch 15:  39%|███▉      | 18/46 [00:15<00:24,  1.13it/s, loss=0.458, v_num=0]Epoch 15:  39%|███▉      | 18/46 [00:15<00:24,  1.13it/s, loss=0.46, v_num=0] Epoch 15:  41%|████▏     | 19/46 [00:16<00:23,  1.15it/s, loss=0.458, v_num=0]Epoch 15:  43%|████▎     | 20/46 [00:17<00:22,  1.16it/s, loss=0.458, v_num=0]Epoch 15:  43%|████▎     | 20/46 [00:17<00:22,  1.16it/s, loss=0.45, v_num=0] Epoch 15:  46%|████▌     | 21/46 [00:17<00:21,  1.17it/s, loss=0.452, v_num=0]Epoch 15:  48%|████▊     | 22/46 [00:18<00:20,  1.18it/s, loss=0.452, v_num=0]Epoch 15:  48%|████▊     | 22/46 [00:18<00:20,  1.18it/s, loss=0.449, v_num=0]Epoch 15:  50%|█████     | 23/46 [00:19<00:19,  1.19it/s, loss=0.443, v_num=0]Epoch 15:  52%|█████▏    | 24/46 [00:20<00:18,  1.20it/s, loss=0.443, v_num=0]Epoch 15:  52%|█████▏    | 24/46 [00:20<00:18,  1.20it/s, loss=0.444, v_num=0]Epoch 15:  54%|█████▍    | 25/46 [00:20<00:17,  1.20it/s, loss=0.446, v_num=0]Epoch 15:  57%|█████▋    | 26/46 [00:21<00:16,  1.21it/s, loss=0.446, v_num=0]Epoch 15:  57%|█████▋    | 26/46 [00:21<00:16,  1.21it/s, loss=0.448, v_num=0]Epoch 15:  59%|█████▊    | 27/46 [00:22<00:15,  1.22it/s, loss=0.442, v_num=0]Epoch 15:  61%|██████    | 28/46 [00:22<00:14,  1.22it/s, loss=0.442, v_num=0]Epoch 15:  61%|██████    | 28/46 [00:22<00:14,  1.22it/s, loss=0.442, v_num=0]Epoch 15:  63%|██████▎   | 29/46 [00:23<00:13,  1.23it/s, loss=0.444, v_num=0]Epoch 15:  65%|██████▌   | 30/46 [00:24<00:12,  1.24it/s, loss=0.444, v_num=0]Epoch 15:  65%|██████▌   | 30/46 [00:24<00:12,  1.24it/s, loss=0.443, v_num=0]Epoch 15:  67%|██████▋   | 31/46 [00:24<00:12,  1.24it/s, loss=0.449, v_num=0]Epoch 15:  70%|██████▉   | 32/46 [00:25<00:11,  1.25it/s, loss=0.449, v_num=0]Epoch 15:  70%|██████▉   | 32/46 [00:25<00:11,  1.25it/s, loss=0.448, v_num=0]Epoch 15:  72%|███████▏  | 33/46 [00:26<00:10,  1.25it/s, loss=0.447, v_num=0]Epoch 15:  74%|███████▍  | 34/46 [00:27<00:09,  1.26it/s, loss=0.447, v_num=0]Epoch 15:  74%|███████▍  | 34/46 [00:27<00:09,  1.26it/s, loss=0.448, v_num=0]Epoch 15:  76%|███████▌  | 35/46 [00:27<00:08,  1.26it/s, loss=0.449, v_num=0]Epoch 15:  78%|███████▊  | 36/46 [00:28<00:07,  1.27it/s, loss=0.449, v_num=0]Epoch 15:  78%|███████▊  | 36/46 [00:28<00:07,  1.27it/s, loss=0.448, v_num=0]Epoch 15:  80%|████████  | 37/46 [00:29<00:07,  1.27it/s, loss=0.447, v_num=0]Epoch 15:  83%|████████▎ | 38/46 [00:29<00:06,  1.27it/s, loss=0.447, v_num=0]Epoch 15:  83%|████████▎ | 38/46 [00:29<00:06,  1.27it/s, loss=0.445, v_num=0]Epoch 15:  85%|████████▍ | 39/46 [00:30<00:05,  1.28it/s, loss=0.446, v_num=0]Epoch 15:  87%|████████▋ | 40/46 [00:31<00:04,  1.28it/s, loss=0.446, v_num=0]Epoch 15:  87%|████████▋ | 40/46 [00:31<00:04,  1.28it/s, loss=0.448, v_num=0]Epoch 15:  89%|████████▉ | 41/46 [00:31<00:03,  1.28it/s, loss=0.45, v_num=0] Epoch 15:  91%|█████████▏| 42/46 [00:32<00:03,  1.30it/s, loss=0.45, v_num=0]Epoch 15:  91%|█████████▏| 42/46 [00:32<00:03,  1.30it/s, loss=0.457, v_num=0]
+Validating: 0it [00:00, ?it/s][A
+Validating:  25%|██▌       | 1/4 [00:01<00:03,  1.10s/it][AEpoch 15:  96%|█████████▌| 44/46 [00:33<00:01,  1.31it/s, loss=0.457, v_num=0]
+Validating:  50%|█████     | 2/4 [00:01<00:01,  1.78it/s][A
+Validating:  75%|███████▌  | 3/4 [00:01<00:00,  2.63it/s][AEpoch 15: 100%|██████████| 46/46 [00:33<00:00,  1.36it/s, loss=0.457, v_num=0]Epoch 15: 100%|██████████| 46/46 [00:34<00:00,  1.34it/s, loss=0.457, v_num=0]
+                                                         [AEpoch 15:   0%|          | 0/46 [00:00<?, ?it/s, loss=0.457, v_num=0]         Epoch 16:   0%|          | 0/46 [00:00<?, ?it/s, loss=0.457, v_num=0]Epoch 16:   2%|▏         | 1/46 [00:02<01:41,  2.25s/it, loss=0.458, v_num=0]Epoch 16:   4%|▍         | 2/46 [00:02<01:04,  1.47s/it, loss=0.458, v_num=0]Epoch 16:   4%|▍         | 2/46 [00:02<01:04,  1.47s/it, loss=0.457, v_num=0]Epoch 16:   7%|▋         | 3/46 [00:03<00:52,  1.22s/it, loss=0.458, v_num=0]Epoch 16:   9%|▊         | 4/46 [00:04<00:45,  1.09s/it, loss=0.458, v_num=0]Epoch 16:   9%|▊         | 4/46 [00:04<00:45,  1.09s/it, loss=0.461, v_num=0]Epoch 16:  11%|█         | 5/46 [00:05<00:41,  1.01s/it, loss=0.463, v_num=0]Epoch 16:  13%|█▎        | 6/46 [00:05<00:38,  1.04it/s, loss=0.463, v_num=0]Epoch 16:  13%|█▎        | 6/46 [00:05<00:38,  1.04it/s, loss=0.465, v_num=0]Epoch 16:  15%|█▌        | 7/46 [00:06<00:36,  1.08it/s, loss=0.463, v_num=0]Epoch 16:  17%|█▋        | 8/46 [00:07<00:34,  1.12it/s, loss=0.463, v_num=0]Epoch 16:  17%|█▋        | 8/46 [00:07<00:34,  1.12it/s, loss=0.464, v_num=0]Epoch 16:  20%|█▉        | 9/46 [00:07<00:32,  1.14it/s, loss=0.459, v_num=0]Epoch 16:  22%|██▏       | 10/46 [00:08<00:30,  1.17it/s, loss=0.459, v_num=0]Epoch 16:  22%|██▏       | 10/46 [00:08<00:30,  1.17it/s, loss=0.458, v_num=0]Epoch 16:  24%|██▍       | 11/46 [00:09<00:29,  1.19it/s, loss=0.458, v_num=0]Epoch 16:  26%|██▌       | 12/46 [00:09<00:28,  1.20it/s, loss=0.458, v_num=0]Epoch 16:  26%|██▌       | 12/46 [00:09<00:28,  1.20it/s, loss=0.458, v_num=0]Epoch 16:  28%|██▊       | 13/46 [00:10<00:27,  1.22it/s, loss=0.452, v_num=0]Epoch 16:  30%|███       | 14/46 [00:11<00:26,  1.23it/s, loss=0.452, v_num=0]Epoch 16:  30%|███       | 14/46 [00:11<00:26,  1.23it/s, loss=0.452, v_num=0]Epoch 16:  33%|███▎      | 15/46 [00:12<00:25,  1.24it/s, loss=0.453, v_num=0]Epoch 16:  35%|███▍      | 16/46 [00:12<00:24,  1.25it/s, loss=0.453, v_num=0]Epoch 16:  35%|███▍      | 16/46 [00:12<00:24,  1.25it/s, loss=0.453, v_num=0]Epoch 16:  37%|███▋      | 17/46 [00:13<00:23,  1.26it/s, loss=0.452, v_num=0]Epoch 16:  39%|███▉      | 18/46 [00:14<00:22,  1.27it/s, loss=0.452, v_num=0]Epoch 16:  39%|███▉      | 18/46 [00:14<00:22,  1.27it/s, loss=0.452, v_num=0]Epoch 16:  41%|████▏     | 19/46 [00:14<00:21,  1.27it/s, loss=0.45, v_num=0] Epoch 16:  43%|████▎     | 20/46 [00:15<00:20,  1.28it/s, loss=0.45, v_num=0]Epoch 16:  43%|████▎     | 20/46 [00:15<00:20,  1.28it/s, loss=0.447, v_num=0]Epoch 16:  46%|████▌     | 21/46 [00:16<00:19,  1.28it/s, loss=0.444, v_num=0]Epoch 16:  48%|████▊     | 22/46 [00:17<00:18,  1.29it/s, loss=0.444, v_num=0]Epoch 16:  48%|████▊     | 22/46 [00:17<00:18,  1.29it/s, loss=0.446, v_num=0]Epoch 16:  50%|█████     | 23/46 [00:17<00:17,  1.30it/s, loss=0.445, v_num=0]Epoch 16:  52%|█████▏    | 24/46 [00:18<00:16,  1.30it/s, loss=0.445, v_num=0]Epoch 16:  52%|█████▏    | 24/46 [00:18<00:16,  1.30it/s, loss=0.443, v_num=0]Epoch 16:  54%|█████▍    | 25/46 [00:19<00:16,  1.30it/s, loss=0.446, v_num=0]Epoch 16:  57%|█████▋    | 26/46 [00:19<00:15,  1.31it/s, loss=0.446, v_num=0]Epoch 16:  57%|█████▋    | 26/46 [00:19<00:15,  1.31it/s, loss=0.445, v_num=0]Epoch 16:  59%|█████▊    | 27/46 [00:20<00:14,  1.31it/s, loss=0.445, v_num=0]Epoch 16:  61%|██████    | 28/46 [00:21<00:13,  1.31it/s, loss=0.445, v_num=0]Epoch 16:  61%|██████    | 28/46 [00:21<00:13,  1.31it/s, loss=0.443, v_num=0]Epoch 16:  63%|██████▎   | 29/46 [00:22<00:12,  1.32it/s, loss=0.445, v_num=0]Epoch 16:  65%|██████▌   | 30/46 [00:22<00:12,  1.32it/s, loss=0.445, v_num=0]Epoch 16:  65%|██████▌   | 30/46 [00:22<00:12,  1.32it/s, loss=0.444, v_num=0]Epoch 16:  67%|██████▋   | 31/46 [00:23<00:11,  1.32it/s, loss=0.444, v_num=0]Epoch 16:  70%|██████▉   | 32/46 [00:24<00:10,  1.32it/s, loss=0.444, v_num=0]Epoch 16:  70%|██████▉   | 32/46 [00:24<00:10,  1.32it/s, loss=0.444, v_num=0]Epoch 16:  72%|███████▏  | 33/46 [00:24<00:09,  1.33it/s, loss=0.45, v_num=0] Epoch 16:  74%|███████▍  | 34/46 [00:25<00:09,  1.33it/s, loss=0.45, v_num=0]Epoch 16:  74%|███████▍  | 34/46 [00:25<00:09,  1.33it/s, loss=0.453, v_num=0]Epoch 16:  76%|███████▌  | 35/46 [00:26<00:08,  1.33it/s, loss=0.454, v_num=0]Epoch 16:  78%|███████▊  | 36/46 [00:27<00:07,  1.33it/s, loss=0.454, v_num=0]Epoch 16:  78%|███████▊  | 36/46 [00:27<00:07,  1.33it/s, loss=0.456, v_num=0]Epoch 16:  80%|████████  | 37/46 [00:27<00:06,  1.33it/s, loss=0.456, v_num=0]Epoch 16:  83%|████████▎ | 38/46 [00:28<00:05,  1.34it/s, loss=0.456, v_num=0]Epoch 16:  83%|████████▎ | 38/46 [00:28<00:05,  1.34it/s, loss=0.456, v_num=0]Epoch 16:  85%|████████▍ | 39/46 [00:29<00:05,  1.34it/s, loss=0.459, v_num=0]Epoch 16:  87%|████████▋ | 40/46 [00:29<00:04,  1.34it/s, loss=0.459, v_num=0]Epoch 16:  87%|████████▋ | 40/46 [00:29<00:04,  1.34it/s, loss=0.459, v_num=0]Epoch 16:  89%|████████▉ | 41/46 [00:30<00:03,  1.34it/s, loss=0.46, v_num=0] Epoch 16:  91%|█████████▏| 42/46 [00:31<00:02,  1.35it/s, loss=0.46, v_num=0]Epoch 16:  91%|█████████▏| 42/46 [00:31<00:02,  1.35it/s, loss=0.462, v_num=0]
+Validating: 0it [00:00, ?it/s][A
+Validating:  25%|██▌       | 1/4 [00:01<00:04,  1.44s/it][AEpoch 16:  96%|█████████▌| 44/46 [00:32<00:01,  1.35it/s, loss=0.462, v_num=0]
+Validating:  50%|█████     | 2/4 [00:01<00:01,  1.45it/s][A
+Validating:  75%|███████▌  | 3/4 [00:01<00:00,  2.21it/s][AEpoch 16: 100%|██████████| 46/46 [00:32<00:00,  1.40it/s, loss=0.462, v_num=0]Epoch 16: 100%|██████████| 46/46 [00:33<00:00,  1.38it/s, loss=0.462, v_num=0]
+                                                         [AEpoch 16: 100%|██████████| 46/46 [00:33<00:00,  1.38it/s, loss=0.462, v_num=0]
+
+Profiler Report
+
+Action                      	|  Mean duration (s)	|Num calls      	|  Total time (s) 	|  Percentage %   	|
+-----------------------------------------------------------------------------------------------------------------------------
+Total                       	|  -              	|_              	|  2701.0         	|  100 %          	|
+-----------------------------------------------------------------------------------------------------------------------------
+run_training_epoch          	|  158.1          	|17             	|  2687.7         	|  99.509         	|
+run_training_batch          	|  2.98           	|714            	|  2127.7         	|  78.776         	|
+optimizer_step_and_closure_0	|  2.9706         	|714            	|  2121.0         	|  78.527         	|
+training_step_and_backward  	|  2.956          	|714            	|  2110.6         	|  78.14          	|
+model_backward              	|  1.9013         	|714            	|  1357.5         	|  50.261         	|
+model_forward               	|  1.0506         	|714            	|  750.12         	|  27.772         	|
+evaluation_step_and_end     	|  4.6408         	|70             	|  324.85         	|  12.027         	|
+on_validation_batch_end     	|  1.4826         	|70             	|  103.78         	|  3.8424         	|
+get_train_batch             	|  0.10428        	|714            	|  74.459         	|  2.7567         	|
+cache_result                	|  0.0078557      	|3940           	|  30.952         	|  1.1459         	|
+on_train_batch_end          	|  0.0031199      	|714            	|  2.2276         	|  0.082474       	|
+training_step_end           	|  0.0015572      	|714            	|  1.1119         	|  0.041165       	|
+on_validation_end           	|  0.055452       	|18             	|  0.99814        	|  0.036955       	|
+on_train_batch_start        	|  9.1848e-05     	|714            	|  0.06558        	|  0.002428       	|
+on_batch_start              	|  5.9019e-05     	|714            	|  0.042139       	|  0.0015601      	|
+on_before_zero_grad         	|  5.1798e-05     	|714            	|  0.036984       	|  0.0013693      	|
+on_after_backward           	|  2.7361e-05     	|714            	|  0.019536       	|  0.00072329     	|
+on_batch_end                	|  1.8409e-05     	|714            	|  0.013144       	|  0.00048663     	|
+on_validation_start         	|  0.00045134     	|18             	|  0.0081242      	|  0.00030078     	|
+on_epoch_start              	|  0.00041601     	|17             	|  0.0070722      	|  0.00026184     	|
+on_validation_batch_start   	|  6.6045e-05     	|70             	|  0.0046231      	|  0.00017116     	|
+validation_step_end         	|  1.4407e-05     	|70             	|  0.0010085      	|  3.7339e-05     	|
+on_train_epoch_end          	|  4.2114e-05     	|17             	|  0.00071594     	|  2.6506e-05     	|
+on_epoch_end                	|  2.63e-05       	|17             	|  0.00044711     	|  1.6553e-05     	|
+on_validation_epoch_end     	|  2.1501e-05     	|18             	|  0.00038702     	|  1.4329e-05     	|
+on_train_start              	|  0.00036614     	|1              	|  0.00036614     	|  1.3556e-05     	|
+on_train_end                	|  0.00032192     	|1              	|  0.00032192     	|  1.1919e-05     	|
+on_validation_epoch_start   	|  1.3568e-05     	|18             	|  0.00024422     	|  9.042e-06      	|
+on_train_epoch_start        	|  1.4183e-05     	|17             	|  0.00024111     	|  8.9266e-06     	|
+on_fit_start                	|  2.6323e-05     	|1              	|  2.6323e-05     	|  9.7456e-07     	|
+
+
+****************************************************************************************************
+Training Finished
+Training pid:869752
+****************************************************************************************************
+2024-12-31 09:54:25.394988: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:485] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-12-31 09:54:25.413759: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:8454] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-12-31 09:54:25.419037: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1452] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-12-31 09:54:25.450995: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2024-12-31 09:54:26.466408: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+CL_DA_fmt = mean
+FL_a0 = 0.1
+FL_a1 = 0.9
+Gau_nms = False
+Gau_num = 2
+HRNet_c = 12
+JudgeInDilation = False
+NoBG = False
+ResearchTitle = None
+Sel_Referance = False
+T = 0.5
+act = relu
+add_dropout_layer = False
+alpha = 0.7
+batch_size = 16
+beta = 0.3
+block_size = 72
+border_value = 0
+cent_feats = None
+cent_kernel = 1
+cfg_save_path = .
+checkpoints = /home/brian_bosho/xulab/data/10007_subset/runs/DS_10007_subset_train/DS_10007_subset_train_ResUNet_BlockSize72_DiceLoss_MaxEpoch17_bs16_lr0.001_IP1_bg1_coord1_Softmax0_bn__TNNone/version_0/checkpoints/epoch=16-step=713.ckpt
+checkpoints_version = None
+ck_mode = 
+class_checkpoints = None
+configs = /home/brian_bosho/xulab/DeepETPicker/configs/DS_10007_subset_train.json
+coord_path = None
+data_split = [0, 1, 0, 1, 0, 1]
+de_dup_fmt = fmt4
+de_duplication = True
+dimensions = 3
+dir_name = None
+dset_name = None
+ema_decay = 0.999
+eta = 0.3
+eval_cls = False
+eval_str = class
+f_maps = [24, 48, 72, 108]
+final_double = False
+first_idx = 0
+gamma = 0.75
+gau_thresh = 0.5
+gpu_id = [0]
+in_channels = 1
+initial_channels = 16
+input_cat = False
+input_cat_items = None
+iteration_idx = 0
+learning_rate = 0.001
+loader_type = dataloader_DynamicLoad
+loss_func_dn = MSE
+loss_func_paf = MSE
+loss_func_seg = Dice
+lw_kernel = 3
+max_epoch = 17
+max_pxs = 18
+meanPool_NMS = True
+meanPool_kernel = 5
+mf_groups = 16
+min_dist = 10
+min_vol = 100
+mini_dist = 18
+n_block = 2
+n_stages = [1, 1, 1, 1]
+network = ResUNet
+nms_kernel = 3
+nms_topK = 3
+norm = bn
+num_classes = 1
+optim = AdamW
+others = 
+out_name = PredictedLabels
+pad_loss = False
+pad_size = [12]
+paf_connect = False
+paf_sigmoid = False
+paf_weight = 1
+particle_idx = 70
+pif_model = 
+pif_sigmoid = False
+pre_configs = 
+pred2d_3d = False
+prf1_alpha = 3
+rand_max = 99
+rand_min = 0
+rand_scale = 100
+random_num = 0
+reduce_ratio = 1
+running = False
+save_FPsTPs = False
+save_mrc = False
+save_pred = False
+scheduler = OneCycleLR
+seg_tau = 0.95
+sel_particle_num = 100
+sel_train_num = None
+skip_4v94 = False
+skip_vesicles = False
+step1 = False
+step2 = False
+stride = 8
+test_idxs = [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17]
+test_mode = test
+test_use_pad = True
+threshold = 0.5
+train_configs = /home/brian_bosho/xulab/DeepETPicker/configs/DS_10007_subset_train.json
+train_mode = train
+train_set_ids = 0
+use_CL = False
+use_CL_DA = False
+use_DS = False
+use_IP = True
+use_LAM = False
+use_Res = False
+use_SimSeg_iteration = False
+use_aspp = False
+use_att = False
+use_bg = True
+use_bg_part = False
+use_cluster = False
+use_coord = True
+use_dilation = False
+use_ema = False
+use_eval = False
+use_ice_part = False
+use_lw = False
+use_mask = False
+use_paf = False
+use_se_loss = False
+use_seg = True
+use_seg_gau = False
+use_sigmoid = True
+use_softmax = False
+use_softpool = False
+use_tanh = False
+use_uncert = False
+use_wDS = False
+use_wds = False
+use_weight = False
+val_batch_size = 16
+val_block_size = 72
+val_configs = 
+val_set_ids = 0
+weight_decay = 0.01
+ay08102021_grid_1_atc_lamella1_pos13_denoised
+Traceback (most recent call last):
+  File "/home/brian_bosho/xulab/DeepETPicker/bin/test_bash.py", line 82, in <module>
+    test.test_func(args, stdout=None)
+  File "/home/brian_bosho/xulab/DeepETPicker/test.py", line 371, in test_func
+    data_file = mrcfile.open(tomo_file, permissive=True)
+  File "/home/brian_bosho/miniconda3/envs/deepetpicker-env/lib/python3.10/site-packages/mrcfile/load_functions.py", line 145, in open
+    return NewMrc(name, mode=mode, permissive=permissive,
+  File "/home/brian_bosho/miniconda3/envs/deepetpicker-env/lib/python3.10/site-packages/mrcfile/mrcfile.py", line 115, in __init__
+    self._read(header_only)
+  File "/home/brian_bosho/miniconda3/envs/deepetpicker-env/lib/python3.10/site-packages/mrcfile/mrcfile.py", line 131, in _read
+    super(MrcFile, self)._read(header_only)
+  File "/home/brian_bosho/miniconda3/envs/deepetpicker-env/lib/python3.10/site-packages/mrcfile/mrcinterpreter.py", line 173, in _read
+    self._read_data()
+  File "/home/brian_bosho/miniconda3/envs/deepetpicker-env/lib/python3.10/site-packages/mrcfile/mrcfile.py", line 142, in _read_data
+    super(MrcFile, self)._read_data(max_bytes=remaining_file_size)
+  File "/home/brian_bosho/miniconda3/envs/deepetpicker-env/lib/python3.10/site-packages/mrcfile/mrcinterpreter.py", line 330, in _read_data
+    data_arr, bytes_read = self._read_bytearray_from_stream(nbytes)
+  File "/home/brian_bosho/miniconda3/envs/deepetpicker-env/lib/python3.10/site-packages/mrcfile/mrcinterpreter.py", line 359, in _read_bytearray_from_stream
+    bytes_read = self._iostream.readinto(result_array)
+KeyboardInterrupt

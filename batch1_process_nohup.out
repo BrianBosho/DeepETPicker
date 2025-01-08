@@ -1,0 +1,318 @@
+Running preprocess.py
+
+Checking MRC files:
+Found 47 files with format .mrc in /home/brian_bosho/xulab/data/10007_subset/raw_data_denoised:
+
+Checking coord files:
+Found 47 files with format .coords in /home/brian_bosho/xulab/data/10007_subset/raw_data_denoised:
+Found 47 coordinate files
+0 to 1: 74
+0 to 2: 198
+0 to 3: 637
+0 to 4: 1105
+0 to 5: 1142
+0 to 6: 1165
+0 to 7: 1220
+0 to 8: 1495
+0 to 9: 1899
+0 to 10: 2201
+0 to 11: 2445
+0 to 12: 2695
+0 to 13: 2963
+0 to 14: 3227
+0 to 15: 3388
+0 to 16: 3773
+0 to 17: 4188
+0 to 18: 4444
+0 to 19: 4824
+0 to 20: 5362
+0 to 21: 5906
+0 to 22: 6487
+0 to 23: 7021
+0 to 24: 7573
+0 to 25: 9738
+0 to 26: 9881
+0 to 27: 10554
+0 to 28: 11009
+0 to 29: 11530
+0 to 30: 11753
+0 to 31: 12132
+0 to 32: 12429
+0 to 33: 12876
+0 to 34: 13262
+0 to 35: 13779
+0 to 36: 14137
+0 to 37: 14646
+0 to 38: 15072
+0 to 39: 15198
+0 to 40: 15418
+0 to 41: 15492
+0 to 42: 15898
+0 to 43: 16191
+0 to 44: 16556
+0 to 45: 16852
+0 to 46: 17340
+0 to 47: 17559
+Coord generation finished!
+****************************************************************************************************
+['ay08102021_grid_1_atc_lamella1_pos14_denoised.mrc', 'ay08102021_grid_1_atc_lamella1_pos13_denoised.mrc', 'ay08102021_grid_1_atc_lamella1_pos15_denoised.mrc', 'ay22112021_grid3_lamella2_pos21_denoised.mrc', 'ay08102021_grid_1_atc_lamella1_pos11_denoised.mrc', 'ay18112021_gridX_lamella9_pos6_denoised.mrc', 'ay18112021_gridX_lamella6_pos12_denoised.mrc', 'ay18112021_gridX_lamella9_pos24_denoised.mrc', 'ay18112021_gridX_lamella6_pos13_denoised.mrc', 'ay08102021_grid_2_lamella2_pos5_denoised.mrc', 'ay18112021_grid2_lamella4_position10_denoised.mrc', 'ay08102021_grid_2_lamella2_pos7_denoised.mrc', 'ay18112021_grid2_lamella4_position8_denoised.mrc', 'ay08102021_grid_2_lamella3_pos3_denoised.mrc', 'ay08102021_grid_2_lamella2_pos6_denoised.mrc', 'ay22112021_grid3_lamella2_pos31_denoised.mrc', 'ay18112021_gridX_lamella6_pos2_denoised.mrc', 'ay18112021_gridX_lamella2_pos8_denoised.mrc', 'ay18112021_gridX_lamella1_pos9_denoised.mrc', 'ay18112021_gridX_lamella2_pos10_denoised.mrc', 'ay18112021_gridX_lamella8_pos9_denoised.mrc', 'ay22112021_grid3_lamella2_pos10_denoised.mrc', 'ay19102021_grid_4_atc_lamella3_position2_denoised.mrc', 'ay18112021_gridX_lamella2_pos6_denoised.mrc', 'ay22112021_grid3_lamella2_pos13_denoised.mrc', 'ay18112021_gridX_lamella1_pos4_denoised.mrc', 'ay08102021_grid_1_atc_lamella1_pos12_denoised.mrc', 'ay18112021_gridX_lamella2_pos4_denoised.mrc', 'ay19102021_grid_3_atc_lamella3_position6_denoised.mrc', 'ay08102021_grid_1_atc_lamella1_pos9_denoised.mrc', 'ay08102021_grid_1_atc_lamella1_pos8_denoised.mrc', 'ay19102021_grid_2_atc_lamella4_position4_denoised.mrc', 'ay22112021_grid3_lamella2_pos32_denoised.mrc', 'ay18112021_grid2_lamella3_position7_denoised.mrc', 'ay18112021_gridX_lamella8_pos8_denoised.mrc', 'ay19102021_grid_3_atc_lamella3_position5_denoised.mrc', 'ay18112021_gridX_lamella6_pos1_denoised.mrc', 'ay22112021_grid3_lamella2_pos30_denoised.mrc', 'ay22112021_grid3_lamella2_pos12_denoised.mrc', 'ay22112021_grid3_lamella2_pos24_denoised.mrc', 'ay22112021_grid3_lamella2_pos51_denoised.mrc', 'ay18112021_gridX_lamella8_pos19_denoised.mrc', 'ay22112021_grid3_lamella1_pos1_denoised.mrc', 'ay22112021_grid3_lamella2_pos20_denoised.mrc', 'ay18112021_gridX_lamella6_pos10_denoised.mrc', 'ay08102021_grid_2_lamella3_pos2_denoised.mrc', 'ay19102021_grid_3_atc_lamella4_position8_denoised.mrc']
+Total number of files: 47
+Processing ay08102021_grid_1_atc_lamella1_pos14_denoised.mrc
+1/47 finished.
+Finished normalizing all mrc files
+Processing ay08102021_grid_1_atc_lamella1_pos13_denoised.mrc
+2/47 finished.
+Finished normalizing all mrc files
+Processing ay08102021_grid_1_atc_lamella1_pos15_denoised.mrc
+3/47 finished.
+Finished normalizing all mrc files
+Processing ay22112021_grid3_lamella2_pos21_denoised.mrc
+4/47 finished.
+Finished normalizing all mrc files
+Processing ay08102021_grid_1_atc_lamella1_pos11_denoised.mrc
+5/47 finished.
+Finished normalizing all mrc files
+Processing ay18112021_gridX_lamella9_pos6_denoised.mrc
+6/47 finished.
+Finished normalizing all mrc files
+Processing ay18112021_gridX_lamella6_pos12_denoised.mrc
+7/47 finished.
+Finished normalizing all mrc files
+Processing ay18112021_gridX_lamella9_pos24_denoised.mrc
+8/47 finished.
+Finished normalizing all mrc files
+Processing ay18112021_gridX_lamella6_pos13_denoised.mrc
+9/47 finished.
+Finished normalizing all mrc files
+Processing ay08102021_grid_2_lamella2_pos5_denoised.mrc
+10/47 finished.
+Finished normalizing all mrc files
+Processing ay18112021_grid2_lamella4_position10_denoised.mrc
+11/47 finished.
+Finished normalizing all mrc files
+Processing ay08102021_grid_2_lamella2_pos7_denoised.mrc
+12/47 finished.
+Finished normalizing all mrc files
+Processing ay18112021_grid2_lamella4_position8_denoised.mrc
+13/47 finished.
+Finished normalizing all mrc files
+Processing ay08102021_grid_2_lamella3_pos3_denoised.mrc
+14/47 finished.
+Finished normalizing all mrc files
+Processing ay08102021_grid_2_lamella2_pos6_denoised.mrc
+15/47 finished.
+Finished normalizing all mrc files
+Processing ay22112021_grid3_lamella2_pos31_denoised.mrc
+16/47 finished.
+Finished normalizing all mrc files
+Processing ay18112021_gridX_lamella6_pos2_denoised.mrc
+17/47 finished.
+Finished normalizing all mrc files
+Processing ay18112021_gridX_lamella2_pos8_denoised.mrc
+18/47 finished.
+Finished normalizing all mrc files
+Processing ay18112021_gridX_lamella1_pos9_denoised.mrc
+19/47 finished.
+Finished normalizing all mrc files
+Processing ay18112021_gridX_lamella2_pos10_denoised.mrc
+20/47 finished.
+Finished normalizing all mrc files
+Processing ay18112021_gridX_lamella8_pos9_denoised.mrc
+21/47 finished.
+Finished normalizing all mrc files
+Processing ay22112021_grid3_lamella2_pos10_denoised.mrc
+22/47 finished.
+Finished normalizing all mrc files
+Processing ay19102021_grid_4_atc_lamella3_position2_denoised.mrc
+23/47 finished.
+Finished normalizing all mrc files
+Processing ay18112021_gridX_lamella2_pos6_denoised.mrc
+24/47 finished.
+Finished normalizing all mrc files
+Processing ay22112021_grid3_lamella2_pos13_denoised.mrc
+25/47 finished.
+Finished normalizing all mrc files
+Processing ay18112021_gridX_lamella1_pos4_denoised.mrc
+26/47 finished.
+Finished normalizing all mrc files
+Processing ay08102021_grid_1_atc_lamella1_pos12_denoised.mrc
+27/47 finished.
+Finished normalizing all mrc files
+Processing ay18112021_gridX_lamella2_pos4_denoised.mrc
+28/47 finished.
+Finished normalizing all mrc files
+Processing ay19102021_grid_3_atc_lamella3_position6_denoised.mrc
+29/47 finished.
+Finished normalizing all mrc files
+Processing ay08102021_grid_1_atc_lamella1_pos9_denoised.mrc
+30/47 finished.
+Finished normalizing all mrc files
+Processing ay08102021_grid_1_atc_lamella1_pos8_denoised.mrc
+31/47 finished.
+Finished normalizing all mrc files
+Processing ay19102021_grid_2_atc_lamella4_position4_denoised.mrc
+32/47 finished.
+Finished normalizing all mrc files
+Processing ay22112021_grid3_lamella2_pos32_denoised.mrc
+33/47 finished.
+Finished normalizing all mrc files
+Processing ay18112021_grid2_lamella3_position7_denoised.mrc
+34/47 finished.
+Finished normalizing all mrc files
+Processing ay18112021_gridX_lamella8_pos8_denoised.mrc
+35/47 finished.
+Finished normalizing all mrc files
+Processing ay19102021_grid_3_atc_lamella3_position5_denoised.mrc
+36/47 finished.
+Finished normalizing all mrc files
+Processing ay18112021_gridX_lamella6_pos1_denoised.mrc
+37/47 finished.
+Finished normalizing all mrc files
+Processing ay22112021_grid3_lamella2_pos30_denoised.mrc
+38/47 finished.
+Finished normalizing all mrc files
+Processing ay22112021_grid3_lamella2_pos12_denoised.mrc
+39/47 finished.
+Finished normalizing all mrc files
+Processing ay22112021_grid3_lamella2_pos24_denoised.mrc
+40/47 finished.
+Finished normalizing all mrc files
+Processing ay22112021_grid3_lamella2_pos51_denoised.mrc
+41/47 finished.
+Finished normalizing all mrc files
+Processing ay18112021_gridX_lamella8_pos19_denoised.mrc
+42/47 finished.
+Finished normalizing all mrc files
+Processing ay22112021_grid3_lamella1_pos1_denoised.mrc
+43/47 finished.
+Finished normalizing all mrc files
+Processing ay22112021_grid3_lamella2_pos20_denoised.mrc
+44/47 finished.
+Finished normalizing all mrc files
+Processing ay18112021_gridX_lamella6_pos10_denoised.mrc
+45/47 finished.
+Finished normalizing all mrc files
+Processing ay08102021_grid_2_lamella3_pos2_denoised.mrc
+46/47 finished.
+Finished normalizing all mrc files
+Processing ay19102021_grid_3_atc_lamella4_position8_denoised.mrc
+47/47 finished.
+Finished normalizing all mrc files
+Standardization finished!
+****************************************************************************************************
+Normalization finished!, Procceding to label generation
+
+            Starting label generation with parameters:
+            - Label Type: gaussian
+            - Diameter: 25
+            - Path: /home/brian_bosho/xulab/data/10007_subset/raw_data_denoised
+            
+We are in the try block of label_gen_show
+We are about to call gen_labels
+Processing file 1/47: ay19102021_grid_3_atc_lamella4_position8_denoised
+Processing file 2/47: ay08102021_grid_2_lamella2_pos5_denoised
+Processing file 3/47: ay18112021_gridX_lamella9_pos24_denoised
+Processing file 4/47: ay18112021_gridX_lamella2_pos10_denoised
+Processing file 5/47: ay18112021_gridX_lamella2_pos6_denoised
+Processing file 6/47: ay22112021_grid3_lamella2_pos12_denoised
+Processing file 7/47: ay22112021_grid3_lamella2_pos24_denoised
+Processing file 8/47: ay18112021_grid2_lamella4_position8_denoised
+Processing file 9/47: ay08102021_grid_1_atc_lamella1_pos15_denoised
+Processing file 10/47: ay18112021_gridX_lamella8_pos9_denoised
+Processing file 11/47: ay08102021_grid_2_lamella3_pos2_denoised
+Processing file 12/47: ay19102021_grid_3_atc_lamella3_position5_denoised
+Processing file 13/47: ay22112021_grid3_lamella2_pos31_denoised
+Processing file 14/47: ay18112021_gridX_lamella6_pos2_denoised
+Processing file 15/47: ay18112021_grid2_lamella3_position7_denoised
+Processing file 16/47: ay08102021_grid_2_lamella3_pos3_denoised
+Processing file 17/47: ay22112021_grid3_lamella2_pos20_denoised
+Processing file 18/47: ay18112021_gridX_lamella6_pos13_denoised
+Processing file 19/47: ay22112021_grid3_lamella1_pos1_denoised
+Processing file 20/47: ay22112021_grid3_lamella2_pos30_denoised
+Processing file 21/47: ay22112021_grid3_lamella2_pos10_denoised
+Processing file 22/47: ay18112021_gridX_lamella1_pos9_denoised
+Processing file 23/47: ay19102021_grid_3_atc_lamella3_position6_denoised
+Processing file 24/47: ay18112021_gridX_lamella6_pos10_denoised
+Processing file 25/47: ay19102021_grid_2_atc_lamella4_position4_denoised
+Processing file 26/47: ay08102021_grid_1_atc_lamella1_pos8_denoised
+Processing file 27/47: ay22112021_grid3_lamella2_pos51_denoised
+Processing file 28/47: ay18112021_gridX_lamella1_pos4_denoised
+Processing file 29/47: ay18112021_gridX_lamella8_pos8_denoised
+Processing file 30/47: ay08102021_grid_1_atc_lamella1_pos9_denoised
+Processing file 31/47: ay18112021_gridX_lamella6_pos12_denoised
+Processing file 32/47: ay18112021_gridX_lamella9_pos6_denoised
+Processing file 33/47: ay18112021_gridX_lamella6_pos1_denoised
+Processing file 34/47: ay22112021_grid3_lamella2_pos21_denoised
+Processing file 35/47: ay22112021_grid3_lamella2_pos32_denoised
+Processing file 36/47: ay18112021_gridX_lamella2_pos8_denoised
+Processing file 37/47: ay08102021_grid_2_lamella2_pos7_denoised
+Processing file 38/47: ay08102021_grid_1_atc_lamella1_pos11_denoised
+Processing file 39/47: ay08102021_grid_1_atc_lamella1_pos12_denoised
+Processing file 40/47: ay18112021_gridX_lamella8_pos19_denoised
+Processing file 41/47: ay19102021_grid_4_atc_lamella3_position2_denoised
+Processing file 42/47: ay22112021_grid3_lamella2_pos13_denoised
+Processing file 43/47: ay08102021_grid_1_atc_lamella1_pos13_denoised
+Processing file 44/47: ay08102021_grid_1_atc_lamella1_pos14_denoised
+Processing file 45/47: ay18112021_gridX_lamella2_pos4_denoised
+Processing file 46/47: ay08102021_grid_2_lamella2_pos6_denoised
+Processing file 47/47: ay18112021_grid2_lamella4_position10_denoised
+Label generation finished!
+****************************************************************************************************
+Label generation finished!, Procceding to occupancy generation
+
+            Starting label generation with parameters:
+            - Label Type: data_ocp
+            - Diameter: 35
+            - Path: /home/brian_bosho/xulab/data/10007_subset/raw_data_denoised
+            
+We are in the try block of label_gen_show
+We are about to call gen_labels
+Processing file 1/47: ay19102021_grid_3_atc_lamella4_position8_denoised
+Processing file 2/47: ay08102021_grid_2_lamella2_pos5_denoised
+Processing file 3/47: ay18112021_gridX_lamella9_pos24_denoised
+Processing file 4/47: ay18112021_gridX_lamella2_pos10_denoised
+Processing file 5/47: ay18112021_gridX_lamella2_pos6_denoised
+Processing file 6/47: ay22112021_grid3_lamella2_pos12_denoised
+Processing file 7/47: ay22112021_grid3_lamella2_pos24_denoised
+Processing file 8/47: ay18112021_grid2_lamella4_position8_denoised
+Processing file 9/47: ay08102021_grid_1_atc_lamella1_pos15_denoised
+Processing file 10/47: ay18112021_gridX_lamella8_pos9_denoised
+Processing file 11/47: ay08102021_grid_2_lamella3_pos2_denoised
+Processing file 12/47: ay19102021_grid_3_atc_lamella3_position5_denoised
+Processing file 13/47: ay22112021_grid3_lamella2_pos31_denoised
+Processing file 14/47: ay18112021_gridX_lamella6_pos2_denoised
+Processing file 15/47: ay18112021_grid2_lamella3_position7_denoised
+Processing file 16/47: ay08102021_grid_2_lamella3_pos3_denoised
+Processing file 17/47: ay22112021_grid3_lamella2_pos20_denoised
+Processing file 18/47: ay18112021_gridX_lamella6_pos13_denoised
+Processing file 19/47: ay22112021_grid3_lamella1_pos1_denoised
+Processing file 20/47: ay22112021_grid3_lamella2_pos30_denoised
+Processing file 21/47: ay22112021_grid3_lamella2_pos10_denoised
+Processing file 22/47: ay18112021_gridX_lamella1_pos9_denoised
+Processing file 23/47: ay19102021_grid_3_atc_lamella3_position6_denoised
+Processing file 24/47: ay18112021_gridX_lamella6_pos10_denoised
+Processing file 25/47: ay19102021_grid_2_atc_lamella4_position4_denoised
+Processing file 26/47: ay08102021_grid_1_atc_lamella1_pos8_denoised
+Processing file 27/47: ay22112021_grid3_lamella2_pos51_denoised
+Processing file 28/47: ay18112021_gridX_lamella1_pos4_denoised
+Processing file 29/47: ay18112021_gridX_lamella8_pos8_denoised
+Processing file 30/47: ay08102021_grid_1_atc_lamella1_pos9_denoised
+Processing file 31/47: ay18112021_gridX_lamella6_pos12_denoised
+Processing file 32/47: ay18112021_gridX_lamella9_pos6_denoised
+Processing file 33/47: ay18112021_gridX_lamella6_pos1_denoised
+Processing file 34/47: ay22112021_grid3_lamella2_pos21_denoised
+Processing file 35/47: ay22112021_grid3_lamella2_pos32_denoised
+Processing file 36/47: ay18112021_gridX_lamella2_pos8_denoised
+Processing file 37/47: ay08102021_grid_2_lamella2_pos7_denoised
+Processing file 38/47: ay08102021_grid_1_atc_lamella1_pos11_denoised
+Processing file 39/47: ay08102021_grid_1_atc_lamella1_pos12_denoised
+Processing file 40/47: ay18112021_gridX_lamella8_pos19_denoised
+Processing file 41/47: ay19102021_grid_4_atc_lamella3_position2_denoised
+Processing file 42/47: ay22112021_grid3_lamella2_pos13_denoised
+Processing file 43/47: ay08102021_grid_1_atc_lamella1_pos13_denoised
+Processing file 44/47: ay08102021_grid_1_atc_lamella1_pos14_denoised
+Processing file 45/47: ay18112021_gridX_lamella2_pos4_denoised
+Processing file 46/47: ay08102021_grid_2_lamella2_pos6_denoised
+Processing file 47/47: ay18112021_grid2_lamella4_position10_denoised
+Occupancy generation finished!
+****************************************************************************************************

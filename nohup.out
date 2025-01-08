@@ -1,12 +1,9 @@
-2024-11-30 20:04:42.323943: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:485] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
-2024-11-30 20:04:42.339777: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:8454] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
-2024-11-30 20:04:42.344475: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1452] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
-2024-11-30 20:04:42.355859: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+2024-12-31 13:16:39.851140: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:485] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2024-12-31 13:16:39.984509: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:8454] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2024-12-31 13:16:40.016810: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1452] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2024-12-31 13:16:40.240027: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
 To enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
-2024-11-30 20:04:43.074807: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
-GPU available: True, used: True
-TPU available: None, using: 0 TPU cores
-LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [0]
+2024-12-31 13:16:41.555715: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
 CL_DA_fmt = mean
 FL_a0 = 0.1
 FL_a1 = 0.9
@@ -28,15 +25,15 @@ border_value = 0
 cent_feats = None
 cent_kernel = 1
 cfg_save_path = .
-checkpoints = /home/brian_bosho/xulab/data/10004_subset/runs/DS_10004_subset_train/DS_10004_subset_train_ResUNet_BlockSize72_DiceLoss_MaxEpoch37_bs16_lr0.001_IP1_bg1_coord1_Softmax0_bn__TNNone/version_1/checkpoints/epoch=0-step=83.ckpt
+checkpoints = None
 checkpoints_version = None
 ck_mode = 
 class_checkpoints = None
-configs = /home/brian_bosho/xulab/DeepETPicker/configs/DS_10004_subset_train.json
+configs = /home/brian_bosho/xulab/DeepETPicker/configs/DS_10007_subset_train.json
 coord_path = None
-data_split = [0, 1, 0, 1, 0, 1]
+data_split = [0, 11, 40, 47, 40, 47]
 de_dup_fmt = fmt4
-de_duplication = True
+de_duplication = False
 dimensions = 3
 dir_name = None
 dset_name = None
@@ -61,14 +58,14 @@ loss_func_dn = MSE
 loss_func_paf = MSE
 loss_func_seg = Dice
 lw_kernel = 3
-max_epoch = 37
+max_epoch = 60
 max_pxs = 18
 meanPool_NMS = True
 meanPool_kernel = 5
 mf_groups = 16
 min_dist = 10
 min_vol = 100
-mini_dist = 18
+mini_dist = 10
 n_block = 2
 n_stages = [1, 1, 1, 1]
 network = ResUNet
@@ -78,7 +75,7 @@ norm = bn
 num_classes = 1
 optim = AdamW
 others = 
-out_name = PredictedLabels
+out_name = TestRes
 pad_loss = False
 pad_size = [12]
 paf_connect = False
@@ -108,13 +105,13 @@ skip_vesicles = False
 step1 = False
 step2 = False
 stride = 8
-test_idxs = [ 0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17]
-test_mode = test
+test_idxs = [0]
+test_mode = val
 test_use_pad = True
 threshold = 0.5
-train_configs = /home/brian_bosho/xulab/DeepETPicker/configs/DS_10004_subset_train.json
+train_configs = /home/brian_bosho/xulab/DeepETPicker/configs/DS_10007_subset_train.json
 train_mode = train
-train_set_ids = 0
+train_set_ids = 0-10
 use_CL = False
 use_CL_DA = False
 use_DS = False
@@ -136,7 +133,7 @@ use_lw = False
 use_mask = False
 use_paf = False
 use_se_loss = False
-use_seg = True
+use_seg = False
 use_seg_gau = False
 use_sigmoid = True
 use_softmax = False
@@ -149,45 +146,199 @@ use_weight = False
 val_batch_size = 16
 val_block_size = 72
 val_configs = 
-val_set_ids = 0
+val_set_ids = 40-46
 weight_decay = 0.01
-position_500_denoised
-(450, 1024, 1024)
-****************************************************************************************************
-num_name: /home/brian_bosho/xulab/data/10004_subset/coords/num_name.csv
-base_path:/home/brian_bosho/xulab/data/10004_subset
-coord_path:/home/brian_bosho/xulab/data/10004_subset/coords
-tomo_path:/home/brian_bosho/xulab/data/10004_subset/data_std
-label_path:/home/brian_bosho/xulab/data/10004_subset/gaussian25
-ocp_path:/home/brian_bosho/xulab/data/10004_subset/data_ocp
-label_name:gaussian25
-coord_format:.coords
-tomo_format:.mrc
-norm_type:standardization
-ocp_name:data_ocp
-****************************************************************************************************
-        0                        1   2
-0   180.0  position_129_2_denoised   0
-1   174.0    position_133_denoised   1
-2   424.0  position_141_3_denoised   2
-3    54.0  position_415_2_denoised   3
-4   135.0  position_496_2_denoised   4
-5    31.0    position_497_denoised   5
-6   204.0    position_498_denoised   6
-7    74.0    position_499_denoised   7
-8    22.0    position_4_2_denoised   8
-9   197.0    position_4_3_denoised   9
-10  113.0    position_500_denoised  10
-11  634.0  position_501_2_denoised  11
-12  248.0    position_501_denoised  12
-13  112.0  position_502_2_denoised  13
-14  117.0    position_502_denoised  14
-15   49.0    position_503_denoised  15
-16  174.0     position_50_denoised  16
-17   86.0    position_523_denoised  17
-18  143.0      position_5_denoised  18
-data_range:[0]
-36 48
-Test dataset contains 4840 samples
-/home/brian_bosho/xulab/data/10004_subset/data_ocp/position_129_2_denoised.mrc
-Testing: 0it [00:00, ?it/s]Testing:   0%|          | 1/303 [00:00<03:13,  1.56it/s]Testing:   1%|          | 2/303 [00:00<01:47,  2.79it/s]Testing:   1%|          | 3/303 [00:00<01:20,  3.71it/s]Testing:   1%|▏         | 4/303 [00:01<01:08,  4.39it/s]Testing:   2%|▏         | 5/303 [00:01<01:01,  4.88it/s]Testing:   2%|▏         | 6/303 [00:01<00:57,  5.21it/s]Testing:   2%|▏         | 7/303 [00:01<00:53,  5.50it/s]Testing:   3%|▎         | 8/303 [00:01<00:51,  5.74it/s]Testing:   3%|▎         | 9/303 [00:01<00:50,  5.86it/s]Testing:   3%|▎         | 10/303 [00:02<00:49,  5.92it/s]Testing:   4%|▎         | 11/303 [00:02<00:48,  5.97it/s]Testing:   4%|▍         | 12/303 [00:02<00:48,  6.03it/s]Testing:   4%|▍         | 13/303 [00:02<00:47,  6.08it/s]Testing:   5%|▍         | 14/303 [00:02<00:47,  6.12it/s]Testing:   5%|▍         | 15/303 [00:02<00:46,  6.14it/s]Testing:   5%|▌         | 16/303 [00:03<00:46,  6.14it/s]Testing:   6%|▌         | 17/303 [00:03<00:46,  6.13it/s]Testing:   6%|▌         | 18/303 [00:03<00:46,  6.11it/s]Testing:   6%|▋         | 19/303 [00:03<00:46,  6.12it/s]Testing:   7%|▋         | 20/303 [00:03<00:46,  6.13it/s]Testing:   7%|▋         | 21/303 [00:03<00:45,  6.15it/s]Testing:   7%|▋         | 22/303 [00:04<00:45,  6.16it/s]Testing:   8%|▊         | 23/303 [00:04<00:45,  6.15it/s]Testing:   8%|▊         | 24/303 [00:04<00:45,  6.12it/s]Testing:   8%|▊         | 25/303 [00:04<00:45,  6.11it/s]Testing:   9%|▊         | 26/303 [00:04<00:45,  6.12it/s]Testing:   9%|▉         | 27/303 [00:04<00:44,  6.14it/s]Testing:   9%|▉         | 28/303 [00:05<00:44,  6.16it/s]Testing:  10%|▉         | 29/303 [00:05<00:44,  6.16it/s]Testing:  10%|▉         | 30/303 [00:05<00:44,  6.18it/s]Testing:  10%|█         | 31/303 [00:05<00:44,  6.15it/s]Testing:  11%|█         | 32/303 [00:05<00:44,  6.11it/s]Testing:  11%|█         | 33/303 [00:05<00:44,  6.11it/s]Testing:  11%|█         | 34/303 [00:06<00:43,  6.12it/s]Testing:  12%|█▏        | 35/303 [00:06<00:43,  6.11it/s]Testing:  12%|█▏        | 36/303 [00:06<00:43,  6.13it/s]Testing:  12%|█▏        | 37/303 [00:06<00:43,  6.11it/s]Testing:  13%|█▎        | 38/303 [00:06<00:43,  6.11it/s]Testing:  13%|█▎        | 39/303 [00:06<00:43,  6.12it/s]Testing:  13%|█▎        | 40/303 [00:06<00:42,  6.13it/s]Testing:  14%|█▎        | 41/303 [00:07<00:42,  6.14it/s]Testing:  14%|█▍        | 42/303 [00:07<00:42,  6.13it/s]Testing:  14%|█▍        | 43/303 [00:07<00:42,  6.10it/s]Testing:  15%|█▍        | 44/303 [00:07<00:42,  6.10it/s]Testing:  15%|█▍        | 45/303 [00:07<00:42,  6.11it/s]Testing:  15%|█▌        | 46/303 [00:07<00:41,  6.13it/s]Testing:  16%|█▌        | 47/303 [00:08<00:41,  6.13it/s]Testing:  16%|█▌        | 48/303 [00:08<00:41,  6.11it/s]Testing:  16%|█▌        | 49/303 [00:08<00:41,  6.09it/s]Testing:  17%|█▋        | 50/303 [00:08<00:41,  6.11it/s]Testing:  17%|█▋        | 51/303 [00:08<00:41,  6.12it/s]Testing:  17%|█▋        | 52/303 [00:08<00:40,  6.12it/s]Testing:  17%|█▋        | 53/303 [00:09<00:40,  6.11it/s]Testing:  18%|█▊        | 54/303 [00:09<00:40,  6.09it/s]Testing:  18%|█▊        | 55/303 [00:09<00:40,  6.10it/s]Testing:  18%|█▊        | 56/303 [00:09<00:40,  6.12it/s]Testing:  19%|█▉        | 57/303 [00:09<00:40,  6.13it/s]Testing:  19%|█▉        | 58/303 [00:09<00:39,  6.14it/s]Testing:  19%|█▉        | 59/303 [00:10<00:39,  6.11it/s]Testing:  20%|█▉        | 60/303 [00:10<00:39,  6.10it/s]Testing:  20%|██        | 61/303 [00:10<00:39,  6.10it/s]Testing:  20%|██        | 62/303 [00:10<00:39,  6.11it/s]Testing:  21%|██        | 63/303 [00:10<00:39,  6.11it/s]Testing:  21%|██        | 64/303 [00:10<00:39,  6.08it/s]Testing:  21%|██▏       | 65/303 [00:11<00:39,  6.08it/s]Testing:  22%|██▏       | 66/303 [00:11<00:38,  6.10it/s]Testing:  22%|██▏       | 67/303 [00:11<00:38,  6.11it/s]Testing:  22%|██▏       | 68/303 [00:11<00:38,  6.12it/s]Testing:  23%|██▎       | 69/303 [00:11<00:38,  6.08it/s]Testing:  23%|██▎       | 70/303 [00:11<00:38,  6.09it/s]Testing:  23%|██▎       | 71/303 [00:12<00:38,  6.10it/s]Testing:  24%|██▍       | 72/303 [00:12<00:37,  6.12it/s]Testing:  24%|██▍       | 73/303 [00:12<00:37,  6.12it/s]Testing:  24%|██▍       | 74/303 [00:12<00:37,  6.08it/s]Testing:  25%|██▍       | 75/303 [00:12<00:37,  6.08it/s]Testing:  25%|██▌       | 76/303 [00:12<00:37,  6.10it/s]Testing:  25%|██▌       | 77/303 [00:13<00:37,  6.11it/s]Testing:  26%|██▌       | 78/303 [00:13<00:36,  6.10it/s]Testing:  26%|██▌       | 79/303 [00:13<00:36,  6.07it/s]Testing:  26%|██▋       | 80/303 [00:13<00:36,  6.07it/s]Testing:  27%|██▋       | 81/303 [00:13<00:36,  6.09it/s]Testing:  27%|██▋       | 82/303 [00:13<00:36,  6.11it/s]Testing:  27%|██▋       | 83/303 [00:14<00:36,  6.09it/s]Testing:  28%|██▊       | 84/303 [00:14<00:36,  6.08it/s]Testing:  28%|██▊       | 85/303 [00:14<00:35,  6.09it/s]Testing:  28%|██▊       | 86/303 [00:14<00:35,  6.11it/s]Testing:  29%|██▊       | 87/303 [00:14<00:35,  6.12it/s]Testing:  29%|██▉       | 88/303 [00:14<00:35,  6.11it/s]Testing:  29%|██▉       | 89/303 [00:15<00:35,  6.09it/s]Testing:  30%|██▉       | 90/303 [00:15<00:34,  6.09it/s]Testing:  30%|███       | 91/303 [00:15<00:34,  6.11it/s]Testing:  30%|███       | 92/303 [00:15<00:34,  6.11it/s]Testing:  31%|███       | 93/303 [00:15<00:34,  6.08it/s]Testing:  31%|███       | 94/303 [00:15<00:34,  6.07it/s]Testing:  31%|███▏      | 95/303 [00:16<00:34,  6.09it/s]Testing:  32%|███▏      | 96/303 [00:16<00:33,  6.10it/s]Testing:  32%|███▏      | 97/303 [00:16<00:33,  6.13it/s]Testing:  32%|███▏      | 98/303 [00:16<00:33,  6.11it/s]Testing:  33%|███▎      | 99/303 [00:16<00:33,  6.08it/s]Testing:  33%|███▎      | 100/303 [00:16<00:33,  6.09it/s]Testing:  33%|███▎      | 101/303 [00:16<00:33,  6.10it/s]Testing:  34%|███▎      | 102/303 [00:17<00:32,  6.10it/s]Testing:  34%|███▍      | 103/303 [00:17<00:32,  6.14it/s]Testing:  34%|███▍      | 104/303 [00:17<00:32,  6.10it/s]Testing:  35%|███▍      | 105/303 [00:17<00:32,  6.09it/s]Testing:  35%|███▍      | 106/303 [00:17<00:32,  6.12it/s]Testing:  35%|███▌      | 107/303 [00:17<00:32,  6.12it/s]Testing:  36%|███▌      | 108/303 [00:18<00:31,  6.10it/s]Testing:  36%|███▌      | 109/303 [00:18<00:31,  6.14it/s]Testing:  36%|███▋      | 110/303 [00:18<00:31,  6.10it/s]Testing:  37%|███▋      | 111/303 [00:18<00:31,  6.10it/s]Testing:  37%|███▋      | 112/303 [00:18<00:31,  6.11it/s]Testing:  37%|███▋      | 113/303 [00:18<00:31,  6.10it/s]Testing:  38%|███▊      | 114/303 [00:19<00:31,  6.06it/s]Testing:  38%|███▊      | 115/303 [00:19<00:30,  6.07it/s]Testing:  38%|███▊      | 116/303 [00:19<00:30,  6.08it/s]Testing:  39%|███▊      | 117/303 [00:19<00:30,  6.09it/s]Testing:  39%|███▉      | 118/303 [00:19<00:30,  6.05it/s]Testing:  39%|███▉      | 119/303 [00:19<00:30,  6.07it/s]Testing:  40%|███▉      | 120/303 [00:20<00:30,  6.08it/s]Testing:  40%|███▉      | 121/303 [00:20<00:29,  6.09it/s]Testing:  40%|████      | 122/303 [00:20<00:29,  6.07it/s]Testing:  41%|████      | 123/303 [00:20<00:29,  6.05it/s]Testing:  41%|████      | 124/303 [00:20<00:29,  6.05it/s]Testing:  41%|████▏     | 125/303 [00:20<00:29,  6.06it/s]Testing:  42%|████▏     | 126/303 [00:21<00:28,  6.11it/s]Testing:  42%|████▏     | 127/303 [00:21<00:28,  6.07it/s]Testing:  42%|████▏     | 128/303 [00:21<00:28,  6.07it/s]Testing:  43%|████▎     | 129/303 [00:21<00:28,  6.12it/s]Testing:  43%|████▎     | 130/303 [00:21<00:28,  6.12it/s]Testing:  43%|████▎     | 131/303 [00:21<00:28,  6.10it/s]Testing:  44%|████▎     | 132/303 [00:22<00:28,  6.07it/s]Testing:  44%|████▍     | 133/303 [00:22<00:28,  6.07it/s]Testing:  44%|████▍     | 134/303 [00:22<00:27,  6.07it/s]Testing:  45%|████▍     | 135/303 [00:22<00:27,  6.03it/s]Testing:  45%|████▍     | 136/303 [00:22<00:27,  6.04it/s]Testing:  45%|████▌     | 137/303 [00:22<00:27,  6.06it/s]Testing:  46%|████▌     | 138/303 [00:23<00:27,  6.06it/s]Testing:  46%|████▌     | 139/303 [00:23<00:27,  6.04it/s]Testing:  46%|████▌     | 140/303 [00:23<00:26,  6.05it/s]Testing:  47%|████▋     | 141/303 [00:23<00:26,  6.07it/s]Testing:  47%|████▋     | 142/303 [00:23<00:26,  6.06it/s]Testing:  47%|████▋     | 143/303 [00:23<00:26,  6.03it/s]Testing:  48%|████▊     | 144/303 [00:24<00:26,  6.05it/s]Testing:  48%|████▊     | 145/303 [00:24<00:26,  6.06it/s]Testing:  48%|████▊     | 146/303 [00:24<00:26,  6.03it/s]Testing:  49%|████▊     | 147/303 [00:24<00:25,  6.02it/s]Testing:  49%|████▉     | 148/303 [00:24<00:25,  6.08it/s]Testing:  49%|████▉     | 149/303 [00:24<00:25,  6.10it/s]Testing:  50%|████▉     | 150/303 [00:25<00:25,  6.09it/s]Testing:  50%|████▉     | 151/303 [00:25<00:25,  6.06it/s]Testing:  50%|█████     | 152/303 [00:25<00:24,  6.06it/s]Testing:  50%|█████     | 153/303 [00:25<00:24,  6.07it/s]Testing:  51%|█████     | 154/303 [00:25<00:24,  6.12it/s]Testing:  51%|█████     | 155/303 [00:25<00:24,  6.08it/s]Testing:  51%|█████▏    | 156/303 [00:26<00:24,  6.06it/s]Testing:  52%|█████▏    | 157/303 [00:26<00:23,  6.08it/s]Testing:  52%|█████▏    | 158/303 [00:26<00:23,  6.08it/s]Testing:  52%|█████▏    | 159/303 [00:26<00:23,  6.04it/s]Testing:  53%|█████▎    | 160/303 [00:26<00:23,  6.04it/s]Testing:  53%|█████▎    | 161/303 [00:26<00:23,  6.05it/s]Testing:  53%|█████▎    | 162/303 [00:27<00:23,  6.04it/s]Testing:  54%|█████▍    | 163/303 [00:27<00:23,  6.03it/s]Testing:  54%|█████▍    | 164/303 [00:27<00:23,  6.04it/s]Testing:  54%|█████▍    | 165/303 [00:27<00:22,  6.09it/s]Testing:  55%|█████▍    | 166/303 [00:27<00:22,  6.09it/s]Testing:  55%|█████▌    | 167/303 [00:27<00:22,  6.03it/s]Testing:  55%|█████▌    | 168/303 [00:28<00:22,  6.06it/s]Testing:  56%|█████▌    | 169/303 [00:28<00:22,  6.06it/s]Testing:  56%|█████▌    | 170/303 [00:28<00:22,  6.04it/s]Testing:  56%|█████▋    | 171/303 [00:28<00:21,  6.03it/s]Testing:  57%|█████▋    | 172/303 [00:28<00:21,  6.05it/s]Testing:  57%|█████▋    | 173/303 [00:28<00:21,  6.05it/s]Testing:  57%|█████▋    | 174/303 [00:29<00:21,  6.03it/s]Testing:  58%|█████▊    | 175/303 [00:29<00:21,  6.04it/s]Testing:  58%|█████▊    | 176/303 [00:29<00:20,  6.08it/s]Testing:  58%|█████▊    | 177/303 [00:29<00:20,  6.08it/s]Testing:  59%|█████▊    | 178/303 [00:29<00:20,  6.03it/s]Testing:  59%|█████▉    | 179/303 [00:29<00:20,  6.05it/s]Testing:  59%|█████▉    | 180/303 [00:30<00:20,  6.05it/s]Testing:  60%|█████▉    | 181/303 [00:30<00:20,  6.03it/s]Testing:  60%|██████    | 182/303 [00:30<00:20,  6.03it/s]Testing:  60%|██████    | 183/303 [00:30<00:19,  6.06it/s]Testing:  61%|██████    | 184/303 [00:30<00:19,  6.07it/s]Testing:  61%|██████    | 185/303 [00:30<00:19,  6.05it/s]Testing:  61%|██████▏   | 186/303 [00:31<00:19,  6.04it/s]Testing:  62%|██████▏   | 187/303 [00:31<00:19,  6.07it/s]Testing:  62%|██████▏   | 188/303 [00:31<00:18,  6.07it/s]Testing:  62%|██████▏   | 189/303 [00:31<00:18,  6.06it/s]Testing:  63%|██████▎   | 190/303 [00:31<00:18,  6.04it/s]Testing:  63%|██████▎   | 191/303 [00:31<00:18,  6.05it/s]Testing:  63%|██████▎   | 192/303 [00:31<00:18,  6.06it/s]Testing:  64%|██████▎   | 193/303 [00:32<00:18,  6.03it/s]Testing:  64%|██████▍   | 194/303 [00:32<00:18,  6.04it/s]Testing:  64%|██████▍   | 195/303 [00:32<00:17,  6.06it/s]Testing:  65%|██████▍   | 196/303 [00:32<00:17,  6.06it/s]Testing:  65%|██████▌   | 197/303 [00:32<00:17,  6.04it/s]Testing:  65%|██████▌   | 198/303 [00:32<00:17,  6.05it/s]Testing:  66%|██████▌   | 199/303 [00:33<00:17,  6.06it/s]Testing:  66%|██████▌   | 200/303 [00:33<00:17,  6.03it/s]Testing:  66%|██████▋   | 201/303 [00:33<00:16,  6.03it/s]Testing:  67%|██████▋   | 202/303 [00:33<00:16,  6.04it/s]Testing:  67%|██████▋   | 203/303 [00:33<00:16,  6.03it/s]Testing:  67%|██████▋   | 204/303 [00:33<00:16,  6.02it/s]Testing:  68%|██████▊   | 205/303 [00:34<00:16,  6.04it/s]Testing:  68%|██████▊   | 206/303 [00:34<00:16,  6.04it/s]Testing:  68%|██████▊   | 207/303 [00:34<00:15,  6.01it/s]Testing:  69%|██████▊   | 208/303 [00:34<00:15,  6.03it/s]Testing:  69%|██████▉   | 209/303 [00:34<00:15,  6.07it/s]Testing:  69%|██████▉   | 210/303 [00:34<00:15,  6.07it/s]Testing:  70%|██████▉   | 211/303 [00:35<00:15,  6.03it/s]Testing:  70%|██████▉   | 212/303 [00:35<00:15,  6.05it/s]Testing:  70%|███████   | 213/303 [00:35<00:14,  6.07it/s]Testing:  71%|███████   | 214/303 [00:35<00:14,  6.07it/s]Testing:  71%|███████   | 215/303 [00:35<00:14,  6.04it/s]Testing:  71%|███████▏  | 216/303 [00:35<00:14,  6.05it/s]Testing:  72%|███████▏  | 217/303 [00:36<00:14,  6.06it/s]Testing:  72%|███████▏  | 218/303 [00:36<00:14,  6.05it/s]Testing:  72%|███████▏  | 219/303 [00:36<00:13,  6.03it/s]Testing:  73%|███████▎  | 220/303 [00:36<00:13,  6.06it/s]Testing:  73%|███████▎  | 221/303 [00:36<00:13,  6.06it/s]Testing:  73%|███████▎  | 222/303 [00:36<00:13,  6.02it/s]Testing:  74%|███████▎  | 223/303 [00:37<00:13,  6.04it/s]Testing:  74%|███████▍  | 224/303 [00:37<00:13,  6.05it/s]Testing:  74%|███████▍  | 225/303 [00:37<00:12,  6.03it/s]Testing:  75%|███████▍  | 226/303 [00:37<00:12,  6.02it/s]Testing:  75%|███████▍  | 227/303 [00:37<00:12,  6.04it/s]Testing:  75%|███████▌  | 228/303 [00:37<00:12,  6.05it/s]Testing:  76%|███████▌  | 229/303 [00:38<00:12,  6.03it/s]Testing:  76%|███████▌  | 230/303 [00:38<00:12,  6.03it/s]Testing:  76%|███████▌  | 231/303 [00:38<00:11,  6.06it/s]Testing:  77%|███████▋  | 232/303 [00:38<00:11,  6.05it/s]Testing:  77%|███████▋  | 233/303 [00:38<00:11,  6.02it/s]Testing:  77%|███████▋  | 234/303 [00:38<00:11,  6.05it/s]Testing:  78%|███████▊  | 235/303 [00:39<00:11,  6.07it/s]Testing:  78%|███████▊  | 236/303 [00:39<00:11,  6.05it/s]Testing:  78%|███████▊  | 237/303 [00:39<00:10,  6.10it/s]Testing:  79%|███████▊  | 238/303 [00:39<00:10,  6.08it/s]Testing:  79%|███████▉  | 239/303 [00:39<00:10,  6.07it/s]Testing:  79%|███████▉  | 240/303 [00:39<00:10,  6.06it/s]Testing:  80%|███████▉  | 241/303 [00:40<00:10,  6.03it/s]Testing:  80%|███████▉  | 242/303 [00:40<00:10,  6.04it/s]Testing:  80%|████████  | 243/303 [00:40<00:09,  6.06it/s]
+Training...
+Max Epochs: 60
+We are in train_func
+checkpoint_callback: <pytorch_lightning.callbacks.model_checkpoint.ModelCheckpoint object at 0x7fd1046a6050>
+12
+ResidualUNet3D(
+  (pools): ModuleList(
+    (0-2): 3 x AvgPool3d(kernel_size=2, stride=2, padding=0)
+  )
+  (encoders): ModuleList(
+    (0): Encoder(
+      (basic_module): ExtResNetBlock(
+        (conv1): SingleConv(
+          (conv): Conv3d(4, 24, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(24, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (conv2): SingleConv(
+          (conv): Conv3d(24, 24, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(24, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (conv3): SingleConv(
+          (conv): Conv3d(24, 24, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(24, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (non_linearity): ELU(alpha=1.0)
+      )
+      (coord_conv): AddCoords()
+    )
+    (1): Encoder(
+      (pooling): AvgPool3d(kernel_size=2, stride=2, padding=0)
+      (basic_module): ExtResNetBlock(
+        (conv1): SingleConv(
+          (conv): Conv3d(28, 48, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(48, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (conv2): SingleConv(
+          (conv): Conv3d(48, 48, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(48, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (conv3): SingleConv(
+          (conv): Conv3d(48, 48, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(48, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (non_linearity): ELU(alpha=1.0)
+      )
+      (coord_conv): AddCoords()
+    )
+    (2): Encoder(
+      (pooling): AvgPool3d(kernel_size=2, stride=2, padding=0)
+      (basic_module): ExtResNetBlock(
+        (conv1): SingleConv(
+          (conv): Conv3d(52, 72, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (conv2): SingleConv(
+          (conv): Conv3d(72, 72, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (conv3): SingleConv(
+          (conv): Conv3d(72, 72, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (non_linearity): ELU(alpha=1.0)
+      )
+      (coord_conv): AddCoords()
+    )
+    (3): Encoder(
+      (pooling): AvgPool3d(kernel_size=2, stride=2, padding=0)
+      (basic_module): ExtResNetBlock(
+        (conv1): SingleConv(
+          (conv): Conv3d(76, 108, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(108, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (conv2): SingleConv(
+          (conv): Conv3d(108, 108, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(108, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (conv3): SingleConv(
+          (conv): Conv3d(108, 108, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(108, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (non_linearity): ELU(alpha=1.0)
+      )
+      (coord_conv): AddCoords()
+    )
+  )
+  (decoders): ModuleList(
+    (0): Decoder(
+      (coord_conv): AddCoords()
+      (upsampling): Upsampling(
+        (upsample): ConvTranspose3d(108, 72, kernel_size=(3, 3, 3), stride=(2, 2, 2), padding=(1, 1, 1))
+      )
+      (basic_module): ExtResNetBlock(
+        (conv1): SingleConv(
+          (conv): Conv3d(75, 72, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (conv2): SingleConv(
+          (conv): Conv3d(72, 72, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (conv3): SingleConv(
+          (conv): Conv3d(72, 72, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(72, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (non_linearity): ELU(alpha=1.0)
+      )
+    )
+    (1): Decoder(
+      (coord_conv): AddCoords()
+      (upsampling): Upsampling(
+        (upsample): ConvTranspose3d(72, 48, kernel_size=(3, 3, 3), stride=(2, 2, 2), padding=(1, 1, 1))
+      )
+      (basic_module): ExtResNetBlock(
+        (conv1): SingleConv(
+          (conv): Conv3d(51, 48, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(48, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (conv2): SingleConv(
+          (conv): Conv3d(48, 48, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(48, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (conv3): SingleConv(
+          (conv): Conv3d(48, 48, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(48, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (non_linearity): ELU(alpha=1.0)
+      )
+    )
+    (2): Decoder(
+      (coord_conv): AddCoords()
+      (upsampling): Upsampling(
+        (upsample): ConvTranspose3d(48, 24, kernel_size=(3, 3, 3), stride=(2, 2, 2), padding=(1, 1, 1))
+      )
+      (basic_module): ExtResNetBlock(
+        (conv1): SingleConv(
+          (conv): Conv3d(27, 24, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(24, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (conv2): SingleConv(
+          (conv): Conv3d(24, 24, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(24, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (conv3): SingleConv(
+          (conv): Conv3d(24, 24, kernel_size=(3, 3, 3), stride=(1, 1, 1), padding=(1, 1, 1))
+          (batchnorm): BatchNorm3d(24, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (relu): ReLU()
+        )
+        (non_linearity): ELU(alpha=1.0)
+      )
+    )
+  )
+  (final_conv): Conv3d(24, 1, kernel_size=(1, 1, 1), stride=(1, 1, 1))
+)
+No checkpoint provided, training from scratch.
+Traceback (most recent call last):
+  File "/home/brian_bosho/xulab/DeepETPicker/bin/train_bash.py", line 89, in <module>
+    train.train_func(args, stdout=None)
+  File "/home/brian_bosho/xulab/DeepETPicker/train.py", line 372, in train_func
+    runner = Trainer(min_epochs=min(50, args.max_epoch),
+  File "/home/brian_bosho/miniconda3/envs/deepetpicker-env/lib/python3.10/site-packages/pytorch_lightning/trainer/connectors/env_vars_connector.py", line 41, in overwrite_by_env_vars
+    return fn(self, **kwargs)
+  File "/home/brian_bosho/miniconda3/envs/deepetpicker-env/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 345, in __init__
+    self.accelerator_connector.on_trainer_init(
+  File "/home/brian_bosho/miniconda3/envs/deepetpicker-env/lib/python3.10/site-packages/pytorch_lightning/accelerators/accelerator_connector.py", line 101, in on_trainer_init
+    self.trainer.data_parallel_device_ids = device_parser.parse_gpu_ids(self.trainer.gpus)
+  File "/home/brian_bosho/miniconda3/envs/deepetpicker-env/lib/python3.10/site-packages/pytorch_lightning/utilities/device_parser.py", line 78, in parse_gpu_ids
+    gpus = _sanitize_gpu_ids(gpus)
+  File "/home/brian_bosho/miniconda3/envs/deepetpicker-env/lib/python3.10/site-packages/pytorch_lightning/utilities/device_parser.py", line 139, in _sanitize_gpu_ids
+    raise MisconfigurationException(f"""
+pytorch_lightning.utilities.exceptions.MisconfigurationException: 
+                You requested GPUs: [0]
+                But your machine only has: []
+            

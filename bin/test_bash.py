@@ -71,7 +71,7 @@ if __name__ == '__main__':
                            dtype=str)
     # args.test_idxs = np.arange(len(tomo_list))
     # test indices from 0 to 24
-    test_indices = np.arange(18)
+    test_indices = np.arange(4)
     args.test_idxs = test_indices
     
 
